@@ -143,21 +143,21 @@
     "type": "content",
     "mod": "2",
     "tag": "",
-    "title": "Maven Build Lifecycle: What Actually Matters",
-    "desc": "Maven has 23 phases. You need to know 6.",
+    "title": "Maven Build Lifecycle: Complete 23 Phases",
+    "desc": "Bold = phases you call directly. Grey = run automatically by plugins.",
     "body": [
       {
-        "code": " <span class=\"kw\">validate</span>    Is the project structure correct?\n      |\n      v\n <span class=\"kw\">compile</span>     Compile src/main/java &rarr; target/classes\n      |\n      v\n <span class=\"kw\">test</span>        Run JUnit tests (fails &rarr; build stops)\n      |\n      v\n <span class=\"kw\">package</span>     Create .jar or .war in target/\n      |\n      v\n <span class=\"kw\">install</span>     Copy .jar to local ~/.m2/ repository\n      |\n      v\n <span class=\"kw\">deploy</span>      Upload to remote repository (Nexus)\n\n <span class=\"cmt\">Each phase runs ALL phases before it.</span>\n <span class=\"cmt\">mvn package = validate + compile + test + package</span>",
-        "note": "The other 17 phases (initialize, process-resources, etc.) run automatically when plugins need them. You don&rsquo;t call them directly."
+        "code": " <span class=\"kw\">1  validate</span>             Check project is correct &amp; all info available\n <span class=\"cmt\">2  initialize</span>           Set up build state (properties, directories)\n <span class=\"cmt\">3  generate-sources</span>     Generate source code (e.g. from WSDL/XSD)\n <span class=\"cmt\">4  process-sources</span>      Filter/process source code\n <span class=\"cmt\">5  generate-resources</span>   Generate resources for packaging\n <span class=\"cmt\">6  process-resources</span>    Copy resources to target/classes\n <span class=\"kw\">7  compile</span>              Compile src/main/java &rarr; target/classes\n <span class=\"cmt\">8  process-classes</span>      Post-process .class files (e.g. bytecode enhancement)\n <span class=\"cmt\">9  generate-test-sources</span> Generate test source code\n <span class=\"cmt\">10 process-test-sources</span>  Filter/process test source code\n <span class=\"cmt\">11 generate-test-resources</span> Generate test resources\n <span class=\"cmt\">12 process-test-resources</span> Copy test resources to target/test-classes\n <span class=\"cmt\">13 test-compile</span>         Compile src/test/java &rarr; target/test-classes\n <span class=\"cmt\">14 process-test-classes</span>  Post-process test .class files\n <span class=\"kw\">15 test</span>                 Run unit tests (fails &rarr; build stops)\n <span class=\"cmt\">16 prepare-package</span>      Final preparation before packaging\n <span class=\"kw\">17 package</span>              Create .jar or .war in target/\n <span class=\"cmt\">18 pre-integration-test</span>  Set up integration test environment\n <span class=\"cmt\">19 integration-test</span>      Run integration tests\n <span class=\"cmt\">20 post-integration-test</span> Tear down integration test environment\n <span class=\"kw\">21 verify</span>               Run quality checks (CheckStyle, PMD, SpotBugs)\n <span class=\"kw\">22 install</span>              Copy .jar to local ~/.m2/ repository\n <span class=\"kw\">23 deploy</span>               Upload to remote repository (Nexus)\n\n <span class=\"cmt\">Each phase runs ALL phases before it.</span>\n <span class=\"cmt\">mvn package = phases 1&ndash;17  |  mvn install = phases 1&ndash;22</span>"
       },
       {
         "card": "The commands you will actually use:",
         "items": [
-          "<code>mvn compile</code> &mdash; does it build?",
-          "<code>mvn test</code> &mdash; do tests pass?",
-          "<code>mvn package</code> &mdash; create the deliverable",
+          "<code>mvn compile</code> &mdash; does it build? (phases 1&ndash;7)",
+          "<code>mvn test</code> &mdash; do tests pass? (phases 1&ndash;15)",
+          "<code>mvn package</code> &mdash; create the deliverable (phases 1&ndash;17)",
           "<code>mvn clean package</code> &mdash; fresh build from scratch",
-          "<code>mvn clean install</code> &mdash; build + put in local repo"
+          "<code>mvn clean install</code> &mdash; build + put in local repo (phases 1&ndash;22)",
+          "<code>mvn clean deploy</code> &mdash; build + publish to Nexus (phases 1&ndash;23)"
         ]
       }
     ]
