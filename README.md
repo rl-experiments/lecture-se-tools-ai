@@ -5,15 +5,12 @@ University lecture slides — 11 modules, 221 slides.
 ## Quick Start
 
 ```bash
-# Build slides from JSON modules
-node js/build-html.js
-
 # Serve locally (pick one)
-npx serve .                    # Node.js
-python -m http.server 8000     # Python
+npx serve slides               # Node.js
+python -m http.server 8000     # Python (from slides/)
 ```
 
-Open `http://localhost:8000` (or just open `index.html` directly in a browser).
+Open `http://localhost:8000`. Slides load JSON at runtime — no build step needed.
 
 ## Navigation
 
@@ -30,11 +27,12 @@ Open `http://localhost:8000` (or just open `index.html` directly in a browser).
 
 ```
 slides/
-  index.html              ← generated (do not edit)
+  index.html              ← lightweight shell (loads JS + CSS)
   css/
     style.css             ← presentation styles
   js/
-    build-html.js         ← assembler: json/ + css/ + images/ → index.html
+    slides.js             ← runtime renderer: fetches JSON, builds slides in browser
+    build-html.js         ← optional static build (Node.js fallback)
   json/
     slides-config.json    ← metadata (title, modules, TOC, cover)
     module_0.json         ← M0: Introduction (19 slides)
@@ -49,7 +47,7 @@ slides/
     module_9.json         ← M9: Capstone Project (14 slides)
     module_10.json        ← M10: Exam / Presentation (8 slides)
   images/
-    bg2.b64 ... bg7.b64  ← background images (base64)
+    slide_bg_001.jpg ...  ← background images (6 JPEGs)
 ```
 
 ## Editing Content
@@ -60,15 +58,8 @@ Slide types:
 - **cover** — module title slide with badges and contents sidebar
 - **content** — teaching slide with body elements (cards, code, tables, quotes)
 
-After editing, rebuild:
-
-```bash
-node js/build-html.js
-```
-
-TOC slide counts and cover navigation links are computed automatically at build time.
+TOC slide counts and cover navigation links are computed automatically at runtime.
 
 ## Dependencies
 
-- Node.js (for building)
-- A browser (for viewing)
+- A browser and a local HTTP server (for `fetch` to work)
