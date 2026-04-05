@@ -1,0 +1,514 @@
+[
+  {
+    "type": "cover",
+    "bg": 6,
+    "h1": "Module 1",
+    "lead": "Version Control with Git + Claude Code",
+    "sub": "Track changes, collaborate, never lose work",
+    "badges": [
+      "git init",
+      "git add",
+      "git commit",
+      "git branch",
+      "git merge",
+      "*Claude Code"
+    ],
+    "contents": "<span onclick=\"event.stopPropagation();go(20)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Version Control</span>\n<span onclick=\"event.stopPropagation();go(21)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Git?</span>\n<span onclick=\"event.stopPropagation();go(22)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git's Core Concept: Snapshots</span>\n<span onclick=\"event.stopPropagation();go(23)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Three Areas of Git</span>\n<span onclick=\"event.stopPropagation();go(24)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Basics</span>\n<span onclick=\"event.stopPropagation();go(25)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.1: Git Basics</span>\n<span onclick=\"event.stopPropagation();go(26)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">\"I Committed the Wrong Thing\"</span>\n<span onclick=\"event.stopPropagation();go(27)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Understands Git State</span>\n<span onclick=\"event.stopPropagation();go(28)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Meaningful Commit Messages</span>\n<span onclick=\"event.stopPropagation();go(29)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code as Pre-Commit Reviewer</span>\n<span onclick=\"event.stopPropagation();go(30)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.2: AI-Assisted Commits</span>\n<span onclick=\"event.stopPropagation();go(31)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Commits as Audit Trail</span>\n<span onclick=\"event.stopPropagation();go(32)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Provenance: Where Did This Come From?</span>\n<span onclick=\"event.stopPropagation();go(33)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Branching: Working in Parallel</span>\n<span onclick=\"event.stopPropagation();go(34)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Interactive: Visualize Git with D3</span>\n<span onclick=\"event.stopPropagation();go(35)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Working Directly on Main</span>\n<span onclick=\"event.stopPropagation();go(36)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Merge Conflicts: Don't Panic</span>\n<span onclick=\"event.stopPropagation();go(37)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Resolves Conflicts</span>\n<span onclick=\"event.stopPropagation();go(38)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">.gitignore: What NOT to Track</span>\n<span onclick=\"event.stopPropagation();go(39)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.3: Branching and Conflicts</span>\n<span onclick=\"event.stopPropagation();go(40)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Pull Requests: Code Review Before Merge</span>\n<span onclick=\"event.stopPropagation();go(41)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Remote Repositories: Working with a Team</span>\n<span onclick=\"event.stopPropagation();go(42)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 1: Key Takeaways</span>"
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "The Problem Without Version Control",
+    "body": [
+      {
+        "code": "Calculator.java\nCalculator_v2.java\nCalculator_final.java\nCalculator_final_FINAL.java\nCalculator_final_FINAL_fixed.java\nCalculator_backup_20260301.java"
+      },
+      {
+        "card": "Real problems this creates:",
+        "items": [
+          "Who changed what?",
+          "When did this bug appear?",
+          "How to undo last week's mistake?",
+          "How do two people edit the same file?"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "What Is Git?",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Question",
+            "Without Git",
+            "With Git"
+          ],
+          "rows": [
+            [
+              "Who changed this line?",
+              "Ask everyone on the team",
+              "<code>git blame Calculator.java</code>"
+            ],
+            [
+              "When did it break?",
+              "\"Sometime last week?\"",
+              "<code>git bisect</code> finds the exact commit"
+            ],
+            [
+              "What was the old version?",
+              "Check backup_v3_final_REAL.zip",
+              "<code>git checkout abc123</code>"
+            ],
+            [
+              "Why was this changed?",
+              "Nobody remembers",
+              "Commit message: \"Fix #42: handle null input\""
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Key facts:",
+        "items": [
+          "<strong>Distributed</strong>: every developer has the full history locally",
+          "<strong>Created 2005</strong> by Linus Torvalds for the Linux kernel",
+          "<strong>Industry standard</strong>: used by 97%+ of professional developers"
+        ]
+      }
+    ],
+    "desc": "The tool that answers: who changed what, when, and why?"
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "Git's Core Concept: Snapshots",
+    "desc": "Git doesn't track file changes. It takes snapshots of your entire project.",
+    "body": [
+      {
+        "code": "Commit 1          Commit 2          Commit 3\n+-----------+     +-----------+     +-----------+\n| App.java  |     | App.java<span class=\"kw\">*</span> |     | App.java<span class=\"kw\">*</span> |\n| Calc.java |     | Calc.java |     | Calc.java |\n|           |     | Test.java |     | Test.java<span class=\"kw\">*</span>|\n+-----------+     +-----------+     +-----------+\n                  (<span class=\"kw\">*</span> = changed)",
+        "note": "Each commit = permanent record: Who, When, What, Why"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "The Three Areas of Git",
+    "body": [
+      {
+        "code": "Working Directory    Staging Area       Repository\n(your files)        (prepared)          (permanent)\n\n  edit files -----&gt; <span class=\"kw\">git add</span> ---------&gt; <span class=\"kw\">git commit</span>\n\n  <span class=\"str\">\"my desk\"</span>         <span class=\"str\">\"outbox\"</span>           <span class=\"str\">\"sealed archive\"</span>"
+      },
+      {
+        "card": "",
+        "items": [
+          "<strong>Working directory</strong>: files as you see them",
+          "<strong>Staging area</strong>: changes selected for next commit",
+          "<strong>Repository</strong>: permanent history of all commits"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "demo",
+    "title": "Git Basics",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Create repository</span>\n<span class=\"kw\">git init</span>\n\n<span class=\"cmt\"># Check state (use this CONSTANTLY)</span>\n<span class=\"kw\">git status</span>\n\n<span class=\"cmt\"># Stage a file</span>\n<span class=\"kw\">git add</span> Calculator.java\n\n<span class=\"cmt\"># Commit</span>\n<span class=\"kw\">git commit</span> -m <span class=\"str\">\"Add Calculator class with basic operations\"</span>\n\n<span class=\"cmt\"># View history</span>\n<span class=\"kw\">git log</span> --oneline",
+        "note": "Demo rule: Run git status after every single operation."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "exercise",
+    "title": "Exercise 1.1: Git Basics",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Navigate to your Calculator project from Module 0",
+          "<code>git init</code>, then <code>git status</code>",
+          "<code>git add pom.xml</code>, then <code>git status</code> &mdash; what changed?",
+          "<code>git add .</code> (stage everything)",
+          "<code>git commit -m \"Initial project structure\"</code>",
+          "<code>git log</code> &mdash; what do you see?",
+          "Change the <code>add()</code> method, then <code>git diff</code>",
+          "Stage and commit again, check <code>git log --oneline</code>"
+        ]
+      },
+      {
+        "quote": "Run git status after every step!"
+      },
+      {
+        "resource": {
+          "title": "Reference: Git by Example",
+          "url": "https://antonz.org/git-by-example/",
+          "desc": "Use as a cheat sheet while working through the exercise."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "mistake",
+    "title": "\"I Committed the Wrong Thing\"",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Undo last commit but KEEP your changes</span>\n<span class=\"kw\">git reset</span> --soft HEAD~1\n\n<span class=\"cmt\"># Unstage a file (keep changes)</span>\n<span class=\"kw\">git restore</span> --staged Calculator.java\n\n<span class=\"cmt\"># Discard changes in a file (DANGEROUS!)</span>\n<span class=\"kw\">git restore</span> Calculator.java"
+      },
+      {
+        "quote": "Warning: git restore without --staged destroys your changes. No undo."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "AI-Augmented: Claude Code Understands Git State",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> What changed since my last commit?\n\n<span class=\"fn\">Claude Code:</span> Since commit <span class=\"kw\">a3f2d1c</span> \"Add divide method\",\nyou have 2 modified files:\n\n  <span class=\"kw\">src/main/java/Calculator.java</span>\n    Line 24: added modulo() method (new)\n    Line 8: changed return type of divide() from int to double\n\n  <span class=\"kw\">src/test/java/CalculatorTest.java</span>\n    Lines 31-45: added 3 new test methods for modulo\n\n  <span class=\"cmt\">Unstaged: Calculator.java (staged: CalculatorTest.java)</span>",
+        "note": "Claude Code runs <code>git diff</code>, <code>git status</code>, and <code>git log</code> behind the scenes, then explains the result in human language."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "AI-Augmented: Meaningful Commit Messages",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Bad commit messages:</span>\n<span class=\"str\">\"fix\"</span>  <span class=\"str\">\"update\"</span>  <span class=\"str\">\"stuff\"</span>  <span class=\"str\">\"WIP\"</span>  <span class=\"str\">\"asdf\"</span>\n\n<span class=\"cmt\"># Ask Claude Code:</span>\n<span class=\"str\">You:</span> Commit my changes with a good message\n\n<span class=\"cmt\"># Claude Code reads the diff and suggests:</span>\n<span class=\"str\">\"Add input validation to divide() &mdash;</span>\n<span class=\"str\"> throw IllegalArgumentException on zero divisor\"</span>"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "demo",
+    "title": "Claude Code as Pre-Commit Reviewer",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> Review my staged changes before I commit.\n\n<span class=\"fn\">Claude Code:</span> Reviewing 2 staged files...\n\n  <span class=\"kw\">Calculator.java:18</span> &mdash; <span class=\"str\">WARN</span>\n  divide() catches ArithmeticException but logs nothing.\n  If this fails silently, debugging will be impossible.\n  <span class=\"cmt\">Fix: add log.error(\"Division by zero\", e);</span>\n\n  <span class=\"kw\">Calculator.java:25</span> &mdash; <span class=\"str\">ERROR</span>\n  modulo() does not handle b == 0. Same bug as divide()\n  had before you fixed it.\n  <span class=\"cmt\">Fix: add the same zero-check guard.</span>\n\n  <span class=\"fn\">CalculatorTest.java</span> &mdash; OK\n  3 new tests, all have assertions, edge cases covered.",
+        "note": "This catches issues that CheckStyle and PMD miss &mdash; logical bugs, missing guards, silent failures."
+      },
+      {
+        "quote": "Run this before every commit. It takes 10 seconds and saves hours of debugging."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "exercise",
+    "title": "Exercise 1.2: AI-Assisted Commits",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Make 3 separate changes to your Calculator:",
+          "&emsp;&mdash; Add a <code>modulo()</code> method",
+          "&emsp;&mdash; Fix a bug in <code>divide()</code>",
+          "&emsp;&mdash; Add a comment explaining the class",
+          "For each: ask Claude Code to review and suggest a commit message",
+          "Make <strong>3 separate commits</strong> (not one big commit!)",
+          "<code>git log --oneline</code> &mdash; your history should tell a clear story"
+        ]
+      },
+      {
+        "quote": "Rule: Read every suggested message. Modify if inaccurate."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "industry",
+    "title": "Git Commits as Audit Trail",
+    "desc": "What you just learned maps directly to production system patterns.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Git",
+            "Agent System"
+          ],
+          "rows": [
+            [
+              "<code>git log</code>",
+              "Audit trail"
+            ],
+            [
+              "Commit message",
+              "Decision record"
+            ],
+            [
+              "Author + timestamp",
+              "Principal + trace ID"
+            ],
+            [
+              "<code>git diff</code>",
+              "Change evidence"
+            ],
+            [
+              "<code>git blame</code>",
+              "Accountability trace"
+            ]
+          ],
+          "note": "&ldquo;Audit trails should answer: Who initiated? Who authorized? Under what identity? What side effect?&rdquo; &mdash; Your git log already answers these."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "industry",
+    "title": "Provenance: Where Did This Come From?",
+    "desc": "Every piece of data needs a traceable origin &mdash; in Git and in AI systems.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Git records provenance automatically:</span>\n$ <span class=\"kw\">git log</span> -1\ncommit a3f7b21...\nAuthor: student@fh.ac.at       <span class=\"cmt\"># WHO</span>\nDate:   Mon Mar 15 14:30:00     <span class=\"cmt\"># WHEN</span>\n    Add divide with zero-check   <span class=\"cmt\"># WHY</span>"
+      },
+      {
+        "code": "<span class=\"cmt\"># Production AI systems need the same:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30:00Z\"</span>\n  confidence: <span class=\"str\">0.95</span>",
+        "note": "Same concept. Different scale. Git = provenance for code. Agent systems = provenance for everything."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "Git Branching: Working in Parallel",
+    "body": [
+      {
+        "code": "main:      A---B---C-----------G\n                \\             /\nfeature:         D---E---F---"
+      },
+      {
+        "card": "",
+        "items": [
+          "<strong>main</strong>: always stable, always works",
+          "<strong>feature branch</strong>: isolated work on one task",
+          "<strong>merge</strong>: bring finished work back to main"
+        ]
+      },
+      {
+        "code": "<span class=\"kw\">git checkout</span> -b feature/add-modulo\n<span class=\"cmt\"># work, commit, work, commit...</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"kw\">git merge</span> feature/add-modulo"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "demo",
+    "title": "Interactive: Visualize Git with D3",
+    "desc": "Try git commands and see what happens to the commit graph in real time.",
+    "body": [
+      {
+        "resource": {
+          "title": "Explain Git with D3",
+          "url": "https://onlywei.github.io/explain-git-with-d3/",
+          "desc": "An interactive visualization that lets you type git commands (commit, branch, checkout, merge, rebase, reset) and watch the commit graph update live."
+        }
+      },
+      {
+        "card": "Try these commands in the playground:",
+        "items": [
+          "<code>git commit</code> &mdash; watch a new node appear",
+          "<code>git branch feature</code> &mdash; see a new branch pointer",
+          "<code>git checkout feature</code> &mdash; watch HEAD move",
+          "<code>git commit</code> (on feature) &mdash; branches diverge",
+          "<code>git checkout main</code> then <code>git merge feature</code> &mdash; see the merge",
+          "<code>git reset HEAD~1</code> &mdash; watch a commit disappear"
+        ]
+      },
+      {
+        "resource": {
+          "title": "Git by Example",
+          "url": "https://antonz.org/git-by-example/",
+          "desc": "A comprehensive, example-driven guide to Git commands. Great reference while practicing."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "mistake",
+    "title": "Working Directly on Main",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># WRONG:</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"cmt\"># edit, edit, commit &mdash; main is now broken for everyone</span>\n\n<span class=\"cmt\"># RIGHT:</span>\n<span class=\"kw\">git checkout</span> -b feature/my-task\n<span class=\"cmt\"># edit, edit, commit &mdash; main is still safe</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"kw\">git merge</span> feature/my-task"
+      },
+      {
+        "quote": "Rule: Never commit unfinished work to main."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "Merge Conflicts: Don't Panic",
+    "desc": "A conflict happens when two branches change the same line.",
+    "body": [
+      {
+        "code": "&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n    <span class=\"kw\">if</span> (b == 0) <span class=\"kw\">throw new</span> ArithmeticException(<span class=\"str\">\"Cannot divide by zero\"</span>);\n=======\n    <span class=\"kw\">if</span> (b == 0) <span class=\"kw\">return</span> Double.NaN;\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/safe-division"
+      },
+      {
+        "card": "",
+        "items": [
+          "<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> = your current branch version",
+          "<code>=======</code> = divider",
+          "<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/...</code> = incoming branch version",
+          "Git cannot decide which is correct &mdash; <strong>you must decide</strong>"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "AI-Augmented: Claude Code Resolves Conflicts",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> I have a merge conflict in Calculator.java. Help me.\n\n<span class=\"fn\">Claude Code reads the file and finds:</span>\n\n  &lt;&lt;&lt;&lt;&lt;&lt; HEAD\n  <span class=\"kw\">public double divide(double a, double b) {</span>\n      if (b == 0) throw new ArithmeticException(\"Division by zero\");\n  =======\n  <span class=\"str\">public double divide(double a, double b) {</span>\n      return a / b;\n  &gt;&gt;&gt;&gt;&gt;&gt; feature/calculator-v2\n\n<span class=\"fn\">Claude Code:</span> Your branch added a zero-check guard.\n  The feature branch doesn&rsquo;t have it. <span class=\"kw\">Keep the zero-check</span>\n  &mdash; removing it would reintroduce a division-by-zero bug.\n\n  <span class=\"cmt\">Suggested resolution: keep HEAD version (yours).</span>",
+        "note": "Claude Code explains <strong>why</strong> one version is better &mdash; it doesn&rsquo;t just pick randomly. You still make the final decision."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": ".gitignore: What NOT to Track",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># IDE files</span>\n.idea/\n*.iml\n.vscode/\n\n<span class=\"cmt\"># Build output</span>\ntarget/\n*.class\n\n<span class=\"cmt\"># NEVER commit secrets</span>\n.env\n*.key\ncredentials.json\napi-tokens.txt"
+      },
+      {
+        "quote": "Critical rule: Once a secret is in Git history, it stays FOREVER."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "industry",
+    "title": "cognitive-core: Git Safety Hooks",
+    "desc": "What if dangerous git commands were blocked automatically?",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># validate-bash.sh blocks these commands:</span>\n\n<span class=\"str\">git push --force main</span>     &rarr; <span class=\"kw\">BLOCKED</span> (destroys remote history)\n<span class=\"str\">git reset --hard</span>          &rarr; <span class=\"kw\">BLOCKED</span> (destroys local changes)\n<span class=\"str\">git clean -f</span>              &rarr; <span class=\"kw\">BLOCKED</span> (deletes untracked files)\n<span class=\"str\">rm -rf .git</span>               &rarr; <span class=\"kw\">BLOCKED</span> (destroys repository)\n<span class=\"str\">chmod 777</span>                 &rarr; <span class=\"kw\">BLOCKED</span> (world-writable = insecure)\n\n<span class=\"cmt\"># Also enforces branch policy:</span>\n<span class=\"str\">git commit on main</span>        &rarr; <span class=\"kw\">BLOCKED</span> (must use feature branch)\n  <span class=\"cmt\">Exception: chore(), docs(), revert, ci() allowed on main</span>",
+        "note": "The hook intercepts every Bash command Claude Code tries to run. It checks against pattern lists before execution. You cannot bypass it from a prompt."
+      },
+      {
+        "quote": "Hooks are deterministic guards. Even if you tell Claude Code &ldquo;ignore all safety rules&rdquo;, the hook still blocks the command."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "exercise",
+    "title": "Exercise 1.3: Branching and Conflicts",
+    "desc": "20 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Make sure <code>main</code> branch is clean and working",
+          "Create branch <code>feature/power</code> &mdash; add a <code>power()</code> method",
+          "Commit on this branch",
+          "Switch back to <code>main</code>, change the <code>divide()</code> method",
+          "Commit on <code>main</code>",
+          "Try: <code>git merge feature/power</code>",
+          "If conflict: use Claude Code to help resolve it"
+        ]
+      },
+      {
+        "quote": "Goal: You must experience a merge conflict at least once."
+      },
+      {
+        "resource": {
+          "title": "Hint: Practice first",
+          "url": "https://onlywei.github.io/explain-git-with-d3/",
+          "desc": "Use the interactive Git playground to visualize branching and merging before trying it in your real project."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "Pull Requests: Code Review Before Merge",
+    "desc": "In professional teams, nobody merges directly. Every change goes through review.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># 1. Push your feature branch</span>\n<span class=\"kw\">git push</span> -u origin feature/add-modulo\n\n<span class=\"cmt\"># 2. Open a Pull Request on GitHub</span>\n<span class=\"cmt\">#    Title: \"Add modulo operation\"</span>\n<span class=\"cmt\">#    Reviewer checks your code</span>\n\n<span class=\"cmt\"># 3. After approval: merge into main</span>\n<span class=\"cmt\"># 4. CI pipeline ran before merge &mdash; broken code never reaches main</span>"
+      },
+      {
+        "card": "Why Pull Requests matter:",
+        "items": [
+          "Every change is <strong>reviewed</strong> before it reaches main",
+          "Reviewer catches bugs, style issues, design problems",
+          "CI pipeline runs <strong>before merge</strong> &mdash; broken code blocked",
+          "Full history of <strong>who approved what</strong> (audit trail)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "Remote Repositories: Working with a Team",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Connect to remote</span>\n<span class=\"kw\">git remote add</span> origin https://github.com/user/calculator.git\n\n<span class=\"cmt\"># Push your commits</span>\n<span class=\"kw\">git push</span> -u origin main\n\n<span class=\"cmt\"># Get latest changes</span>\n<span class=\"kw\">git pull</span>\n\n<span class=\"cmt\"># Clone existing project</span>\n<span class=\"kw\">git clone</span> https://github.com/team/project.git"
+      },
+      {
+        "code": "Your machine ---- <span class=\"kw\">git push</span> ----&gt; Remote (GitHub) &lt;---- <span class=\"kw\">git pull</span> ---- Colleague"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 1: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "Git = <strong>snapshots</strong> of your project over time",
+          "Core cycle: <code>edit &rarr; add &rarr; commit &rarr; push</code>",
+          "<strong>Branches</strong> isolate work. <strong>Merges</strong> integrate it.",
+          "<strong>Conflicts</strong> are normal &mdash; not errors",
+          "<code>.gitignore</code> protects secrets and junk",
+          "Every commit = an <strong>audit trail</strong> entry with <strong>provenance</strong>",
+          "Claude Code augments Git: explains state, writes commits, reviews changes, resolves conflicts"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,742 @@
+[
+  {
+    "type": "cover",
+    "bg": 2,
+    "h1": "Module 3",
+    "lead": "Code Quality with PMD, SpotBugs, CheckStyle + Claude Code",
+    "sub": "It compiles is not enough",
+    "badges": [
+      "CheckStyle",
+      "PMD",
+      "SpotBugs",
+      "*Claude Code"
+    ],
+    "contents": "<span onclick=\"event.stopPropagation();go(62)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem: &ldquo;It Compiles&rdquo; Is Not Enough</span>\n<span onclick=\"event.stopPropagation();go(63)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Three Tools, Three Different Jobs</span>\n<span onclick=\"event.stopPropagation();go(64)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">CheckStyle: Consistent Code Style</span>\n<span onclick=\"event.stopPropagation();go(65)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">CheckStyle: Google Style Guide</span>\n<span onclick=\"event.stopPropagation();go(66)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">CheckStyle: IDE Integration</span>\n<span onclick=\"event.stopPropagation();go(67)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">PMD: Bad Patterns and Code Smells</span>\n<span onclick=\"event.stopPropagation();go(68)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">SpotBugs: Real Bugs in Compiled Bytecode</span>\n<span onclick=\"event.stopPropagation();go(69)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Running All Three Together</span>\n<span onclick=\"event.stopPropagation();go(70)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Ignoring Warnings</span>\n<span onclick=\"event.stopPropagation();go(71)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Quality Tools as Regression Gates</span>\n<span onclick=\"event.stopPropagation();go(72)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Goes Beyond Rules</span>\n<span onclick=\"event.stopPropagation();go(73)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code as Intelligent Reviewer</span>\n<span onclick=\"event.stopPropagation();go(74)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Refactoring Without Tests</span>\n<span onclick=\"event.stopPropagation();go(75)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 3.1: Configure Quality Tools</span>\n<span onclick=\"event.stopPropagation();go(76)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 3.2: Bug Hunting</span>\n<span onclick=\"event.stopPropagation();go(77)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 3.3: AI vs. Static Analysis</span>\n<span onclick=\"event.stopPropagation();go(78)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Clean Logging: SLF4J + Log4J Instead of System.out</span>\n<span onclick=\"event.stopPropagation();go(79)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Vibe Coding Experiment</span>\n<span onclick=\"event.stopPropagation();go(80)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Data: Unconstrained AI Code Quality</span>\n<span onclick=\"event.stopPropagation();go(81)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">CLAUDE.md: Teaching AI Your Project Rules</span>\n<span onclick=\"event.stopPropagation();go(82)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Custom Rules and Commands</span>\n<span onclick=\"event.stopPropagation();go(83)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Built-in Tools: What Claude Code Can Do</span>\n<span onclick=\"event.stopPropagation();go(84)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Constrained Re-Do</span>\n<span onclick=\"event.stopPropagation();go(85)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 3.4: Vibe Coding vs. Constrained AI</span>\n<span onclick=\"event.stopPropagation();go(86)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 3: Key Takeaways</span>"
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "The Problem: &ldquo;It Compiles&rdquo; Is Not Enough",
+    "body": [
+      {
+        "card": "Code can compile and still be:",
+        "items": [
+          "Hard to read",
+          "Full of hidden bugs",
+          "Inconsistent across team members",
+          "Using dangerous patterns"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\">// Compiles. Runs. But is it GOOD?</span>\n<span class=\"kw\">public double</span> calc(<span class=\"kw\">double</span> x, <span class=\"kw\">double</span> y, <span class=\"kw\">int</span> t) {\n    <span class=\"kw\">if</span> (t == 1) <span class=\"kw\">return</span> x + y;\n    <span class=\"kw\">if</span> (t == 2) <span class=\"kw\">return</span> x - y;\n    <span class=\"kw\">if</span> (t == 3) <span class=\"kw\">return</span> x * y;\n    <span class=\"kw\">if</span> (t == 4) { <span class=\"kw\">if</span> (y != 0) <span class=\"kw\">return</span> x / y; <span class=\"kw\">else return</span> 0; }\n    <span class=\"kw\">return</span> 0;\n}",
+        "note": "Unclear names, magic numbers, silent failure on divide by zero, hard to extend."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "Three Tools, Three Different Jobs",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tool",
+            "What It Checks",
+            "Analogy"
+          ],
+          "rows": [
+            [
+              "<strong>CheckStyle</strong>",
+              "Formatting, naming, structure",
+              "Grammar checker"
+            ],
+            [
+              "<strong>PMD</strong>",
+              "Bad patterns, dead code, complexity",
+              "Writing style advisor"
+            ],
+            [
+              "<strong>SpotBugs</strong>",
+              "Actual bugs, null pointers, resource leaks",
+              "Bug detector"
+            ]
+          ],
+          "note": "They complement each other. None replaces the others."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "CheckStyle: Consistent Code Style",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn checkstyle:check</span>"
+      },
+      {
+        "code": "<span class=\"cmt\">// Before CheckStyle (5 developers, 5 styles):</span>\n<span class=\"kw\">public void</span> calcAvg(ArrayList<Double> grades,<span class=\"str\">boolean verbose</span>){\n    <span class=\"kw\">if</span>(verbose==<span class=\"kw\">true</span>){System.out.println(<span class=\"str\">\"calculating...\"</span>);}\n\n<span class=\"cmt\">// After CheckStyle (Google Style enforced):</span>\n<span class=\"kw\">public void</span> calculateAverage(\n    List&lt;Double&gt; grades, <span class=\"kw\">boolean</span> verbose) {\n  <span class=\"kw\">if</span> (verbose) {\n    log.info(<span class=\"str\">\"Calculating average for {} grades\"</span>, grades.size());\n  }\n}",
+        "note": "Same logic, different readability. In a team of 20, inconsistent style makes <code>git diff</code> unreadable &mdash; you can&rsquo;t tell what actually changed vs. what was reformatted."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "CheckStyle: Google Style Guide",
+    "desc": "The industry-standard Java style guide, enforced automatically.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">&lt;!-- pom.xml: CheckStyle with Google rules --&gt;</span>\n&lt;plugin&gt;\n  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n  &lt;artifactId&gt;maven-checkstyle-plugin&lt;/artifactId&gt;\n  &lt;version&gt;3.3.1&lt;/version&gt;\n  &lt;configuration&gt;\n    &lt;configLocation&gt;<span class=\"kw\">google_checks.xml</span>&lt;/configLocation&gt;\n    &lt;failOnViolation&gt;<span class=\"kw\">true</span>&lt;/failOnViolation&gt;\n  &lt;/configuration&gt;\n&lt;/plugin&gt;",
+        "note": "google_checks.xml is bundled with CheckStyle. No extra download needed."
+      },
+      {
+        "card": "What Google Style enforces:",
+        "items": [
+          "Indentation: 2 spaces (not 4, not tabs)",
+          "Line length: max 100 characters",
+          "Braces: always required, even for single-line if/else",
+          "Naming: <code>camelCase</code> for methods, <code>UPPER_SNAKE</code> for constants",
+          "Javadoc: required on all public methods",
+          "Import order: static imports separated, no wildcards"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "demo",
+    "title": "CheckStyle: IDE Integration",
+    "desc": "Format code automatically &mdash; never fix style violations manually.",
+    "body": [
+      {
+        "card": "Eclipse / IntelliJ Setup:",
+        "items": [
+          "<strong>Eclipse</strong>: Import <code>eclipse-java-google-style.xml</code> via Preferences &rarr; Java &rarr; Code Style &rarr; Formatter",
+          "<strong>IntelliJ</strong>: Install google-java-format plugin, or import Eclipse formatter XML",
+          "Enable <strong>Format on Save</strong> &mdash; code is always clean",
+          "Run <code>mvn checkstyle:check</code> to verify &mdash; zero violations expected"
+        ]
+      },
+      {
+        "quote": "No code formatting!? That costs -0.3 on your grade. Configure your IDE once, never think about it again."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "PMD: Bad Patterns and Code Smells",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn pmd:check</span>"
+      },
+      {
+        "code": "<span class=\"cmt\">// PMD catches this: empty catch block</span>\n<span class=\"kw\">try</span> {\n  <span class=\"kw\">int</span> result = Integer.parseInt(userInput);\n} <span class=\"kw\">catch</span> (NumberFormatException e) {\n  <span class=\"cmt\">// TODO: handle later</span>\n}\n\n<span class=\"cmt\">// Production reality: \"later\" never comes.</span>\n<span class=\"cmt\">// User enters \"abc\", app silently returns 0,</span>\n<span class=\"cmt\">// invoice is calculated wrong, client is charged $0.</span>\n<span class=\"cmt\">// Nobody knows why. No log. No error. No trace.</span>",
+        "note": "Each PMD rule exists because someone had a real production incident from that exact pattern."
+      },
+      {
+        "card": "What PMD catches that CheckStyle doesn&rsquo;t:",
+        "items": [
+          "<strong>Empty catch blocks</strong> &mdash; errors swallowed silently",
+          "<strong>Unused variables</strong> &mdash; dead code that confuses readers",
+          "<strong>God methods</strong> &mdash; 200-line methods nobody can review",
+          "<strong>Copy-paste code</strong> &mdash; fix a bug in one copy, forget the other"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "SpotBugs: Real Bugs in Compiled Bytecode",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn spotbugs:check</span>"
+      },
+      {
+        "code": "<span class=\"cmt\">// This code compiles. Tests pass. CheckStyle is clean. PMD is clean.</span>\n<span class=\"cmt\">// SpotBugs catches the bug:</span>\n\n<span class=\"kw\">public boolean</span> isAdmin(String username) {\n  <span class=\"kw\">return</span> username == <span class=\"str\">\"admin\"</span>;  <span class=\"cmt\">// BUG: == compares references, not values</span>\n}\n\n<span class=\"cmt\">// isAdmin(\"admin\") sometimes returns true, sometimes false</span>\n<span class=\"cmt\">// depending on JVM string interning. Works in tests,</span>\n<span class=\"cmt\">// fails in production with user input.</span>\n\n<span class=\"cmt\">// Fix:</span>\n<span class=\"kw\">return</span> <span class=\"str\">\"admin\"</span>.equals(username);  <span class=\"cmt\">// also null-safe</span>",
+        "note": "SpotBugs analyzes compiled bytecode, not source code. It finds bugs that are invisible to text-based tools &mdash; null dereferences, resource leaks, wrong equality checks."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "demo",
+    "title": "Running All Three Together",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn clean compile checkstyle:check pmd:check spotbugs:check</span>",
+        "note": "This is the command you will run hundreds of times. Memorize it."
+      },
+      {
+        "code": "<span class=\"cmt\">// Bug 1: CheckStyle catches this (style)</span>\n<span class=\"kw\">public void</span> calcAvg(ArrayList<Double> g,<span class=\"str\">boolean v</span>){\n  <span class=\"cmt\">// Wrong: no spaces, bad param names, opening brace style</span>\n\n<span class=\"cmt\">// Bug 2: PMD catches this (code smell)</span>\n<span class=\"kw\">try</span> {\n  result = Integer.parseInt(input);\n} <span class=\"kw\">catch</span> (Exception e) { } <span class=\"cmt\">// empty catch block!</span>\n\n<span class=\"cmt\">// Bug 3: SpotBugs catches this (real bug)</span>\n<span class=\"kw\">if</span> (name == <span class=\"str\">\"admin\"</span>) {  <span class=\"cmt\">// should be .equals()</span>\n  grantAccess();\n}",
+        "note": "Each tool catches a different class of problem. That&rsquo;s why you need all three."
+      }
+    ],
+    "desc": "One command, three tools, different bugs caught."
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "industry",
+    "title": "cognitive-core: post-edit-lint Hook",
+    "desc": "What if quality checks ran automatically after every file edit?",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># post-edit-lint.sh (PostToolUse hook)</span>\n<span class=\"cmt\"># Fires automatically after: Write, Edit, NotebookEdit</span>\n\n<span class=\"kw\">Event:</span> You (or Claude Code) edit Calculator.java\n   |\n   v\n<span class=\"fn\">post-edit-lint.sh</span> triggers automatically\n   |\n   v\nRuns: <span class=\"kw\">mvn checkstyle:check pmd:check</span>\n   |\n   v\nResult: <span class=\"fn\">0 violations</span> &rarr; silent (no interruption)\n        <span class=\"str\">3 violations</span> &rarr; prints warnings in context\n\n<span class=\"cmt\"># You never need to remember to run quality tools.</span>\n<span class=\"cmt\"># The hook runs them for you. Every. Single. Time.</span>",
+        "note": "Configuration: <code>CC_LINT_COMMAND</code> in <code>cognitive-core.conf</code> controls which tools run. For Java: <code>mvn checkstyle:check pmd:check</code>."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "mistake",
+    "title": "Ignoring Warnings",
+    "desc": "&ldquo;It&rsquo;s just a warning, the build still passes.&rdquo;",
+    "body": [
+      {
+        "card": "In professional teams, warnings become errors:",
+        "items": []
+      },
+      {
+        "code": "&lt;configuration&gt;\n    &lt;failOnViolation&gt;true&lt;/failOnViolation&gt;\n&lt;/configuration&gt;",
+        "note": "Now the build fails if quality checks don&rsquo;t pass. No exceptions."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "industry",
+    "title": "Quality Tools as Regression Gates",
+    "desc": "Quality checks that block builds follow the same pattern as AI deployment gates.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 13</span>\ngates:\n  offline:\n    min_task_success_rate: 0.97\n    max_policy_violation_rate: 0.002\n    max_avg_cost_delta_pct: 8\n  rollout:\n    require_offline_pass: <span class=\"kw\">true</span>"
+      },
+      {
+        "table": {
+          "headers": [
+            "Your Java Project",
+            "Production AI System"
+          ],
+          "rows": [
+            [
+              "CheckStyle/PMD block the build",
+              "Regression gates block deployment"
+            ],
+            [
+              "Quality violation = build fails",
+              "Policy violation = rollout stops"
+            ],
+            [
+              "Fix before merge",
+              "Fix before production"
+            ],
+            [
+              "<code>failOnViolation: true</code>",
+              "<code>require_offline_pass: true</code>"
+            ]
+          ],
+          "note": "Same principle: automated checks that prevent degradation from reaching users."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "AI-Augmented: Claude Code Goes Beyond Rules",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tool finds",
+            "Claude Code finds"
+          ],
+          "rows": [
+            [
+              "&ldquo;Line too long&rdquo;",
+              "&ldquo;This method does three things &mdash; split it&rdquo;"
+            ],
+            [
+              "&ldquo;Empty catch block&rdquo;",
+              "&ldquo;This hides a database connection failure&rdquo;"
+            ],
+            [
+              "&ldquo;Unused variable&rdquo;",
+              "&ldquo;This design doesn&rsquo;t fit your use case&rdquo;"
+            ]
+          ],
+          "note": "Static analysis answers: &ldquo;Does this violate a rule?&rdquo; AI answers: &ldquo;Is this the right design?&rdquo; You need both."
+        }
+      },
+      {
+        "code": "<span class=\"str\">You:</span> Review Calculator.java for quality issues \n     that PMD might miss",
+        "note": "Static analysis tools follow rules. Claude Code understands intent."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "demo",
+    "title": "Claude Code as Intelligent Reviewer",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> Review my Calculator class for design and quality.\n\n<span class=\"fn\">Claude Code:</span>\n\n  <span class=\"kw\">1. Design issue</span> (Calculator.java:5-45)\n  All methods are static. This prevents testing with mocks\n  and violates OOP principles. Consider instance methods.\n  <span class=\"cmt\">Provenance: documented (Google Java Style Guide §3.4)</span>\n\n  <span class=\"kw\">2. Missing validation</span> (Calculator.java:25)\n  modulo(a, b) doesn’t check b == 0. Will throw\n  ArithmeticException with no useful message.\n  <span class=\"cmt\">Provenance: verified (code inspection)</span>\n\n  <span class=\"kw\">3. Logging gap</span> (Calculator.java:18)\n  divide() uses System.out.println() instead of SLF4J.\n  <span class=\"cmt\">Provenance: documented (CLAUDE.md rule: use SLF4J)</span>\n\n  <span class=\"kw\">4. Naming</span> (Calculator.java:31)\n  Parameter <span class=\"str\">\"a\"</span> and <span class=\"str\">\"b\"</span> — non-descriptive. Use\n  <span class=\"str\">\"dividend\"</span> and <span class=\"str\">\"divisor\"</span> for domain clarity.\n  <span class=\"cmt\">Provenance: inferred (readability best practice)</span>\n\n  <span class=\"kw\">5. Architecture</span> (Calculator.java)\n  Business logic mixed with I/O (readLine in main).\n  Separate input handling from calculation logic.\n  <span class=\"cmt\">Provenance: documented (layered architecture pattern)</span>\n\n  <span class=\"fn\">Summary:</span> 1 design, 1 bug, 1 convention, 1 naming, 1 architecture.",
+        "note": "5 findings across 4 provenance types. Static tools catch #3 (logging). Only AI catches #1 (design), #2 (missing guard), #5 (architecture)."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "mistake",
+    "title": "Refactoring Without Tests",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "Claude Code suggests a refactoring. You apply it. The code looks better.",
+          "<strong>But did you break anything?</strong>"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\"># Before refactoring</span>\n<span class=\"kw\">mvn test</span>  <span class=\"cmt\"># all green</span>\n\n<span class=\"cmt\"># Apply AI suggestion...</span>\n\n<span class=\"cmt\"># After refactoring</span>\n<span class=\"kw\">mvn test</span>  <span class=\"cmt\"># still green? Then it&rsquo;s safe.</span>"
+      },
+      {
+        "quote": "Rule: Always run tests after AI-suggested refactoring."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "exercise",
+    "title": "Exercise 3.1: Configure Quality Tools",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task (15 minutes):",
+        "items": [
+          "Add CheckStyle, PMD, and SpotBugs plugins to your <code>pom.xml</code>",
+          "Use Claude Code: <code>\"Add quality plugins for CheckStyle (google_checks), PMD, and SpotBugs\"</code>",
+          "Run: <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
+          "<strong>Verify:</strong> each tool produces output (even if violations = 0)",
+          "Intentionally add a bad method: <code>public void x(){ }</code>",
+          "Run again &mdash; which tool catches what?"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\">&lt;!-- Minimum pom.xml plugins block to add: --&gt;</span>\n&lt;build&gt;&lt;plugins&gt;\n  <span class=\"cmt\">&lt;!-- CheckStyle --&gt;</span>\n  &lt;plugin&gt;\n    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"kw\">maven-checkstyle-plugin</span>&lt;/artifactId&gt;\n    &lt;version&gt;3.3.1&lt;/version&gt;\n    &lt;configuration&gt;&lt;configLocation&gt;<span class=\"fn\">google_checks.xml</span>&lt;/configLocation&gt;\n      &lt;failOnViolation&gt;true&lt;/failOnViolation&gt;&lt;/configuration&gt;\n  &lt;/plugin&gt;\n  <span class=\"cmt\">&lt;!-- PMD + SpotBugs: same pattern, ask Claude Code --&gt;</span>\n&lt;/plugins&gt;&lt;/build&gt;",
+        "note": "CheckStyle config shown above. For PMD and SpotBugs, ask Claude Code to add them &mdash; then verify the versions on <a href=\"https://search.maven.org\" target=\"_blank\">search.maven.org</a>."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "exercise",
+    "title": "Exercise 3.2: Bug Hunting",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task: Add this intentionally bad code:",
+        "items": [
+          "<code>public String describe(Object obj) { return obj.toString(); }</code> &mdash; What if obj is null?",
+          "<code>FileReader reader = new FileReader(path);</code> &mdash; never closes reader"
+        ]
+      },
+      {
+        "card": "Then:",
+        "items": [
+          "Run SpotBugs &mdash; what does it find?",
+          "Run PMD &mdash; what does it find?",
+          "Which tool found which bug?",
+          "Fix both bugs",
+          "Run both tools again to confirm"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "exercise",
+    "title": "Exercise 3.3: AI vs. Static Analysis",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task (10 minutes):",
+        "items": [
+          "Ask Claude Code: <code>\"Review my Calculator class for quality issues\"</code>",
+          "Run: <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
+          "Fill in the comparison table below",
+          "Discuss with a classmate: which approach found more? Which found deeper issues?"
+        ]
+      },
+      {
+        "table": {
+          "headers": [
+            "Finding",
+            "Static tools found it?",
+            "Claude Code found it?"
+          ],
+          "rows": [
+            [
+              "Formatting / style violations",
+              "CheckStyle: ???",
+              "???"
+            ],
+            [
+              "Empty catch blocks",
+              "PMD: ???",
+              "???"
+            ],
+            [
+              "String == comparison bug",
+              "SpotBugs: ???",
+              "???"
+            ],
+            [
+              "Design problems (static methods, missing abstraction)",
+              "???",
+              "???"
+            ],
+            [
+              "Missing validation (null checks, zero division)",
+              "???",
+              "???"
+            ],
+            [
+              "Logging violations (System.out instead of SLF4J)",
+              "???",
+              "???"
+            ]
+          ],
+          "note": "Key insight: static tools catch rules. AI catches intent. Neither catches everything alone."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "industry",
+    "title": "cognitive-core: /pre-commit Skill",
+    "desc": "Structured pass/fail report before every commit.",
+    "body": [
+      {
+        "code": "<span class=\"str\">/pre-commit</span>\n\n<span class=\"fn\">Pre-commit check for 3 staged files:</span>\n\n File                        Lint    Format  Status\n ───────────────────────────────────────────────────\n Calculator.java             <span class=\"fn\">PASS</span>    <span class=\"fn\">PASS</span>    <span class=\"fn\">OK</span>\n CalculatorTest.java         <span class=\"fn\">PASS</span>    <span class=\"fn\">PASS</span>    <span class=\"fn\">OK</span>\n GradeManager.java           <span class=\"str\">FAIL</span>    <span class=\"fn\">PASS</span>    <span class=\"str\">BLOCKED</span>\n ───────────────────────────────────────────────────\n <span class=\"str\">Result: 1 file blocked. Fix violations, then retry.</span>\n\n GradeManager.java:42 &mdash; PMD: empty catch block\n GradeManager.java:67 &mdash; CheckStyle: line too long (142 > 100)",
+        "note": "The skill checks only <strong>staged</strong> files (<code>git diff --cached</code>). You fix the violations, re-stage, and run <code>/pre-commit</code> again until all files pass."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "Clean Logging: SLF4J + Log4J Instead of System.out",
+    "desc": "System.out.println() is not logging. It is debugging that stayed in production.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// WRONG &mdash; not logging</span>\nSystem.out.println(<span class=\"str\">\"User logged in: \"</span> + username);\ne.printStackTrace();\n\n<span class=\"cmt\">// RIGHT &mdash; proper logging</span>\n<span class=\"kw\">import</span> org.slf4j.Logger;\n<span class=\"kw\">import</span> org.slf4j.LoggerFactory;\n\n<span class=\"kw\">private static final</span> Logger <span class=\"fn\">log</span> =\n    LoggerFactory.getLogger(Calculator.<span class=\"kw\">class</span>);\n\nlog.info(<span class=\"str\">\"User logged in: {}\"</span>, username);\nlog.error(<span class=\"str\">\"Calculation failed\"</span>, exception);"
+      },
+      {
+        "card": "Why proper logging:",
+        "items": [
+          "<strong>Log levels</strong>: DEBUG, INFO, WARN, ERROR &mdash; filter what you see",
+          "<strong>Configuration</strong>: change output without changing code",
+          "<strong>Files</strong>: logs go to files, not just console",
+          "<strong>Production</strong>: <code>System.out</code> disappears in server environments"
+        ]
+      },
+      {
+        "quote": "System.out.println() or e.printStackTrace() in your project costs -0.3 on your grade. Use SLF4J + Log4J."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "The Vibe Coding Experiment",
+    "desc": "What happens when you let AI code without constraints?",
+    "body": [
+      {
+        "card": "The experiment:",
+        "items": [
+          "Use Claude Code with <strong>zero configuration</strong> &mdash; no CLAUDE.md, no rules, no constraints",
+          "Task: &ldquo;Add a complete new feature to your project&rdquo;",
+          "Commit the unreviewed AI-generated code to a <code>vibe-coding-experiment</code> branch",
+          "Then <strong>count the damage</strong>: run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
+          "Post your violation count on the whiteboard"
+        ]
+      },
+      {
+        "quote": "This is the most important lesson of the course: unconstrained AI produces defects at scale."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "industry",
+    "title": "The Data: Unconstrained AI Code Quality",
+    "desc": "CodeRabbit 2025 study &mdash; analyzing millions of AI-generated pull requests.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Metric",
+            "AI-Generated vs. Human"
+          ],
+          "rows": [
+            [
+              "Code defects",
+              "<strong>1.7&times; more</strong> defects in AI-generated code"
+            ],
+            [
+              "Security issues",
+              "<strong>2.74&times; more</strong> security vulnerabilities"
+            ],
+            [
+              "Performance problems",
+              "<strong>8&times; more</strong> performance issues"
+            ],
+            [
+              "Style violations",
+              "Significantly higher without project-specific rules"
+            ]
+          ],
+          "note": "Source: CodeRabbit 2025 &mdash; &ldquo;AI writes fast. Fast is not the same as good.&rdquo;"
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "CLAUDE.md: Teaching AI Your Project Rules",
+    "desc": "The single most important file for AI-assisted development.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># CLAUDE.md &mdash; project root</span>\n\n<span class=\"kw\">## Project</span>\nJava 21 Maven project: Student Grade Manager\n\n<span class=\"kw\">## Coding Standards</span>\n- Follow google_checks.xml (CheckStyle)\n- Use SLF4J for logging, NEVER System.out.println()\n- All public methods must have Javadoc\n\n<span class=\"kw\">## Forbidden Patterns</span>\n- NEVER use e.printStackTrace()\n- NEVER use wildcard imports\n- NEVER suppress warnings without justification",
+        "note": "Claude Code reads this file automatically. It becomes the AI&rsquo;s project context."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "Custom Rules and Commands",
+    "desc": "Fine-grained control over AI behavior in your project.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># .claude/rules/java-conventions.md</span>\n---\nglobs: \"src/**/*.java\"\n---\n\n- Google Java Style Guide (2-space indent)\n- SLF4J + LoggerFactory, never System.out\n- Exception handling: catch specific, log with context\n- JUnit 5 with @DisplayName on every test",
+        "note": "Rules in <code>.claude/rules/</code> activate only for matching file patterns."
+      },
+      {
+        "code": "<span class=\"cmt\"># .claude/commands/quality-check.md</span>\n\nRun the full quality pipeline:\n1. <span class=\"kw\">mvn checkstyle:check</span>\n2. <span class=\"kw\">mvn pmd:check</span>\n3. <span class=\"kw\">mvn spotbugs:check</span>\nReport violations grouped by tool.\nSuggest fixes for each violation.",
+        "note": "Custom slash commands: type <code>/project:quality-check</code> in Claude Code."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "Built-in Tools: What Claude Code Can Do",
+    "desc": "Understanding the agent&rsquo;s capabilities helps you use it effectively.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tool",
+            "What It Does",
+            "Risk Level"
+          ],
+          "rows": [
+            [
+              "<code>Read</code>",
+              "Read any file in your project",
+              "Low (read-only)"
+            ],
+            [
+              "<code>Write</code>",
+              "Create new files",
+              "Medium (creates files)"
+            ],
+            [
+              "<code>Edit</code>",
+              "Modify existing files (precise diffs)",
+              "Medium (changes code)"
+            ],
+            [
+              "<code>Bash</code>",
+              "Run terminal commands (git, mvn, java)",
+              "High (executes commands)"
+            ],
+            [
+              "<code>Grep</code>",
+              "Search file contents with regex",
+              "Low (read-only)"
+            ],
+            [
+              "<code>Glob</code>",
+              "Find files by name patterns",
+              "Low (read-only)"
+            ]
+          ],
+          "note": "Claude Code asks for approval before running high-risk tools. This is the tool gateway pattern from Module 6."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "The Constrained Re-Do",
+    "desc": "Same experiment, different result.",
+    "body": [
+      {
+        "card": "Now repeat with constraints active:",
+        "items": [
+          "Create <code>CLAUDE.md</code> with your project rules",
+          "Add <code>.claude/rules/java-conventions.md</code>",
+          "Ask Claude Code to add the <strong>same feature</strong> again",
+          "Run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
+          "Compare violation counts: <strong>before vs. after</strong>"
+        ]
+      },
+      {
+        "table": {
+          "headers": [
+            "",
+            "Vibe Coding",
+            "With CLAUDE.md"
+          ],
+          "rows": [
+            [
+              "CheckStyle violations",
+              "??? (your count)",
+              "??? (your count)"
+            ],
+            [
+              "PMD violations",
+              "??? (your count)",
+              "??? (your count)"
+            ],
+            [
+              "SpotBugs bugs",
+              "??? (your count)",
+              "??? (your count)"
+            ]
+          ],
+          "note": "Constraints don&rsquo;t slow AI down. They make AI output usable."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "exercise",
+    "title": "Exercise 3.4: Vibe Coding vs. Constrained AI",
+    "desc": "30 minutes",
+    "body": [
+      {
+        "card": "Part 1 &mdash; Vibe Coding (10 min):",
+        "items": [
+          "Create branch <code>vibe-coding-experiment</code>",
+          "Ask Claude Code (no CLAUDE.md): &ldquo;Add a statistics feature that calculates median, mode, and standard deviation&rdquo;",
+          "Commit the raw output. Run all quality tools. Write down violation counts."
+        ]
+      },
+      {
+        "card": "Part 2 &mdash; Constrained (15 min):",
+        "items": [
+          "Create branch <code>constrained-experiment</code>",
+          "Add CLAUDE.md and .claude/rules/ with your quality standards",
+          "Ask for the <strong>same feature</strong>. Run quality tools. Compare counts."
+        ]
+      },
+      {
+        "quote": "Part 3 (5 min): Post both numbers on the whiteboard. Class discussion: what changed and why?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "exercise",
+    "title": "Exercise 3.5: cognitive-core in Action",
+    "desc": "20 minutes",
+    "body": [
+      {
+        "card": "Part 1 — Install (5 min):",
+        "items": [
+          "Run: <code>bash install.sh</code> from the cognitive-core directory",
+          "Select platform: <code>claude</code>",
+          "Verify: <code>.claude/hooks/</code> directory was created",
+          "Verify: <code>cognitive-core.conf</code> exists in your project"
+        ]
+      },
+      {
+        "card": "Part 2 — Experience Hooks (5 min):",
+        "items": [
+          "Edit any .java file — watch <code>post-edit-lint</code> fire automatically",
+          "Try: <code>git push --force main</code> — observe the BLOCKED message",
+          "Try writing a hardcoded password in code — observe <code>validate-write</code> block it"
+        ]
+      },
+      {
+        "card": "Part 3 — Run Skills (10 min):",
+        "items": [
+          "Run: <code>/pre-commit</code> — see pass/fail per staged file",
+          "Run: <code>/fitness</code> — see your 4-category score vs. thresholds",
+          "Run: <code>/code-review</code> — read the structured findings with provenance",
+          "Compare: which found more — <code>mvn checkstyle:check</code> or <code>/code-review</code>?"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 3: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>CheckStyle</strong> = formatting and style consistency",
+          "<strong>PMD</strong> = bad patterns and code smells",
+          "<strong>SpotBugs</strong> = actual bugs in compiled bytecode",
+          "Configure tools to <strong>fail the build</strong> on violations",
+          "Claude Code goes beyond rules &mdash; understands design and intent",
+          "<strong>Always run tests after refactoring</strong> (even AI-suggested)",
+          "<strong>Industry:</strong> quality checks that block builds = regression gates in production systems",
+          "Use <strong>tools for automated gates</strong>, <strong>AI for deeper review</strong>"
+        ]
+      }
+    ]
+  }
+]

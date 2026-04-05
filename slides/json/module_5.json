@@ -1,0 +1,529 @@
+[
+  {
+    "type": "cover",
+    "bg": 4,
+    "h1": "Module 5",
+    "lead": "Continuous Integration with Jenkins + Claude Code",
+    "sub": "Automate everything you learned",
+    "badges": [
+      "Jenkins",
+      "Nexus",
+      "Jenkinsfile",
+      "Pipeline",
+      "*Claude Code"
+    ],
+    "contents": "<span onclick=\"event.stopPropagation();go(105)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem: &ldquo;I&rsquo;ll Integrate Later&rdquo;</span>\n<span onclick=\"event.stopPropagation();go(106)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Jenkins?</span>\n<span onclick=\"event.stopPropagation();go(107)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Nexus?</span>\n<span onclick=\"event.stopPropagation();go(108)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Jenkinsfile: Pipeline as Code</span>\n<span onclick=\"event.stopPropagation();go(109)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Jenkins in Action</span>\n<span onclick=\"event.stopPropagation();go(110)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">&ldquo;The Build Is Red, I&rsquo;ll Fix It Later&rdquo;</span>\n<span onclick=\"event.stopPropagation();go(111)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Jenkins Pipeline as Trace with Spans</span>\n<span onclick=\"event.stopPropagation();go(112)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">SLOs: Measuring Pipeline Health</span>\n<span onclick=\"event.stopPropagation();go(113)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Creates and Debugs Pipelines</span>\n<span onclick=\"event.stopPropagation();go(114)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">CI Pipeline = Everything You Learned</span>\n<span onclick=\"event.stopPropagation();go(115)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 5.1: Write a Jenkinsfile</span>\n<span onclick=\"event.stopPropagation();go(116)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 5.2: Break the Pipeline</span>\n<span onclick=\"event.stopPropagation();go(117)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 5.3: Measure Your Pipeline Health</span>\n<span onclick=\"event.stopPropagation();go(118)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">GitHub Actions: The Modern Alternative</span>\n<span onclick=\"event.stopPropagation();go(119)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI Inside the Pipeline</span>\n<span onclick=\"event.stopPropagation();go(120)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code in CI Pipelines</span>\n<span onclick=\"event.stopPropagation();go(121)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Session Isolation: Writer &ne; Reviewer</span>\n<span onclick=\"event.stopPropagation();go(122)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 5.4: AI-Powered Review in Print Mode</span>\n<span onclick=\"event.stopPropagation();go(123)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 5: Key Takeaways</span>"
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "The Problem: &ldquo;I&rsquo;ll Integrate Later&rdquo;",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "Developer A works for 2 weeks on Feature X",
+          "Developer B works for 2 weeks on Feature Y",
+          "They merge on Friday afternoon",
+          "<strong>Result:</strong> 200 conflicts. Build broken. Tests fail. Nobody goes home."
+        ]
+      },
+      {
+        "quote": "CI = merge and verify multiple times per day."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "What Is Jenkins?",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "An <strong>automation server</strong> for CI/CD pipelines",
+          "Open source, industry standard since 2011",
+          "Watches your Git repository for changes",
+          "Automatically: builds, tests, reports, deploys"
+        ]
+      },
+      {
+        "code": "Git push &rarr; Jenkins detects &rarr; Build &rarr; Test &rarr; Quality &rarr; Report\n                                                            |\n                                              <span class=\"str\">Green: ready to merge</span>\n                                              <span class=\"kw\">Red: fix your code</span>"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "What Is Nexus?",
+    "body": [
+      {
+        "code": "You run: <span class=\"kw\">mvn deploy</span>\n\n  Your .jar file\n       |\n       v\n  <span class=\"fn\">Nexus Repository</span> (artifact storage)\n       |\n       v\n  Other teams download your .jar\n  CI pipelines fetch dependencies\n  Production servers pull release builds\n\n  <span class=\"cmt\">Think of it as &ldquo;npm registry&rdquo; for Java.</span>",
+        "note": "Git stores source code. Nexus stores compiled artifacts. Never mix them."
+      },
+      {
+        "table": {
+          "headers": [
+            "What goes where",
+            "Git",
+            "Nexus"
+          ],
+          "rows": [
+            [
+              "Source code (.java)",
+              "<strong>Yes</strong>",
+              "No"
+            ],
+            [
+              "Compiled artifacts (.jar)",
+              "No",
+              "<strong>Yes</strong>"
+            ],
+            [
+              "Dependencies (Gson, JUnit)",
+              "No (pom.xml reference only)",
+              "<strong>Yes</strong> (cached)"
+            ],
+            [
+              "Build outputs (target/)",
+              "No (.gitignore!)",
+              "<strong>Yes</strong>"
+            ]
+          ],
+          "note": "This is why <code>target/</code> is in <code>.gitignore</code> &mdash; Nexus handles built artifacts."
+        }
+      }
+    ],
+    "desc": "Where do your built artifacts go? Not Git &mdash; that&rsquo;s for source code only."
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "The Jenkinsfile: Pipeline as Code",
+    "body": [
+      {
+        "code": "<span class=\"kw\">pipeline</span> {\n    agent any\n    stages {\n        stage(<span class=\"str\">'Build'</span>) {\n            steps {\n                sh <span class=\"str\">'mvn clean compile'</span>\n            }\n        }\n        stage(<span class=\"str\">'Test'</span>) {\n            steps {\n                sh <span class=\"str\">'mvn test'</span>\n            }\n        }\n        stage(<span class=\"str\">'Quality'</span>) {\n            steps {\n                sh <span class=\"str\">'mvn checkstyle:check pmd:check spotbugs:check'</span>\n            }\n        }\n        stage(<span class=\"str\">'Package'</span>) {\n            steps {\n                sh <span class=\"str\">'mvn package'</span>\n            }\n        }\n    }\n}",
+        "note": "This file lives in Git alongside your code. Pipeline is versioned just like code."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "demo",
+    "title": "Jenkins in Action",
+    "body": [
+      {
+        "code": " <span class=\"kw\">git push</span> origin main\n      |\n      v\n Jenkins <span class=\"fn\">webhook trigger</span> &mdash; detects new commit\n      |\n      v\n <span class=\"kw\">Stage 1: Build</span>      mvn compile          [<span class=\"fn\">32s</span>]\n      |\n      v\n <span class=\"kw\">Stage 2: Test</span>       mvn test             [<span class=\"fn\">1m 15s</span>]\n      |\n      v\n <span class=\"kw\">Stage 3: Quality</span>    checkstyle + pmd     [<span class=\"fn\">28s</span>]\n      |\n      v\n <span class=\"kw\">Stage 4: Package</span>    mvn package          [<span class=\"fn\">12s</span>]\n      |\n      v\n Result: <span class=\"fn\">GREEN</span> (all stages passed) or <span class=\"str\">RED</span> (failed stage stops pipeline)",
+        "note": "A failed stage stops everything. Stage 3 quality violation? Package never runs. That&rsquo;s the point."
+      },
+      {
+        "card": "What you see in the Jenkins dashboard:",
+        "items": [
+          "<span class=\"fn\">Green row</span> = all stages passed, artifact published",
+          "<span class=\"str\">Red row</span> = a stage failed, shows which one and why",
+          "<strong>Blue ball</strong> = build is running right now",
+          "<strong>Build history</strong> = every push, every result, timestamped"
+        ]
+      }
+    ],
+    "desc": "What happens when you <code>git push</code>?"
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "mistake",
+    "title": "&ldquo;The Build Is Red, I&rsquo;ll Fix It Later&rdquo;",
+    "body": [
+      {
+        "card": "A red build blocks the entire team:",
+        "items": [
+          "Nobody can merge while the build is broken",
+          "The person who broke it must fix it immediately",
+          "&ldquo;Fix it later&rdquo; means it gets worse"
+        ]
+      },
+      {
+        "quote": "Professional rule: A broken build is the #1 priority."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "industry",
+    "title": "Jenkins Pipeline as Trace with Spans",
+    "desc": "Your Jenkins pipeline follows the same observability pattern as AI agent traces.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Jenkins Pipeline",
+            "Agent System Trace"
+          ],
+          "rows": [
+            [
+              "Build #1234",
+              "trace_id: <code>\"run-1234\"</code>"
+            ],
+            [
+              "Stage: Build (3.2s, SUCCESS)",
+              "Span: compile (3200ms, success)"
+            ],
+            [
+              "Stage: Test (8.1s, SUCCESS)",
+              "Span: tool_execution (8100ms, success)"
+            ],
+            [
+              "Stage: Quality (2.5s, FAILURE)",
+              "Span: policy_check (2500ms, violation)"
+            ],
+            [
+              "Pipeline: FAILED",
+              "Run status: failed"
+            ],
+            [
+              "Duration: 13.8s",
+              "Total duration: 13800ms"
+            ]
+          ],
+          "note": "Same structure. A trace is a sequence of spans (steps) with status, duration, and outcome."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "industry",
+    "title": "SLOs: Measuring Pipeline Health",
+    "desc": "Measuring system health over time, not just right now.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 12</span>\nslo:\n  success:\n    successful_run_rate: <span class=\"str\">\"&gt;= 97%\"</span>\n  latency:\n    run_p95_ms: <span class=\"str\">\"&lt;= 12000\"</span>\n  safety:\n    policy_violation_rate: <span class=\"str\">\"&lt; 0.2%\"</span>\n  cost:\n    avg_cost_per_successful_run_usd: <span class=\"str\">\"&lt;= 0.12\"</span>"
+      },
+      {
+        "table": {
+          "headers": [
+            "SLO",
+            "Your Measurement"
+          ],
+          "rows": [
+            [
+              "Success rate",
+              "&ldquo;97% of builds should pass&rdquo;"
+            ],
+            [
+              "Latency",
+              "&ldquo;Pipeline should complete in &lt; 10 minutes&rdquo;"
+            ],
+            [
+              "Quality",
+              "&ldquo;&lt; 1% of builds should have quality violations&rdquo;"
+            ]
+          ],
+          "note": "If your pipeline is red 30% of the time, you have an SLO problem."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "AI-Augmented: Claude Code Creates and Debugs Pipelines",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> Create a Jenkinsfile for my Calculator project \n     with build, test, quality, and package stages."
+      },
+      {
+        "code": "<span class=\"str\">You:</span> My Jenkins pipeline fails at the Test stage. \n     Here&rsquo;s the error: [paste log]"
+      },
+      {
+        "quote": "Claude Code reads verbose Jenkins logs and extracts the actual error."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "CI Pipeline = Everything You Learned",
+    "body": [
+      {
+        "code": "Git push (Module 1)\n    |\n    v\nMaven compile (Module 2)         <span class=\"cmt\">&mdash; capability contract</span>\n    |\n    v\nCheckStyle + PMD + SpotBugs (3)  <span class=\"cmt\">&mdash; regression gates</span>\n    |\n    v\nJUnit + Mockito tests (4)        <span class=\"cmt\">&mdash; eval dataset</span>\n    |\n    v\nPackage + Deploy (Module 5)      <span class=\"cmt\">&mdash; traced execution</span>"
+      },
+      {
+        "quote": "Everything connects. CI automates the entire pipeline you built module by module."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "industry",
+    "title": "cognitive-core: Evolutionary CI/CD Pipeline",
+    "desc": "Different pipeline stages need different confidence levels.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; graduated fitness gates</span>\n\nCC_FITNESS_LINT=<span class=\"fn\">60</span>      <span class=\"cmt\"># Local iteration (low bar)</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">80</span>    <span class=\"cmt\"># Reviewable code</span>\nCC_FITNESS_TEST=<span class=\"fn\">85</span>      <span class=\"cmt\"># Integration ready</span>\nCC_FITNESS_MERGE=<span class=\"fn\">90</span>     <span class=\"cmt\"># Near-production</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">95</span>    <span class=\"cmt\"># Production-ready</span>\n\n<span class=\"kw\">Why not 100% everywhere?</span>\nBecause a work-in-progress commit at 70% fitness\nis fine on a feature branch. But deploying it\nto production would be irresponsible.",
+        "note": "No other CI tool does this. SonarQube has one threshold. Jenkins has pass/fail. cognitive-core has 5 graduated gates that match confidence to risk."
+      },
+      {
+        "table": {
+          "headers": [
+            "Your pipeline stage",
+            "Gate",
+            "Fitness",
+            "What it means"
+          ],
+          "rows": [
+            [
+              "<code>mvn checkstyle:check</code>",
+              "Lint",
+              "60%",
+              "Is the code formatted?"
+            ],
+            [
+              "<code>git commit</code>",
+              "Commit",
+              "80%",
+              "Would a reviewer understand this?"
+            ],
+            [
+              "<code>mvn test</code>",
+              "Test",
+              "85%",
+              "Are tests meaningful?"
+            ],
+            [
+              "<code>git merge to main</code>",
+              "Merge",
+              "90%",
+              "Is this safe for the team?"
+            ],
+            [
+              "<code>mvn deploy</code>",
+              "Deploy",
+              "95%",
+              "Is this safe for production?"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "exercise",
+    "title": "Exercise 5.1: Write a Jenkinsfile",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Ask Claude Code to generate a Jenkinsfile for your project",
+          "<strong>Read every line</strong> and explain each stage",
+          "Add a stage that runs <code>mvn dependency:tree</code> and saves output",
+          "What happens if the Test stage fails &mdash; do later stages run?"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "exercise",
+    "title": "Exercise 5.2: Break the Pipeline",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Introduce a failing test",
+          "Run <code>mvn test</code> locally &mdash; confirm failure",
+          "Which Jenkinsfile stage catches this?",
+          "Fix the test",
+          "Introduce a CheckStyle violation &mdash; which stage catches it?"
+        ]
+      },
+      {
+        "quote": "Discussion: Why is stage order important?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "exercise",
+    "title": "Exercise 5.3: Measure Your Pipeline Health",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Imagine your pipeline ran 100 times this month:",
+        "items": [
+          "92 succeeded, 5 failed on tests, 3 failed on quality",
+          "Average duration: 4 minutes",
+          "Longest run: 12 minutes"
+        ]
+      },
+      {
+        "card": "Answer:",
+        "items": [
+          "What is your success rate SLO? Is 92% acceptable?",
+          "What is your latency SLO? Is 4 minutes acceptable?",
+          "What should you investigate first: the test failures or quality failures?",
+          "Write a one-paragraph &ldquo;pipeline health report&rdquo; for your team lead"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "GitHub Actions: The Modern Alternative",
+    "desc": "Jenkins is what we teach. GitHub Actions is what you will likely use at work. Same concepts, simpler setup.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># .github/workflows/ci.yml</span>\n<span class=\"kw\">name</span>: Java CI\n<span class=\"kw\">on</span>: [push, pull_request]\n<span class=\"kw\">jobs</span>:\n  <span class=\"kw\">build</span>:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-java@v4\n        with:\n          java-version: <span class=\"str\">\"21\"</span>\n      - run: <span class=\"str\">mvn clean verify</span>"
+      },
+      {
+        "table": {
+          "headers": [
+            "Concept",
+            "Jenkins",
+            "GitHub Actions"
+          ],
+          "rows": [
+            [
+              "Pipeline definition",
+              "Jenkinsfile (Groovy)",
+              ".github/workflows/*.yml"
+            ],
+            [
+              "Trigger",
+              "Webhook / polling",
+              "<code>on: [push, pull_request]</code>"
+            ],
+            [
+              "Stages",
+              "stage('Build') { ... }",
+              "<code>steps:</code> list"
+            ],
+            [
+              "Infrastructure",
+              "You manage the server",
+              "GitHub hosts it (free tier)"
+            ],
+            [
+              "Artifact storage",
+              "Nexus",
+              "GitHub Packages / Artifacts"
+            ]
+          ],
+          "note": "We teach Jenkins because understanding CI <strong>concepts</strong> matters more than memorizing one tool&rsquo;s YAML syntax. The concepts are identical."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "industry",
+    "title": "AI Inside the Pipeline",
+    "desc": "The next step: AI as an automated participant in your CI/CD.",
+    "body": [
+      {
+        "card": "AI integration patterns in CI/CD:",
+        "items": [
+          "<strong>PR Review Bot</strong>: AI reviews every pull request automatically",
+          "<strong>Test Gap Detection</strong>: AI identifies untested code paths",
+          "<strong>Dependency Security</strong>: AI flags vulnerable libraries",
+          "<strong>Commit Validation</strong>: AI verifies messages are meaningful",
+          "<strong>Documentation Check</strong>: AI flags public APIs without Javadoc"
+        ]
+      },
+      {
+        "quote": "This is where AI moves from &ldquo;developer assistant&rdquo; to &ldquo;pipeline participant&rdquo; &mdash; automated, consistent, and always running."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "",
+    "title": "Claude Code in CI Pipelines",
+    "desc": "AI as an automated pipeline participant &mdash; non-interactive mode.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Non-interactive mode for CI/CD</span>\nclaude <span class=\"kw\">-p</span> <span class=\"str\">\"Review this project for quality issues\"</span>\n\n<span class=\"cmt\"># Structured JSON output for machine parsing</span>\nclaude <span class=\"kw\">-p</span> <span class=\"str\">\"List all PMD violations\"</span> \\\n  <span class=\"kw\">--output-format</span> json\n\n<span class=\"cmt\"># With JSON schema for guaranteed format</span>\nclaude <span class=\"kw\">-p</span> <span class=\"str\">\"Review for grading criteria\"</span> \\\n  <span class=\"kw\">--output-format</span> json \\\n  <span class=\"kw\">--json-schema</span> review-schema.json",
+        "note": "The <code>-p</code> (print) flag runs Claude Code without interaction &mdash; perfect for CI jobs."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "industry",
+    "title": "Session Isolation: Writer &ne; Reviewer",
+    "desc": "A critical principle for AI in production pipelines.",
+    "body": [
+      {
+        "code": "Developer writes code with Claude Code (Session A)\n            |\n            v\n      git push &rarr; CI pipeline triggers\n            |\n            v\n  Claude Code <span class=\"kw\">-p</span> reviews the PR (Session B)\n            |\n            v\n      Separate AI instance = <span class=\"kw\">second pair of eyes</span>",
+        "note": "The Claude instance that wrote the code should NOT review it. Self-review is weak."
+      },
+      {
+        "quote": "This is exactly how human code review works: the author never approves their own PR."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "exercise",
+    "title": "Exercise 5.4: AI-Powered Review in Print Mode",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Run: <code>claude -p \"Review my project against these 10 grading criteria\" --output-format json</code>",
+          "Examine the JSON output &mdash; is it structured? Parseable?",
+          "Add <code>CLAUDE.md</code> context and run again &mdash; does the review improve?",
+          "Discuss: How would you integrate this into a Jenkinsfile stage?"
+        ]
+      },
+      {
+        "quote": "This is how production teams add AI review gates to their pipelines."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "5",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 5: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>CI = merge and verify frequently</strong>, not &ldquo;integrate on Friday&rdquo;",
+          "<strong>Jenkins</strong> automates: build, test, quality, package",
+          "<strong>Jenkinsfile</strong> = pipeline as code, versioned in Git",
+          "A red build = <strong>#1 priority</strong> to fix",
+          "CI connects <strong>all previous modules</strong> into one automated pipeline",
+          "<strong>Industry:</strong> Jenkins pipeline = trace with spans; pipeline health = SLOs",
+          "Claude Code helps: create Jenkinsfiles, debug logs, explain failures",
+          "<strong>Pipeline is only as good as your tests and quality gates</strong>"
+        ]
+      }
+    ]
+  }
+]

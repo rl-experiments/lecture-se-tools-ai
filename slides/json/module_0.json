@@ -1,0 +1,546 @@
+[
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "Table of Contents",
+    "desc": "Course Structure &mdash; 10 Modules, 16 Sessions",
+    "body": "toc"
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "Course Overview",
+    "desc": "Professional Java Development: SE Tools & AI-Assisted Engineering",
+    "body": [
+      {
+        "card": "What you will learn",
+        "items": [
+          "The professional tools every Java developer uses daily",
+          "How to use AI assistance (Claude Code) with each tool",
+          "When to trust AI output and when to think critically",
+          "How these tools map to production system architecture"
+        ]
+      },
+      {
+        "card": "What this is NOT",
+        "warn": true,
+        "items": [
+          "Not a Java language course",
+          "Not an AI / machine learning theory course",
+          "Not &ldquo;let AI do everything for you&rdquo;"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "Why Tools Matter More Than You Think",
+    "body": [
+      {
+        "card": "A company will never hire you for System.out.println()",
+        "items": [
+          "Managing code across a team of 20 developers",
+          "Building software that compiles on any machine",
+          "Catching bugs before customers find them",
+          "Proving your code works with automated tests",
+          "Delivering updates reliably every two weeks"
+        ]
+      },
+      {
+        "quote": "These are tool problems, not language problems."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "The Professional Java Toolchain",
+    "desc": "Every tool solves a real problem. Skip one, and teams pay the price.",
+    "body": [
+      {
+        "code": " <span class=\"kw\">1. WRITE</span>        You + Claude Code + IDE\n      |          <span class=\"cmt\">also at work: IntelliJ, VS Code, Copilot</span>\n      v\n <span class=\"kw\">2. VERSION</span>      <span class=\"fn\">Git</span> .................. audit trail\n      |          <span class=\"cmt\">also at work: GitHub PRs, GitLab MRs, code review</span>\n      v\n <span class=\"kw\">3. BUILD</span>       <span class=\"fn\">Maven</span> ................ capability contracts\n      |          <span class=\"cmt\">also at work: Gradle, Bazel, npm</span>\n      v\n <span class=\"kw\">4. ANALYZE</span>     <span class=\"fn\">PMD / SpotBugs / CS</span> .. regression gates\n      |          <span class=\"cmt\">also at work: SonarQube, ESLint, CodeClimate</span>\n      v\n <span class=\"kw\">5. TEST</span>        <span class=\"fn\">JUnit / Mockito</span> ...... eval datasets\n      |          <span class=\"cmt\">also at work: Selenium, Cypress, Testcontainers</span>\n      v\n <span class=\"kw\">6. PACKAGE</span>     <span class=\"fn\">Maven + Nexus</span> ........ artifact registry\n      |          <span class=\"cmt\">also at work: Docker, container registries</span>\n      v\n <span class=\"kw\">7. PIPELINE</span>    <span class=\"fn\">Jenkins</span> .............. observability\n      |          <span class=\"cmt\">also at work: GitHub Actions, GitLab CI, ArgoCD</span>\n      v\n <span class=\"kw\">8. DEPLOY</span>      <span class=\"str\">(not in this course)</span>\n      |          <span class=\"cmt\">at work: Docker, Kubernetes, Terraform, Ansible</span>\n      v\n <span class=\"kw\">9. MONITOR</span>     <span class=\"str\">(not in this course)</span>\n               <span class=\"cmt\">at work: Prometheus, Grafana, ELK, PagerDuty</span>\n\n <span class=\"fn\">SECURITY</span> runs across <span class=\"kw\">every stage</span> &mdash; not a separate step.",
+        "note": "<strong>Named tools = this course.</strong> Grey comments = what you will see at work. The workflow is universal &mdash; only the tool names change."
+      },
+      {
+        "quote": "A company will never ask &ldquo;do you know Java?&rdquo; &mdash; they will ask &ldquo;can you ship reliable code in a team of 20?&rdquo;"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "And Now There Is an AI Layer",
+    "desc": "AI does not replace these tools. AI is a knowledgeable colleague sitting next to you.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Situation",
+            "Without AI",
+            "With Claude Code"
+          ],
+          "rows": [
+            [
+              "Maven build fails",
+              "Read 50 lines of error log",
+              "&ldquo;Your dependency version conflicts with...&rdquo;"
+            ],
+            [
+              "Write commit message",
+              "&ldquo;fixed stuff&rdquo;",
+              "&ldquo;Fix null pointer in divide() by adding zero-check&rdquo;"
+            ],
+            [
+              "Need unit tests",
+              "Stare at blank test file",
+              "Generated test cases for your methods"
+            ],
+            [
+              "Jenkinsfile broken",
+              "Google the syntax",
+              "&ldquo;Line 12: missing closing brace in pipeline block&rdquo;"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "What Is Claude Code?",
+    "desc": "An AI agent by Anthropic that runs in your terminal. It is NOT a chatbot.",
+    "body": [
+      {
+        "card": "It is an agent that can:",
+        "items": [
+          "<strong>Read</strong> your project files",
+          "<strong>Write</strong> and edit code",
+          "<strong>Run</strong> terminal commands (git, mvn, java)",
+          "<strong>Search</strong> across your codebase",
+          "<strong>Ask</strong> before doing anything dangerous"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\"># Install</span>\nnpm install -g @anthropic-ai/claude-code\n\n<span class=\"cmt\"># Start in any project</span>\n<span class=\"kw\">cd</span> my-project\nclaude"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "industry",
+    "title": "Why &ldquo;Agent&rdquo; and Not Just &ldquo;AI Tool&rdquo;",
+    "desc": "The industry distinguishes between simple tools and autonomous agents.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Property",
+            "AI Tool (autocomplete)",
+            "AI Agent (Claude Code)"
+          ],
+          "rows": [
+            [
+              "Takes actions?",
+              "No &mdash; only suggests",
+              "Yes &mdash; reads, writes, runs commands"
+            ],
+            [
+              "Plans multi-step tasks?",
+              "No",
+              "Yes &mdash; breaks work into steps"
+            ],
+            [
+              "Uses external tools?",
+              "No",
+              "Yes &mdash; git, mvn, file system"
+            ],
+            [
+              "Needs safety controls?",
+              "Minimal",
+              "Yes &mdash; approval flows, policies"
+            ]
+          ],
+          "note": "&ldquo;Good agent products don&rsquo;t begin with maximum autonomy but with predictable platforms where autonomy gets added carefully.&rdquo;"
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "Why Claude Code and Not Copilot / Cursor / ChatGPT?",
+    "desc": "There are many AI coding tools. Here is how they differ.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tool",
+            "Type",
+            "Key Difference"
+          ],
+          "rows": [
+            [
+              "<strong>GitHub Copilot</strong>",
+              "Autocomplete",
+              "Suggests code inline. Cannot run commands or read your project."
+            ],
+            [
+              "<strong>Cursor</strong>",
+              "IDE + AI",
+              "Deep IDE integration. Tied to Cursor editor."
+            ],
+            [
+              "<strong>ChatGPT / Gemini</strong>",
+              "Chatbot",
+              "General knowledge. Cannot see your project files."
+            ],
+            [
+              "<strong>Claude Code</strong>",
+              "Agent",
+              "Reads project, runs commands, plans multi-step tasks."
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "We use Claude Code because it is an agent &mdash; it acts inside your project. The principles you learn apply to any AI coding tool."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "The AI-First Workflow",
+    "desc": "Modern development is not \"code first, ask AI later.\" It starts with intent.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># OLD workflow</span>\n1. Think about what to write\n2. Write code from scratch\n3. Debug errors yourself\n4. Maybe ask AI if stuck\n\n<span class=\"cmt\"># AI-FIRST workflow</span>\n1. <span class=\"kw\">Describe your intent</span> to Claude Code\n2. <span class=\"kw\">Review</span> what it generates\n3. <span class=\"kw\">Verify</span> with tests and quality tools\n4. <span class=\"kw\">Commit</span> only what you understand"
+      },
+      {
+        "quote": "You spend less time writing and more time reviewing. That is the fundamental shift."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "Why Old Tools Matter MORE with AI",
+    "desc": "Every tool you learn in this course protects you from AI mistakes.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tool",
+            "How it protects you from AI errors"
+          ],
+          "rows": [
+            [
+              "<strong>Git</strong>",
+              "AI generated bad code? <code>git revert</code> &mdash; undo in seconds."
+            ],
+            [
+              "<strong>JUnit</strong>",
+              "AI wrote buggy logic? Tests catch it before you ship."
+            ],
+            [
+              "<strong>PMD / SpotBugs</strong>",
+              "AI introduced a bad pattern? Quality gates block it."
+            ],
+            [
+              "<strong>CheckStyle</strong>",
+              "AI used wrong formatting? Automated check catches it."
+            ],
+            [
+              "<strong>Jenkins</strong>",
+              "AI broke the build? Pipeline stops it from reaching production."
+            ],
+            [
+              "<strong>.gitignore</strong>",
+              "AI suggested committing secrets? Your config prevents it."
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "Without these tools, using AI is gambling. With them, using AI is engineering."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "",
+    "title": "When to Use AI vs. When to Think Yourself",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Situation",
+            "AI leads",
+            "You lead",
+            "Never AI"
+          ],
+          "rows": [
+            [
+              "Boilerplate / scaffolding",
+              "&#10004;",
+              "",
+              ""
+            ],
+            [
+              "Commit messages from diff",
+              "&#10004;",
+              "",
+              ""
+            ],
+            [
+              "Generating test cases",
+              "&#10004;",
+              "Review every test",
+              ""
+            ],
+            [
+              "Explaining errors",
+              "&#10004;",
+              "",
+              ""
+            ],
+            [
+              "Architecture decisions",
+              "",
+              "&#10004;",
+              ""
+            ],
+            [
+              "Security-sensitive code",
+              "",
+              "&#10004;",
+              ""
+            ],
+            [
+              "Pasting secrets / credentials",
+              "",
+              "",
+              "&#10004;"
+            ],
+            [
+              "Code you cannot explain",
+              "",
+              "",
+              "&#10004;"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "If you cannot explain it, do not commit it. This rule never changes, with or without AI."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "industry",
+    "title": "How Claude Code Works &mdash; The Agent Model",
+    "body": [
+      {
+        "code": "+--------------------------------------------------+\n|                  Claude Code                      |\n|                                                   |\n|  +----------+    +--------+    +--------------+   |\n|  |  <span class=\"kw\">Model</span>   |    | <span class=\"kw\">Tools</span>  |    | <span class=\"kw\">Instructions</span> |   |\n|  | (Claude) |    |        |    |              |   |\n|  | Reasons  |&lt;--&gt;| Read   |    | System rules |   |\n|  | &amp; plans  |    | Write  |    | Your project |   |\n|  |          |    | Search |    | CLAUDE.md    |   |\n|  |          |    | Bash   |    |              |   |\n|  +----------+    +--------+    +--------------+   |\n+--------------------------------------------------+"
+      },
+      {
+        "card": "",
+        "items": [
+          "<strong>Model</strong>: AI brain &mdash; reasons about your request, plans steps",
+          "<strong>Tools</strong>: AI hands &mdash; reads files, writes code, runs commands",
+          "<strong>Instructions</strong>: AI context &mdash; knows project rules, your preferences"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "industry",
+    "title": "cognitive-core: A Real Framework for AI-Assisted Development",
+    "desc": "An open-source framework that adds governance, safety, and quality enforcement to Claude Code.",
+    "body": [
+      {
+        "code": "cognitive-core adds three layers on top of Claude Code:\n\n <span class=\"kw\">Hooks</span> ............ automatic safety guards (fire on every action)\n <span class=\"fn\">Skills</span> ........... structured quality tools (you invoke them)\n <span class=\"str\">Agents</span> ........... specialist reviewers (they reason about your code)\n\n Install: <span class=\"cmt\">bash install.sh</span> (into any existing project)\n Config:  <span class=\"cmt\">cognitive-core.conf</span> (one file controls everything)",
+        "note": "We will use a Student Lab Pack: 4 hooks, 7 skills, 2 agents (out of 9 hooks, 20 skills, 10 agents). You learn the subset that matters for this course."
+      },
+      {
+        "table": {
+          "headers": [
+            "Layer",
+            "Analogy",
+            "Example"
+          ],
+          "rows": [
+            [
+              "<span class=\"kw\">Hooks</span>",
+              "Reflexes &mdash; automatic, no thought needed",
+              "<code>validate-bash.sh</code> blocks <code>rm -rf /</code>"
+            ],
+            [
+              "<span class=\"fn\">Skills</span>",
+              "Tools &mdash; you pick the right one for the job",
+              "<code>/fitness</code> scores your code 0-100%"
+            ],
+            [
+              "<span class=\"str\">Agents</span>",
+              "Colleagues &mdash; they think, discuss, reason",
+              "<code>@code-standards-reviewer</code> reviews your design"
+            ]
+          ],
+          "note": "Progressive intelligence: hooks are fast and dumb, agents are slow and smart. You need both."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "demo",
+    "title": "Claude Code First Contact",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Install</span>\nnpm install -g @anthropic-ai/claude-code\n\n<span class=\"cmt\"># Start in any directory</span>\nmkdir demo-project && cd demo-project\nclaude"
+      },
+      {
+        "card": "Show the students:",
+        "items": [
+          "Type: &ldquo;Create a simple Java Hello World project with Maven structure&rdquo;",
+          "Watch Claude Code create files on disk",
+          "Open the files in IDE &mdash; they are real",
+          "Run <code>mvn compile</code> &mdash; it works",
+          "Point out: Claude Code <strong>asks permission</strong> before creating files"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "mistake",
+    "title": "Blindly Accepting AI Output",
+    "body": [
+      {
+        "card": "Claude Code is not always right. It can:",
+        "items": [
+          "Suggest outdated library versions",
+          "Generate code that compiles but has logic errors",
+          "Miss edge cases in test generation",
+          "Misunderstand your project's specific requirements"
+        ]
+      },
+      {
+        "quote": "Your job: Review everything. AI writes drafts, you make decisions."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "exercise",
+    "title": "Exercise 0.1: Install and Explore",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task (10 minutes):",
+        "items": [
+          "Install Claude Code: <code>npm install -g @anthropic-ai/claude-code</code>",
+          "Create directory: <code>mkdir hello-claude && cd hello-claude</code>",
+          "Start: <code>claude</code> &mdash; verify you see the prompt <code>&gt;</code>",
+          "Ask: <code>\"Create a Java file that prints Hello World\"</code>",
+          "Observe: Did Claude Code ask for permission before writing the file?",
+          "Ask: <code>\"What files are in this directory?\"</code> &mdash; verify it uses Glob or Bash",
+          "Ask: <code>\"Delete all files\"</code> &mdash; does it ask for approval? <strong>Say no.</strong>"
+        ]
+      },
+      {
+        "card": "What you should see:",
+        "items": [
+          "Claude Code <strong>asks permission</strong> before writing files (tool gateway!)",
+          "Claude Code <strong>reads files</strong> without asking (low-risk, read-only)",
+          "Claude Code <strong>warns you</strong> about destructive commands",
+          "You are always the <strong>approval_actor</strong> &mdash; Module 6 vocabulary"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "exercise",
+    "title": "Exercise 0.2: Your First AI-Assisted Project",
+    "desc": "20 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Use Claude Code: &ldquo;Create a Java Maven project with a Calculator class with add, subtract, multiply, divide&rdquo;",
+          "Open every created file and <strong>read it</strong>",
+          "Can you explain what each file does?",
+          "Run <code>mvn compile</code> &mdash; does it work?",
+          "Run <code>mvn test</code> &mdash; does it work?"
+        ]
+      },
+      {
+        "quote": "Rule: You must be able to explain every file Claude Code created."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "exercise",
+    "title": "Exercise 0.3: Test the Limits",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Ask Claude Code something wrong: &ldquo;Add a method that divides by zero and returns 42&rdquo;",
+          "Does it do it? Does it warn you?",
+          "Ask it: &ldquo;Delete all files in this directory&rdquo;",
+          "What happens? Does it ask for approval?",
+          "Ask it something impossible: &ldquo;Make this Java app run faster than C++&rdquo;"
+        ]
+      },
+      {
+        "quote": "Goal: Understand where Claude Code's boundaries are."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "0",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 0: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "Professional Java development = Java + <strong>toolchain</strong>",
+          "Pipeline: Git &rarr; Maven &rarr; Quality &rarr; Testing &rarr; CI/CD",
+          "Claude Code = AI <strong>agent</strong> (not chatbot) that acts in your terminal",
+          "Agent = <strong>Model</strong> + <strong>Tools</strong> + <strong>Instructions</strong> (industry standard)",
+          "Agents need <strong>control and approval</strong> &mdash; not unlimited autonomy",
+          "<strong>AI writes drafts. You make decisions.</strong>"
+        ]
+      }
+    ]
+  }
+]

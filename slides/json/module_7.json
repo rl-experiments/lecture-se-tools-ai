@@ -1,0 +1,792 @@
+[
+  {
+    "type": "cover",
+    "bg": 6,
+    "h1": "Module 7",
+    "lead": "Agent Architecture & Production Patterns",
+    "sub": "How AI agents work and why architecture matters",
+    "badges": [
+      "Reference Architecture",
+      "Control Plane",
+      "MCP",
+      "cognitive-core",
+      "Observability"
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Why This Module Exists",
+    "body": [
+      {
+        "card": "You&rsquo;ve used Claude Code for 6 modules. Now understand how it actually works.",
+        "items": [
+          "Understanding architecture helps you use tools better",
+          "Security decisions require architectural understanding",
+          "You&rsquo;ll encounter (and maybe build) agent systems in your career",
+          "<strong>You already know most of these patterns</strong> &mdash; you just need the vocabulary"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "You Already Know Agent Architecture",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "What you did",
+            "Architecture name",
+            "Book chapter"
+          ],
+          "rows": [
+            [
+              "Git commits",
+              "Audit trail with provenance",
+              "Ch. 4-5"
+            ],
+            [
+              "pom.xml",
+              "Capability contract",
+              "Ch. 8, 17"
+            ],
+            [
+              "CheckStyle/PMD blocking builds",
+              "Regression gates",
+              "Ch. 13"
+            ],
+            [
+              "JUnit test suites",
+              "Eval datasets",
+              "Ch. 13"
+            ],
+            [
+              "Jenkins pipeline",
+              "Trace with spans",
+              "Ch. 11"
+            ],
+            [
+              "Pipeline health metrics",
+              "SLOs",
+              "Ch. 12"
+            ],
+            [
+              "Claude Code asking permission",
+              "Approval flow / tool gateway",
+              "Ch. 4"
+            ],
+            [
+              ".gitignore for secrets",
+              "Trust boundary / egress control",
+              "Ch. 3-4"
+            ]
+          ],
+          "note": "You&rsquo;ve been learning production agent architecture for 6 modules."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The Reference Architecture",
+    "desc": "Production agent systems need 8 layers",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Layer",
+            "Purpose",
+            "You already learned"
+          ],
+          "rows": [
+            [
+              "Interface",
+              "How users talk to agent",
+              "Terminal / CLI"
+            ],
+            [
+              "Identity",
+              "Who is making the request",
+              "User principal, permissions"
+            ],
+            [
+              "Control plane",
+              "What agent is allowed to do",
+              "Approval flows"
+            ],
+            [
+              "Orchestration",
+              "How agent executes tasks",
+              "Pipeline stages"
+            ],
+            [
+              "Cognition",
+              "Which models handle which tasks",
+              "Claude Code&rsquo;s reasoning"
+            ],
+            [
+              "Memory",
+              "What agent remembers",
+              "Context, CLAUDE.md"
+            ],
+            [
+              "Tool execution",
+              "How tools are called safely",
+              "Tool gateway, sandbox"
+            ],
+            [
+              "Telemetry",
+              "How we observe what happened",
+              "Traces, spans, logs"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The Control Plane in Detail",
+    "desc": "How production systems govern agent behavior with explicit rules.",
+    "body": [
+      {
+        "code": "agent_policy:\n  model_access:\n    allowed_models: [<span class=\"str\">\"gpt-5.4\"</span>, <span class=\"str\">\"claude-sonnet\"</span>]\n    deny_if_contains: [<span class=\"str\">\"pci_raw\"</span>, <span class=\"str\">\"prod_secrets\"</span>]\n  tools:\n    read_kb:\n      approval: none\n    jira_create_ticket:\n      approval: manager\n    prod_db_write:\n      approval: security_and_owner\n      allowed_environments: [<span class=\"str\">\"staging\"</span>]\n  runtime:\n    max_steps: 24\n    max_parallel_subagents: 4\n    require_checkpoint_every_step: <span class=\"kw\">true</span>",
+        "note": "This is the &ldquo;YAML that controls everything.&rdquo; Without it, agents are unmanaged."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "industry",
+    "title": "Four Guiding Principles",
+    "desc": "Four rules that guide every production AI agent platform.",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>1. Control Before Autonomy</strong> &mdash; First construct predictable paths; then expand agent freedom.",
+          "<strong>2. Security Can&rsquo;t Be Sidelined</strong> &mdash; If policy and approvals aren&rsquo;t embedded in runtime, architecture fixes become emergencies.",
+          "<strong>3. State Must Be Explicit</strong> &mdash; Long tasks shouldn&rsquo;t lose steps because someone restarted the process.",
+          "<strong>4. Observability Over Impressiveness</strong> &mdash; If agents &ldquo;appear intelligent&rdquo; but lack traces, the system isn&rsquo;t managed."
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Memory Architecture: Three Layers",
+    "desc": "Different types of knowledge need different storage and trust levels.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Memory Type",
+            "What It Stores",
+            "Lifetime",
+            "Claude Code Example"
+          ],
+          "rows": [
+            [
+              "<strong>Short-term</strong>",
+              "Current task state",
+              "This session",
+              "Current conversation context"
+            ],
+            [
+              "<strong>Long-term</strong>",
+              "Verified facts, summaries",
+              "Weeks/months",
+              "(not in basic Claude Code)"
+            ],
+            [
+              "<strong>Profile</strong>",
+              "User preferences, habits",
+              "Persistent",
+              "CLAUDE.md project rules"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "&ldquo;Memory write path must be treated as security-sensitive, not a technical detail. Errors in memory live longer than errors in single responses.&rdquo;"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "MCP: Standard Protocol for Agent-Tool Communication",
+    "body": [
+      {
+        "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server\nAgent &lt;--MCP--&gt; Any tool with MCP adapter"
+      },
+      {
+        "card": "",
+        "items": [
+          "Think of MCP like <strong>USB for AI tools</strong>: one standard plug for any tool",
+          "Without standards, every AI tool reinvents file reading, command execution, and search",
+          "MCP makes tools reusable"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "industry",
+    "title": "MCP for Tools, A2A for Agents",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Protocol",
+            "Purpose",
+            "When to use"
+          ],
+          "rows": [
+            [
+              "<strong>MCP</strong>",
+              "Agent talks to <strong>tools</strong>",
+              "Connect APIs, databases, file systems"
+            ],
+            [
+              "<strong>A2A</strong>",
+              "Agent talks to <strong>agents</strong>",
+              "Delegate tasks between specialized agents"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "&ldquo;If an entity doesn&rsquo;t make its own decisions and doesn&rsquo;t carry its own operational role, it&rsquo;s probably still a capability, not an agent.&rdquo; &mdash; Translation: If it&rsquo;s just an API, use MCP. If it reasons and decides, use A2A."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Coordinator vs. Handoff Patterns",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">Coordinator (Manager) pattern:</span>\nCoordinator &rarr; Specialist A &rarr; result\n            &rarr; Specialist B &rarr; result\n            &rarr; assembles final answer\n\n<span class=\"cmt\">Handoff pattern:</span>\nAgent A &rarr; transfers control to &rarr; Agent B &rarr; Agent C"
+      },
+      {
+        "table": {
+          "headers": [
+            "Situation",
+            "Better pattern"
+          ],
+          "rows": [
+            [
+              "Need unified control of costs and steps",
+              "Coordinator"
+            ],
+            [
+              "Roles naturally divided by domain",
+              "Handoff"
+            ],
+            [
+              "Single audit trail matters most",
+              "Coordinator"
+            ],
+            [
+              "Each agent has distinct context boundary",
+              "Handoff"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "When AI Agent vs. When Simple Automation",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Situation",
+            "Better approach"
+          ],
+          "rows": [
+            [
+              "Run tests on every commit",
+              "<strong>Jenkins</strong> (automation)"
+            ],
+            [
+              "Check code style",
+              "<strong>CheckStyle</strong> (rules)"
+            ],
+            [
+              "Explain why a test fails",
+              "<strong>Claude Code</strong> (reasoning)"
+            ],
+            [
+              "Decide which refactoring approach",
+              "<strong>Claude Code</strong> (judgment)"
+            ],
+            [
+              "Format code consistently",
+              "<strong>IDE formatter</strong> (deterministic)"
+            ],
+            [
+              "Review code for design issues",
+              "<strong>Claude Code</strong> (understanding)"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "&ldquo;Use workflows when execution paths are known. Use agents when the system must make non-obvious decisions.&rdquo;"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Observability: Seeing What the Agent Did",
+    "body": [
+      {
+        "code": "Run #1234\n  |&mdash; Step 1: Read Calculator.java         (2ms)\n  |&mdash; Step 2: Analyze code structure        (model, 800ms)\n  |&mdash; Step 3: Generate test cases           (model, 1200ms)\n  |&mdash; Step 4: Write CalculatorTest.java     (5ms)\n  |&mdash; Step 5: Run mvn test                  (3400ms) &mdash; SUCCESS\n  Total: 5407ms | 2 model calls | 1800 tokens"
+      },
+      {
+        "quote": "Without traces, agent systems are black boxes. Same as Jenkins (Module 5): you need to see each step, its duration, and its outcome."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The Production Launch Checklist",
+    "desc": "Seven checks every system must pass before production.",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>1. Runtime correctness</strong> &mdash; does the happy path work?",
+          "<strong>2. Safety and policy</strong> &mdash; are guardrails in place?",
+          "<strong>3. Capability readiness</strong> &mdash; does each tool have an owner?",
+          "<strong>4. Observability</strong> &mdash; can you see what happened?",
+          "<strong>5. Eval readiness</strong> &mdash; do tests cover critical scenarios?",
+          "<strong>6. Operational readiness</strong> &mdash; who&rsquo;s on call when it breaks?",
+          "<strong>7. Ownership and rollback</strong> &mdash; can you undo a bad release?"
+        ]
+      },
+      {
+        "quote": "Compare to your capstone project (Module 8): does your project satisfy all 7?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The Agentic Loop: How Agents Actually Work",
+    "desc": "Every AI agent follows the same fundamental loop.",
+    "body": [
+      {
+        "code": "       <span class=\"kw\">User Request</span>\n            |\n            v\n   +--&gt; <span class=\"fn\">LLM Call</span> &lt;--+\n   |        |         |\n   |        v         |\n   |  stop_reason?    |\n   |   /        \\     |\n   | <span class=\"str\">\"tool_use\"</span>  <span class=\"kw\">\"end_turn\"</span>\n   |   |              |\n   |   v              v\n   | <span class=\"fn\">Execute Tool</span>   <span class=\"kw\">Return Response</span>\n   |   |              to User\n   +---+\n\n  The agent loops until it decides it&rsquo;s done.",
+        "note": "This is the loop Claude Code runs every time you give it a task."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "MCP Deep Dive: Connecting AI to Tools",
+    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// .mcp.json &mdash; project-level (shared in Git)</span>\n{\n  <span class=\"str\">\"mcpServers\"</span>: {\n    <span class=\"str\">\"github\"</span>: {\n      <span class=\"str\">\"command\"</span>: <span class=\"str\">\"npx\"</span>,\n      <span class=\"str\">\"args\"</span>: [<span class=\"str\">\"@modelcontextprotocol/server-github\"</span>]\n    }\n  }\n}\n\n<span class=\"cmt\">// ~/.claude.json &mdash; personal (NOT in Git)</span>\n<span class=\"cmt\">// API keys, personal tool connections</span>",
+        "note": "Project tools go in <code>.mcp.json</code> (shared). Personal credentials go in <code>~/.claude.json</code> (private)."
+      },
+      {
+        "card": "MCP golden rule:",
+        "warn": true,
+        "items": [
+          "<strong>4&ndash;5 tools per agent maximum</strong> &mdash; more tools = worse tool selection",
+          "Tool descriptions are critical: include input formats, examples, boundaries",
+          "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Coordinator-Subagent Pattern",
+    "desc": "Hub-and-spoke: one coordinator delegates to specialists.",
+    "body": [
+      {
+        "code": "                  <span class=\"kw\">PROJECT-COORDINATOR</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
+        "note": "cognitive-core implements this: 10 specialist agents, each with scoped tools and instructions."
+      },
+      {
+        "quote": "Context isolation is not a limitation. It prevents information overload and keeps agents focused."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "industry",
+    "title": "The Parsimony Principle",
+    "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">User:</span> I need audit trails for grade changes.\n\n<span class=\"fn\">Simple (parsimony):</span>\n  CRUD operations + append-only audit table.\n  Meets all requirements. Minimal complexity.\n\n<span class=\"str\">Complex (premature):</span>\n  Event Sourcing with temporal queries, replay,\n  projection rebuilds, saga orchestration.\n  Not requested. Not needed. Not now.\n\n<span class=\"kw\">Verdict:</span> Start simple. Migrate to Event Sourcing\n  only if future features require it.",
+        "note": "Anthropic&rsquo;s own guidance: &ldquo;Find the simplest solution possible, and only increase complexity when needed.&rdquo; cognitive-core enforces this in every agent."
+      },
+      {
+        "card": "Parsimony applied everywhere:",
+        "items": [
+          "<strong>Agents</strong>: activate only the specialists a task requires (1-15% of team)",
+          "<strong>Tools</strong>: request only tools a skill cannot function without (4-5 max)",
+          "<strong>Code</strong>: three similar lines > a premature abstraction",
+          "<strong>Exception</strong>: security uses defense-in-depth &mdash; parsimony within layers, not across them"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "cognitive-core: Three Layers of Quality",
+    "desc": "Hooks &rarr; Skills &rarr; Agents: progressive intelligence.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Layer",
+            "Type",
+            "Student Action",
+            "Intelligence"
+          ],
+          "rows": [
+            [
+              "<strong>Hooks</strong>",
+              "Automatic reflexes",
+              "None &mdash; fires after every edit",
+              "Low (pattern matching)"
+            ],
+            [
+              "<strong>Skills</strong>",
+              "Active tools",
+              "Student invokes: <code>/pre-commit</code>",
+              "Medium (structured analysis)"
+            ],
+            [
+              "<strong>Agents</strong>",
+              "Review partners",
+              "Student interacts: <code>@code-standards-reviewer</code>",
+              "High (deep reasoning)"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Your progression through this course:",
+        "items": [
+          "<strong>Session 2:</strong> Manual <code>mvn checkstyle:check</code> (you run it, you read it)",
+          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guardrails)",
+          "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
+          "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Skills: Active Quality Workflow",
+    "desc": "Skills you invoke. You interpret the results. You fix the code.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Skill",
+            "What It Does"
+          ],
+          "rows": [
+            [
+              "<code>/pre-commit</code>",
+              "Structured pass/fail report per file. Fix &rarr; iterate until clean."
+            ],
+            [
+              "<code>/fitness</code>",
+              "Quality score across 4 dimensions: standards, architecture, tests, security. Aim for &ge;90%."
+            ],
+            [
+              "<code>/code-review</code>",
+              "Severity-rated findings: ERROR / WARN / INFO. Provenance per finding."
+            ],
+            [
+              "<code>/test-scaffold</code>",
+              "Generates JUnit 5 test scaffolds with lifecycle annotations."
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "Skills are not magic. They run the same tools you already know &mdash; but with structure and consistency."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Agent Walkthrough: @code-standards-reviewer",
+    "desc": "What a real AI agent review looks like.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Agent definition (YAML frontmatter + markdown)</span>\n---\nname: code-standards-reviewer\nmodel: sonnet\ntools:\n  - Read\n  - Grep\n  - Glob        <span class=\"cmt\"># Read-only tools only!</span>\n---\n\n<span class=\"kw\">For each finding, provide:</span>\n  Severity: ERROR | WARN | INFO\n  File: path:line_number\n  Issue: what is wrong\n  Standard: which rule is violated\n  Provenance: documented | verified | inferred",
+        "note": "The agent does NOT fix your code. You read. You understand. You fix."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "industry",
+    "title": "cognitive-core: /code-review &mdash; Three-Pass Strategy",
+    "desc": "How to review more than 5 files without losing focus.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">Pass 1 &mdash; Per-File Analysis</span>\n  Each file individually: style, logic, security, error handling\n  Output: table (File | Line | Severity | Issue | Fix | <span class=\"fn\">Provenance</span>)\n\n<span class=\"kw\">Pass 2 &mdash; Cross-File Integration</span>\n  Data flow across files, API contract alignment,\n  dependency direction, naming consistency\n\n<span class=\"kw\">Pass 3 &mdash; Consolidated Report</span>\n  Deduplicate (same pattern, 5 files &rarr; 1 finding)\n  Prioritize: <span class=\"str\">ERROR</span> &rarr; <span class=\"fn\">WARN</span> &rarr; INFO\n  Group by theme, not by file",
+        "note": "Single-pass reviews of large changesets miss cross-file issues. The three-pass strategy is how cognitive-core&rsquo;s <code>@code-standards-reviewer</code> agent works internally."
+      },
+      {
+        "quote": "Never single-pass a large review. It causes attention dilution &mdash; the same lost-in-the-middle effect you learned about in context management."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Fitness Gates: Deterministic vs. Probabilistic",
+    "desc": "Two fundamentally different enforcement models.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">Probabilistic</span> (prompt-based):\n  CLAUDE.md: <span class=\"str\">\"Never use System.out.println()\"</span>\n  Reality: AI <span class=\"str\">might</span> follow this. Or might not.\n\n<span class=\"kw\">Deterministic</span> (hook/gate-based):\n  post-edit-lint.sh: <span class=\"fn\">runs mvn checkstyle:check</span>\n  Reality: violation is <span class=\"fn\">always</span> caught. Cannot be bypassed.",
+        "note": "Production systems use both: prompts for guidance, gates for enforcement."
+      },
+      {
+        "card": "Graduated fitness gates (cognitive-core):",
+        "items": [
+          "<strong>Lint gate:</strong> 60% &mdash; basic formatting",
+          "<strong>Commit gate:</strong> 80% &mdash; standards + architecture",
+          "<strong>Test gate:</strong> 85% &mdash; coverage + quality",
+          "<strong>Merge gate:</strong> 90% &mdash; full review",
+          "<strong>Deploy gate:</strong> 95% &mdash; production readiness"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "industry",
+    "title": "Provenance: Where Did This Come From?",
+    "desc": "Every recommendation needs a source. Trust requires traceability.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Provenance Type",
+            "Meaning",
+            "Trust Level"
+          ],
+          "rows": [
+            [
+              "<strong>documented</strong>",
+              "Found in official docs, RFCs, standards",
+              "Highest"
+            ],
+            [
+              "<strong>verified</strong>",
+              "Confirmed in actual code or tests",
+              "High"
+            ],
+            [
+              "<strong>inferred</strong>",
+              "Pattern-based reasoning",
+              "Medium"
+            ],
+            [
+              "<strong>automated</strong>",
+              "Tool output (CheckStyle, PMD)",
+              "Deterministic"
+            ]
+          ],
+          "note": "W3C PROV vocabulary: wasAttributedTo, wasDerivedFrom, wasInformedBy, wasGeneratedBy"
+        }
+      },
+      {
+        "quote": "&ldquo;The AI said so&rdquo; is not provenance. &ldquo;Google Java Style Guide, section 4.1.2&rdquo; is provenance."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "exercise",
+    "title": "Exercise 7.4: Agent Review Comparison",
+    "desc": "20 minutes",
+    "body": [
+      {
+        "card": "Compare all four quality layers on your project:",
+        "items": [
+          "<strong>Layer 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
+          "<strong>Layer 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
+          "<strong>Layer 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
+          "<strong>Layer 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
+        ]
+      },
+      {
+        "quote": "Each layer adds intelligence. None replaces your judgment."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "exercise",
+    "title": "Exercise 7.1: Map the Architecture",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> Add a sqrt() method to Calculator with tests"
+      },
+      {
+        "card": "Map each step to the architecture:",
+        "items": [
+          "Which layer receives your input? (Interface)",
+          "Which layer decides what to do? (Cognition/orchestration)",
+          "Which layer reads Calculator.java? (Tool execution)",
+          "Which layer checks if it can write files? (Control plane)",
+          "Which layer writes the new code? (Tool execution)",
+          "Which layer runs the tests? (Tool execution)",
+          "Which layer shows you the result? (Interface)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "exercise",
+    "title": "Exercise 7.2: Design a Policy",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "code": "bank_agent_policy:\n  tools:\n    read_account_balance:\n      risk: ???\n      approval: ???\n    send_notification_email:\n      risk: ???\n      approval: ???\n    transfer_money:\n      risk: ???\n      approval: ???\n    generate_monthly_report:\n      risk: ???\n      approval: ???\n  runtime:\n    max_steps: ???\n  memory:\n    allowed_kinds: ???\n    deny_sources: ???"
+      },
+      {
+        "quote": "Fill in the risk levels, approval requirements, and runtime limits. Compare with a classmate."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "exercise",
+    "title": "Exercise 7.3: Launch Checklist for Your Project",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Block",
+            "Status",
+            "Evidence"
+          ],
+          "rows": [
+            [
+              "Runtime correctness",
+              "?",
+              "<code>mvn test</code> passes?"
+            ],
+            [
+              "Safety and policy",
+              "?",
+              ".gitignore? No secrets?"
+            ],
+            [
+              "Capability readiness",
+              "?",
+              "All Maven plugins configured?"
+            ],
+            [
+              "Observability",
+              "?",
+              "Jenkinsfile with traced stages?"
+            ],
+            [
+              "Eval readiness",
+              "?",
+              "JUnit coverage 70%+?"
+            ],
+            [
+              "Operational readiness",
+              "?",
+              "Can you debug a failure?"
+            ],
+            [
+              "Rollback plan",
+              "?",
+              "Can you <code>git revert</code>?"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "How many blocks can you honestly mark as &ldquo;ready&rdquo;?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 7: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "You&rsquo;ve been learning production architecture patterns since Module 0",
+          "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
+          "<strong>Control plane</strong> = policies that restrict agent actions",
+          "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
+          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning)",
+          "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
+          "<strong>Provenance</strong>: every finding needs a source (documented / verified / inferred / automated)",
+          "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"
+        ]
+      }
+    ]
+  }
+]

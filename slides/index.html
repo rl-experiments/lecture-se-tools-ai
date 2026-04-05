@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Java Development: SE Tools &amp; AI-Assisted Engineering</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<div class="zone zone-l" onclick="prev()"></div>
+<div class="zone zone-r" onclick="next()"></div>
+<div id="slides-container"></div>
+<div id="nav">
+  <span class="nav-hint">Arrow keys &middot; Space &middot; Click counter to jump</span>
+  <button class="btn-ghost" onclick="go(1)" title="Table of Contents">TOC</button>
+  <button class="btn" id="bp" onclick="prev()">&larr; Prev</button>
+  <span id="counter" onclick="jumpPrompt()" style="cursor:pointer" title="Click to jump to slide">Loading&hellip;</span>
+  <button class="btn" id="bn" onclick="next()">Next &rarr;</button>
+  <span class="nav-fs"><button class="btn-ghost" onclick="fs()">Fullscreen</button></span>
+</div>
+<script src="js/slides.js"></script>
+</body>
+</html>

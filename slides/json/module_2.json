@@ -1,0 +1,468 @@
+[
+  {
+    "type": "cover",
+    "bg": 7,
+    "h1": "Module 2",
+    "lead": "Build Management with Maven + Claude Code",
+    "sub": "One config file to rule them all",
+    "badges": [
+      "pom.xml",
+      "mvn compile",
+      "dependencies",
+      "lifecycle",
+      "*Claude Code"
+    ],
+    "contents": "<span onclick=\"event.stopPropagation();go(44)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Build Management</span>\n<span onclick=\"event.stopPropagation();go(45)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Maven?</span>\n<span onclick=\"event.stopPropagation();go(46)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Project Structure</span>\n<span onclick=\"event.stopPropagation();go(47)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The pom.xml: Heart of Every Maven Project</span>\n<span onclick=\"event.stopPropagation();go(48)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">pom.xml as a Capability Contract</span>\n<span onclick=\"event.stopPropagation();go(49)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Lifecycle</span>\n<span onclick=\"event.stopPropagation();go(50)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Build Lifecycle: What Actually Matters</span>\n<span onclick=\"event.stopPropagation();go(51)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Plugins: Who Does the Actual Work</span>\n<span onclick=\"event.stopPropagation();go(52)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependencies: Maven Downloads Libraries for You</span>\n<span onclick=\"event.stopPropagation();go(53)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependency Version Conflicts</span>\n<span onclick=\"event.stopPropagation();go(54)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Explains Maven Errors</span>\n<span onclick=\"event.stopPropagation();go(55)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code Manages Dependencies</span>\n<span onclick=\"event.stopPropagation();go(56)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Read Tools vs. Write Tools</span>\n<span onclick=\"event.stopPropagation();go(57)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.1: Maven from Scratch</span>\n<span onclick=\"event.stopPropagation();go(58)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.2: Dependency Management with AI</span>\n<span onclick=\"event.stopPropagation();go(59)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.3: Classify Your Tools</span>\n<span onclick=\"event.stopPropagation();go(60)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 2: Key Takeaways</span>"
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "The Problem Without Build Management",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># One file? Easy.</span>\njavac Calculator.java\n\n<span class=\"cmt\"># 200 files + 30 libraries?</span>\njavac -cp lib/gson-2.10.jar:lib/junit-5.9.jar:lib/mockito-4.11.jar:\n  lib/... src/main/java/com/example/*.java"
+      },
+      {
+        "card": "Real problems:",
+        "items": [
+          "Classpath management becomes impossible",
+          "Library versions conflict",
+          "&ldquo;Works on my machine, not on yours&rdquo;",
+          "No standard way to run tests, package JARs, generate docs"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "What Is Maven?",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Problem",
+            "Without Maven",
+            "With Maven"
+          ],
+          "rows": [
+            [
+              "Compile 200 files",
+              "Write a shell script per OS",
+              "<code>mvn compile</code>"
+            ],
+            [
+              "Need a JSON library",
+              "Download .jar, put it... somewhere?",
+              "Add 3 lines to <code>pom.xml</code>"
+            ],
+            [
+              "New team member",
+              "\"Ask Sarah for the setup doc\"",
+              "<code>git clone</code> + <code>mvn install</code>"
+            ],
+            [
+              "Run tests before release",
+              "\"Did everyone run their tests?\"",
+              "<code>mvn test</code> (automatic, every build)"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Maven = two things in one:",
+        "items": [
+          "<strong>Build management</strong>: compile, test, package &mdash; one command, any machine",
+          "<strong>Dependency management</strong>: declare what you need, Maven downloads it from Maven Central",
+          "<strong>Convention over configuration</strong>: standard directory layout means zero setup"
+        ]
+      }
+    ],
+    "desc": "The tool that answers: how do I build this project on any machine?"
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Maven Project Structure",
+    "body": [
+      {
+        "code": "my-project/\n  pom.xml                          &larr; project configuration\n  src/\n    main/\n      java/\n        com/example/\n          Calculator.java          &larr; production code\n      resources/\n        application.properties     &larr; config files\n    test/\n      java/\n        com/example/\n          CalculatorTest.java      &larr; test code\n  target/                          &larr; build output (<span class=\"kw\">NEVER</span> commit!)",
+        "note": "This structure is a convention. Maven expects it. Don&rsquo;t fight it."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "The pom.xml: Heart of Every Maven Project",
+    "body": [
+      {
+        "code": "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\n&lt;project&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;com.example&lt;/groupId&gt;       <span class=\"cmt\">&lt;!-- your organization --&gt;</span>\n    &lt;artifactId&gt;calculator&lt;/artifactId&gt;   <span class=\"cmt\">&lt;!-- project name --&gt;</span>\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;       <span class=\"cmt\">&lt;!-- current version --&gt;</span>\n\n    &lt;dependencies&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;\n            &lt;version&gt;5.10.2&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n&lt;/project&gt;"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "industry",
+    "title": "pom.xml as a Capability Contract",
+    "desc": "Your pom.xml follows the same pattern used in production AI tool catalogs.",
+    "body": [
+      {
+        "card": "Your pom.xml is a contract that declares:",
+        "items": [
+          "What this project <strong>is</strong> (identity)",
+          "What it <strong>depends on</strong> (capabilities)",
+          "How to <strong>build</strong> it (lifecycle)",
+          "What <strong>plugins</strong> it uses (tools)"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 8</span>\ntools:\n  create_ticket:\n    description: <span class=\"str\">\"Create a support ticket\"</span>\n    kind: <span class=\"str\">\"write\"</span>\n    risk: <span class=\"str\">\"medium\"</span>\n    timeout_seconds: 15\n    input_schema:\n      required: [<span class=\"str\">\"title\"</span>, <span class=\"str\">\"queue\"</span>, <span class=\"str\">\"requester_id\"</span>]",
+        "note": "Same pattern: a formal description of what a tool does, what it needs, and what it produces."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "demo",
+    "title": "Maven Lifecycle",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn clean</span>        <span class=\"cmt\"># Delete all build output</span>\n<span class=\"kw\">mvn compile</span>      <span class=\"cmt\"># Compile source code</span>\n<span class=\"kw\">mvn test</span>         <span class=\"cmt\"># Run tests</span>\n<span class=\"kw\">mvn package</span>      <span class=\"cmt\"># Package into JAR file</span>\n<span class=\"kw\">mvn clean package</span>  <span class=\"cmt\"># Do everything</span>",
+        "note": "Lifecycle phases run in order: validate &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy. Running mvn test automatically compiles first."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Maven Build Lifecycle: What Actually Matters",
+    "desc": "Maven has 23 phases. You need to know 6.",
+    "body": [
+      {
+        "code": " <span class=\"kw\">validate</span>    Is the project structure correct?\n      |\n      v\n <span class=\"kw\">compile</span>     Compile src/main/java &rarr; target/classes\n      |\n      v\n <span class=\"kw\">test</span>        Run JUnit tests (fails &rarr; build stops)\n      |\n      v\n <span class=\"kw\">package</span>     Create .jar or .war in target/\n      |\n      v\n <span class=\"kw\">install</span>     Copy .jar to local ~/.m2/ repository\n      |\n      v\n <span class=\"kw\">deploy</span>      Upload to remote repository (Nexus)\n\n <span class=\"cmt\">Each phase runs ALL phases before it.</span>\n <span class=\"cmt\">mvn package = validate + compile + test + package</span>",
+        "note": "The other 17 phases (initialize, process-resources, etc.) run automatically when plugins need them. You don&rsquo;t call them directly."
+      },
+      {
+        "card": "The commands you will actually use:",
+        "items": [
+          "<code>mvn compile</code> &mdash; does it build?",
+          "<code>mvn test</code> &mdash; do tests pass?",
+          "<code>mvn package</code> &mdash; create the deliverable",
+          "<code>mvn clean package</code> &mdash; fresh build from scratch",
+          "<code>mvn clean install</code> &mdash; build + put in local repo"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Maven Plugins: Who Does the Actual Work",
+    "desc": "Maven itself is just a framework. Plugins execute each lifecycle phase.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Phase",
+            "Plugin",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "compile",
+              "<code>maven-compiler-plugin</code>",
+              "Calls javac with correct classpath and Java version"
+            ],
+            [
+              "test",
+              "<code>maven-surefire-plugin</code>",
+              "Finds and runs *Test.java classes with JUnit"
+            ],
+            [
+              "package",
+              "<code>maven-jar-plugin</code>",
+              "Assembles .class files into a JAR archive"
+            ],
+            [
+              "checkstyle",
+              "<code>maven-checkstyle-plugin</code>",
+              "Runs Google style checks (Module 3)"
+            ],
+            [
+              "pmd",
+              "<code>maven-pmd-plugin</code>",
+              "Static analysis for bad patterns (Module 3)"
+            ],
+            [
+              "spotbugs",
+              "<code>spotbugs-maven-plugin</code>",
+              "Bytecode analysis for real bugs (Module 3)"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "You configure plugins in pom.xml. Maven calls them at the right lifecycle phase. You never run plugins manually."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Dependencies: Maven Downloads Libraries for You",
+    "body": [
+      {
+        "code": "&lt;dependencies&gt;\n    &lt;dependency&gt;\n        &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;\n        &lt;artifactId&gt;gson&lt;/artifactId&gt;\n        &lt;version&gt;2.10.1&lt;/version&gt;\n    &lt;/dependency&gt;\n&lt;/dependencies&gt;"
+      },
+      {
+        "card": "When you run <code>mvn compile</code>:",
+        "items": [
+          "Maven reads pom.xml",
+          "Checks local cache (<code>~/.m2/repository/</code>)",
+          "Downloads missing JARs from Maven Central",
+          "Adds them to classpath automatically"
+        ]
+      },
+      {
+        "quote": "You never download JARs manually."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "mistake",
+    "title": "Dependency Version Conflicts",
+    "body": [
+      {
+        "code": "ERROR: class found in two modules: \n  gson-2.8.9.jar and gson-2.10.1.jar"
+      },
+      {
+        "card": "",
+        "items": [
+          "Library A needs Gson 2.8, Library B needs Gson 2.10. Both on your classpath."
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\"># Your best friend for debugging:</span>\n<span class=\"kw\">mvn dependency:tree</span>",
+        "note": "This is Maven&rsquo;s hardest problem &mdash; and where AI helps most."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "AI-Augmented: Claude Code Explains Maven Errors",
+    "body": [
+      {
+        "code": "<span class=\"str\">[ERROR]</span> Failed to execute goal\n  org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile\n  on project calculator: Compilation failure:\n  [ERROR] /src/main/java/Calculator.java:[15,32]\n  incompatible types: possible lossy conversion from double to int",
+        "note": "Maven errors are verbose. The actual problem is on the last line."
+      },
+      {
+        "code": "<span class=\"str\">You:</span> My Maven build fails. Here is the error. [paste above]\n\n<span class=\"fn\">Claude Code:</span> Line 15 of Calculator.java assigns a <span class=\"kw\">double</span>\n  to an <span class=\"kw\">int</span> variable. Java won&rsquo;t do this automatically\n  because you&rsquo;d lose the decimal part.\n\n  <span class=\"cmt\">Fix: change the variable type from int to double,</span>\n  <span class=\"cmt\">or cast explicitly: (int) result</span>",
+        "note": "Give AI the exact error message. Don&rsquo;t say &ldquo;my build fails&rdquo; &mdash; that&rsquo;s asking it to guess. Paste the error &mdash; that&rsquo;s grounding it in facts."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "demo",
+    "title": "Claude Code Manages Dependencies",
+    "body": [
+      {
+        "code": "<span class=\"str\">You:</span> I need to parse JSON files in my Calculator project.\n     What library should I use?\n\n<span class=\"fn\">Claude Code:</span> For a simple project, use <span class=\"kw\">Gson</span> (Google).\n  It&rsquo;s lightweight, has no transitive dependencies,\n  and is the most common choice for small Java projects.\n\n  I&rsquo;ll add it to your pom.xml:\n\n  <span class=\"kw\">&lt;dependency&gt;</span>\n    &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;\n    &lt;artifactId&gt;gson&lt;/artifactId&gt;\n    &lt;version&gt;<span class=\"fn\">2.11.0</span>&lt;/version&gt;\n  <span class=\"kw\">&lt;/dependency&gt;</span>\n\n  <span class=\"cmt\">Verify: mvn dependency:tree | grep gson</span>",
+        "note": "Always verify the version Claude Code suggests. Check <a href=\"https://search.maven.org\" target=\"_blank\">search.maven.org</a> &mdash; AI may suggest outdated versions."
+      },
+      {
+        "quote": "Trust but verify. AI picks reasonable defaults &mdash; but &ldquo;reasonable&rdquo; is not the same as &ldquo;current.&rdquo;"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "industry",
+    "title": "Read Tools vs. Write Tools",
+    "desc": "Classifying operations by risk level &mdash; a universal engineering pattern.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Command",
+            "Type",
+            "Risk"
+          ],
+          "rows": [
+            [
+              "<code>mvn dependency:tree</code>",
+              "Read",
+              "None &mdash; just shows info"
+            ],
+            [
+              "<code>mvn compile</code>",
+              "Write",
+              "Creates files in target/"
+            ],
+            [
+              "<code>mvn clean</code>",
+              "Write",
+              "Deletes target/ directory"
+            ],
+            [
+              "<code>mvn deploy</code>",
+              "Write",
+              "Publishes artifact externally"
+            ]
+          ]
+        }
+      },
+      {
+        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 8</span>\ntools:\n  read_kb:\n    kind: <span class=\"str\">\"read\"</span>\n    approval: none        <span class=\"cmt\"># safe, auto-approve</span>\n  create_ticket:\n    kind: <span class=\"str\">\"write\"</span>\n    approval: manager     <span class=\"cmt\"># needs human approval</span>\n  prod_db_write:\n    kind: <span class=\"str\">\"write\"</span>\n    approval: security_and_owner  <span class=\"cmt\"># high risk!</span>",
+        "note": "Same principle: read operations are safe; write operations need caution."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "industry",
+    "title": "cognitive-core: Tool Risk Classification",
+    "desc": "How production AI systems classify tool risk &mdash; same pattern as your Maven commands.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; tool risk policy</span>\n\ntools:\n  <span class=\"fn\">read_file</span>:\n    risk: low\n    approval: <span class=\"kw\">automatic</span>       <span class=\"cmt\"># like: mvn dependency:tree</span>\n  <span class=\"fn\">write_file</span>:\n    risk: medium\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: mvn deploy</span>\n  <span class=\"fn\">execute_bash</span>:\n    risk: high\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: rm -rf target/</span>\n  <span class=\"fn\">delete_database</span>:\n    risk: critical\n    approval: <span class=\"kw\">admin_required</span>  <span class=\"cmt\"># like: DROP TABLE</span>",
+        "note": "You classified Maven commands as read vs. write in Exercise 2.3. Production systems do exactly this &mdash; with automatic enforcement."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "exercise",
+    "title": "Exercise 2.1: Maven from Scratch",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Create a new empty directory",
+          "Create the Maven directory structure <strong>by hand</strong> (no Claude Code!)",
+          "Write a minimal <code>pom.xml</code> by hand",
+          "Create a simple <code>App.java</code> in the correct directory",
+          "Run <code>mvn compile</code> &mdash; does it work?",
+          "If it fails, fix it <strong>yourself first</strong>, then use Claude Code to explain the error"
+        ]
+      },
+      {
+        "quote": "Goal: Understand the structure before letting AI generate it."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "exercise",
+    "title": "Exercise 2.2: Dependency Management with AI",
+    "desc": "15 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Your Calculator needs to read math expressions from a JSON file",
+          "Ask Claude Code: &ldquo;Add a JSON parsing library to my Maven project&rdquo;",
+          "<strong>Verify</strong> the version is current (check mvnrepository.com)",
+          "Create a class that reads <code>{\"operation\": \"add\", \"a\": 5, \"b\": 3}</code>",
+          "Run <code>mvn compile</code> &mdash; does it resolve?",
+          "Run <code>mvn dependency:tree</code> &mdash; how many total dependencies?"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "exercise",
+    "title": "Exercise 2.3: Classify Your Tools",
+    "desc": "10 minutes",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Command",
+            "Read or Write?",
+            "Why?"
+          ],
+          "rows": [
+            [
+              "<code>mvn compile</code>",
+              "?",
+              "?"
+            ],
+            [
+              "<code>mvn test</code>",
+              "?",
+              "?"
+            ],
+            [
+              "<code>mvn dependency:tree</code>",
+              "?",
+              "?"
+            ],
+            [
+              "<code>mvn clean</code>",
+              "?",
+              "?"
+            ],
+            [
+              "<code>mvn package</code>",
+              "?",
+              "?"
+            ],
+            [
+              "<code>mvn deploy</code>",
+              "?",
+              "?"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "Discussion: Which commands would you auto-approve? Which need caution?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 2: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "Maven = <strong>build management</strong> + <strong>dependency management</strong>",
+          "Standard structure: <code>src/main/java</code>, <code>src/test/java</code>, <code>pom.xml</code>",
+          "Lifecycle: clean &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy",
+          "Dependencies are downloaded automatically from Maven Central",
+          "<strong>Never</strong> commit <code>target/</code> to Git",
+          "Claude Code augments Maven: explains errors, manages dependencies, fixes pom.xml",
+          "<strong>Industry:</strong> pom.xml = capability contract; Maven commands = read/write tools with risk levels",
+          "<strong>Always verify</strong> AI-suggested dependency versions"
+        ]
+      }
+    ]
+  }
+]

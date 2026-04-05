@@ -1,0 +1,510 @@
+[
+  {
+    "type": "cover",
+    "bg": 7,
+    "h1": "Module 9",
+    "lead": "Putting It All Together — Capstone Project",
+    "sub": "Build a complete Java application using every tool",
+    "badges": [
+      "Full Pipeline",
+      "Git",
+      "Maven",
+      "JUnit",
+      "Jenkins",
+      "*Claude Code"
+    ],
+    "contents": "<span onclick=\"event.stopPropagation();go(182)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Capstone Project</span>\n<span onclick=\"event.stopPropagation();go(183)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Requirements Checklist</span>\n<span onclick=\"event.stopPropagation();go(184)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI Usage Rules</span>\n<span onclick=\"event.stopPropagation();go(185)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Architecture Checklist (Bonus)</span>\n<span onclick=\"event.stopPropagation();go(186)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Timeline</span>\n<span onclick=\"event.stopPropagation();go(187)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.1: Project Setup</span>\n<span onclick=\"event.stopPropagation();go(188)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.2: Implementation + Tests</span>\n<span onclick=\"event.stopPropagation();go(189)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.3: Quality + Pipeline</span>\n<span onclick=\"event.stopPropagation();go(190)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus Criteria</span>\n<span onclick=\"event.stopPropagation();go(191)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus: What We Look For</span>\n<span onclick=\"event.stopPropagation();go(192)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Evaluation Criteria</span>"
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "The Capstone Project",
+    "desc": "Build a complete Java application using every tool from this course",
+    "body": [
+      {
+        "card": "Project: A command-line Student Grade Manager",
+        "items": [
+          "Add students and their grades",
+          "Calculate averages, min, max",
+          "Save/load data from JSON files",
+          "Input validation and error handling"
+        ]
+      },
+      {
+        "quote": "AI-augmented throughout with Claude Code as your co-pilot."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "Requirements Checklist",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Requirement",
+            "Tool",
+            "Module"
+          ],
+          "rows": [
+            [
+              "Code in Git with meaningful commits",
+              "Git",
+              "1"
+            ],
+            [
+              "Feature branch workflow",
+              "Git",
+              "1"
+            ],
+            [
+              "Maven build with proper pom.xml",
+              "Maven",
+              "2"
+            ],
+            [
+              "External library for JSON",
+              "Maven",
+              "2"
+            ],
+            [
+              "Zero CheckStyle critical violations",
+              "CheckStyle",
+              "3"
+            ],
+            [
+              "Zero PMD critical violations",
+              "PMD",
+              "3"
+            ],
+            [
+              "SpotBugs clean",
+              "SpotBugs",
+              "3"
+            ],
+            [
+              "JUnit tests with 70%+ coverage",
+              "JUnit",
+              "4"
+            ],
+            [
+              "At least one Mockito mock",
+              "Mockito",
+              "4"
+            ],
+            [
+              "Jenkinsfile with build/test/quality stages",
+              "Jenkins",
+              "5"
+            ],
+            [
+              "No secrets in repository",
+              "Security",
+              "6"
+            ],
+            [
+              ".gitignore properly configured",
+              "Git + Security",
+              "1, 6"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "AI Usage Rules",
+    "body": [
+      {
+        "card": "You MAY use Claude Code for:",
+        "items": [
+          "Generating boilerplate (pom.xml, project structure)",
+          "Writing commit messages",
+          "Generating test cases (but review them!)",
+          "Debugging build and pipeline errors",
+          "Code review before committing"
+        ]
+      },
+      {
+        "card": "You MUST do yourself:",
+        "warn": true,
+        "items": [
+          "Design decisions (class structure, method signatures)",
+          "Explain every line of code in your project",
+          "Fix at least 3 quality violations by hand",
+          "Write at least 3 test cases by hand"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "cognitive-core Student Lab Pack",
+    "desc": "Your minimal configuration for the capstone project.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf (Student Lab Pack)</span>\n\nCC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
+        "note": "Lower thresholds than production (50-85% vs. 60-95%). You are learning &mdash; the gates should challenge you, not block you."
+      },
+      {
+        "table": {
+          "headers": [
+            "Component",
+            "Student Pack",
+            "Full Framework"
+          ],
+          "rows": [
+            [
+              "Hooks",
+              "4 (validate-bash, post-edit-lint, setup-env, compact-reminder)",
+              "9"
+            ],
+            [
+              "Skills",
+              "7 (/pre-commit, /fitness, /code-review, /test-scaffold, /security-baseline, /smoke-test, /project-board)",
+              "20+"
+            ],
+            [
+              "Agents",
+              "2 (@project-coordinator, @code-standards-reviewer)",
+              "10"
+            ],
+            [
+              "Fitness gates",
+              "50/70/75/80/85",
+              "60/80/85/90/95"
+            ]
+          ],
+          "note": "You use 9% of the framework. The rest is for enterprise teams with 20+ developers."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "exercise",
+    "title": "Exercise 9.0: Configure cognitive-core for Your Project",
+    "desc": "10 minutes (before starting capstone implementation)",
+    "body": [
+      {
+        "card": "Setup:",
+        "items": [
+          "Copy <code>cognitive-core.conf</code> template to your project root",
+          "Set: <code>CC_PROJECT_NAME=\"student-grade-manager\"</code>",
+          "Set: <code>CC_LANGUAGE=\"java\"</code>",
+          "Set: <code>CC_LINT_COMMAND=\"mvn checkstyle:check pmd:check\"</code>",
+          "Set: <code>CC_TEST_COMMAND=\"mvn test\"</code>",
+          "Run: <code>bash install.sh</code> — verify hooks and skills are installed"
+        ]
+      },
+      {
+        "card": "Verify it works:",
+        "items": [
+          "<code>/fitness</code> — should show a score (even if low, that’s OK)",
+          "Edit a file — <code>post-edit-lint</code> should fire",
+          "<code>/pre-commit</code> before your first commit — fix any violations"
+        ]
+      },
+      {
+        "quote": "From now on, every commit goes through /pre-commit. Every merge checks /fitness. This is how professionals work."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "Architecture Checklist (Bonus)",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Pattern",
+            "Your Project",
+            "Evidence"
+          ],
+          "rows": [
+            [
+              "<strong>Audit trail</strong>",
+              "Git log tells a clear story",
+              "<code>git log --oneline</code>"
+            ],
+            [
+              "<strong>Capability contracts</strong>",
+              "pom.xml is correct and complete",
+              "<code>mvn dependency:tree</code>"
+            ],
+            [
+              "<strong>Regression gates</strong>",
+              "Quality tools block bad code",
+              "<code>mvn checkstyle:check</code>"
+            ],
+            [
+              "<strong>Eval dataset</strong>",
+              "Tests cover edge cases",
+              "<code>jacoco:report</code>"
+            ],
+            [
+              "<strong>Traces with spans</strong>",
+              "Pipeline shows each stage",
+              "Jenkinsfile"
+            ],
+            [
+              "<strong>Trust boundary</strong>",
+              "No secrets in repo",
+              "<code>.gitignore</code>, <code>git log</code>"
+            ],
+            [
+              "<strong>Launch readiness</strong>",
+              "All 7 blocks checked",
+              "Module 7 checklist"
+            ]
+          ],
+          "note": "Bonus points for students who complete this architecture evaluation."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "Timeline",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Phase",
+            "Duration",
+            "Focus"
+          ],
+          "rows": [
+            [
+              "1. Setup",
+              "30 min",
+              "Git init, Maven project, pom.xml"
+            ],
+            [
+              "2. Core implementation",
+              "60 min",
+              "Student/Grade classes, file I/O"
+            ],
+            [
+              "3. Testing",
+              "45 min",
+              "JUnit tests, edge cases, Mockito"
+            ],
+            [
+              "4. Quality",
+              "30 min",
+              "PMD/CheckStyle/SpotBugs, fix violations"
+            ],
+            [
+              "5. Pipeline",
+              "30 min",
+              "Jenkinsfile"
+            ],
+            [
+              "6. Polish",
+              "15 min",
+              "Review git log, final checks"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "exercise",
+    "title": "Exercise 8.1: Project Setup",
+    "desc": "30 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Create Git repo: <code>student-grade-manager</code>",
+          "Use Claude Code to scaffold Maven project",
+          "Add dependencies: Gson, JUnit 5, Mockito",
+          "Create initial classes: <code>Student</code>, <code>Grade</code>, <code>GradeManager</code>",
+          "First commit on <code>main</code>: &ldquo;Initial project structure&rdquo;",
+          "Create branch: <code>feature/core-logic</code>",
+          "<strong>Verify:</strong> <code>mvn compile</code> works"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "exercise",
+    "title": "Exercise 8.2: Implementation + Tests",
+    "desc": "60 minutes",
+    "body": [
+      {
+        "card": "On feature branch:",
+        "items": [
+          "Implement <code>Student</code> (name, ID, list of grades)",
+          "Implement <code>GradeManager</code> (add student, add grade, calculate average, save/load JSON)",
+          "Write JUnit tests &mdash; use Claude Code + write some by hand",
+          "Use TDD for at least one method",
+          "Regular commits with meaningful messages",
+          "<strong>Verify:</strong> <code>mvn test</code> all green"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "exercise",
+    "title": "Exercise 8.3: Quality + Pipeline",
+    "desc": "45 minutes",
+    "body": [
+      {
+        "card": "Task:",
+        "items": [
+          "Merge feature branch to main",
+          "Run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
+          "Fix all violations (AI help OK, but understand each fix)",
+          "Add JaCoCo &mdash; target 70%+ coverage",
+          "Write Jenkinsfile with stages: Build, Test, Quality, Package",
+          "Final commit: &ldquo;Add CI pipeline and quality gates&rdquo;",
+          "<strong>Verify:</strong> <code>mvn clean package</code> succeeds with zero warnings"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "LLM Bonus Criteria",
+    "desc": "Additional points for professional AI-assisted development practices.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Bonus Criterion",
+            "Points",
+            "Evidence Required"
+          ],
+          "rows": [
+            [
+              "<code>CLAUDE.md</code> + <code>.claude/rules/</code> configured",
+              "+0.3",
+              "Meaningful content in repository (not empty templates)"
+            ],
+            [
+              "Custom slash command or skill",
+              "+0.3",
+              "Working <code>.claude/commands/</code> file that does something useful"
+            ],
+            [
+              "cognitive-core fitness &ge; 90%",
+              "+0.3",
+              "Screenshot of <code>/fitness</code> output showing score"
+            ],
+            [
+              "Meaningful LLM usage in commits",
+              "+0.3",
+              "Commit history shows iterative refinement, not vibe-coded dumps"
+            ]
+          ],
+          "note": "Maximum LLM bonus: +1.2 grade points. Combined with architecture bonus (+0.5): up to +1.7 total."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "LLM Bonus: What We Look For",
+    "body": [
+      {
+        "card": "Good signs (iterative, professional):",
+        "items": [
+          "Commits show back-and-forth: generate &rarr; review &rarr; fix &rarr; commit",
+          "CLAUDE.md evolves over the project (not written once and forgotten)",
+          "<code>/fitness</code> score improves across commits",
+          "Student can explain <strong>why</strong> they accepted or rejected AI suggestions"
+        ]
+      },
+      {
+        "card": "Red flags (vibe coding):",
+        "warn": true,
+        "items": [
+          "One giant commit with AI-generated everything",
+          "CLAUDE.md is a copy-paste template with no project-specific content",
+          "Student cannot explain code they committed",
+          "No evidence of quality tool usage between AI generations"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "Evaluation Criteria",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Criteria",
+            "Points",
+            "What we check"
+          ],
+          "rows": [
+            [
+              "Git workflow",
+              "20%",
+              "Clean history, branches, meaningful commits"
+            ],
+            [
+              "Maven build",
+              "15%",
+              "pom.xml correct, dependencies resolve, builds clean"
+            ],
+            [
+              "Code quality",
+              "15%",
+              "Zero critical violations (all three tools)"
+            ],
+            [
+              "Test quality",
+              "20%",
+              "Coverage 70%+, edge cases, meaningful assertions"
+            ],
+            [
+              "CI pipeline",
+              "15%",
+              "Jenkinsfile works, all stages present"
+            ],
+            [
+              "Security",
+              "10%",
+              ".gitignore, no secrets, AI output reviewed"
+            ],
+            [
+              "<strong>Bonus</strong>",
+              "+5%",
+              "Architecture checklist completed with evidence"
+            ]
+          ]
+        }
+      }
+    ]
+  }
+]

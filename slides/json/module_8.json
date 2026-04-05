@@ -1,0 +1,300 @@
+[
+  {
+    "type": "cover",
+    "bg": 7,
+    "h1": "Module 8",
+    "lead": "Prompt Engineering & Context Management",
+    "sub": "How to communicate effectively with AI and manage its limitations",
+    "badges": [
+      "Prompt Engineering",
+      "Few-Shot",
+      "Context Windows",
+      "Lost-in-the-Middle",
+      "Human-in-the-Loop"
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Prompt Engineering for Developers",
+    "desc": "The most transferable daily skill in AI-assisted development.",
+    "body": [
+      {
+        "card": "Four techniques that matter most:",
+        "items": [
+          "<strong>1. Explicit criteria</strong> &gt; vague instructions",
+          "<strong>2. Few-shot examples</strong> &mdash; the single most powerful technique",
+          "<strong>3. Structured output</strong> &mdash; JSON schemas for guaranteed format",
+          "<strong>4. The interview pattern</strong> &mdash; let AI ask before implementing"
+        ]
+      },
+      {
+        "quote": "Good prompts are not about being polite or verbose. They are about removing ambiguity."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Explicit Criteria Beat Vague Instructions",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// BAD: vague</span>\n<span class=\"str\">\"Check that the comments are accurate.\"</span>\n\n<span class=\"cmt\">// GOOD: explicit criteria</span>\n<span class=\"str\">\"Flag comments ONLY when the claimed behavior</span>\n<span class=\"str\"> contradicts the actual code behavior.</span>\n<span class=\"str\"> Ignore style preferences and subjective opinions.\"</span>\n\n<span class=\"cmt\">// BAD: vague</span>\n<span class=\"str\">\"Write good tests.\"</span>\n\n<span class=\"cmt\">// GOOD: explicit criteria</span>\n<span class=\"str\">\"Write JUnit 5 tests using AAA pattern.</span>\n<span class=\"str\"> Cover: happy path, null input, boundary values.</span>\n<span class=\"str\"> Each test must have exactly one assertion.\"</span>"
+      },
+      {
+        "quote": "Specificity is not about length. It is about removing ways for the AI to misinterpret you."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Few-Shot Examples: Show, Don&rsquo;t Tell",
+    "desc": "2&ndash;3 examples eliminate ambiguity better than paragraphs of instructions.",
+    "body": [
+      {
+        "code": "<span class=\"str\">\"Review this code. Format findings like these examples:</span>\n\n<span class=\"str\">Example 1:</span>\n<span class=\"str\">  File: Calculator.java:15</span>\n<span class=\"str\">  Severity: ERROR</span>\n<span class=\"str\">  Issue: Division by zero not handled</span>\n<span class=\"str\">  Fix: Add zero-check before divide()</span>\n\n<span class=\"str\">Example 2:</span>\n<span class=\"str\">  File: Student.java:42</span>\n<span class=\"str\">  Severity: WARN</span>\n<span class=\"str\">  Issue: equals() without hashCode()</span>\n<span class=\"str\">  Fix: Override hashCode() using same fields\"</span>",
+        "note": "The model generalizes from examples to novel patterns. Show edge cases in your examples."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "The Interview Pattern",
+    "desc": "Let the AI ask questions before implementing &mdash; like a senior developer would.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// Instead of:</span>\n<span class=\"str\">\"Implement a caching layer for the grade lookups.\"</span>\n\n<span class=\"cmt\">// Use the interview pattern:</span>\n<span class=\"str\">\"I need a caching layer for grade lookups.</span>\n<span class=\"str\"> Before implementing, ask me questions about:</span>\n<span class=\"str\"> - Invalidation strategy</span>\n<span class=\"str\"> - Expected load and data volume</span>\n<span class=\"str\"> - Failure modes and fallback behavior</span>\n<span class=\"str\"> - Consistency requirements\"</span>",
+        "note": "Claude asks &rarr; you think through design &rarr; better architecture before any code is written."
+      },
+      {
+        "quote": "The interview pattern forces design thinking. You get better results AND better understanding."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Context Windows: The Invisible Constraint",
+    "desc": "Every AI model has a maximum amount of text it can process at once.",
+    "body": [
+      {
+        "code": "Context window = <span class=\"kw\">everything the model can see</span>\n\n  System prompt\n  + CLAUDE.md rules\n  + conversation history\n  + file contents read\n  + tool outputs\n  + your current request\n  ________________________\n  = total tokens consumed\n\n  When you exceed the limit:\n  <span class=\"str\">older context gets compressed or dropped</span>",
+        "note": "Claude Code&rsquo;s context: 200K tokens. Sounds huge &mdash; but a large codebase fills it fast."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Lost-in-the-Middle Effect",
+    "desc": "Models pay most attention to the beginning and end. The middle gets lost.",
+    "body": [
+      {
+        "code": "  Attention\n  &uarr;\n  |  <span class=\"kw\">HIGH</span>        <span class=\"str\">... low attention zone ...</span>        <span class=\"kw\">HIGH</span>\n  |  ||||                                        ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  +--++++----++++--++++--++++--++++--++++----++++-&rarr;\n   Start                                       End\n   of context                              of context",
+        "note": "Liu et al. (2023): &ldquo;Lost in the Middle: How Language Models Use Long Contexts&rdquo;"
+      },
+      {
+        "card": "Practical consequence:",
+        "items": [
+          "Put important instructions at the <strong>start</strong> (system prompt, CLAUDE.md)",
+          "Put current task at the <strong>end</strong> (your latest message)",
+          "Long conversations = critical details <strong>drift to the middle</strong> and get missed"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Strategies for Context Management",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Strategy",
+            "How It Works"
+          ],
+          "rows": [
+            [
+              "<strong>Case facts blocks</strong>",
+              "Extract key findings into a persistent summary at the top"
+            ],
+            [
+              "<strong>Trim verbose output</strong>",
+              "Don&rsquo;t paste 500 lines of logs &mdash; extract the relevant 10"
+            ],
+            [
+              "<strong>Scratchpad files</strong>",
+              "Write findings to a file that survives context compaction"
+            ],
+            [
+              "<strong>Subagent delegation</strong>",
+              "Isolate verbose exploration in a subagent, return only summary"
+            ],
+            [
+              "<strong><code>/compact</code></strong>",
+              "Compress conversation history, keeping essential facts"
+            ],
+            [
+              "<strong><code>--resume</code></strong>",
+              "Continue work across sessions with preserved context"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "Context management is not about saving tokens. It is about keeping the AI focused on what matters now."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Progressive Summarization Risks",
+    "desc": "Every time context is compressed, specifics are lost.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">Original fact:</span>\n  <span class=\"str\">\"The API rate limit is 429 requests/minute,</span>\n  <span class=\"str\"> measured per API key, reset at UTC midnight\"</span>\n\n<span class=\"kw\">After 1st compression:</span>\n  <span class=\"str\">\"API has a rate limit of ~400/min per key\"</span>\n\n<span class=\"kw\">After 2nd compression:</span>\n  <span class=\"str\">\"API has rate limiting\"</span>\n\n<span class=\"kw\">After 3rd compression:</span>\n  <span class=\"str\">(fact is gone)</span>",
+        "note": "Numbers, dates, and specific thresholds are the first casualties of summarization."
+      },
+      {
+        "card": "Protection strategies:",
+        "items": [
+          "Write critical facts to <strong>scratchpad files</strong> (persist outside context)",
+          "Use <strong>CLAUDE.md</strong> for facts that must never be lost",
+          "Repeat key constraints in your <strong>current message</strong> (end of context = high attention)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "Human-in-the-Loop: When to Escalate",
+    "desc": "Not every decision should be automated. Know when AI should stop and ask.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Confidence",
+            "Action"
+          ],
+          "rows": [
+            [
+              "<strong>High confidence</strong>",
+              "AI proceeds autonomously (read files, run tests)"
+            ],
+            [
+              "<strong>Medium confidence</strong>",
+              "AI presents options with trade-offs, human chooses"
+            ],
+            [
+              "<strong>Low confidence</strong>",
+              "AI stops and asks for clarification"
+            ],
+            [
+              "<strong>Irreversible action</strong>",
+              "Always requires human approval regardless of confidence"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Error propagation in multi-agent systems:",
+        "items": [
+          "Structured errors: failure type + partial results + what was attempted",
+          "Never generic &ldquo;failed&rdquo; &mdash; agents downstream need to decide how to proceed",
+          "Coverage gaps must be explicitly reported, not silently ignored"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "industry",
+    "title": "cognitive-core: Team-Aware Estimation",
+    "desc": "Real project planning distinguishes who does what: human, AI, or both.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Task",
+            "Executor",
+            "Effort",
+            "Bottleneck"
+          ],
+          "rows": [
+            [
+              "Research existing solutions",
+              "AI",
+              "30 min",
+              "&mdash;"
+            ],
+            [
+              "Architecture decision",
+              "human + AI",
+              "1 hour",
+              "human review"
+            ],
+            [
+              "Implementation (3 modules)",
+              "AI",
+              "45 min",
+              "&mdash;"
+            ],
+            [
+              "Unit tests",
+              "AI",
+              "30 min",
+              "&mdash;"
+            ],
+            [
+              "Human review of all AI output",
+              "<strong>human</strong>",
+              "<strong>2 hours</strong>",
+              "<strong>CRITICAL PATH</strong>"
+            ]
+          ],
+          "note": "Total wall-clock (parallel): ~4 hours. The bottleneck is always human review &mdash; not AI generation."
+        }
+      },
+      {
+        "quote": "Generic &ldquo;5 developer-days&rdquo; estimates hide reality. Tag every task: who validates it? If no human reviews AI output, the estimate is fiction."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 8: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>Prompt quality</strong> is the most transferable daily skill in AI-assisted development",
+          "<strong>Explicit criteria</strong> &gt; vague instructions &mdash; specificity removes ambiguity",
+          "<strong>Few-shot examples</strong> are the single most powerful prompting technique",
+          "<strong>The interview pattern</strong>: let AI ask questions before implementing",
+          "<strong>Context windows</strong> are finite &mdash; manage them or lose critical information",
+          "<strong>Lost-in-the-middle</strong>: important info at start and end, not buried in middle",
+          "<strong>Scratchpad files</strong> and <strong>/compact</strong> protect against progressive summarization",
+          "<strong>Human-in-the-loop</strong>: irreversible actions always require human approval regardless of AI confidence"
+        ]
+      }
+    ]
+  }
+]

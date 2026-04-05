@@ -1,0 +1,130 @@
+{
+  "title": "Professional Java Development: SE Tools & AI-Assisted Engineering",
+  "modules": {
+    "0": {
+      "label": "Module 0",
+      "color": "#737373"
+    },
+    "1": {
+      "label": "Module 1",
+      "color": "#f97316"
+    },
+    "2": {
+      "label": "Module 2",
+      "color": "#ef4444"
+    },
+    "3": {
+      "label": "Module 3",
+      "color": "#3b82f6"
+    },
+    "4": {
+      "label": "Module 4",
+      "color": "#22c55e"
+    },
+    "5": {
+      "label": "Module 5",
+      "color": "#8b5cf6"
+    },
+    "6": {
+      "label": "Module 6",
+      "color": "#dc2626"
+    },
+    "7": {
+      "label": "Module 7",
+      "color": "#eab308"
+    },
+    "8": {
+      "label": "Module 8",
+      "color": "#ec4899"
+    },
+    "9": {
+      "label": "Module 9",
+      "color": "#06b6d4"
+    },
+    "10": {
+      "label": "Module 10",
+      "color": "#737373"
+    }
+  },
+  "bg_rotation": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    4
+  ],
+  "toc": [
+    {
+      "mod": "0",
+      "title": "Introduction",
+      "topics": "Claude Code, Agent Model, Setup"
+    },
+    {
+      "mod": "1",
+      "title": "Version Control with Git",
+      "topics": "Commits, Branches, Merges, Conflicts"
+    },
+    {
+      "mod": "2",
+      "title": "Build Management with Maven",
+      "topics": "pom.xml, Dependencies, Lifecycle"
+    },
+    {
+      "mod": "3",
+      "title": "Code Quality",
+      "topics": "PMD, SpotBugs, CheckStyle, AI Constraints"
+    },
+    {
+      "mod": "4",
+      "title": "Automated Testing",
+      "topics": "JUnit, Mockito, TDD, Fitness"
+    },
+    {
+      "mod": "5",
+      "title": "Continuous Integration",
+      "topics": "Jenkins, Nexus, Pipelines, AI in CI"
+    },
+    {
+      "mod": "6",
+      "title": "Security & Trust",
+      "topics": "Trust Boundaries, Hooks, Defense-in-Depth"
+    },
+    {
+      "mod": "7",
+      "title": "Agent Architecture",
+      "topics": "MCP, Control Plane, cognitive-core, Observability"
+    },
+    {
+      "mod": "8",
+      "title": "Prompt Engineering & Context",
+      "topics": "Few-Shot, Context Windows, Human-in-the-Loop"
+    },
+    {
+      "mod": "9",
+      "title": "Capstone Project",
+      "topics": "Full Pipeline, AI-Augmented Development"
+    },
+    {
+      "mod": "10",
+      "title": "Exam / Presentation",
+      "topics": "Demonstrate Understanding, LLM Assessment"
+    }
+  ],
+  "cover": {
+    "type": "cover",
+    "bg": 2,
+    "h1": "Professional Java Development:",
+    "lead": "SE Tools & AI-Assisted Engineering",
+    "sub": "<span style=\"font-weight:600;font-size:22px;color:var(--foreground)\">Dennis Piskovatskov</span><br><span style=\"font-size:17px\">Hochschule Albstadt-Sigmaringen</span>",
+    "badges": [
+      "Git",
+      "Maven",
+      "PMD / SpotBugs",
+      "JUnit / Mockito",
+      "Jenkins",
+      "CheckStyle",
+      "*Claude Code"
+    ]
+  }
+}
