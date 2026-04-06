@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-65,"facing":-0.3,"hue":0}},
     "bg": 7,
     "h1": "Module 9",
     "lead": "Putting It All Together — Capstone Project",

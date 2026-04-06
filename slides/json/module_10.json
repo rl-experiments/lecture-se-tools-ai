@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-50,"anchorOffsetY":-70,"facing":0.3,"hue":0,"saturate":0.15}},
     "bg": 2,
     "h1": "Module 10",
     "lead": "Exam / Presentation",

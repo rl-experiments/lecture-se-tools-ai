@@ -15,6 +15,8 @@ function initButterfly(opts = {}) {
   const WING_HZ      = opts.wingHz      || 7.2;
   const WING_HZ_REST = opts.wingHzRest  || 0.68;
   const BASE_SCALE   = opts.scale       || 1;
+  const BASE_HUE     = opts.hue != null ? opts.hue : 0;
+  const BASE_SAT     = opts.saturate != null ? opts.saturate : 1;
 
   const OX = 80, OY = 59;
 
@@ -328,7 +330,7 @@ function initButterfly(opts = {}) {
       const open = Math.pow((Math.cos(wingPh)+1)*0.5, 0.55);
       drawWings((1-open)*38);
       if (hm) hm.setAttribute('values', (Math.sin(wingPh*0.1)*12).toFixed(1));
-      svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.18)) brightness(${(0.88+open*0.14).toFixed(3)})`;
+      svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.18)) brightness(${(0.88+open*0.14).toFixed(3)}) hue-rotate(${BASE_HUE}deg) saturate(${BASE_SAT})`;
       svg.style.transform  = `rotate(${((facing*180/Math.PI)+90).toFixed(2)}deg)`;
       host.style.transform = `translate(${px.toFixed(1)}px,${py.toFixed(1)}px) scale(${BASE_SCALE})`;
 
@@ -456,7 +458,7 @@ function initButterfly(opts = {}) {
     drawWings((1-open01)*64);
     if (hm) hm.setAttribute('values', (Math.sin(wingPh*0.1)*16).toFixed(1));
     const br = 0.87 + open01*0.15;
-    svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.20)) brightness(${br.toFixed(3)})`;
+    svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.20)) brightness(${br.toFixed(3)}) hue-rotate(${BASE_HUE}deg) saturate(${BASE_SAT})`;
 
     const rot = (facing*180/Math.PI) + 90;
     const finalScale = zScale * BASE_SCALE;

@@ -29,10 +29,10 @@ function updateTocAndCovers() {
   // Update TOC positions
   data.toc.forEach(entry => {
     if (entry.mod === '0') {
-      entry.slide = 2;
+      entry.slide = 1;
     } else {
       const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === `Module ${entry.mod}`);
-      if (ci >= 0) entry.slide = ci + 1;
+      if (ci >= 0) entry.slide = ci;
     }
   });
 

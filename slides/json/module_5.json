@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-55,"anchorOffsetY":-70,"facing":-0.3,"hue":70}},
     "bg": 4,
     "h1": "Module 5",
     "lead": "Continuous Integration with Jenkins + Claude Code",

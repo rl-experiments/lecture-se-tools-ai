@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-65,"facing":0.3,"hue":170}},
     "bg": 5,
     "h1": "Module 6",
     "lead": "Security and Trust in AI-Assisted Development",

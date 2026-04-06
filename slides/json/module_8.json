@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-55,"anchorOffsetY":-60,"facing":0.4,"hue":140}},
     "bg": 7,
     "h1": "Module 8",
     "lead": "Prompt Engineering & Context Management",

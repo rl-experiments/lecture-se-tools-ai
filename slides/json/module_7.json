@@ -1,6 +1,7 @@
 [
   {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-50,"anchorOffsetY":-70,"facing":-0.4,"hue":215}},
     "bg": 6,
     "h1": "Module 7",
     "lead": "Agent Architecture & Production Patterns",
