@@ -153,8 +153,9 @@
       {
         "resource": {
           "title": "Reference: Git by Example",
-          "url": "https://antonz.org/git-by-example/",
-          "desc": "Use as a cheat sheet while working through the exercise."
+          "links": [
+            { "url": "https://antonz.org/git-by-example/", "label": "antonz.org/git-by-example" }
+          ]
         }
       }
     ]
@@ -323,8 +324,9 @@
       {
         "resource": {
           "title": "Explain Git with D3",
-          "url": "https://onlywei.github.io/explain-git-with-d3/",
-          "desc": "An interactive visualization that lets you type git commands (commit, branch, checkout, merge, rebase, reset) and watch the commit graph update live."
+          "links": [
+            { "url": "https://onlywei.github.io/explain-git-with-d3/", "label": "onlywei.github.io/explain-git-with-d3" }
+          ]
         }
       },
       {
@@ -341,8 +343,9 @@
       {
         "resource": {
           "title": "Git by Example",
-          "url": "https://antonz.org/git-by-example/",
-          "desc": "A comprehensive, example-driven guide to Git commands. Great reference while practicing."
+          "links": [
+            { "url": "https://antonz.org/git-by-example/", "label": "antonz.org/git-by-example" }
+          ]
         }
       }
     ]
@@ -449,8 +452,9 @@
       {
         "resource": {
           "title": "Hint: Practice first",
-          "url": "https://onlywei.github.io/explain-git-with-d3/",
-          "desc": "Use the interactive Git playground to visualize branching and merging before trying it in your real project."
+          "links": [
+            { "url": "https://onlywei.github.io/explain-git-with-d3/", "label": "onlywei.github.io/explain-git-with-d3" }
+          ]
         }
       }
     ]

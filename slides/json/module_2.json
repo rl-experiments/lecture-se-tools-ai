@@ -72,12 +72,19 @@
         }
       },
       {
-        "card": "Maven = two things in one:",
+        "card": "Maven = three things in one:",
         "items": [
           "<strong>Build management</strong>: compile, test, package &mdash; one command, any machine",
           "<strong>Dependency management</strong>: declare what you need, Maven downloads it from Maven Central",
           "<strong>Convention over configuration</strong>: standard directory layout means zero setup"
         ]
+      },
+      {
+        "code": "<span class=\"cmt\"># One command does everything:</span>\n<span class=\"kw\">mvn clean install</span>\n\n<span class=\"fn\">What happens behind the scenes:</span>\n  1. Deletes old build output           <span class=\"cmt\">(clean)</span>\n  2. Downloads missing dependencies     <span class=\"cmt\">(resolve)</span>\n  3. Compiles all .java files            <span class=\"cmt\">(compile)</span>\n  4. Runs all unit tests                 <span class=\"cmt\">(test)</span>\n  5. Packages into .jar                  <span class=\"cmt\">(package)</span>\n  6. Installs to local repository        <span class=\"cmt\">(install)</span>",
+        "note": "Without Maven, each of these steps would be a separate script you maintain yourself."
+      },
+      {
+        "quote": "Maven is not exciting. That is the point &mdash; builds should be boring and predictable."
       }
     ],
     "desc": "The tool that answers: how do I build this project on any machine?"
@@ -110,20 +117,55 @@
     "mod": "2",
     "tag": "industry",
     "title": "pom.xml as a Capability Contract",
-    "desc": "Your pom.xml follows the same pattern used in production AI tool catalogs.",
+    "desc": "A capability contract is a formal declaration: &ldquo;here is what I am, what I need, and what I can do.&rdquo;",
     "body": [
       {
-        "card": "Your pom.xml is a contract that declares:",
+        "table": {
+          "headers": [
+            "Question",
+            "In pom.xml",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Who am I?",
+              "<code>groupId</code> + <code>artifactId</code> + <code>version</code>",
+              "<code>com.example:calculator:1.0</code>"
+            ],
+            [
+              "What do I need?",
+              "<code>&lt;dependencies&gt;</code>",
+              "JUnit 5, Mockito, Jackson"
+            ],
+            [
+              "How do I build?",
+              "<code>&lt;build&gt;</code> + lifecycle",
+              "<code>mvn package</code> &rarr; .jar file"
+            ],
+            [
+              "What tools do I use?",
+              "<code>&lt;plugins&gt;</code>",
+              "PMD, JaCoCo, maven-compiler-plugin"
+            ],
+            [
+              "What version of Java?",
+              "<code>&lt;properties&gt;</code>",
+              "<code>maven.compiler.source = 17</code>"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Why this matters:",
         "items": [
-          "What this project <strong>is</strong> (identity)",
-          "What it <strong>depends on</strong> (capabilities)",
-          "How to <strong>build</strong> it (lifecycle)",
-          "What <strong>plugins</strong> it uses (tools)"
+          "<strong>Reproducibility</strong> &mdash; anyone can build the project with <code>mvn install</code>, no setup guide needed",
+          "<strong>Transparency</strong> &mdash; every dependency and plugin is declared, nothing is hidden",
+          "<strong>Automation</strong> &mdash; CI servers (Jenkins) read pom.xml and know exactly what to do",
+          "<strong>Version control</strong> &mdash; pom.xml is committed to Git, so build config has full history"
         ]
       },
       {
-        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 8</span>\ntools:\n  create_ticket:\n    description: <span class=\"str\">\"Create a support ticket\"</span>\n    kind: <span class=\"str\">\"write\"</span>\n    risk: <span class=\"str\">\"medium\"</span>\n    timeout_seconds: 15\n    input_schema:\n      required: [<span class=\"str\">\"title\"</span>, <span class=\"str\">\"queue\"</span>, <span class=\"str\">\"requester_id\"</span>]",
-        "note": "Same pattern: a formal description of what a tool does, what it needs, and what it produces."
+        "quote": "If it is not in the pom.xml, it does not exist. No more &ldquo;works on my machine&rdquo; &mdash; the contract guarantees it works everywhere."
       }
     ]
   },
@@ -329,8 +371,45 @@
         }
       },
       {
-        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 8</span>\ntools:\n  read_kb:\n    kind: <span class=\"str\">\"read\"</span>\n    approval: none        <span class=\"cmt\"># safe, auto-approve</span>\n  create_ticket:\n    kind: <span class=\"str\">\"write\"</span>\n    approval: manager     <span class=\"cmt\"># needs human approval</span>\n  prod_db_write:\n    kind: <span class=\"str\">\"write\"</span>\n    approval: security_and_owner  <span class=\"cmt\"># high risk!</span>",
-        "note": "Same principle: read operations are safe; write operations need caution."
+        "card": "The rule is simple:",
+        "items": [
+          "<strong>Read</strong> = safe to run anytime &mdash; nothing changes, nothing breaks",
+          "<strong>Write (local)</strong> = changes your machine &mdash; reversible, but check what you overwrite",
+          "<strong>Write (external)</strong> = changes shared systems &mdash; cannot undo, needs extra caution"
+        ]
+      },
+      {
+        "table": {
+          "headers": [
+            "Risk Level",
+            "Maven Example",
+            "Git Example",
+            "Claude Code Example"
+          ],
+          "rows": [
+            [
+              "<span style=\"color:#22c55e\"><strong>Read</strong></span>",
+              "<code>mvn dependency:tree</code>",
+              "<code>git log</code>, <code>git diff</code>",
+              "Read file, Search codebase"
+            ],
+            [
+              "<span style=\"color:#eab308\"><strong>Write (local)</strong></span>",
+              "<code>mvn compile</code>, <code>mvn clean</code>",
+              "<code>git commit</code>, <code>git branch</code>",
+              "Edit file, Run tests"
+            ],
+            [
+              "<span style=\"color:#ef4444\"><strong>Write (external)</strong></span>",
+              "<code>mvn deploy</code>",
+              "<code>git push</code>",
+              "Claude Code asks permission first"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "This pattern appears everywhere in engineering: read is free, local write is careful, external write needs approval."
       }
     ]
   },
