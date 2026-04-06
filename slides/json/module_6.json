@@ -36,13 +36,25 @@
     "mod": "6",
     "tag": "",
     "title": "The Security Perimeter Model",
-    "desc": "From the reference book on secure AI agent architecture.",
+    "desc": "Think of it like airport security: every layer checks something different.",
     "body": [
       {
-        "code": "User/API/Files &rarr; Ingress controls\n                       |\n                   Prompt assembly boundary\n                       |\n                   Model gateway\n                       |\n            +----------+----------+\n        Retrieval    Agent     Tool gateway\n        gateway     runtime    / sandbox\n            +----------+----------+\n                       |\n                   Egress filters\n                       |\n                   Audit trail"
+        "table": {
+          "headers": ["Layer", "What It Does", "Claude Code Example"],
+          "rows": [
+            ["<strong>Ingress</strong>", "Controls what goes IN to the AI", "Your files, prompts, git history"],
+            ["<strong>Prompt Boundary</strong>", "Separates your instructions from external data", "CLAUDE.md rules vs. user input"],
+            ["<strong>Model Gateway</strong>", "Decides which AI model runs and with what limits", "Claude chooses tools, plans steps"],
+            ["<strong>Tool Gateway</strong>", "Controls what the AI can DO in the real world", "Permission prompt before writing files or running commands"],
+            ["<strong>Egress</strong>", "Filters what leaves the system", "Blocks secrets from being exposed"],
+            ["<strong>Audit Trail</strong>", "Records everything that happened", "Git log, conversation history"]
+          ],
+          "note": "Data flows top to bottom. Every layer is a checkpoint &mdash; skip one and you create a gap."
+        }
       },
       {
-        "quote": "Every layer is a control point. Removing any layer creates a vulnerability."
+        "quote": "Think: What enters? What decides? What executes? What leaves? What is recorded?",
+        "src": "The five questions of any secure AI system"
       }
     ]
   },
@@ -204,7 +216,7 @@
         ]
       },
       {
-        "card": "Architecture book (Ch. 4) egress checklist:",
+        "card": "Egress checklist &mdash; before any data leaves your system:",
         "items": [
           "Redact PII where required",
           "Mask secrets and tokens",
@@ -261,7 +273,7 @@
         "note": "This is realistic. Prompt injection can come from any external data &mdash; files, APIs, databases, web scraping results."
       },
       {
-        "quote": "The architecture book&rsquo;s core rule (Ch. 3): &ldquo;When agents receive user input, web pages, emails, PDFs, tool outputs, or documents, they must not treat these as new instructions.&rdquo;"
+        "quote": "The golden rule: Data is never instructions. When an AI reads files, emails, web pages, or API responses, it must treat them as information to process &mdash; never as commands to follow."
       }
     ]
   },

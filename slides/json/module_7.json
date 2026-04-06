@@ -41,51 +41,51 @@
           "headers": [
             "What you did",
             "Architecture name",
-            "Book chapter"
+            "Why it matters in production"
           ],
           "rows": [
             [
               "Git commits",
               "Audit trail with provenance",
-              "Ch. 4-5"
+              "Who changed what, when, and why"
             ],
             [
               "pom.xml",
               "Capability contract",
-              "Ch. 8, 17"
+              "Declares exactly what a system can do"
             ],
             [
               "CheckStyle/PMD blocking builds",
               "Regression gates",
-              "Ch. 13"
+              "Automated quality checks before deployment"
             ],
             [
               "JUnit test suites",
               "Eval datasets",
-              "Ch. 13"
+              "Proves the system behaves correctly"
             ],
             [
               "Jenkins pipeline",
               "Trace with spans",
-              "Ch. 11"
+              "Every step is visible and measurable"
             ],
             [
               "Pipeline health metrics",
               "SLOs",
-              "Ch. 12"
+              "Targets for reliability and speed"
             ],
             [
               "Claude Code asking permission",
               "Approval flow / tool gateway",
-              "Ch. 4"
+              "Humans approve before risky actions execute"
             ],
             [
               ".gitignore for secrets",
               "Trust boundary / egress control",
-              "Ch. 3-4"
+              "Sensitive data never leaves the perimeter"
             ]
           ],
-          "note": "You&rsquo;ve been learning production agent architecture for 6 modules."
+          "note": "You&rsquo;ve been learning production agent architecture for 6 modules &mdash; without realizing it."
         }
       }
     ]
