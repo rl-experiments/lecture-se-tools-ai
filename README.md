@@ -1,18 +1,25 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 11 modules, 221 slides.
+University lecture slides — 10 modules, 221 slides.
 
 ## Quick Start
 
-```bash
-# Serve locally (pick one)
-cd slides
-npx live-server --port=3000    # Auto-reloads browser on file changes
-npx serve                      # Node.js (manual refresh)
-python -m http.server 8000     # Python (manual refresh)
-```
+No build step needed — slides load JSON at runtime.
 
-Open `http://localhost:8000`. Slides load JSON at runtime — no build step needed.
+**Auto-reload** (browser refreshes on every file change):
+```bash
+cd slides
+npx live-server --port=3000
+```
+Open `http://localhost:3000`
+
+**Manual refresh** (start a static server, refresh browser yourself):
+```bash
+cd slides
+npx serve                      # Node.js
+python -m http.server 8000     # Python
+```
+Open `http://localhost:3000` (serve) or `http://localhost:8000` (Python)
 
 ## Navigation
 
@@ -35,6 +42,8 @@ slides/
   js/
     slides.js             ← runtime renderer: fetches JSON, builds slides in browser
     build-html.js         ← optional static build (Node.js fallback)
+    butterfly.js          ← animated butterfly for cover slides
+    bug.js                ← animated bugs for code quality slides
   json/
     slides-config.json    ← metadata (title, modules, TOC, cover)
     module_0.json         ← M0: Introduction (19 slides)
