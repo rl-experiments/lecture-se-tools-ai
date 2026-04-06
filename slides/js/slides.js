@@ -27,7 +27,8 @@
     slides: [config.cover]
   };
 
-  for (let m = 0; m <= 20; m++) {
+  const moduleKeys = Object.keys(data.modules).map(Number);
+  for (const m of moduleKeys) {
     const modSlides = await fetchJSON(`json/module_${m}.json`);
     if (modSlides) data.slides.push(...modSlides);
   }
@@ -306,6 +307,40 @@
   }
   container.innerHTML = allHtml;
 
+  // ── Per-slide scripts (bug, butterfly, etc.) ────────
+  const scriptMap = {};
+  data.slides.forEach((s, i) => { if (s.script) scriptMap[i] = s.script; });
+  let activeScript = null;   // { name, instance }
+
+  const scriptInits = { bug: window.initBug, butterfly: window.initButterfly };
+  let activeScripts = [];
+  let crittersEnabled = true;
+
+  function activateScript(idx) {
+    activeScripts.forEach(s => s.instance.destroy());
+    activeScripts = [];
+    if (!crittersEnabled) return;
+    const scripts = scriptMap[idx];
+    if (!scripts) return;
+    const list = Array.isArray(scripts) ? scripts : [scripts];
+    for (const entry of list) {
+      const name = typeof entry === 'string' ? entry : entry.name;
+      const opts = typeof entry === 'string' ? {} : (entry.opts || {});
+      const initFn = scriptInits[name];
+      if (initFn) activeScripts.push({ name, instance: initFn(opts) });
+    }
+  }
+
+  window.toggleCritters = function (on) {
+    crittersEnabled = on;
+    if (!on) {
+      activeScripts.forEach(s => s.instance.destroy());
+      activeScripts = [];
+    } else {
+      activateScript(c);
+    }
+  };
+
   // ── Navigation ─────────────────────────────────────
   const S = document.querySelectorAll('.slide');
   const N = S.length;
@@ -324,6 +359,7 @@
     c = n;
     S[c].classList.add('active');
     ui();
+    activateScript(c);
   };
   window.next = function () { go(c + 1); };
   window.prev = function () { go(c - 1); };
@@ -371,4 +407,5 @@
   document.addEventListener('click', rh);
 
   ui();
+  activateScript(0);
 })();

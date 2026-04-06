@@ -90,6 +90,7 @@
     "mod": "6",
     "tag": "",
     "title": "Risk 1: AI Can Be Wrong (Hallucination)",
+    "script": {"name":"bug","opts":{"species":"cockroach","speed":"slow","scale":0.9}},
     "body": [
       {
         "card": "Claude Code is not a database. It generates responses. It can:",

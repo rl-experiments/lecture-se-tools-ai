@@ -138,6 +138,7 @@
     "mod": "5",
     "tag": "mistake",
     "title": "&ldquo;The Build Is Red, I&rsquo;ll Fix It Later&rdquo;",
+    "script": {"name":"bug","opts":{"speed":"fast"}},
     "body": [
       {
         "card": "A red build blocks the entire team:",

@@ -113,6 +113,7 @@
   ],
   "cover": {
     "type": "cover",
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-70,"facing":-0.4}},
     "bg": 2,
     "h1": "Professional Java Development:",
     "lead": "SE Tools & AI-Assisted Engineering",

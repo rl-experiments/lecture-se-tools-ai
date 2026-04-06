@@ -7,14 +7,14 @@
  *   const bf = initButterfly({ fleeRadius: 150 });
  *   bf.destroy();                        // remove from DOM
  */
-export function initButterfly(opts = {}) {
-  'use strict';
-
+function initButterfly(opts = {}) {
   // ── tunables (overridable) ──
+  const PERCHED_ONLY = !!opts.perched;
   const FLEE_R       = opts.fleeRadius  || 115;
   const PAD          = opts.pad         || 220;
   const WING_HZ      = opts.wingHz      || 7.2;
   const WING_HZ_REST = opts.wingHzRest  || 0.68;
+  const BASE_SCALE   = opts.scale       || 1;
 
   const OX = 80, OY = 59;
 
@@ -204,13 +204,28 @@ export function initButterfly(opts = {}) {
   const vw = () => window.innerWidth;
   const vh = () => window.innerHeight;
 
-  // ── state ──
-  let px = vw()*0.30, py = vh()*0.28;
-  let vx = 20, vy = -15;
-  let facing = Math.atan2(vy, vx);
+  // ── resolve perched position ──
+  function perchedPos() {
+    if (opts.anchor) {
+      const el = document.querySelector(opts.anchor);
+      if (el) {
+        const r = el.getBoundingClientRect();
+        return [r.left + (opts.anchorOffsetX||0), r.top + (opts.anchorOffsetY||0)];
+      }
+    }
+    return [vw()*(opts.x||0.5), vh()*(opts.y||0.5)];
+  }
 
-  let mode = 'flying';   // flying | perched | fleeing
-  let perchedT = 0, perchedDur = 0;
+  // ── state ──
+  const pp = PERCHED_ONLY ? perchedPos() : null;
+  let px = PERCHED_ONLY ? pp[0] : vw()*0.30;
+  let py = PERCHED_ONLY ? pp[1] : vh()*0.28;
+  let vx = PERCHED_ONLY ? 0 : 20;
+  let vy = PERCHED_ONLY ? 0 : -15;
+  let facing = PERCHED_ONLY ? (opts.facing||0) : Math.atan2(vy, vx);
+
+  let mode = PERCHED_ONLY ? 'perched' : 'flying';
+  let perchedT = 0, perchedDur = PERCHED_ONLY ? Infinity : 0;
 
   let wingPh = 0;
   let wasDown = false;
@@ -289,7 +304,7 @@ export function initButterfly(opts = {}) {
     goalY = clamp(py+Math.sin(ang)*rnd(220,320), sp, H-sp);
   }
 
-  { const g=pickGoal(); goalX=g[0]; goalY=g[1]; startBurst(); }
+  if (!PERCHED_ONLY) { const g=pickGoal(); goalX=g[0]; goalY=g[1]; startBurst(); }
 
   // ── main loop ──
   function frame(ts) {
@@ -306,16 +321,21 @@ export function initButterfly(opts = {}) {
       vx = lerp(vx, 0, dt*8);
       vy = lerp(vy, 0, dt*8);
 
+      // re-anchor on each frame so resize keeps it in place
+      if (PERCHED_ONLY) { const ap = perchedPos(); px = ap[0]; py = ap[1]; }
+
       wingPh += dt * WING_HZ_REST * Math.PI*2;
       const open = Math.pow((Math.cos(wingPh)+1)*0.5, 0.55);
       drawWings((1-open)*38);
       if (hm) hm.setAttribute('values', (Math.sin(wingPh*0.1)*12).toFixed(1));
       svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.18)) brightness(${(0.88+open*0.14).toFixed(3)})`;
       svg.style.transform  = `rotate(${((facing*180/Math.PI)+90).toFixed(2)}deg)`;
-      host.style.transform = `translate(${px.toFixed(1)}px,${py.toFixed(1)}px)`;
+      host.style.transform = `translate(${px.toFixed(1)}px,${py.toFixed(1)}px) scale(${BASE_SCALE})`;
 
-      if (md < FLEE_R) flee();
-      else if (perchedT >= perchedDur) takeOff();
+      if (!PERCHED_ONLY) {
+        if (md < FLEE_R) flee();
+        else if (perchedT >= perchedDur) takeOff();
+      }
       return;
     }
 
@@ -439,7 +459,8 @@ export function initButterfly(opts = {}) {
     svg.style.filter = `drop-shadow(1px 3px 6px rgba(0,0,0,.20)) brightness(${br.toFixed(3)})`;
 
     const rot = (facing*180/Math.PI) + 90;
-    svg.style.transform  = `rotate(${rot.toFixed(2)}deg) rotate(${bankAngle.toFixed(2)}deg) scale(${zScale.toFixed(4)})`;
+    const finalScale = zScale * BASE_SCALE;
+    svg.style.transform  = `rotate(${rot.toFixed(2)}deg) rotate(${bankAngle.toFixed(2)}deg) scale(${finalScale.toFixed(4)})`;
     host.style.transform = `translate(${px.toFixed(1)}px,${py.toFixed(1)}px)`;
   }
 
@@ -466,3 +487,4 @@ export function initButterfly(opts = {}) {
     }
   };
 }
+

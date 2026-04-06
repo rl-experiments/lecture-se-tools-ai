@@ -17,8 +17,13 @@
   <button class="btn" id="bp" onclick="prev()">&larr; Prev</button>
   <span id="counter" onclick="jumpPrompt()" style="cursor:pointer" title="Click to jump to slide">Loading&hellip;</span>
   <button class="btn" id="bn" onclick="next()">Next &rarr;</button>
-  <span class="nav-fs"><button class="btn-ghost" onclick="fs()">Fullscreen</button></span>
+  <span class="nav-fs">
+    <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#a3a3a3;cursor:pointer;user-select:none;margin-right:6px"><input type="checkbox" onchange="toggleCritters(!this.checked)" style="cursor:pointer">Kill Bugs</label>
+    <button class="btn-ghost" onclick="fs()">Fullscreen</button>
+  </span>
 </div>
+<script src="js/bug.js"></script>
+<script src="js/butterfly.js"></script>
 <script src="js/slides.js"></script>
 </body>
 </html>

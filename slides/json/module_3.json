@@ -158,6 +158,11 @@
     "mod": "3",
     "tag": "",
     "title": "SpotBugs: Real Bugs in Compiled Bytecode",
+    "script": [
+      {"name":"bug","opts":{"color":"green"}},
+      {"name":"bug","opts":{"color":"green","scale":0.8}},
+      {"name":"bug","opts":{"species":"ant","speed":"fast","scale":0.7}}
+    ],
     "body": [
       {
         "code": "<span class=\"kw\">mvn spotbugs:check</span>"
@@ -203,6 +208,10 @@
     "mod": "3",
     "tag": "mistake",
     "title": "Ignoring Warnings",
+    "script": [
+      {"name":"bug","opts":{"speed":"slow"}},
+      {"name":"bug","opts":{"species":"cockroach","speed":"slow","scale":1.1}}
+    ],
     "desc": "&ldquo;It&rsquo;s just a warning, the build still passes.&rdquo;",
     "body": [
       {
@@ -373,6 +382,11 @@
     "mod": "3",
     "tag": "exercise",
     "title": "Exercise 3.2: Bug Hunting",
+    "script": [
+      {"name":"bug","opts":{"color":"green"}},
+      {"name":"bug","opts":{"species":"cockroach"}},
+      {"name":"bug","opts":{"species":"ant","speed":"fast","scale":0.7}}
+    ],
     "desc": "15 minutes",
     "body": [
       {

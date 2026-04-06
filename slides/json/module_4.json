@@ -67,6 +67,10 @@
     "mod": "4",
     "tag": "",
     "title": "Testing Edge Cases: Where Bugs Actually Live",
+    "script": [
+      "bug",
+      {"name":"bug","opts":{"species":"ant","speed":"fast","scale":0.7}}
+    ],
     "body": [
       {
         "code": "@Test\n<span class=\"kw\">void</span> divideByZeroThrowsException() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    assertThrows(ArithmeticException.<span class=\"kw\">class</span>, \n        () -&gt; calc.divide(10.0, 0.0));\n}\n\n@Test\n<span class=\"kw\">void</span> addMaxValues() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    <span class=\"kw\">double</span> result = calc.add(Double.MAX_VALUE, Double.MAX_VALUE);\n    assertEquals(Double.POSITIVE_INFINITY, result);\n}",
@@ -189,6 +193,10 @@
     "mod": "4",
     "tag": "mistake",
     "title": "Tests That Test Nothing",
+    "script": [
+      {"name":"bug","opts":{"color":"stealth","speed":"slow"}},
+      {"name":"bug","opts":{"species":"cockroach","speed":"slow","scale":1.1}}
+    ],
     "body": [
       {
         "code": "<span class=\"cmt\">// BAD &mdash; no assertion</span>\n@Test\n<span class=\"kw\">void</span> testAdd() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    calc.add(2, 3);  <span class=\"cmt\">// runs but proves nothing</span>\n}\n\n<span class=\"cmt\">// BAD &mdash; tests Java, not your code</span>\n@Test\n<span class=\"kw\">void</span> testMath() {\n    assertEquals(5, 2 + 3);  <span class=\"cmt\">// yes, Java can add...</span>\n}\n\n<span class=\"cmt\">// BAD &mdash; always passes regardless of code</span>\n@Test\n<span class=\"kw\">void</span> testDivide() {\n    assertNotNull(<span class=\"kw\">new</span> Calculator());  <span class=\"cmt\">// proves Calculator exists</span>\n}"
