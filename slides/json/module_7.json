@@ -155,11 +155,47 @@
     "mod": "7",
     "tag": "",
     "title": "The Control Plane in Detail",
-    "desc": "How production systems govern agent behavior with explicit rules.",
+    "desc": "The control plane decides <strong>what</strong> the agent is allowed to do &mdash; before it does anything.",
     "body": [
       {
-        "code": "agent_policy:\n  model_access:\n    allowed_models: [<span class=\"str\">\"gpt-5.4\"</span>, <span class=\"str\">\"claude-sonnet\"</span>]\n    deny_if_contains: [<span class=\"str\">\"pci_raw\"</span>, <span class=\"str\">\"prod_secrets\"</span>]\n  tools:\n    read_kb:\n      approval: none\n    jira_create_ticket:\n      approval: manager\n    prod_db_write:\n      approval: security_and_owner\n      allowed_environments: [<span class=\"str\">\"staging\"</span>]\n  runtime:\n    max_steps: 24\n    max_parallel_subagents: 4\n    require_checkpoint_every_step: <span class=\"kw\">true</span>",
-        "note": "This is the &ldquo;YAML that controls everything.&rdquo; Without it, agents are unmanaged."
+        "card": "What is a control plane?",
+        "items": [
+          "A layer of rules and policies that <strong>governs</strong> agent behavior at runtime",
+          "Analogous to air traffic control: planes (agents) fly, but the tower (control plane) decides routes, altitude, and landing order",
+          "Without it, every agent is unmanaged &mdash; free to call any tool, access any data, run forever"
+        ]
+      },
+      {
+        "table": {
+          "headers": [
+            "Control",
+            "What it governs",
+            "Example you already know"
+          ],
+          "rows": [
+            [
+              "<strong>Model access</strong>",
+              "Which models can be used, what data they may see",
+              "Company policy: &ldquo;no customer data in external AI&rdquo;"
+            ],
+            [
+              "<strong>Tool permissions</strong>",
+              "Which tools require approval, which are blocked",
+              "Claude Code: read = auto, shell command = ask user"
+            ],
+            [
+              "<strong>Runtime limits</strong>",
+              "Max steps, timeouts, parallel execution caps",
+              "CI pipeline: job timeout after 10 minutes"
+            ],
+            [
+              "<strong>Data filtering</strong>",
+              "Block secrets, PII, or sensitive content from reaching the model",
+              "<code>.gitignore</code> for AI: never send <code>.env</code> to the prompt"
+            ]
+          ],
+          "note": "In production platforms these rules are defined as configuration (YAML, JSON, or code) and enforced automatically &mdash; not by trusting the agent to follow instructions."
+        }
       }
     ]
   },
@@ -247,30 +283,51 @@
     "mod": "7",
     "tag": "industry",
     "title": "MCP for Tools, A2A for Agents",
+    "desc": "Two emerging protocols for two different problems.",
     "body": [
       {
         "table": {
           "headers": [
-            "Protocol",
-            "Purpose",
-            "When to use"
+            "",
+            "MCP (Model Context Protocol)",
+            "A2A (Agent-to-Agent)"
           ],
           "rows": [
             [
-              "<strong>MCP</strong>",
-              "Agent talks to <strong>tools</strong>",
-              "Connect APIs, databases, file systems"
+              "<strong>Created by</strong>",
+              "Anthropic (open standard)",
+              "Google (open standard)"
             ],
             [
-              "<strong>A2A</strong>",
-              "Agent talks to <strong>agents</strong>",
-              "Delegate tasks between specialized agents"
+              "<strong>Purpose</strong>",
+              "Agent &harr; <strong>tools</strong>",
+              "Agent &harr; <strong>other agents</strong>"
+            ],
+            [
+              "<strong>Analogy</strong>",
+              "USB &mdash; one plug for any device",
+              "Email &mdash; different people, different skills, collaborate on a task"
+            ],
+            [
+              "<strong>Use when</strong>",
+              "You need to connect to APIs, databases, file systems",
+              "You need to delegate work to a specialized agent that reasons independently"
+            ],
+            [
+              "<strong>Example</strong>",
+              "Claude Code &harr; Git MCP server",
+              "Coding agent asks a security-review agent to audit its output"
             ]
           ]
         }
       },
       {
-        "quote": "&ldquo;If an entity doesn&rsquo;t make its own decisions and doesn&rsquo;t carry its own operational role, it&rsquo;s probably still a capability, not an agent.&rdquo; &mdash; Translation: If it&rsquo;s just an API, use MCP. If it reasons and decides, use A2A."
+        "card": "How to tell them apart",
+        "items": [
+          "If it <strong>executes a command</strong> and returns a result &rarr; it&rsquo;s a <strong>tool</strong> &rarr; use <strong>MCP</strong>",
+          "If it <strong>reasons, plans, and makes its own decisions</strong> &rarr; it&rsquo;s an <strong>agent</strong> &rarr; use <strong>A2A</strong>",
+          "A database connector does not &ldquo;think&rdquo; &mdash; MCP. A code-review bot that decides what to flag &mdash; A2A."
+        ]
       }
     ]
   },
@@ -279,32 +336,53 @@
     "mod": "7",
     "tag": "",
     "title": "Coordinator vs. Handoff Patterns",
+    "desc": "When multiple agents collaborate, who is in charge?",
     "body": [
       {
-        "code": "<span class=\"cmt\">Coordinator (Manager) pattern:</span>\nCoordinator &rarr; Specialist A &rarr; result\n            &rarr; Specialist B &rarr; result\n            &rarr; assembles final answer\n\n<span class=\"cmt\">Handoff pattern:</span>\nAgent A &rarr; transfers control to &rarr; Agent B &rarr; Agent C"
+        "card": "&#x1F3AF; Coordinator pattern &mdash; one manager, many specialists",
+        "items": [
+          "A <strong>central agent</strong> receives the task, splits it, delegates to specialists, and assembles the final result",
+          "Specialists report back &mdash; they never talk to each other directly",
+          "<strong>Real-world analogy:</strong> a project manager assigns tasks to developers, testers, and designers, then combines their work",
+          "<strong>Example:</strong> Claude Code spawns sub-agents (Explore, Plan, test-runner) &mdash; each does one job and reports back"
+        ]
+      },
+      {
+        "card": "&#x1F501; Handoff pattern &mdash; passing the baton",
+        "items": [
+          "Agent A finishes its part and <strong>transfers full control</strong> to Agent B, which then transfers to Agent C",
+          "No central manager &mdash; each agent owns the task while it holds the baton",
+          "<strong>Real-world analogy:</strong> a support ticket escalation: L1 support &rarr; L2 engineer &rarr; L3 specialist",
+          "<strong>Example:</strong> coding agent writes code &rarr; hands off to review agent &rarr; hands off to deploy agent"
+        ]
       },
       {
         "table": {
           "headers": [
-            "Situation",
-            "Better pattern"
+            "You need&hellip;",
+            "Use Coordinator",
+            "Use Handoff"
           ],
           "rows": [
             [
-              "Need unified control of costs and steps",
-              "Coordinator"
+              "Central oversight and cost control",
+              "&#x2705; Manager tracks all steps",
+              "&#x274C; No single point of control"
             ],
             [
-              "Roles naturally divided by domain",
-              "Handoff"
+              "Clear audit trail",
+              "&#x2705; One place to check logs",
+              "&#x274C; Logs spread across agents"
             ],
             [
-              "Single audit trail matters most",
-              "Coordinator"
+              "Distinct domain expertise per step",
+              "&#x274C; Manager becomes a bottleneck",
+              "&#x2705; Each agent owns its domain fully"
             ],
             [
-              "Each agent has distinct context boundary",
-              "Handoff"
+              "Sequential pipeline (A then B then C)",
+              "&#x274C; Unnecessary overhead",
+              "&#x2705; Natural fit for pipelines"
             ]
           ]
         }
@@ -449,7 +527,7 @@
     "type": "content",
     "mod": "7",
     "tag": "industry",
-    "title": "The Parsimony Principle",
+    "title": "The Parsimony Principle: KISS and YAGNI",
     "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
     "body": [
       {
@@ -457,11 +535,20 @@
         "note": "Anthropic&rsquo;s own guidance: &ldquo;Find the simplest solution possible, and only increase complexity when needed.&rdquo; cognitive-core enforces this in every agent."
       },
       {
-        "card": "Parsimony applied everywhere:",
+        "card": "You already know this under other names",
         "items": [
-          "<strong>Agents</strong>: activate only the specialists a task requires (1-15% of team)",
-          "<strong>Tools</strong>: request only tools a skill cannot function without (4-5 max)",
-          "<strong>Code</strong>: three similar lines > a premature abstraction",
+          "<strong>KISS</strong> (Keep It Simple, Stupid) &mdash; don&rsquo;t overcomplicate what can be straightforward",
+          "<strong>YAGNI</strong> (You Aren&rsquo;t Gonna Need It) &mdash; don&rsquo;t build features until they&rsquo;re actually required",
+          "<strong>Parsimony</strong> combines both: start with the simplest solution, add complexity only when you have evidence it&rsquo;s needed"
+        ]
+      },
+      {
+        "card": "Applied to AI-assisted development:",
+        "items": [
+          "<strong>Agents</strong>: activate only the specialists a task requires &mdash; not every agent for every task",
+          "<strong>Tools</strong>: request only tools the task cannot work without (4&ndash;5 max)",
+          "<strong>Code</strong>: three similar lines &gt; a premature abstraction",
+          "<strong>AI prompts</strong>: ask for exactly what you need &mdash; vague prompts produce over-engineered solutions",
           "<strong>Exception</strong>: security uses defense-in-depth &mdash; parsimony within layers, not across them"
         ]
       }
@@ -519,13 +606,21 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Skills: Active Quality Workflow",
-    "desc": "Skills you invoke. You interpret the results. You fix the code.",
+    "title": "cognitive-core Skills: Active Quality Workflow",
+    "desc": "Custom slash commands from the <strong>cognitive-core</strong> framework &mdash; not built into Claude Code.",
     "body": [
+      {
+        "card": "What are these?",
+        "items": [
+          "These are <strong>custom skills</strong> defined in the <code>cognitive-core</code> project configuration",
+          "They are <strong>not</strong> built-in Claude Code commands &mdash; they only work if the project has them configured",
+          "Each skill is a markdown file in <code>.claude/skills/</code> that tells Claude Code <em>how</em> to run a specific workflow"
+        ]
+      },
       {
         "table": {
           "headers": [
-            "Skill",
+            "cognitive-core Skill",
             "What It Does"
           ],
           "rows": [
@@ -549,7 +644,7 @@
         }
       },
       {
-        "quote": "Skills are not magic. They run the same tools you already know &mdash; but with structure and consistency."
+        "quote": "Skills are not magic. They are structured prompts that run the same tools you already know &mdash; you can create your own in any project."
       }
     ]
   },
@@ -557,8 +652,8 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Agent Walkthrough: @code-standards-reviewer",
-    "desc": "What a real AI agent review looks like.",
+    "title": "cognitive-core Agent: @code-standards-reviewer",
+    "desc": "A custom agent defined in the cognitive-core framework &mdash; not a built-in Claude Code feature.",
     "body": [
       {
         "code": "<span class=\"cmt\"># Agent definition (YAML frontmatter + markdown)</span>\n---\nname: code-standards-reviewer\nmodel: sonnet\ntools:\n  - Read\n  - Grep\n  - Glob        <span class=\"cmt\"># Read-only tools only!</span>\n---\n\n<span class=\"kw\">For each finding, provide:</span>\n  Severity: ERROR | WARN | INFO\n  File: path:line_number\n  Issue: what is wrong\n  Standard: which rule is violated\n  Provenance: documented | verified | inferred",
@@ -699,13 +794,68 @@
     "mod": "7",
     "tag": "exercise",
     "title": "Exercise 7.2: Design a Policy",
-    "desc": "15 minutes",
+    "desc": "15 minutes &mdash; think like a security architect",
     "body": [
       {
-        "code": "bank_agent_policy:\n  tools:\n    read_account_balance:\n      risk: ???\n      approval: ???\n    send_notification_email:\n      risk: ???\n      approval: ???\n    transfer_money:\n      risk: ???\n      approval: ???\n    generate_monthly_report:\n      risk: ???\n      approval: ???\n  runtime:\n    max_steps: ???\n  memory:\n    allowed_kinds: ???\n    deny_sources: ???"
+        "card": "Scenario",
+        "items": [
+          "You are building an AI agent for a <strong>banking application</strong>",
+          "The agent can perform the actions listed below",
+          "Your job: assign a risk level and decide who must approve each action"
+        ]
       },
       {
-        "quote": "Fill in the risk levels, approval requirements, and runtime limits. Compare with a classmate."
+        "table": {
+          "headers": [
+            "Agent action",
+            "Risk level?",
+            "Who approves?",
+            "Your reasoning"
+          ],
+          "rows": [
+            [
+              "Read account balance",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "None / User / Manager?",
+              "&hellip;"
+            ],
+            [
+              "Send notification email",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "None / User / Manager?",
+              "&hellip;"
+            ],
+            [
+              "Transfer money",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "None / User / Manager?",
+              "&hellip;"
+            ],
+            [
+              "Generate monthly report",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "None / User / Manager?",
+              "&hellip;"
+            ],
+            [
+              "Close an account",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "None / User / Manager?",
+              "&hellip;"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Also discuss:",
+        "items": [
+          "Should the agent have a <strong>maximum number of steps</strong> per task? Why?",
+          "What data should the agent <strong>never</strong> store in its memory (e.g., passwords, account numbers)?",
+          "How does this compare to the <strong>Tool Gateway Pattern</strong> from Module 6?"
+        ]
+      },
+      {
+        "quote": "Compare your answers with a classmate. Did you agree on risk levels? Where did you disagree and why?"
       }
     ]
   },
