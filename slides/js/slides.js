@@ -69,8 +69,9 @@
           modSlides.push({ title: data.slides[i].title, index: i });
         }
       }
+      const mc = modColors[mod] || '#737373';
       data.slides[coverIdx].contents = modSlides.map(s =>
-        `<span onclick="event.stopPropagation();go(${s.index})" style="cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">${s.title}</span>`
+        `<span onclick="event.stopPropagation();go(${s.index})" style="cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'"><span style="color:${mc};margin-right:6px">&#x2022;</span>${s.title}</span>`
       ).join('\n');
     }
   }
