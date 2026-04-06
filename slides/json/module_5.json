@@ -204,30 +204,58 @@
     "desc": "Measuring system health over time, not just right now.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 12</span>\nslo:\n  success:\n    successful_run_rate: <span class=\"str\">\"&gt;= 97%\"</span>\n  latency:\n    run_p95_ms: <span class=\"str\">\"&lt;= 12000\"</span>\n  safety:\n    policy_violation_rate: <span class=\"str\">\"&lt; 0.2%\"</span>\n  cost:\n    avg_cost_per_successful_run_usd: <span class=\"str\">\"&lt;= 0.12\"</span>"
+        "card": "What is an SLO?",
+        "items": [
+          "<strong>Service Level Objective</strong> &mdash; a measurable target for how well something should work",
+          "Not a one-time check &mdash; tracked <strong>over time</strong> (e.g. &ldquo;97% of builds pass per month&rdquo;)",
+          "When an SLO is violated, the team <strong>must act</strong> &mdash; fix the pipeline before adding features"
+        ]
       },
       {
         "table": {
           "headers": [
             "SLO",
-            "Your Measurement"
+            "Target",
+            "How to Measure",
+            "Red Flag"
           ],
           "rows": [
             [
-              "Success rate",
-              "&ldquo;97% of builds should pass&rdquo;"
+              "<strong>Build success rate</strong>",
+              "&ge; 95%",
+              "Passed builds / total builds per week",
+              "Below 80% &mdash; pipeline is unreliable"
             ],
             [
-              "Latency",
-              "&ldquo;Pipeline should complete in &lt; 10 minutes&rdquo;"
+              "<strong>Build duration</strong>",
+              "&le; 10 min",
+              "Average time from commit to result",
+              "Above 20 min &mdash; developers stop waiting"
             ],
             [
-              "Quality",
-              "&ldquo;&lt; 1% of builds should have quality violations&rdquo;"
+              "<strong>Quality gate pass rate</strong>",
+              "&ge; 90%",
+              "Builds passing CheckStyle + PMD + SpotBugs",
+              "Below 70% &mdash; rules too strict or code too sloppy"
+            ],
+            [
+              "<strong>Test flakiness</strong>",
+              "&le; 2%",
+              "Tests that pass/fail randomly without code changes",
+              "Above 5% &mdash; team ignores test failures"
+            ],
+            [
+              "<strong>Time to fix</strong>",
+              "&le; 1 day",
+              "How long a broken build stays red",
+              "Above 3 days &mdash; broken is the new normal"
             ]
           ],
-          "note": "If your pipeline is red 30% of the time, you have an SLO problem."
+          "note": "You can track these in Jenkins with build history. No special tools needed &mdash; just pay attention."
         }
+      },
+      {
+        "quote": "If your pipeline is red 30% of the time, nobody trusts it. If nobody trusts it, nobody runs it. Then you have no CI."
       }
     ]
   },

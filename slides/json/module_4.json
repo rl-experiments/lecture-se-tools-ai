@@ -98,32 +98,53 @@
       {
         "table": {
           "headers": [
-            "JUnit Test Suite",
-            "AI Eval Dataset"
+            "Test Type",
+            "What It Verifies",
+            "AI Eval Equivalent"
           ],
           "rows": [
             [
-              "Happy path tests",
-              "Happy path tasks"
+              "<strong>Unit tests</strong>",
+              "Single method/class in isolation",
+              "Single-task benchmarks"
             ],
             [
-              "Edge case tests",
+              "<strong>Integration tests</strong>",
+              "Multiple components working together (DB, API, services)",
+              "Multi-step task evaluation"
+            ],
+            [
+              "<strong>Edge case tests</strong>",
+              "Boundary values, null, empty, overflow",
               "Ambiguous/tricky scenarios"
             ],
             [
-              "Exception tests",
+              "<strong>Exception tests</strong>",
+              "Error handling, invalid input",
               "Error and failure cases"
             ],
             [
-              "Regression tests",
+              "<strong>Regression tests</strong>",
+              "Previously fixed bugs stay fixed",
               "Regression gates"
             ],
             [
-              "Coverage report",
+              "<strong>Smoke tests</strong>",
+              "Basic sanity &mdash; does the app start at all?",
+              "Baseline health checks"
+            ],
+            [
+              "<strong>Performance tests</strong>",
+              "Response time, throughput under load",
+              "Latency and cost benchmarks"
+            ],
+            [
+              "<strong>Coverage report</strong>",
+              "% of code exercised by tests",
               "Eval coverage metrics"
             ]
           ],
-          "note": "Same purpose: verify that the system behaves correctly before releasing it."
+          "note": "Same purpose: verify that the system behaves correctly before releasing it. In this course we focus on unit tests and integration tests."
         }
       }
     ]

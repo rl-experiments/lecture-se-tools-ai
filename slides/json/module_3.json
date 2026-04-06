@@ -223,34 +223,56 @@
     "desc": "Quality checks that block builds follow the same pattern as AI deployment gates.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># From Architecture of Secure AI Agents, Ch. 13</span>\ngates:\n  offline:\n    min_task_success_rate: 0.97\n    max_policy_violation_rate: 0.002\n    max_avg_cost_delta_pct: 8\n  rollout:\n    require_offline_pass: <span class=\"kw\">true</span>"
+        "card": "What is a regression gate?",
+        "items": [
+          "An <strong>automated check</strong> that runs before code can proceed to the next stage",
+          "If the check fails, the pipeline <strong>stops</strong> &mdash; no exceptions, no workarounds",
+          "Purpose: prevent code quality from getting <strong>worse</strong> over time (= regression)"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\"># pom.xml &mdash; PMD configured as a regression gate</span>\n&lt;plugin&gt;\n  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n  &lt;artifactId&gt;<span class=\"fn\">maven-pmd-plugin</span>&lt;/artifactId&gt;\n  &lt;configuration&gt;\n    &lt;failOnViolation&gt;<span class=\"kw\">true</span>&lt;/failOnViolation&gt;   <span class=\"cmt\">&larr; build fails if PMD finds issues</span>\n    &lt;maxAllowedViolations&gt;<span class=\"kw\">0</span>&lt;/maxAllowedViolations&gt;\n  &lt;/configuration&gt;\n&lt;/plugin&gt;",
+        "note": "<code>failOnViolation: true</code> is the key setting. Without it, PMD reports problems but the build still succeeds &mdash; and nobody reads the report."
       },
       {
         "table": {
           "headers": [
-            "Your Java Project",
-            "Production AI System"
+            "Gate",
+            "What It Checks",
+            "Blocks If"
           ],
           "rows": [
             [
-              "CheckStyle/PMD block the build",
-              "Regression gates block deployment"
+              "<strong>CheckStyle</strong>",
+              "Formatting, naming conventions",
+              "Code style violations found"
             ],
             [
-              "Quality violation = build fails",
-              "Policy violation = rollout stops"
+              "<strong>PMD</strong>",
+              "Code patterns, complexity, dead code",
+              "Any rule violation detected"
             ],
             [
-              "Fix before merge",
-              "Fix before production"
+              "<strong>SpotBugs</strong>",
+              "Potential bugs via bytecode analysis",
+              "Bug patterns found (null pointers, resource leaks)"
             ],
             [
-              "<code>failOnViolation: true</code>",
-              "<code>require_offline_pass: true</code>"
+              "<strong>JUnit</strong>",
+              "Functional correctness",
+              "Any test fails"
+            ],
+            [
+              "<strong>JaCoCo</strong>",
+              "Test coverage percentage",
+              "Coverage below threshold (e.g. 80%)"
             ]
           ],
-          "note": "Same principle: automated checks that prevent degradation from reaching users."
+          "note": "In a real pipeline (Jenkins), all these gates run automatically on every commit. One failure = build is rejected."
         }
+      },
+      {
+        "quote": "A regression gate has no mercy and no exceptions. That is exactly why it works."
       }
     ]
   },
@@ -449,7 +471,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
-    "title": "Clean Logging: SLF4J + Log4J Instead of System.out",
+    "title": "Clean Logging: SLF4J Instead of System.out",
     "desc": "System.out.println() is not logging. It is debugging that stayed in production.",
     "body": [
       {
@@ -465,7 +487,7 @@
         ]
       },
       {
-        "quote": "System.out.println() or e.printStackTrace() in your project costs -0.3 on your grade. Use SLF4J + Log4J."
+        "quote": "<span style=\"font-style:normal\">&#9888;&#65039;</span> <span style=\"color:#ef4444\">System.out.println() or e.printStackTrace() in your project costs <strong>-0.3</strong> on your grade.</span> Use SLF4J."
       }
     ]
   },
@@ -502,28 +524,55 @@
         "table": {
           "headers": [
             "Metric",
-            "AI-Generated vs. Human"
+            "Finding",
+            "Source"
           ],
           "rows": [
             [
-              "Code defects",
-              "<strong>1.7&times; more</strong> defects in AI-generated code"
+              "Code churn",
+              "<span style=\"color:#ef4444\"><strong>Doubled</strong></span> &mdash; AI code gets rewritten or reverted more often",
+              "GitClear 2024"
             ],
             [
-              "Security issues",
-              "<strong>2.74&times; more</strong> security vulnerabilities"
+              "Security vulnerabilities",
+              "<span style=\"color:#ef4444\"><strong>2.74&times; more</strong></span> in AI-generated pull requests",
+              "CodeRabbit 2025"
             ],
             [
-              "Performance problems",
-              "<strong>8&times; more</strong> performance issues"
+              "Correct solutions",
+              "Only <span style=\"color:#ef4444\"><strong>65.2%</strong></span> of Copilot suggestions were correct in study tasks",
+              "NYU 2023"
             ],
             [
-              "Style violations",
-              "Significantly higher without project-specific rules"
+              "Performance issues",
+              "<span style=\"color:#ef4444\"><strong>8&times; more</strong></span> performance problems than human code",
+              "CodeRabbit 2025"
+            ],
+            [
+              "Test quality",
+              "AI tests have <span style=\"color:#ef4444\"><strong>lower mutation scores</strong></span> &mdash; they pass but miss real bugs",
+              "Microsoft Research 2024"
+            ],
+            [
+              "Maintainability",
+              "<span style=\"color:#ef4444\"><strong>Moved code</strong></span> and <strong>copy-pasted code</strong> increased significantly",
+              "GitClear 2024"
             ]
           ],
-          "note": "Source: CodeRabbit 2025 &mdash; &ldquo;AI writes fast. Fast is not the same as good.&rdquo;"
+          "note": "Multiple independent studies, same conclusion: AI-generated code needs review and quality gates."
         }
+      },
+      {
+        "card": "Why does this happen?",
+        "items": [
+          "AI has <strong>no project context</strong> &mdash; it does not know your coding standards",
+          "AI optimizes for <strong>&ldquo;looks correct&rdquo;</strong>, not for &ldquo;is correct&rdquo;",
+          "AI generates code <strong>fast</strong> &mdash; more code = more surface area for bugs",
+          "AI does not run tests &mdash; it <strong>cannot verify</strong> its own output (unless it is an agent)"
+        ]
+      },
+      {
+        "quote": "AI writes fast. Fast is not the same as good. That is why you need quality gates &mdash; they catch what AI misses."
       }
     ]
   },
@@ -537,6 +586,16 @@
       {
         "code": "<span class=\"cmt\"># CLAUDE.md &mdash; project root</span>\n\n<span class=\"kw\">## Project</span>\nJava 21 Maven project: Student Grade Manager\n\n<span class=\"kw\">## Coding Standards</span>\n- Follow google_checks.xml (CheckStyle)\n- Use SLF4J for logging, NEVER System.out.println()\n- All public methods must have Javadoc\n\n<span class=\"kw\">## Forbidden Patterns</span>\n- NEVER use e.printStackTrace()\n- NEVER use wildcard imports\n- NEVER suppress warnings without justification",
         "note": "Claude Code reads this file automatically. It becomes the AI&rsquo;s project context."
+      },
+      {
+        "card": "<span style=\"font-style:normal\">&#9888;&#65039;</span> CLAUDE.md is guidance, not enforcement",
+        "warn": true,
+        "items": [
+          "AI <strong>might ignore</strong> your rules &mdash; especially under complex prompts or long conversations",
+          "AI <strong>might use alternatives</strong> &mdash; e.g. Logback instead of SLF4J, JUnit 4 instead of 5",
+          "AI <strong>cannot be trusted</strong> to follow rules 100% of the time &mdash; it is probabilistic, not deterministic",
+          "That is why you still need <strong>CheckStyle, PMD, SpotBugs</strong> &mdash; they enforce rules the AI forgets"
+        ]
       }
     ]
   },
