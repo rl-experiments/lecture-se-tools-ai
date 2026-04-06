@@ -143,7 +143,7 @@ function initBug(opts) {
   function setLeg(key,groupPhase){
     var leg=legEls[key]; if(!leg||!leg.u) return;
     var hx=leg.hip[0],hy=leg.hip[1];
-    var outDir=leg.side<0?-Math.PI/2:Math.PI/2;
+    var outDir=leg.side<0?Math.PI:0;
     var lean=BASE_LEAN[leg.row];
     var s2=Math.sin(groupPhase), sweep=s2*0.40*(-leg.side);
     var upperAng=outDir+lean+sweep;

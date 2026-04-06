@@ -161,7 +161,7 @@
     "title": "SpotBugs: Real Bugs in Compiled Bytecode",
     "script": [
       {"name":"bug","opts":{"color":"green"}},
-      {"name":"bug","opts":{"color":"green","scale":0.8}},
+      {"name":"bug","opts":{"color":"red","scale":0.8}},
       {"name":"bug","opts":{"species":"ant","speed":"fast","scale":0.7}}
     ],
     "body": [
