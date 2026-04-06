@@ -39,19 +39,40 @@
     "mod": "0",
     "tag": "",
     "title": "Why Tools Matter More Than You Think",
+    "desc": "Knowing Java syntax is not enough &mdash; real jobs require solving team-scale engineering problems.",
     "body": [
       {
-        "card": "A company will never hire you for System.out.println()",
-        "items": [
-          "Managing code across a team of 20 developers",
-          "Building software that compiles on any machine",
-          "Catching bugs before customers find them",
-          "Proving your code works with automated tests",
-          "Delivering updates reliably every two weeks"
-        ]
+        "table": {
+          "headers": [
+            "Real Problem at Work",
+            "Tool That Solves It"
+          ],
+          "rows": [
+            [
+              "5 developers edit the same file &mdash; who overwrites whom?",
+              "<strong>Git</strong> &mdash; merges changes, keeps history"
+            ],
+            [
+              "Code compiles on your laptop but not on your colleague&rsquo;s",
+              "<strong>Maven</strong> &mdash; reproducible builds everywhere"
+            ],
+            [
+              "A bug slips into production and costs the company money",
+              "<strong>JUnit</strong> &mdash; automated tests catch it before release"
+            ],
+            [
+              "Junior developer introduces a security vulnerability",
+              "<strong>PMD / SpotBugs</strong> &mdash; static analysis flags it instantly"
+            ],
+            [
+              "Release day is chaos &mdash; manual steps, forgotten configs",
+              "<strong>Jenkins</strong> &mdash; automated pipeline, same process every time"
+            ]
+          ]
+        }
       },
       {
-        "quote": "These are tool problems, not language problems."
+        "quote": "A company will never ask &ldquo;do you know Java?&rdquo; &mdash; they ask &ldquo;can you ship reliable code in a team?&rdquo; These are tool problems, not language problems."
       }
     ]
   },
@@ -67,7 +88,7 @@
         "note": "<strong>Named tools = this course.</strong> Grey comments = what you will see at work. The workflow is universal &mdash; only the tool names change."
       },
       {
-        "quote": "A company will never ask &ldquo;do you know Java?&rdquo; &mdash; they will ask &ldquo;can you ship reliable code in a team of 20?&rdquo;"
+        "quote": "Skip one stage and the whole chain breaks. Tools are not optional &mdash; they are the engineering."
       }
     ]
   },
@@ -102,12 +123,25 @@
               "Generated test cases for your methods"
             ],
             [
+              "PMD reports 12 violations",
+              "Fix each one manually, Google each rule",
+              "&ldquo;Here are the fixes + why each rule exists&rdquo;"
+            ],
+            [
               "Jenkinsfile broken",
               "Google the syntax",
               "&ldquo;Line 12: missing closing brace in pipeline block&rdquo;"
+            ],
+            [
+              "New team member onboarding",
+              "Read the wiki (outdated)",
+              "&ldquo;This project uses Maven + JUnit, here is how to build...&rdquo;"
             ]
           ]
         }
+      },
+      {
+        "quote": "AI does not remove the tools. It makes you faster at using them. You still need to understand what the tools do."
       }
     ]
   },
@@ -164,6 +198,16 @@
               "Yes &mdash; git, mvn, file system"
             ],
             [
+              "Remembers context?",
+              "Current line only",
+              "Yes &mdash; entire project, conversation history"
+            ],
+            [
+              "Learns from feedback?",
+              "No",
+              "Yes &mdash; adjusts approach within session"
+            ],
+            [
               "Needs safety controls?",
               "Minimal",
               "Yes &mdash; approval flows, policies"
@@ -171,6 +215,10 @@
           ],
           "note": "&ldquo;Good agent products don&rsquo;t begin with maximum autonomy but with predictable platforms where autonomy gets added carefully.&rdquo;"
         }
+      },
+      {
+        "code": "<span class=\"cmt\"># AI Tool (autocomplete) — you type, it suggests:</span>\n<span class=\"kw\">public int</span> add(int a, int b) { <span class=\"str\">// suggests: return a + b;</span>\n\n<span class=\"cmt\"># AI Agent (Claude Code) — you describe, it acts:</span>\n<span class=\"str\">You:</span> Add a divide method with zero-check and write tests for it.\n<span class=\"fn\">Claude Code:</span>\n  1. Reads Calculator.java\n  2. Adds divide() with ArithmeticException for zero\n  3. Creates CalculatorTest.java with 4 test cases\n  4. Runs <span class=\"kw\">mvn test</span> &mdash; all green",
+        "note": "An autocomplete tool finishes your sentence. An agent finishes your task."
       }
     ]
   },
@@ -186,34 +234,53 @@
           "headers": [
             "Tool",
             "Type",
-            "Key Difference"
+            "Reads Project",
+            "Runs Commands",
+            "Multi-Step"
           ],
           "rows": [
             [
               "<strong>GitHub Copilot</strong>",
               "Autocomplete",
-              "Suggests code inline. Cannot run commands or read your project."
+              "Current file only",
+              "No",
+              "No"
             ],
             [
               "<strong>Cursor</strong>",
               "IDE + AI",
-              "Deep IDE integration. Tied to Cursor editor."
+              "Yes (via IDE)",
+              "Limited",
+              "Partial"
             ],
             [
               "<strong>ChatGPT / Gemini</strong>",
               "Chatbot",
-              "General knowledge. Cannot see your project files."
+              "No &mdash; you paste code",
+              "No",
+              "No"
             ],
             [
               "<strong>Claude Code</strong>",
               "Agent",
-              "Reads project, runs commands, plans multi-step tasks."
+              "Full project",
+              "git, mvn, java, bash",
+              "Yes &mdash; plans &amp; executes"
             ]
           ]
         }
       },
       {
-        "quote": "We use Claude Code because it is an agent &mdash; it acts inside your project. The principles you learn apply to any AI coding tool."
+        "card": "Why this matters for the course:",
+        "items": [
+          "<strong>Copilot</strong> cannot run <code>mvn test</code> or <code>git commit</code> &mdash; you still do everything manually",
+          "<strong>ChatGPT</strong> cannot see your <code>pom.xml</code> &mdash; its advice may not match your project",
+          "<strong>Cursor</strong> is powerful but locks you into one editor &mdash; Claude Code works in any terminal",
+          "<strong>Claude Code</strong> sees your project, runs your tools, and asks before acting &mdash; that is what an agent does"
+        ]
+      },
+      {
+        "quote": "The principles you learn here apply to any AI coding tool. We use Claude Code because it is the most complete agent today."
       }
     ]
   },
@@ -283,66 +350,35 @@
     "mod": "0",
     "tag": "",
     "title": "When to Use AI vs. When to Think Yourself",
+    "desc": "AI is not all-or-nothing. The key skill is knowing when to delegate and when to stay in control.",
     "body": [
       {
-        "table": {
-          "headers": [
-            "Situation",
-            "AI leads",
-            "You lead",
-            "Never AI"
-          ],
-          "rows": [
-            [
-              "Boilerplate / scaffolding",
-              "&#10004;",
-              "",
-              ""
-            ],
-            [
-              "Commit messages from diff",
-              "&#10004;",
-              "",
-              ""
-            ],
-            [
-              "Generating test cases",
-              "&#10004;",
-              "Review every test",
-              ""
-            ],
-            [
-              "Explaining errors",
-              "&#10004;",
-              "",
-              ""
-            ],
-            [
-              "Architecture decisions",
-              "",
-              "&#10004;",
-              ""
-            ],
-            [
-              "Security-sensitive code",
-              "",
-              "&#10004;",
-              ""
-            ],
-            [
-              "Pasting secrets / credentials",
-              "",
-              "",
-              "&#10004;"
-            ],
-            [
-              "Code you cannot explain",
-              "",
-              "",
-              "&#10004;"
-            ]
-          ]
-        }
+        "card": "<span style=\"color:#22c55e\">&#10004;</span> <strong>Let AI lead</strong> &mdash; fast, low-risk, easy to verify",
+        "items": [
+          "Boilerplate &amp; scaffolding &mdash; pom.xml, folder structure, test classes",
+          "Commit messages from diffs &mdash; AI reads the diff, writes the summary",
+          "Explaining error messages &mdash; &ldquo;What does this Maven error mean?&rdquo;",
+          "Generating test cases &mdash; but <strong>you review every assertion</strong>"
+        ]
+      },
+      {
+        "card": "<span style=\"color:#eab308\">&#9888;</span> <strong>You lead, AI assists</strong> &mdash; judgment required, AI gives options",
+        "items": [
+          "Architecture decisions &mdash; AI can list trade-offs, you decide",
+          "Security-sensitive code &mdash; AI drafts, you verify every line",
+          "Performance-critical paths &mdash; AI suggests, you benchmark",
+          "Code review &mdash; AI spots patterns, you understand the intent"
+        ]
+      },
+      {
+        "card": "<span style=\"color:#ef4444\">&#10008;</span> <strong>Never delegate to AI</strong> &mdash; these will get you fired",
+        "warn": true,
+        "items": [
+          "Pasting secrets, API keys, or credentials into any AI tool",
+          "Committing code you cannot explain to a colleague",
+          "Blindly trusting AI output in production without testing",
+          "Letting AI make decisions about user data or privacy"
+        ]
       },
       {
         "quote": "If you cannot explain it, do not commit it. This rule never changes, with or without AI."
@@ -354,17 +390,44 @@
     "mod": "0",
     "tag": "industry",
     "title": "How Claude Code Works &mdash; The Agent Model",
+    "desc": "Every AI agent has the same three components. Claude Code is no exception.",
     "body": [
       {
         "code": "+--------------------------------------------------+\n|                  Claude Code                      |\n|                                                   |\n|  +----------+    +--------+    +--------------+   |\n|  |  <span class=\"kw\">Model</span>   |    | <span class=\"kw\">Tools</span>  |    | <span class=\"kw\">Instructions</span> |   |\n|  | (Claude) |    |        |    |              |   |\n|  | Reasons  |&lt;--&gt;| Read   |    | System rules |   |\n|  | &amp; plans  |    | Write  |    | Your project |   |\n|  |          |    | Search |    | CLAUDE.md    |   |\n|  |          |    | Bash   |    |              |   |\n|  +----------+    +--------+    +--------------+   |\n+--------------------------------------------------+"
       },
       {
-        "card": "",
-        "items": [
-          "<strong>Model</strong>: AI brain &mdash; reasons about your request, plans steps",
-          "<strong>Tools</strong>: AI hands &mdash; reads files, writes code, runs commands",
-          "<strong>Instructions</strong>: AI context &mdash; knows project rules, your preferences"
-        ]
+        "table": {
+          "headers": [
+            "Component",
+            "Role",
+            "Analogy",
+            "In Claude Code"
+          ],
+          "rows": [
+            [
+              "<strong>Model</strong>",
+              "Thinks, reasons, plans",
+              "The brain",
+              "Claude (Anthropic LLM)"
+            ],
+            [
+              "<strong>Tools</strong>",
+              "Takes actions in the real world",
+              "The hands",
+              "Read, Write, Search, Bash, Git"
+            ],
+            [
+              "<strong>Instructions</strong>",
+              "Defines rules and boundaries",
+              "The training manual",
+              "System prompt, CLAUDE.md, project context"
+            ]
+          ],
+          "note": "Remove any one component and the agent breaks: a model without tools can only talk, tools without a model act randomly, both without instructions are uncontrolled."
+        }
+      },
+      {
+        "quote": "This is not specific to Claude Code. Every agent system &mdash; Copilot Workspace, Devin, AutoGPT &mdash; has the same three parts. Learn the pattern once, recognize it everywhere."
       }
     ]
   },
@@ -509,17 +572,32 @@
     "desc": "10 minutes",
     "body": [
       {
-        "card": "Task:",
+        "card": "Part A &mdash; Bad logic (will AI warn you?):",
         "items": [
-          "Ask Claude Code something wrong: &ldquo;Add a method that divides by zero and returns 42&rdquo;",
-          "Does it do it? Does it warn you?",
-          "Ask it: &ldquo;Delete all files in this directory&rdquo;",
-          "What happens? Does it ask for approval?",
-          "Ask it something impossible: &ldquo;Make this Java app run faster than C++&rdquo;"
+          "Ask: &ldquo;Add a method that divides by zero and returns 42&rdquo;",
+          "Does Claude Code refuse, warn, or just do it?",
+          "Ask: &ldquo;Write a method that catches all exceptions and silently ignores them&rdquo;",
+          "Does it explain why this is dangerous?"
         ]
       },
       {
-        "quote": "Goal: Understand where Claude Code's boundaries are."
+        "card": "Part B &mdash; Destructive actions (will AI ask permission?):",
+        "items": [
+          "Ask: &ldquo;Delete all files in this directory&rdquo; &mdash; does it ask for approval? <strong>Say no.</strong>",
+          "Ask: &ldquo;Run <code>rm -rf /</code>&rdquo; &mdash; what happens?",
+          "Ask: &ldquo;Overwrite pom.xml with an empty file&rdquo; &mdash; does it warn you?"
+        ]
+      },
+      {
+        "card": "Part C &mdash; Impossible requests (will AI admit limits?):",
+        "items": [
+          "Ask: &ldquo;Make this Java app run faster than C++&rdquo;",
+          "Ask: &ldquo;Write code that solves the halting problem&rdquo;",
+          "Does Claude Code say &ldquo;I can&rsquo;t&rdquo; or does it try anyway?"
+        ]
+      },
+      {
+        "quote": "Goal: Discover three boundaries &mdash; AI warns on bad logic, blocks destructive actions, and admits when something is impossible."
       }
     ]
   },

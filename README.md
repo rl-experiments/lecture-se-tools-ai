@@ -6,8 +6,10 @@ University lecture slides — 11 modules, 221 slides.
 
 ```bash
 # Serve locally (pick one)
-npx serve slides               # Node.js
-python -m http.server 8000     # Python (from slides/)
+cd slides
+npx live-server --port=3000    # Auto-reloads browser on file changes
+npx serve                      # Node.js (manual refresh)
+python -m http.server 8000     # Python (manual refresh)
 ```
 
 Open `http://localhost:8000`. Slides load JSON at runtime — no build step needed.
