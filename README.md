@@ -76,6 +76,16 @@ Slide types:
 
 TOC slide counts and cover navigation links are computed automatically at runtime.
 
+## PDF Export
+
+```bash
+pip install playwright pypdf
+playwright install chromium
+python tools/export_pdf.py
+```
+Output: `export/slides.pdf` (landscape, 221 pages)
+
 ## Dependencies
 
 - A browser and a local HTTP server (for `fetch` to work)
+- PDF export: Python 3, playwright, pypdf
