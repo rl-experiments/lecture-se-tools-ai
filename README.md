@@ -59,6 +59,11 @@ slides/
     module_10.json        ← M10: Exam / Presentation (8 slides)
   images/
     slide_bg_001.jpg ...  ← background images (6 JPEGs)
+tools/
+  export_pdf.py           ← export all slides to landscape PDF
+  templates/
+    *.potx                ← PowerPoint templates
+export/                   ← generated output (gitignored)
 ```
 
 ## Editing Content
