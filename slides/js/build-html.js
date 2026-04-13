@@ -236,6 +236,16 @@ function renderToc(slideData) {
   return html;
 }
 
+function renderImage(item) {
+  let html = `<div class="card" style="text-align:center;padding:12px">`;
+  html += `<img src="images/${item.img}" alt="${item.alt || ''}" style="max-height:420px;border-radius:6px">`;
+  if (item.caption) {
+    html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
 function renderBodyElement(item) {
   if (typeof item === 'string') return ''; // special like "toc" handled elsewhere
   if (item.card !== undefined || item.items) return renderCard(item);
@@ -243,6 +253,7 @@ function renderBodyElement(item) {
   if (item.table) return renderTable(item);
   if (item.quote) return renderQuote(item);
   if (item.resource) return renderResource(item);
+  if (item.img) return renderImage(item);
   return '';
 }
 

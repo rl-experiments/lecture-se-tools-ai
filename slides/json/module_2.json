@@ -180,10 +180,11 @@
       {
         "card": "POM Relationships",
         "items": [
-          "<code>&lt;groupId&gt;</code>, <code>&lt;artifactId&gt;</code>, <code>&lt;version&gt;</code> &mdash; unique coordinate",
-          "<code>&lt;modules&gt;</code> &mdash; multi-module project structure",
-          "<code>&lt;parent&gt;</code> &mdash; inherit settings from parent POM",
-          "<code>&lt;dependencies&gt;</code> &mdash; libraries your project needs"
+          "<code>&lt;groupId&gt;</code>, <code>&lt;artifactId&gt;</code>, <code>&lt;version&gt;</code> &mdash; unique coordinate (GAV)",
+          "<code>&lt;packaging&gt;</code> &mdash; output type: <code>jar</code>, <code>war</code>, or <code>pom</code> (parent only)",
+          "<code>&lt;parent&gt;</code>, <code>&lt;modules&gt;</code> &mdash; inheritance and multi-module structure",
+          "<code>&lt;properties&gt;</code> &mdash; variables reused across the POM (Java version, encoding, library versions)",
+          "<code>&lt;dependencies&gt;</code>, <code>&lt;dependencyManagement&gt;</code> &mdash; libraries your project needs"
         ]
       },
       {
@@ -205,8 +206,29 @@
         "card": "Build Environment",
         "items": [
           "<code>&lt;issueManagement&gt;</code>, <code>&lt;ciManagement&gt;</code>, <code>&lt;scm&gt;</code> &mdash; environment info",
-          "<code>&lt;prerequisites&gt;</code> &mdash; required Maven version",
-          "<code>&lt;profiles&gt;</code> &mdash; conditional build configurations (dev, prod)"
+          "<code>&lt;repositories&gt;</code>, <code>&lt;distributionManagement&gt;</code> &mdash; where to download / upload artifacts",
+          "<code>&lt;profiles&gt;</code> &mdash; conditional build configurations (release, coverage)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Maven Profiles: One POM, Multiple Environments",
+    "desc": "Profiles let you customize builds for dev, test, and production — without separate pom files.",
+    "body": [
+      {
+        "code": "&lt;<span class=\"kw\">profiles</span>&gt;\n  &lt;<span class=\"kw\">profile</span>&gt;\n    &lt;id&gt;<span class=\"str\">release</span>&lt;/id&gt;\n    &lt;build&gt;\n      &lt;plugins&gt;\n        &lt;plugin&gt;  <span class=\"cmt\">&lt;!-- attach javadoc.jar --&gt;</span>\n          &lt;groupId&gt;<span class=\"str\">org.apache.maven.plugins</span>&lt;/groupId&gt;\n          &lt;artifactId&gt;<span class=\"str\">maven-javadoc-plugin</span>&lt;/artifactId&gt;\n        &lt;/plugin&gt;\n      &lt;/plugins&gt;\n    &lt;/build&gt;\n  &lt;/profile&gt;\n\n  &lt;<span class=\"kw\">profile</span>&gt;\n    &lt;id&gt;<span class=\"str\">coverage</span>&lt;/id&gt;\n    &lt;build&gt;\n      &lt;plugins&gt;\n        &lt;plugin&gt;  <span class=\"cmt\">&lt;!-- JaCoCo code coverage --&gt;</span>\n          &lt;groupId&gt;<span class=\"str\">org.jacoco</span>&lt;/groupId&gt;\n          &lt;artifactId&gt;<span class=\"str\">jacoco-maven-plugin</span>&lt;/artifactId&gt;\n        &lt;/plugin&gt;\n      &lt;/plugins&gt;\n    &lt;/build&gt;\n  &lt;/profile&gt;\n&lt;/profiles&gt;"
+      },
+      {
+        "card": "Activation & Usage",
+        "items": [
+          "<code>mvn deploy -Prelease</code> &mdash; activate by name (<code>-P</code> flag)",
+          "<code>mvn verify -Pcoverage</code> &mdash; run tests with JaCoCo coverage report",
+          "Can also activate by JDK version, OS, system property, or file existence",
+          "Maven profiles = <strong>build-time</strong> (plugins, compiler flags) &mdash; Spring profiles = <strong>runtime</strong> (DB, logging, feature flags)"
         ]
       }
     ]
@@ -307,6 +329,128 @@
       },
       {
         "quote": "You never download JARs manually."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Dependency Scopes: When Is a JAR on the Classpath?",
+    "desc": "Not every dependency belongs everywhere. Scopes control visibility.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Scope",
+            "Compile",
+            "Test",
+            "JAR",
+            "When to use"
+          ],
+          "rows": [
+            [
+              "<code>compile</code>",
+              "&#10003;",
+              "&#10003;",
+              "&#10003;",
+              "Default. You call this library in your code &mdash; needed everywhere."
+            ],
+            [
+              "<code>test</code>",
+              "",
+              "&#10003;",
+              "",
+              "Only for testing. Not shipped to production &mdash; keeps your JAR small."
+            ],
+            [
+              "<code>provided</code>",
+              "&#10003;",
+              "&#10003;",
+              "",
+              "You code against it, but the server already has it (e.g. Tomcat provides the Servlet API). Not in JAR &mdash; would conflict."
+            ],
+            [
+              "<code>runtime</code>",
+              "",
+              "&#10003;",
+              "&#10003;",
+              "Not needed to compile (you use an interface), but needed at runtime (the driver that implements it)."
+            ]
+          ]
+        }
+      },
+      {
+        "code": "&lt;dependency&gt;\n    &lt;groupId&gt;<span class=\"str\">org.junit.jupiter</span>&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"str\">junit-jupiter</span>&lt;/artifactId&gt;\n    &lt;version&gt;<span class=\"str\">5.11.0</span>&lt;/version&gt;\n    &lt;scope&gt;<span class=\"kw\">test</span>&lt;/scope&gt;  <span class=\"cmt\">&lt;!-- NOT in production JAR --&gt;</span>\n&lt;/dependency&gt;",
+        "note": "Without <code>&lt;scope&gt;</code> the default is <code>compile</code> &mdash; available everywhere."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "dependencyManagement vs. dependencies",
+    "desc": "One declares versions. The other adds JARs. Don't confuse them.",
+    "body": [
+      {
+        "code": "&lt;<span class=\"kw\">dependencyManagement</span>&gt;  <span class=\"cmt\">&lt;!-- declares versions, does NOT add JARs --&gt;</span>\n  &lt;dependencies&gt;\n    &lt;dependency&gt;\n      &lt;groupId&gt;<span class=\"str\">com.google.code.gson</span>&lt;/groupId&gt;\n      &lt;artifactId&gt;<span class=\"str\">gson</span>&lt;/artifactId&gt;\n      &lt;version&gt;<span class=\"str\">2.10.1</span>&lt;/version&gt;\n    &lt;/dependency&gt;\n  &lt;/dependencies&gt;\n&lt;/dependencyManagement&gt;\n\n&lt;<span class=\"kw\">dependencies</span>&gt;            <span class=\"cmt\">&lt;!-- actually adds the JAR, no version needed --&gt;</span>\n  &lt;dependency&gt;\n    &lt;groupId&gt;<span class=\"str\">com.google.code.gson</span>&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"str\">gson</span>&lt;/artifactId&gt;\n  &lt;/dependency&gt;\n&lt;/dependencies&gt;",
+        "note": "<code>&lt;dependencyManagement&gt;</code> = menu (lists what's available + versions). <code>&lt;dependencies&gt;</code> = order (actually adds JARs to classpath)."
+      },
+      {
+        "card": "Why separate them?",
+        "items": [
+          "Define all versions in <strong>one place</strong> &mdash; no version scattered across 20 pom files",
+          "Child modules just reference groupId + artifactId &mdash; version comes from parent",
+          "Upgrade a library? Change <strong>one line</strong> in the parent, all modules get the new version"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Multi-Module Projects: One Build, Many JARs",
+    "desc": "Real-world projects split code into modules with a shared parent POM.",
+    "body": [
+      {
+        "code": "<span class=\"str\">my-app/</span>               <span class=\"cmt\">&larr; parent (pom.xml only, no code)</span>\n  pom.xml\n  <span class=\"str\">my-app-api/</span>         <span class=\"cmt\">&larr; module: interfaces + DTOs</span>\n    pom.xml\n    src/\n  <span class=\"str\">my-app-core/</span>        <span class=\"cmt\">&larr; module: business logic</span>\n    pom.xml\n    src/\n  <span class=\"str\">my-app-web/</span>         <span class=\"cmt\">&larr; module: REST controllers</span>\n    pom.xml\n    src/"
+      },
+      {
+        "code": "<span class=\"cmt\">&lt;!-- parent pom.xml --&gt;</span>\n&lt;packaging&gt;<span class=\"kw\">pom</span>&lt;/packaging&gt;\n&lt;<span class=\"kw\">modules</span>&gt;\n    &lt;module&gt;<span class=\"str\">my-app-api</span>&lt;/module&gt;\n    &lt;module&gt;<span class=\"str\">my-app-core</span>&lt;/module&gt;\n    &lt;module&gt;<span class=\"str\">my-app-web</span>&lt;/module&gt;\n&lt;/modules&gt;",
+        "note": "<code>mvn package</code> in the parent builds all modules in the correct order."
+      },
+      {
+        "card": "Parent POM provides",
+        "items": [
+          "<strong>Shared versions</strong> &mdash; <code>&lt;dependencyManagement&gt;</code> defines versions once, children inherit",
+          "<strong>Shared plugins</strong> &mdash; compiler settings, code style rules apply to all modules",
+          "<strong>Build order</strong> &mdash; Maven resolves inter-module dependencies automatically"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "2",
+    "tag": "",
+    "title": "Maven Repository Chain: Where JARs Come From",
+    "desc": "Maven searches repositories in order — local first, then remote.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">mvn compile</span>\n\n  1. <span class=\"str\">Local Repository</span>     ~/.m2/repository/\n     &darr; not found?\n  2. <span class=\"str\">Company Repository</span>   Nexus / Artifactory (your organization)\n     &darr; not found?\n  3. <span class=\"str\">Maven Central</span>        repo.maven.apache.org (internet)"
+      },
+      {
+        "card": "Why a company repository?",
+        "items": [
+          "<strong>Internal libraries</strong> &mdash; shared code that cannot be published to the internet",
+          "<strong>Proxy/cache</strong> &mdash; caches Maven Central locally, faster builds, works offline",
+          "<strong>Security</strong> &mdash; approved dependencies only, block vulnerable versions"
+        ]
+      },
+      {
+        "code": "<span class=\"cmt\">&lt;!-- pom.xml &mdash; configure company repository --&gt;</span>\n&lt;<span class=\"kw\">repositories</span>&gt;\n  &lt;<span class=\"kw\">repository</span>&gt;\n    &lt;id&gt;<span class=\"str\">company-nexus</span>&lt;/id&gt;\n    &lt;url&gt;<span class=\"str\">https://nexus.company.com/repository/maven-public/</span>&lt;/url&gt;\n  &lt;/repository&gt;\n&lt;/repositories&gt;"
       }
     ]
   },

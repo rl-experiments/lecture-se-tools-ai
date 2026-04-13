@@ -228,6 +228,16 @@
     return html;
   }
 
+  function renderImage(item) {
+    let html = `<div class="card"><div class="card-content" style="padding:12px">`;
+    html += `<img src="images/${item.img}" alt="${item.alt || ''}" style="display:block;height:auto;width:auto;max-width:100%;max-height:400px">`;
+    if (item.caption) {
+      html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
+    }
+    html += `</div></div>`;
+    return html;
+  }
+
   function renderBodyElement(item) {
     if (typeof item === 'string') return '';
     if (item.card !== undefined || item.items) return renderCard(item);
@@ -235,6 +245,7 @@
     if (item.table) return renderTable(item);
     if (item.quote) return renderQuote(item);
     if (item.resource) return renderResource(item);
+    if (item.img) return renderImage(item);
     return '';
   }
 

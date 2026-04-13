@@ -52,14 +52,41 @@
     "type": "content",
     "mod": "4",
     "tag": "",
-    "title": "Test Anatomy: Arrange, Act, Assert",
+    "title": "JUnit Lifecycle: Setup and Teardown",
+    "desc": "Five annotations control what runs before, during, and after tests.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">class</span> OrderServiceTest {\n\n    @BeforeAll  <span class=\"cmt\">// once before ALL tests (static)</span>\n    <span class=\"kw\">static void</span> startDatabase() { ... }\n\n    @BeforeEach <span class=\"cmt\">// before EACH test method</span>\n    <span class=\"kw\">void</span> createTestOrder() { ... }\n\n    @Test\n    <span class=\"kw\">void</span> cancelledOrderRefundsPayment() { ... }\n\n    @AfterEach  <span class=\"cmt\">// after EACH test method</span>\n    <span class=\"kw\">void</span> cleanupTestData() { ... }\n\n    @AfterAll   <span class=\"cmt\">// once after ALL tests (static)</span>\n    <span class=\"kw\">static void</span> stopDatabase() { ... }\n}"
+      },
+      {
+        "card": "Execution order for 3 tests",
+        "items": [
+          "<code>@BeforeAll</code> &rarr; (<code>@BeforeEach</code> &rarr; <code>@Test</code> &rarr; <code>@AfterEach</code>) &times;3 &rarr; <code>@AfterAll</code>",
+          "<code>@BeforeAll</code> / <code>@AfterAll</code> are <strong>static</strong> &mdash; shared expensive setup (DB, server)",
+          "<code>@BeforeEach</code> / <code>@AfterEach</code> &mdash; fresh state per test, prevents test coupling"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "4",
+    "tag": "",
+    "title": "Test Anatomy: Given, When, Then",
     "desc": "Every good test has three parts",
     "body": [
       {
-        "code": "@Test\n<span class=\"kw\">void</span> divideTenByTwo() {\n    <span class=\"cmt\">// ARRANGE &mdash; set up objects and data</span>\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n\n    <span class=\"cmt\">// ACT &mdash; call the method being tested</span>\n    <span class=\"kw\">double</span> result = calc.divide(10.0, 2.0);\n\n    <span class=\"cmt\">// ASSERT &mdash; verify the result</span>\n    assertEquals(5.0, result);\n}"
+        "code": "@Test\n<span class=\"kw\">void</span> divideTenByTwo() {\n    <span class=\"cmt\">// GIVEN &mdash; set up objects and data</span>\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n\n    <span class=\"cmt\">// WHEN &mdash; call the method being tested</span>\n    <span class=\"kw\">double</span> result = calc.divide(10.0, 2.0);\n\n    <span class=\"cmt\">// THEN &mdash; verify the result</span>\n    assertEquals(5.0, result);\n}"
       },
       {
-        "quote": "AAA pattern. Every test. No exceptions."
+        "quote": "Given / When / Then. Every test. No exceptions."
+      },
+      {
+        "card": "BDD (Behavior-Driven Development) Frameworks",
+        "items": [
+          "<strong>Cucumber</strong> + Gherkin &mdash; <code>.feature</code> files in plain English, backed by Java step definitions",
+          "<strong>Karate</strong> &mdash; API testing with built-in assertions, no Java glue code needed"
+        ]
       }
     ]
   },
@@ -164,6 +191,26 @@
       {
         "code": "@Test\n<span class=\"kw\">void</span> savesResultToHistory() {\n    <span class=\"cmt\">// Create a fake history service</span>\n    HistoryService history = mock(HistoryService.<span class=\"kw\">class</span>);\n    Calculator calc = <span class=\"kw\">new</span> Calculator(history);\n\n    calc.add(2.0, 3.0);\n\n    <span class=\"cmt\">// Verify the calculator called history.save()</span>\n    verify(history).save(<span class=\"str\">\"add\"</span>, 2.0, 3.0, 5.0);\n}",
         "note": "A mock pretends to be the real dependency. You verify the right methods were called without real infrastructure."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "4",
+    "tag": "",
+    "title": "Mockito: Stubbing with when/thenReturn",
+    "desc": "Mocks can also return fake data — so you control what the dependency does.",
+    "body": [
+      {
+        "code": "@Test\n<span class=\"kw\">void</span> showsFormattedPrice() {\n    <span class=\"cmt\">// GIVEN &mdash; fake the price service</span>\n    PriceService prices = mock(PriceService.<span class=\"kw\">class</span>);\n    when(prices.getPrice(<span class=\"str\">\"ITEM-42\"</span>)).thenReturn(19.99);\n\n    ShopController shop = <span class=\"kw\">new</span> ShopController(prices);\n\n    <span class=\"cmt\">// WHEN</span>\n    String result = shop.displayPrice(<span class=\"str\">\"ITEM-42\"</span>);\n\n    <span class=\"cmt\">// THEN</span>\n    assertEquals(<span class=\"str\">\"19,99 &euro;\"</span>, result);\n}"
+      },
+      {
+        "card": "Two sides of Mockito",
+        "items": [
+          "<code>when(...).thenReturn(...)</code> &mdash; <strong>stubbing</strong>: control what the mock returns",
+          "<code>verify(...).method(...)</code> &mdash; <strong>verification</strong>: check the mock was called correctly",
+          "<code>when(...).thenThrow(...)</code> &mdash; simulate errors (DB down, timeout, 404)"
+        ]
       }
     ]
   },

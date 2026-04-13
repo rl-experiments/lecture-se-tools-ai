@@ -40,6 +40,26 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "title": "SVN vs. Git: Centralized vs. Distributed",
+    "desc": "Why the industry moved from Subversion to Git",
+    "body": [
+      {
+        "img": "SVN-vs-GIT.png",
+        "alt": "SVN centralized vs Git distributed architecture"
+      },
+      {
+        "card": "Key difference",
+        "items": [
+          "<strong>SVN</strong>: single central server &mdash; commit, history, diff all require network access",
+          "<strong>Git</strong>: every developer has the full repository &mdash; work offline, commit locally, sync when ready"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
     "title": "What Is Git?",
     "body": [
       {
@@ -362,6 +382,27 @@
       },
       {
         "quote": "Rule: Never commit unfinished work to main."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "1",
+    "tag": "",
+    "title": "git stash: Save Work Without Committing",
+    "desc": "You're mid-task on a branch but need to switch. Stash saves your changes temporarily.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># you're editing on feature/login, but need to fix a bug on main</span>\n<span class=\"kw\">git stash</span>                <span class=\"cmt\"># saves uncommitted changes, working dir is clean</span>\n\n<span class=\"kw\">git checkout</span> main        <span class=\"cmt\"># switch safely</span>\n<span class=\"cmt\"># fix the bug, commit</span>\n\n<span class=\"kw\">git checkout</span> feature/login\n<span class=\"kw\">git stash pop</span>            <span class=\"cmt\"># restores your saved changes</span>"
+      },
+      {
+        "card": "Stash commands",
+        "items": [
+          "<code>git stash</code> &mdash; save and clean working directory",
+          "<code>git stash pop</code> &mdash; restore and remove from stash",
+          "<code>git stash list</code> &mdash; see all stashed changes",
+          "<code>git stash drop</code> &mdash; discard a stash you no longer need"
+        ]
       }
     ]
   },

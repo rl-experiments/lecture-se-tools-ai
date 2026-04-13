@@ -87,7 +87,10 @@ html, body {
   content: ""; position: absolute; left: 0; top: 12px;
   width: 7px; height: 7px; border-radius: 50%; background: var(--primary);
 }
-.card.warn .card-content ul li::before { background: var(--destructive); }
+.card.warn .card-content ul li { padding-left: 30px; }
+.card.warn .card-content ul li::before {
+  content: "⚠️"; background: none; width: auto; height: auto; border-radius: 0; top: 50%; transform: translateY(-50%); font-size: 20px;
+}
 
 /* ══════════════════════════════════════
    BADGES
@@ -139,6 +142,7 @@ html, body {
   border-radius: var(--radius);
   padding: 14px 18px; font-size: 16px; line-height: 1.5;
   font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-variant-ligatures: none;
   overflow-x: auto;
 }
 .card-code pre .kw { color: #569cd6; }
