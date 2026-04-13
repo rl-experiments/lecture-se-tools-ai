@@ -19,7 +19,7 @@
     "type": "content",
     "mod": "9",
     "tag": "industry",
-    "title": "cognitive-core: A Framework for AI-Assisted Development",
+    "title": "cognitive-core: A Framework for AI-Assisted Dev",
     "desc": "An open-source framework that adds governance, safety, and quality enforcement to Claude Code.",
     "body": [
       {
@@ -51,6 +51,17 @@
             ]
           ],
           "note": "Progressive intelligence: hooks are fast and dumb, agents are slow and smart. You need both."
+        }
+      },
+      {
+        "resource": {
+          "title": "GitHub Repository",
+          "links": [
+            {
+              "url": "https://github.com/mindcockpit-ai/cognitive-core",
+              "label": "github.com/mindcockpit-ai/cognitive-core"
+            }
+          ]
         }
       }
     ]
