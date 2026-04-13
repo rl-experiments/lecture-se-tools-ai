@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 10 modules, 213 slides.
+University lecture slides — 11 modules + introduction, 223 slides.
 
 ## Quick Start
 
@@ -46,19 +46,21 @@ slides/
     bug.js                ← animated bugs for code quality slides
   json/
     slides-config.json    ← metadata (title, modules, TOC, cover)
-    module_0.json         ← M0: Introduction (19 slides)
-    module_1.json         ← M1: Version Control with Git (25 slides)
-    module_2.json         ← M2: Build Management with Maven (19 slides)
-    module_3.json         ← M3: Code Quality (29 slides)
+    module_0.json         ← M0: Introduction (18 slides)
+    module_1.json         ← M1: Version Control with Git (26 slides)
+    module_2.json         ← M2: Build Management with Maven (23 slides)
+    module_3.json         ← M3: Code Quality (26 slides)
     module_4.json         ← M4: Automated Testing (19 slides)
-    module_5.json         ← M5: Continuous Integration (21 slides)
-    module_6.json         ← M6: Security & Trust (25 slides)
-    module_7.json         ← M7: Agent Architecture (22 slides)
-    module_8.json         ← M8: Prompt Engineering & Context (12 slides)
-    module_9.json         ← M9: Capstone Project (13 slides)
-    module_10.json        ← M10: Exam / Presentation (8 slides)
+    module_5.json         ← M5: Continuous Integration (20 slides)
+    module_6.json         ← M6: Security & Trust (24 slides)
+    module_7.json         ← M7: Agent Architecture (19 slides)
+    module_8.json         ← M8: Prompt Engineering & Context (11 slides)
+    module_9.json         ← M9: cognitive-core Framework (17 slides)
+    module_10.json        ← M10: Capstone Project (11 slides)
+    module_11.json        ← M11: Exam / Presentation (8 slides)
   images/
-    slide_bg_001.jpg ...  ← background images (6 JPEGs)
+    bg/                   ← background images (6 JPEGs)
+    content/              ← slide content images (SVN-vs-GIT, etc.)
 tools/
   export_pdf.py           ← export all slides to landscape PDF
   templates/
@@ -83,7 +85,7 @@ pip install playwright pypdf
 playwright install chromium
 python tools/export_pdf.py
 ```
-Output: `export/slides.pdf` (landscape, 213 pages)
+Output: `export/slides.pdf` (landscape, 223 pages)
 
 ## Dependencies
 

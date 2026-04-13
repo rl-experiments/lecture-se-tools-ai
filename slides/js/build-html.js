@@ -61,7 +61,7 @@ const bgImageMap = { 2: 'slide_bg_001.jpg', 3: 'slide_bg_002.jpg', 4: 'slide_bg_
 
 function getBgStyle(bgNum) {
   if (!bgNum || !bgImageMap[bgNum]) return '';
-  return ` style="background-image:url('images/${bgImageMap[bgNum]}')"`;
+  return ` style="background-image:url('images/bg/${bgImageMap[bgNum]}')"`;
 }
 
 // Which bg to use for a given slide index
@@ -251,7 +251,7 @@ function renderToc(slideData) {
 
 function renderImage(item) {
   let html = `<div class="card" style="text-align:center;padding:12px">`;
-  html += `<img src="images/${item.img}" alt="${item.alt || ''}" style="max-height:420px;border-radius:6px">`;
+  html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="max-height:420px;border-radius:6px">`;
   if (item.caption) {
     html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
   }

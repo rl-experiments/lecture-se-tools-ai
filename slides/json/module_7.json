@@ -685,7 +685,7 @@
           "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
           "<strong>Control plane</strong> = policies that restrict agent actions",
           "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
-          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 11)",
+          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 9)",
           "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
           "<strong>Provenance</strong>: every finding needs a source (documented / verified / inferred / automated)",
           "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"

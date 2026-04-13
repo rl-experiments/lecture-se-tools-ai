@@ -32,6 +32,11 @@
     "title": "The Problem: &ldquo;I&rsquo;ll Integrate Later&rdquo;",
     "body": [
       {
+        "img": "really-really-really.png",
+        "alt": "Really really really really really really really code freeze",
+        "height": 0
+      },
+      {
         "card": "",
         "items": [
           "Developer A works for 2 weeks on Feature X",

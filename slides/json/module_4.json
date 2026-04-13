@@ -32,6 +32,11 @@
     "title": "The Problem: &ldquo;I Tested It Manually&rdquo;",
     "body": [
       {
+        "img": "50-shades-of-green.png",
+        "alt": "50 Shades of Green - It's almost green, just some broken tests",
+        "height": 0
+      },
+      {
         "card": "&ldquo;I tested it manually&rdquo; means:",
         "items": [
           "You tested the happy path once",

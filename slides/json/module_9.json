@@ -1,49 +1,57 @@
 [
   {
     "type": "cover",
-    "script": {
-      "name": "butterfly",
-      "opts": {
-        "perched": true,
-        "anchor": ".cover-card",
-        "anchorOffsetX": -60,
-        "anchorOffsetY": 0,
-        "facing": -0.3,
-        "hue": 0
-      }
-    },
-    "bg": 7,
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":0.3,"hue":160}},
+    "bg": 3,
     "h1": "Module 9",
-    "lead": "Putting It All Together — Capstone Project",
-    "sub": "Build a complete Java application using every tool",
+    "lead": "cognitive-core Framework",
+    "sub": "Hooks, Skills, and Agents for AI-Assisted Development",
     "badges": [
-      "Full Pipeline",
-      "Git",
-      "Maven",
-      "JUnit",
-      "Jenkins",
-      "*Claude Code"
+      "Hooks",
+      "Skills",
+      "Agents",
+      "Fitness Gates",
+      "Student Lab Pack"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(182)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Capstone Project</span>\n<span onclick=\"event.stopPropagation();go(183)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Requirements Checklist</span>\n<span onclick=\"event.stopPropagation();go(184)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI Usage Rules</span>\n<span onclick=\"event.stopPropagation();go(185)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Architecture Checklist (Bonus)</span>\n<span onclick=\"event.stopPropagation();go(186)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Timeline</span>\n<span onclick=\"event.stopPropagation();go(187)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.1: Project Setup</span>\n<span onclick=\"event.stopPropagation();go(188)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.2: Implementation + Tests</span>\n<span onclick=\"event.stopPropagation();go(189)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.3: Quality + Pipeline</span>\n<span onclick=\"event.stopPropagation();go(190)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus Criteria</span>\n<span onclick=\"event.stopPropagation();go(191)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus: What We Look For</span>\n<span onclick=\"event.stopPropagation();go(192)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Evaluation Criteria</span>"
+    "contents": ""
   },
   {
     "type": "content",
     "mod": "9",
-    "tag": "",
-    "title": "The Capstone Project",
-    "desc": "Build a complete Java application using every tool from this course",
+    "tag": "industry",
+    "title": "cognitive-core: A Framework for AI-Assisted Development",
+    "desc": "An open-source framework that adds governance, safety, and quality enforcement to Claude Code.",
     "body": [
       {
-        "card": "Project: A command-line Student Grade Manager",
-        "items": [
-          "Add students and their grades",
-          "Calculate averages, min, max",
-          "Save/load data from JSON files",
-          "Input validation and error handling"
-        ]
+        "code": "cognitive-core adds three layers on top of Claude Code:\n\n <span class=\"kw\">Hooks</span> ............ automatic safety guards (fire on every action)\n <span class=\"fn\">Skills</span> ........... structured quality tools (you invoke them)\n <span class=\"str\">Agents</span> ........... specialist reviewers (they reason about your code)\n\n Install: <span class=\"cmt\">bash install.sh</span> (into any existing project)\n Config:  <span class=\"cmt\">cognitive-core.conf</span> (one file controls everything)",
+        "note": "We will use a Student Lab Pack: 4 hooks, 7 skills, 2 agents (out of 9 hooks, 20 skills, 10 agents). You learn the subset that matters for this course."
       },
       {
-        "quote": "Complete cognitive-core setup (Module 11) before starting. AI-augmented throughout with Claude Code as your co-pilot."
+        "table": {
+          "headers": [
+            "Layer",
+            "Analogy",
+            "Example"
+          ],
+          "rows": [
+            [
+              "<span class=\"kw\">Hooks</span>",
+              "Reflexes &mdash; automatic, no thought needed",
+              "<code>validate-bash.sh</code> blocks <code>rm -rf /</code>"
+            ],
+            [
+              "<span class=\"fn\">Skills</span>",
+              "Tools &mdash; you pick the right one for the job",
+              "<code>/fitness</code> scores your code 0-100%"
+            ],
+            [
+              "<span class=\"str\">Agents</span>",
+              "Colleagues &mdash; they think, discuss, reason",
+              "<code>@code-standards-reviewer</code> reviews your design"
+            ]
+          ],
+          "note": "Progressive intelligence: hooks are fast and dumb, agents are slow and smart. You need both."
+        }
       }
     ]
   },
@@ -51,75 +59,305 @@
     "type": "content",
     "mod": "9",
     "tag": "",
-    "title": "Requirements Checklist",
+    "title": "cognitive-core: Three Layers of Quality",
+    "desc": "Hooks &rarr; Skills &rarr; Agents: progressive intelligence.",
     "body": [
       {
         "table": {
           "headers": [
-            "Requirement",
-            "Tool",
-            "Module"
+            "Layer",
+            "Type",
+            "Student Action",
+            "Intelligence"
           ],
           "rows": [
             [
-              "Code in Git with meaningful commits",
-              "Git",
-              "1"
+              "<strong>Hooks</strong>",
+              "Automatic reflexes",
+              "None &mdash; fires after every edit",
+              "Low (pattern matching)"
             ],
             [
-              "Feature branch workflow",
-              "Git",
-              "1"
+              "<strong>Skills</strong>",
+              "Active tools",
+              "Student invokes: <code>/pre-commit</code>",
+              "Medium (structured analysis)"
             ],
             [
-              "Maven build with proper pom.xml",
-              "Maven",
-              "2"
+              "<strong>Agents</strong>",
+              "Review partners",
+              "Student interacts: <code>@code-standards-reviewer</code>",
+              "High (deep reasoning)"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Your progression through this course:",
+        "items": [
+          "<strong>Session 2:</strong> Manual <code>mvn checkstyle:check</code> (you run it, you read it)",
+          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guardrails)",
+          "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
+          "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Git Safety Hooks",
+    "desc": "What if dangerous git commands were blocked automatically?",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># validate-bash.sh blocks these commands:</span>\n\n<span class=\"str\">git push --force main</span>     &rarr; <span class=\"kw\">BLOCKED</span> (destroys remote history)\n<span class=\"str\">git reset --hard</span>          &rarr; <span class=\"kw\">BLOCKED</span> (destroys local changes)\n<span class=\"str\">git clean -f</span>              &rarr; <span class=\"kw\">BLOCKED</span> (deletes untracked files)\n<span class=\"str\">rm -rf .git</span>               &rarr; <span class=\"kw\">BLOCKED</span> (destroys repository)\n<span class=\"str\">chmod 777</span>                 &rarr; <span class=\"kw\">BLOCKED</span> (world-writable = insecure)\n\n<span class=\"cmt\"># Also enforces branch policy:</span>\n<span class=\"str\">git commit on main</span>        &rarr; <span class=\"kw\">BLOCKED</span> (must use feature branch)\n  <span class=\"cmt\">Exception: chore(), docs(), revert, ci() allowed on main</span>",
+        "note": "The hook intercepts every Bash command Claude Code tries to run. It checks against pattern lists before execution. You cannot bypass it from a prompt."
+      },
+      {
+        "quote": "Hooks are deterministic guards. Even if you tell Claude Code &ldquo;ignore all safety rules&rdquo;, the hook still blocks the command."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: post-edit-lint Hook",
+    "desc": "What if quality checks ran automatically after every file edit?",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># post-edit-lint.sh (PostToolUse hook)</span>\n<span class=\"cmt\"># Fires automatically after: Write, Edit, NotebookEdit</span>\n\n<span class=\"kw\">Event:</span> You (or Claude Code) edit Calculator.java\n   |\n   v\n<span class=\"fn\">post-edit-lint.sh</span> triggers automatically\n   |\n   v\nRuns: <span class=\"kw\">mvn checkstyle:check pmd:check</span>\n   |\n   v\nResult: <span class=\"fn\">0 violations</span> &rarr; silent (no interruption)\n        <span class=\"str\">3 violations</span> &rarr; prints warnings in context\n\n<span class=\"cmt\"># You never need to remember to run quality tools.</span>\n<span class=\"cmt\"># The hook runs them for you. Every. Single. Time.</span>",
+        "note": "Configuration: <code>CC_LINT_COMMAND</code> in <code>cognitive-core.conf</code> controls which tools run. For Java: <code>mvn checkstyle:check pmd:check</code>."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Tool Risk Classification",
+    "desc": "How production AI systems classify tool risk &mdash; same pattern as your Maven commands.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; tool risk policy</span>\n\ntools:\n  <span class=\"fn\">read_file</span>:\n    risk: low\n    approval: <span class=\"kw\">automatic</span>       <span class=\"cmt\"># like: mvn dependency:tree</span>\n  <span class=\"fn\">write_file</span>:\n    risk: medium\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: mvn deploy</span>\n  <span class=\"fn\">execute_bash</span>:\n    risk: high\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: rm -rf target/</span>\n  <span class=\"fn\">delete_database</span>:\n    risk: critical\n    approval: <span class=\"kw\">admin_required</span>  <span class=\"cmt\"># like: DROP TABLE</span>",
+        "note": "You classified Maven commands as read vs. write in Exercise 2.3. Production systems do exactly this &mdash; with automatic enforcement."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: /pre-commit Skill",
+    "desc": "Structured pass/fail report before every commit.",
+    "body": [
+      {
+        "code": "<span class=\"str\">/pre-commit</span>\n\n<span class=\"fn\">Pre-commit check for 3 staged files:</span>\n\n File                        Lint    Format  Status\n ───────────────────────────────────────────────────\n Calculator.java             <span class=\"fn\">PASS</span>    <span class=\"fn\">PASS</span>    <span class=\"fn\">OK</span>\n CalculatorTest.java         <span class=\"fn\">PASS</span>    <span class=\"fn\">PASS</span>    <span class=\"fn\">OK</span>\n GradeManager.java           <span class=\"str\">FAIL</span>    <span class=\"fn\">PASS</span>    <span class=\"str\">BLOCKED</span>\n ───────────────────────────────────────────────────\n <span class=\"str\">Result: 1 file blocked. Fix violations, then retry.</span>\n\n GradeManager.java:42 &mdash; PMD: empty catch block\n GradeManager.java:67 &mdash; CheckStyle: line too long (142 > 100)",
+        "note": "The skill checks only <strong>staged</strong> files (<code>git diff --cached</code>). You fix the violations, re-stage, and run <code>/pre-commit</code> again until all files pass."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: /test-scaffold Skill",
+    "desc": "Generate test scaffolds that match your project&rsquo;s conventions.",
+    "body": [
+      {
+        "code": "<span class=\"str\">/test-scaffold src/main/java/GradeManager.java</span>\n\n<span class=\"fn\">cognitive-core detects:</span>\n  Language: Java (CC_LANGUAGE=java)\n  Layer: Service (business logic)\n  Test root: src/test/java/\n  Naming: GradeManagerTest.java\n\n<span class=\"fn\">Generated scaffold:</span>\n\n<span class=\"kw\">class</span> GradeManagerTest {\n\n  <span class=\"kw\">private</span> GradeManager manager;\n\n  <span class=\"fn\">@BeforeEach</span>\n  <span class=\"kw\">void</span> setUp() { manager = <span class=\"kw\">new</span> GradeManager(); }\n\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_positive()    { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_duplicate()   { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_null()        { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> calculateAverage_empty() { <span class=\"cmt\">// FILL: test here</span> }\n}",
+        "note": "The scaffold creates test structure + lifecycle + one group per public method + positive/negative/edge cases. You fill in the assertions."
+      },
+      {
+        "quote": "Scaffolds save 5 minutes of boilerplate. Your job is the assertions &mdash; that&rsquo;s where the thinking happens."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Test Fitness Score",
+    "desc": "How production systems measure whether tests are good enough to ship.",
+    "body": [
+      {
+        "code": "<span class=\"str\">/fitness</span>\n\n<span class=\"fn\">Fitness Report:</span>\n\n  Category            Score   Threshold (commit)\n  ─────────────────────────────────────────────────\n  Code Standards       0.92    0.80  <span class=\"fn\">PASS</span>\n  Architecture         0.85    0.80  <span class=\"fn\">PASS</span>\n  <span class=\"kw\">Test Fitness</span>         <span class=\"str\">0.65</span>    0.80  <span class=\"str\">FAIL</span>\n  Security             0.90    0.80  <span class=\"fn\">PASS</span>\n  ─────────────────────────────────────────────────\n  Composite:           0.83    0.80\n  Gate: commit\n  Result:              <span class=\"str\">UNFIT &mdash; BLOCKED</span>\n\n  <span class=\"str\">Reason: Test Fitness below threshold.</span>\n  <span class=\"str\">Missing: tests for GradeManager.saveToFile()</span>\n  <span class=\"str\">Missing: edge case for empty grade list</span>",
+        "note": "Fitness is not coverage percentage. It checks: do new modules have tests? Do tests cover edge cases? Does the suite pass? A project with 90% coverage but no edge case tests can still fail fitness."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: /code-review &mdash; Three-Pass Strategy",
+    "desc": "How to review more than 5 files without losing focus.",
+    "body": [
+      {
+        "code": "<span class=\"kw\">Pass 1 &mdash; Per-File Analysis</span>\n  Each file individually: style, logic, security, error handling\n  Output: table (File | Line | Severity | Issue | Fix | <span class=\"fn\">Provenance</span>)\n\n<span class=\"kw\">Pass 2 &mdash; Cross-File Integration</span>\n  Data flow across files, API contract alignment,\n  dependency direction, naming consistency\n\n<span class=\"kw\">Pass 3 &mdash; Consolidated Report</span>\n  Deduplicate (same pattern, 5 files &rarr; 1 finding)\n  Prioritize: <span class=\"str\">ERROR</span> &rarr; <span class=\"fn\">WARN</span> &rarr; INFO\n  Group by theme, not by file",
+        "note": "Single-pass reviews of large changesets miss cross-file issues. The three-pass strategy is how cognitive-core&rsquo;s <code>@code-standards-reviewer</code> agent works internally."
+      },
+      {
+        "quote": "Never single-pass a large review. It causes attention dilution &mdash; the same lost-in-the-middle effect you learned about in context management."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "cognitive-core: Skills & Agents",
+    "desc": "Custom slash commands and agents from the <strong>cognitive-core</strong> framework &mdash; not built into Claude Code.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "cognitive-core Skill",
+            "What It Does"
+          ],
+          "rows": [
+            [
+              "<code>/pre-commit</code>",
+              "Structured pass/fail report per file. Fix &rarr; iterate until clean."
             ],
             [
-              "External library for JSON",
-              "Maven",
-              "2"
+              "<code>/fitness</code>",
+              "Quality score across 4 dimensions: standards, architecture, tests, security. Aim for &ge;90%."
             ],
             [
-              "Zero CheckStyle critical violations",
-              "CheckStyle",
-              "3"
+              "<code>/code-review</code>",
+              "Severity-rated findings: ERROR / WARN / INFO. Provenance per finding."
             ],
             [
-              "Zero PMD critical violations",
-              "PMD",
-              "3"
+              "<code>/test-scaffold</code>",
+              "Generates JUnit 5 test scaffolds with lifecycle annotations."
+            ]
+          ]
+        }
+      },
+      {
+        "code": "<span class=\"cmt\"># Agent definition (YAML frontmatter + markdown)</span>\n---\nname: code-standards-reviewer\nmodel: sonnet\ntools:\n  - Read\n  - Grep\n  - Glob        <span class=\"cmt\"># Read-only tools only!</span>\n---\n\n<span class=\"kw\">For each finding, provide:</span>\n  Severity: ERROR | WARN | INFO\n  File: path:line_number\n  Issue: what is wrong\n  Standard: which rule is violated\n  Provenance: documented | verified | inferred",
+        "note": "The agent does NOT fix your code. You read. You understand. You fix."
+      },
+      {
+        "quote": "Skills are not magic. They are structured prompts that run the same tools you already know &mdash; you can create your own in any project."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Source Authority Model (T1&ndash;T5)",
+    "desc": "Not all information sources are equal. AI must distinguish fact from noise.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Tier",
+            "Authority",
+            "Weight",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "<strong>T1</strong>",
+              "Official / Primary",
+              "1.0",
+              "Official docs, RFCs, API specs, vendor changelogs"
             ],
             [
-              "SpotBugs clean",
-              "SpotBugs",
-              "3"
+              "<strong>T2</strong>",
+              "Verified Expert",
+              "0.8",
+              "Core maintainer blogs, conference talks, O&rsquo;Reilly books"
             ],
             [
-              "JUnit tests with 70%+ coverage",
-              "JUnit",
-              "4"
+              "<strong>T3</strong>",
+              "Community Consensus",
+              "0.6",
+              "High-vote Stack Overflow, popular GitHub repos"
             ],
             [
-              "At least one Mockito mock",
-              "Mockito",
-              "4"
+              "<strong>T4</strong>",
+              "Individual Experience",
+              "0.4",
+              "Personal blogs, Medium articles, tutorials"
             ],
             [
-              "Jenkinsfile with build/test/quality stages",
-              "Jenkins",
-              "5"
+              "<strong>T5</strong>",
+              "Unverified / AI Slop",
+              "0.2",
+              "Forum comments, AI-generated articles, promotional posts"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "Authority rules:",
+        "items": [
+          "<strong>T5 is noise</strong> &mdash; never base decisions on it. AI-generated articles are not evidence.",
+          "<strong>Decisions require T1 or T2</strong> &mdash; if best source is T3, flag it explicitly",
+          "<strong>Conflict resolution</strong>: higher tier wins. T1 says X, T3 says not-X &rarr; follow T1",
+          "<strong>Star count is not authority</strong> &mdash; 50K stars with no official backing = T3",
+          "<strong>Detecting AI slop</strong>: generic phrasing, no version numbers, no benchmarks, confident claims about closed-source internals"
+        ]
+      },
+      {
+        "quote": "&ldquo;The AI said so&rdquo; is T5. &ldquo;The JUnit 5 User Guide section 2.4&rdquo; is T1. Know the difference."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Evolutionary CI/CD Pipeline",
+    "desc": "Different pipeline stages need different confidence levels.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; graduated fitness gates</span>\n\nCC_FITNESS_LINT=<span class=\"fn\">60</span>      <span class=\"cmt\"># Local iteration (low bar)</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">80</span>    <span class=\"cmt\"># Reviewable code</span>\nCC_FITNESS_TEST=<span class=\"fn\">85</span>      <span class=\"cmt\"># Integration ready</span>\nCC_FITNESS_MERGE=<span class=\"fn\">90</span>     <span class=\"cmt\"># Near-production</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">95</span>    <span class=\"cmt\"># Production-ready</span>\n\n<span class=\"kw\">Why not 100% everywhere?</span>\nBecause a work-in-progress commit at 70% fitness\nis fine on a feature branch. But deploying it\nto production would be irresponsible.",
+        "note": "No other CI tool does this. SonarQube has one threshold. Jenkins has pass/fail. cognitive-core has 5 graduated gates that match confidence to risk."
+      },
+      {
+        "table": {
+          "headers": [
+            "Your pipeline stage",
+            "Gate",
+            "Fitness",
+            "What it means"
+          ],
+          "rows": [
+            [
+              "<code>mvn checkstyle:check</code>",
+              "Lint",
+              "60%",
+              "Is the code formatted?"
             ],
             [
-              "No secrets in repository",
-              "Security",
-              "6"
+              "<code>git commit</code>",
+              "Commit",
+              "80%",
+              "Would a reviewer understand this?"
             ],
             [
-              ".gitignore properly configured",
-              "Git + Security",
-              "1, 6"
+              "<code>mvn test</code>",
+              "Test",
+              "85%",
+              "Are tests meaningful?"
+            ],
+            [
+              "<code>git merge to main</code>",
+              "Merge",
+              "90%",
+              "Is this safe for the team?"
+            ],
+            [
+              "<code>mvn deploy</code>",
+              "Deploy",
+              "95%",
+              "Is this safe for production?"
             ]
           ]
         }
@@ -129,267 +367,166 @@
   {
     "type": "content",
     "mod": "9",
-    "tag": "",
-    "title": "AI Usage Rules",
+    "tag": "industry",
+    "title": "cognitive-core: Team-Aware Estimation",
+    "desc": "Real project planning distinguishes who does what: human, AI, or both.",
     "body": [
       {
-        "card": "You MAY use Claude Code for:",
+        "table": {
+          "headers": [
+            "Task",
+            "Executor",
+            "Effort",
+            "Bottleneck"
+          ],
+          "rows": [
+            [
+              "Research existing solutions",
+              "AI",
+              "30 min",
+              "&mdash;"
+            ],
+            [
+              "Architecture decision",
+              "human + AI",
+              "1 hour",
+              "human review"
+            ],
+            [
+              "Implementation (3 modules)",
+              "AI",
+              "45 min",
+              "&mdash;"
+            ],
+            [
+              "Unit tests",
+              "AI",
+              "30 min",
+              "&mdash;"
+            ],
+            [
+              "Human review of all AI output",
+              "<strong>human</strong>",
+              "<strong>2 hours</strong>",
+              "<strong>CRITICAL PATH</strong>"
+            ]
+          ],
+          "note": "Total wall-clock (parallel): ~4 hours. The bottleneck is always human review &mdash; not AI generation."
+        }
+      },
+      {
+        "quote": "Generic &ldquo;5 developer-days&rdquo; estimates hide reality. Tag every task: who validates it? If no human reviews AI output, the estimate is fiction."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "",
+    "title": "cognitive-core Student Lab Pack",
+    "desc": "Your minimal configuration for the capstone project.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># cognitive-core.conf (Student Lab Pack)</span>\n\nCC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
+        "note": "Lower thresholds than production (50-85% vs. 60-95%). You are learning &mdash; the gates should challenge you, not block you."
+      },
+      {
+        "table": {
+          "headers": [
+            "Component",
+            "Student Pack",
+            "Full Framework"
+          ],
+          "rows": [
+            [
+              "Hooks",
+              "4 (validate-bash, post-edit-lint, setup-env, compact-reminder)",
+              "9"
+            ],
+            [
+              "Skills",
+              "7 (/pre-commit, /fitness, /code-review, /test-scaffold, /security-baseline, /smoke-test, /project-board)",
+              "20+"
+            ],
+            [
+              "Agents",
+              "2 (@project-coordinator, @code-standards-reviewer)",
+              "10"
+            ],
+            [
+              "Fitness gates",
+              "50/70/75/80/85",
+              "60/80/85/90/95"
+            ]
+          ],
+          "note": "You use 9% of the framework. The rest is for enterprise teams with 20+ developers."
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "exercise",
+    "title": "Exercise 9.1: Configure cognitive-core",
+    "desc": "10 minutes (before starting capstone implementation)",
+    "body": [
+      {
+        "card": "Setup:",
         "items": [
-          "Generating boilerplate (pom.xml, project structure)",
-          "Writing commit messages",
-          "Generating test cases (but review them!)",
-          "Debugging build and pipeline errors",
-          "Code review before committing"
+          "Copy <code>cognitive-core.conf</code> template to your project root",
+          "Set: <code>CC_PROJECT_NAME=\"student-grade-manager\"</code>",
+          "Set: <code>CC_LANGUAGE=\"java\"</code>",
+          "Set: <code>CC_LINT_COMMAND=\"mvn checkstyle:check pmd:check\"</code>",
+          "Set: <code>CC_TEST_COMMAND=\"mvn test\"</code>",
+          "Run: <code>bash install.sh</code> — verify hooks and skills are installed"
         ]
       },
       {
-        "card": "You MUST do yourself:",
-        "warn": true,
+        "card": "Verify it works:",
         "items": [
-          "Design decisions (class structure, method signatures)",
-          "Explain every line of code in your project",
-          "Fix at least 3 quality violations by hand",
-          "Write at least 3 test cases by hand"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "",
-    "title": "Architecture Checklist (Bonus)",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Pattern",
-            "Your Project",
-            "Evidence"
-          ],
-          "rows": [
-            [
-              "<strong>Audit trail</strong>",
-              "Git log tells a clear story",
-              "<code>git log --oneline</code>"
-            ],
-            [
-              "<strong>Capability contracts</strong>",
-              "pom.xml is correct and complete",
-              "<code>mvn dependency:tree</code>"
-            ],
-            [
-              "<strong>Regression gates</strong>",
-              "Quality tools block bad code",
-              "<code>mvn checkstyle:check</code>"
-            ],
-            [
-              "<strong>Eval dataset</strong>",
-              "Tests cover edge cases",
-              "<code>jacoco:report</code>"
-            ],
-            [
-              "<strong>Traces with spans</strong>",
-              "Pipeline shows each stage",
-              "Jenkinsfile"
-            ],
-            [
-              "<strong>Trust boundary</strong>",
-              "No secrets in repo",
-              "<code>.gitignore</code>, <code>git log</code>"
-            ],
-            [
-              "<strong>Launch readiness</strong>",
-              "All 7 blocks checked",
-              "Module 7 checklist"
-            ]
-          ],
-          "note": "Bonus points for students who complete this architecture evaluation."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "exercise",
-    "title": "Exercise 9.1: Project Setup",
-    "desc": "30 minutes",
-    "body": [
-      {
-        "card": "Task:",
-        "items": [
-          "Create Git repo: <code>student-grade-manager</code>",
-          "Use Claude Code to scaffold Maven project",
-          "Add dependencies: Gson, JUnit 5, Mockito",
-          "Create initial classes: <code>Student</code>, <code>Grade</code>, <code>GradeManager</code>",
-          "First commit on <code>main</code>: &ldquo;Initial project structure&rdquo;",
-          "Create branch: <code>feature/core-logic</code>",
-          "<strong>Verify:</strong> <code>mvn compile</code> works"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "exercise",
-    "title": "Exercise 9.2: Implementation + Tests",
-    "desc": "60 minutes",
-    "body": [
-      {
-        "card": "On feature branch:",
-        "items": [
-          "Implement <code>Student</code> (name, ID, list of grades)",
-          "Implement <code>GradeManager</code> (add student, add grade, calculate average, save/load JSON)",
-          "Write JUnit tests &mdash; use Claude Code + write some by hand",
-          "Use TDD for at least one method",
-          "Regular commits with meaningful messages",
-          "<strong>Verify:</strong> <code>mvn test</code> all green"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "exercise",
-    "title": "Exercise 9.3: Quality + Pipeline",
-    "desc": "45 minutes",
-    "body": [
-      {
-        "card": "Task:",
-        "items": [
-          "Merge feature branch to main",
-          "Run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
-          "Fix all violations (AI help OK, but understand each fix)",
-          "Add JaCoCo &mdash; target 70%+ coverage",
-          "Write Jenkinsfile with stages: Build, Test, Quality, Package",
-          "Final commit: &ldquo;Add CI pipeline and quality gates&rdquo;",
-          "<strong>Verify:</strong> <code>mvn clean package</code> succeeds with zero warnings"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "",
-    "title": "LLM Bonus Criteria",
-    "desc": "Additional points for professional AI-assisted development practices.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Bonus Criterion",
-            "Points",
-            "Evidence Required"
-          ],
-          "rows": [
-            [
-              "<code>CLAUDE.md</code> + <code>.claude/rules/</code> configured",
-              "+0.3",
-              "Meaningful content in repository (not empty templates)"
-            ],
-            [
-              "Custom slash command or skill",
-              "+0.3",
-              "Working <code>.claude/commands/</code> file that does something useful"
-            ],
-            [
-              "cognitive-core fitness &ge; 90%",
-              "+0.3",
-              "Screenshot of <code>/fitness</code> output showing score"
-            ],
-            [
-              "Meaningful LLM usage in commits",
-              "+0.3",
-              "Commit history shows iterative refinement, not vibe-coded dumps"
-            ]
-          ],
-          "note": "Maximum LLM bonus: +1.2 grade points. Combined with architecture bonus (+0.5): up to +1.7 total."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "",
-    "title": "LLM Bonus: What We Look For",
-    "body": [
-      {
-        "card": "Good signs (iterative, professional):",
-        "items": [
-          "Commits show back-and-forth: generate &rarr; review &rarr; fix &rarr; commit",
-          "CLAUDE.md evolves over the project (not written once and forgotten)",
-          "<code>/fitness</code> score improves across commits",
-          "Student can explain <strong>why</strong> they accepted or rejected AI suggestions"
+          "<code>/fitness</code> — should show a score (even if low, that’s OK)",
+          "Edit a file — <code>post-edit-lint</code> should fire",
+          "<code>/pre-commit</code> before your first commit — fix any violations"
         ]
       },
       {
-        "card": "Red flags (vibe coding):",
-        "warn": true,
-        "items": [
-          "One giant commit with AI-generated everything",
-          "CLAUDE.md is a copy-paste template with no project-specific content",
-          "Student cannot explain code they committed",
-          "No evidence of quality tool usage between AI generations"
-        ]
+        "quote": "From now on, every commit goes through /pre-commit. Every merge checks /fitness. This is how professionals work."
       }
     ]
   },
   {
     "type": "content",
     "mod": "9",
-    "tag": "",
-    "title": "Evaluation Criteria",
+    "tag": "exercise",
+    "title": "Exercise 9.2: cognitive-core in Action",
+    "desc": "20 minutes",
     "body": [
       {
-        "table": {
-          "headers": [
-            "Criteria",
-            "Points",
-            "What we check"
-          ],
-          "rows": [
-            [
-              "Git workflow",
-              "20%",
-              "Clean history, branches, meaningful commits"
-            ],
-            [
-              "Maven build",
-              "15%",
-              "pom.xml correct, dependencies resolve, builds clean"
-            ],
-            [
-              "Code quality",
-              "15%",
-              "Zero critical violations (all three tools)"
-            ],
-            [
-              "Test quality",
-              "20%",
-              "Coverage 70%+, edge cases, meaningful assertions"
-            ],
-            [
-              "CI pipeline",
-              "15%",
-              "Jenkinsfile works, all stages present"
-            ],
-            [
-              "Security",
-              "10%",
-              ".gitignore, no secrets, AI output reviewed"
-            ],
-            [
-              "<strong>Bonus</strong>",
-              "+5%",
-              "Architecture checklist completed with evidence"
-            ]
-          ]
-        }
+        "card": "Part 1 — Install (5 min):",
+        "items": [
+          "Run: <code>bash install.sh</code> from the cognitive-core directory",
+          "Select platform: <code>claude</code>",
+          "Verify: <code>.claude/hooks/</code> directory was created",
+          "Verify: <code>cognitive-core.conf</code> exists in your project"
+        ]
+      },
+      {
+        "card": "Part 2 — Experience Hooks (5 min):",
+        "items": [
+          "Edit any .java file — watch <code>post-edit-lint</code> fire automatically",
+          "Try: <code>git push --force main</code> — observe the BLOCKED message",
+          "Try writing a hardcoded password in code — observe <code>validate-write</code> block it"
+        ]
+      },
+      {
+        "card": "Part 3 — Run Skills (10 min):",
+        "items": [
+          "Run: <code>/pre-commit</code> — see pass/fail per staged file",
+          "Run: <code>/fitness</code> — see your 4-category score vs. thresholds",
+          "Run: <code>/code-review</code> — read the structured findings with provenance",
+          "Compare: which found more — <code>mvn checkstyle:check</code> or <code>/code-review</code>?"
+        ]
       }
     ]
   }

@@ -77,7 +77,7 @@
   // ── Background helpers ─────────────────────────────
   function getBgStyle(bgNum) {
     if (!bgNum || !bgImageMap[bgNum]) return '';
-    return ` style="background-image:url('images/${bgImageMap[bgNum]}')"`;
+    return ` style="background-image:url('images/bg/${bgImageMap[bgNum]}')"`;
   }
 
   function bgForSlide(idx) {
@@ -243,7 +243,8 @@
 
   function renderImage(item) {
     let html = `<div class="card"><div class="card-content" style="padding:12px">`;
-    html += `<img src="images/${item.img}" alt="${item.alt || ''}" style="display:block;height:auto;width:auto;max-width:100%;max-height:400px">`;
+    const maxH = item.height === 0 ? 'none' : (item.height ? item.height + 'px' : '400px');
+    html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="display:block;height:auto;width:auto;max-width:100%;max-height:${maxH}">`;
     if (item.caption) {
       html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
     }
@@ -277,7 +278,9 @@
       if (slide.badges) {
         html += `<div class="badges">`;
         for (const b of slide.badges) {
-          if (b.startsWith('*')) {
+          if (b.startsWith('DRAFT')) {
+            html += `<span class="badge-draft">${b}</span>`;
+          } else if (b.startsWith('*')) {
             html += `<span class="badge">${b.slice(1)}</span>`;
           } else {
             html += `<span class="badge-outline">${b}</span>`;

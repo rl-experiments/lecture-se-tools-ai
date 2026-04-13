@@ -39,15 +39,15 @@
     },
     "9": {
       "label": "Module 9",
-      "color": "#06b6d4"
+      "color": "#14b8a6"
     },
     "10": {
       "label": "Module 10",
-      "color": "#737373"
+      "color": "#06b6d4"
     },
     "11": {
       "label": "Module 11",
-      "color": "#14b8a6"
+      "color": "#737373"
     }
   },
   "bg_rotation": [
@@ -60,8 +60,8 @@
   ],
   "tocGroups": [
     { "label": "Classic SE Tools", "mods": ["0", "1", "2", "3", "4", "5"] },
-    { "label": "AI Engineering", "mods": ["6", "7", "8", "11"] },
-    { "label": "Project + Exam", "mods": ["9", "10"] }
+    { "label": "AI Engineering", "mods": ["6", "7", "8", "9"] },
+    { "label": "Project + Exam", "mods": ["10", "11"] }
   ],
   "toc": [
     {
@@ -111,18 +111,18 @@
     },
     {
       "mod": "9",
+      "title": "cognitive-core Framework",
+      "topics": "Hooks, Skills, Agents, Fitness Gates, Lab Pack"
+    },
+    {
+      "mod": "10",
       "title": "Capstone Project",
       "topics": "Full Pipeline, AI-Augmented Development"
     },
     {
-      "mod": "10",
+      "mod": "11",
       "title": "Exam / Presentation",
       "topics": "Demonstrate Understanding, LLM Assessment"
-    },
-    {
-      "mod": "11",
-      "title": "cognitive-core Framework",
-      "topics": "Hooks, Skills, Agents, Fitness Gates, Lab Pack"
     }
   ],
   "cover": {
@@ -138,7 +138,8 @@
       "CheckStyle / PMD / SpotBugs",
       "JUnit / Mockito",
       "Jenkins",
-      "*Claude Code"
+      "*Claude Code",
+      "DRAFT 13.04.2025"
     ]
   }
 }
