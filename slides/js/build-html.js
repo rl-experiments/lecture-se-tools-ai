@@ -29,20 +29,11 @@ function updateTocAndCovers() {
   // Update TOC positions
   data.toc.forEach(entry => {
     if (entry.mod === '0') {
-      entry.slide = 1;
+      entry.slide = 2;
     } else {
       const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === `Module ${entry.mod}`);
       if (ci >= 0) entry.slide = ci;
     }
-  });
-
-  // Auto-calculate slide counts in TOC
-  const modCounts = {};
-  data.slides.forEach(s => { if (s.mod) modCounts[s.mod] = (modCounts[s.mod] || 0) + 1; });
-  data.toc.forEach(entry => {
-    const count = modCounts[entry.mod] || 0;
-    // Strip any existing count, then append fresh
-    entry.topics = entry.topics.replace(/\s*\(\d+ slides\)/, '') + ` (${count} slides)`;
   });
 
   // Update cover contents for all modules
