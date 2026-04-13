@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-50,"anchorOffsetY":0,"facing":-0.4,"hue":215}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -50,
+        "anchorOffsetY": 0,
+        "facing": -0.4,
+        "hue": 215
+      }
+    },
     "bg": 6,
     "h1": "Module 7",
     "lead": "Agent Architecture & Production Patterns",
@@ -95,108 +105,52 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "The Reference Architecture",
-    "desc": "Production agent systems need 8 layers",
+    "title": "Claude Code: The Six Key Abstractions",
+    "desc": "Everything in Claude Code exists to support these six core building blocks.",
     "body": [
       {
         "table": {
           "headers": [
-            "Layer",
-            "Purpose",
-            "You already learned"
+            "Abstraction",
+            "What it does",
+            "Why it matters"
           ],
           "rows": [
             [
-              "Interface",
-              "How users talk to agent",
-              "Terminal / CLI"
+              "<strong>Query Loop</strong>",
+              "Streams model response, collects tool calls, executes them, loops",
+              "Single heartbeat for REPL, SDK, sub-agents, and headless mode"
             ],
             [
-              "Identity",
-              "Who is making the request",
-              "User principal, permissions"
+              "<strong>Tool System</strong>",
+              "Read, edit, run shell, search &mdash; anything the agent can do",
+              "Tools carry their own permissions, concurrency rules, and UI rendering"
             ],
             [
-              "Control plane",
-              "What agent is allowed to do",
-              "Approval flows"
+              "<strong>Tasks</strong>",
+              "Background work units &mdash; primarily sub-agents",
+              "Recursive capability: agents delegate to sub-agents"
             ],
             [
-              "Orchestration",
-              "How agent executes tasks",
-              "Pipeline stages"
+              "<strong>State Layer</strong>",
+              "Session config (mutable singleton) + UI state (reactive store)",
+              "Infrastructure state vs. render state &mdash; separated by design"
             ],
             [
-              "Cognition",
-              "Which models handle which tasks",
-              "Claude Code&rsquo;s reasoning"
+              "<strong>Hooks</strong>",
+              "Lifecycle interceptors at PreToolUse, PostToolUse, Stop events",
+              "Deterministic guards &mdash; can block tool calls before permission prompt"
             ],
             [
-              "Memory",
-              "What agent remembers",
-              "Context, CLAUDE.md"
-            ],
-            [
-              "Tool execution",
-              "How tools are called safely",
-              "Tool gateway, sandbox"
-            ],
-            [
-              "Telemetry",
-              "How we observe what happened",
-              "Traces, spans, logs"
+              "<strong>Memory</strong>",
+              "Persistent context: CLAUDE.md (project), ~/.claude (user), shared (team)",
+              "How Claude Code remembers conventions and decisions across sessions"
             ]
           ]
         }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "The Control Plane in Detail",
-    "desc": "The control plane decides <strong>what</strong> the agent is allowed to do &mdash; before it does anything.",
-    "body": [
-      {
-        "card": "What is a control plane?",
-        "items": [
-          "A layer of rules and policies that <strong>governs</strong> agent behavior at runtime",
-          "Analogous to air traffic control: planes (agents) fly, but the tower (control plane) decides routes, altitude, and landing order",
-          "Without it, every agent is unmanaged &mdash; free to call any tool, access any data, run forever"
-        ]
       },
       {
-        "table": {
-          "headers": [
-            "Control",
-            "What it governs",
-            "Example you already know"
-          ],
-          "rows": [
-            [
-              "<strong>Model access</strong>",
-              "Which models can be used, what data they may see",
-              "Company policy: &ldquo;no customer data in external AI&rdquo;"
-            ],
-            [
-              "<strong>Tool permissions</strong>",
-              "Which tools require approval, which are blocked",
-              "Claude Code: read = auto, shell command = ask user"
-            ],
-            [
-              "<strong>Runtime limits</strong>",
-              "Max steps, timeouts, parallel execution caps",
-              "CI pipeline: job timeout after 10 minutes"
-            ],
-            [
-              "<strong>Data filtering</strong>",
-              "Block secrets, PII, or sensitive content from reaching the model",
-              "<code>.gitignore</code> for AI: never send <code>.env</code> to the prompt"
-            ]
-          ],
-          "note": "In production platforms these rules are defined as configuration (YAML, JSON, or code) and enforced automatically &mdash; not by trusting the agent to follow instructions."
-        }
+        "note": "Deep dive: <a href=\"https://claude-code-from-source.com/\" target=\"_blank\">claude-code-from-source.com</a>"
       }
     ]
   },
@@ -276,8 +230,22 @@
           "Without standards, every AI tool reinvents file reading, command execution, and search",
           "MCP makes tools reusable"
         ]
+      },
+      {
+        "code": "<span class=\"cmt\">// .mcp.json &mdash; project-level (shared in Git)</span>\n{\n  <span class=\"str\">\"mcpServers\"</span>: {\n    <span class=\"str\">\"github\"</span>: {\n      <span class=\"str\">\"command\"</span>: <span class=\"str\">\"npx\"</span>,\n      <span class=\"str\">\"args\"</span>: [<span class=\"str\">\"@modelcontextprotocol/server-github\"</span>]\n    }\n  }\n}\n\n<span class=\"cmt\">// ~/.claude.json &mdash; personal (NOT in Git)</span>\n<span class=\"cmt\">// API keys, personal tool connections</span>",
+        "note": "Project tools go in <code>.mcp.json</code> (shared). Personal credentials go in <code>~/.claude.json</code> (private)."
+      },
+      {
+        "card": "MCP golden rule:",
+        "warn": true,
+        "items": [
+          "<strong>4&ndash;5 tools per agent maximum</strong> &mdash; more tools = worse tool selection",
+          "Tool descriptions are critical: include input formats, examples, boundaries",
+          "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
+        ]
       }
-    ]
+    ],
+    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication."
   },
   {
     "type": "content",
@@ -387,6 +355,10 @@
             ]
           ]
         }
+      },
+      {
+        "code": "                  <span class=\"kw\">PROJECT-COORDINATOR</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
+        "note": "cognitive-core implements this: 10 specialist agents, each with scoped tools and instructions."
       }
     ]
   },
@@ -476,57 +448,6 @@
   {
     "type": "content",
     "mod": "7",
-    "tag": "",
-    "title": "The Agentic Loop: How Agents Actually Work",
-    "desc": "Every AI agent follows the same fundamental loop.",
-    "body": [
-      {
-        "code": "       <span class=\"kw\">User Request</span>\n            |\n            v\n   +--&gt; <span class=\"fn\">LLM Call</span> &lt;--+\n   |        |         |\n   |        v         |\n   |  stop_reason?    |\n   |   /        \\     |\n   | <span class=\"str\">\"tool_use\"</span>  <span class=\"kw\">\"end_turn\"</span>\n   |   |              |\n   |   v              v\n   | <span class=\"fn\">Execute Tool</span>   <span class=\"kw\">Return Response</span>\n   |   |              to User\n   +---+\n\n  The agent loops until it decides it&rsquo;s done.",
-        "note": "This is the loop Claude Code runs every time you give it a task."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "MCP Deep Dive: Connecting AI to Tools",
-    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\">// .mcp.json &mdash; project-level (shared in Git)</span>\n{\n  <span class=\"str\">\"mcpServers\"</span>: {\n    <span class=\"str\">\"github\"</span>: {\n      <span class=\"str\">\"command\"</span>: <span class=\"str\">\"npx\"</span>,\n      <span class=\"str\">\"args\"</span>: [<span class=\"str\">\"@modelcontextprotocol/server-github\"</span>]\n    }\n  }\n}\n\n<span class=\"cmt\">// ~/.claude.json &mdash; personal (NOT in Git)</span>\n<span class=\"cmt\">// API keys, personal tool connections</span>",
-        "note": "Project tools go in <code>.mcp.json</code> (shared). Personal credentials go in <code>~/.claude.json</code> (private)."
-      },
-      {
-        "card": "MCP golden rule:",
-        "warn": true,
-        "items": [
-          "<strong>4&ndash;5 tools per agent maximum</strong> &mdash; more tools = worse tool selection",
-          "Tool descriptions are critical: include input formats, examples, boundaries",
-          "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "Coordinator-Subagent Pattern",
-    "desc": "Hub-and-spoke: one coordinator delegates to specialists.",
-    "body": [
-      {
-        "code": "                  <span class=\"kw\">PROJECT-COORDINATOR</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
-        "note": "cognitive-core implements this: 10 specialist agents, each with scoped tools and instructions."
-      },
-      {
-        "quote": "Context isolation is not a limitation. It prevents information overload and keeps agents focused."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
     "tag": "industry",
     "title": "The Parsimony Principle: KISS and YAGNI",
     "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
@@ -607,17 +528,9 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "cognitive-core Skills: Active Quality Workflow",
-    "desc": "Custom slash commands from the <strong>cognitive-core</strong> framework &mdash; not built into Claude Code.",
+    "title": "cognitive-core: Skills & Agents",
+    "desc": "Custom slash commands and agents from the <strong>cognitive-core</strong> framework &mdash; not built into Claude Code.",
     "body": [
-      {
-        "card": "What are these?",
-        "items": [
-          "These are <strong>custom skills</strong> defined in the <code>cognitive-core</code> project configuration",
-          "They are <strong>not</strong> built-in Claude Code commands &mdash; they only work if the project has them configured",
-          "Each skill is a markdown file in <code>.claude/skills/</code> that tells Claude Code <em>how</em> to run a specific workflow"
-        ]
-      },
       {
         "table": {
           "headers": [
@@ -645,20 +558,11 @@
         }
       },
       {
-        "quote": "Skills are not magic. They are structured prompts that run the same tools you already know &mdash; you can create your own in any project."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "cognitive-core Agent: @code-standards-reviewer",
-    "desc": "A custom agent defined in the cognitive-core framework &mdash; not a built-in Claude Code feature.",
-    "body": [
-      {
         "code": "<span class=\"cmt\"># Agent definition (YAML frontmatter + markdown)</span>\n---\nname: code-standards-reviewer\nmodel: sonnet\ntools:\n  - Read\n  - Grep\n  - Glob        <span class=\"cmt\"># Read-only tools only!</span>\n---\n\n<span class=\"kw\">For each finding, provide:</span>\n  Severity: ERROR | WARN | INFO\n  File: path:line_number\n  Issue: what is wrong\n  Standard: which rule is violated\n  Provenance: documented | verified | inferred",
         "note": "The agent does NOT fix your code. You read. You understand. You fix."
+      },
+      {
+        "quote": "Skills are not magic. They are structured prompts that run the same tools you already know &mdash; you can create your own in any project."
       }
     ]
   },
@@ -698,71 +602,6 @@
           "<strong>Merge gate:</strong> 90% &mdash; full review",
           "<strong>Deploy gate:</strong> 95% &mdash; production readiness"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "industry",
-    "title": "Provenance: Where Did This Come From?",
-    "desc": "Every recommendation needs a source. Trust requires traceability.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Provenance Type",
-            "Meaning",
-            "Trust Level"
-          ],
-          "rows": [
-            [
-              "<strong>documented</strong>",
-              "Found in official docs, RFCs, standards",
-              "Highest"
-            ],
-            [
-              "<strong>verified</strong>",
-              "Confirmed in actual code or tests",
-              "High"
-            ],
-            [
-              "<strong>inferred</strong>",
-              "Pattern-based reasoning",
-              "Medium"
-            ],
-            [
-              "<strong>automated</strong>",
-              "Tool output (CheckStyle, PMD)",
-              "Deterministic"
-            ]
-          ],
-          "note": "W3C PROV vocabulary: wasAttributedTo, wasDerivedFrom, wasInformedBy, wasGeneratedBy"
-        }
-      },
-      {
-        "quote": "&ldquo;The AI said so&rdquo; is not provenance. &ldquo;Google Java Style Guide, section 4.1.2&rdquo; is provenance."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "exercise",
-    "title": "Exercise 7.4: Agent Review Comparison",
-    "desc": "20 minutes",
-    "body": [
-      {
-        "card": "Compare all four quality layers on your project:",
-        "items": [
-          "<strong>Layer 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
-          "<strong>Layer 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
-          "<strong>Layer 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
-          "<strong>Layer 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
-        ]
-      },
-      {
-        "quote": "Each layer adds intelligence. None replaces your judgment."
       }
     ]
   },
@@ -915,6 +754,27 @@
       },
       {
         "quote": "How many blocks can you honestly mark as &ldquo;ready&rdquo;?"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "exercise",
+    "title": "Exercise 7.4: Agent Review Comparison",
+    "desc": "20 minutes",
+    "body": [
+      {
+        "card": "Compare all four quality layers on your project:",
+        "items": [
+          "<strong>Layer 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
+          "<strong>Layer 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
+          "<strong>Layer 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
+          "<strong>Layer 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
+        ]
+      },
+      {
+        "quote": "Each layer adds intelligence. None replaces your judgment."
       }
     ]
   },

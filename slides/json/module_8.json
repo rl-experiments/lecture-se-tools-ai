@@ -24,10 +24,10 @@
       {
         "card": "Four techniques that matter most:",
         "items": [
-          "<strong>1. Explicit criteria</strong> &gt; vague instructions",
-          "<strong>2. Few-shot examples</strong> &mdash; the single most powerful technique",
-          "<strong>3. Structured output</strong> &mdash; JSON schemas for guaranteed format",
-          "<strong>4. The interview pattern</strong> &mdash; let AI ask before implementing"
+          "<strong>1. Explicit criteria</strong> &gt; vague instructions &mdash; <em>&ldquo;method &le;20 lines, no static&rdquo;</em> instead of <em>&ldquo;write clean code&rdquo;</em>",
+          "<strong>2. Few-shot examples</strong> &mdash; show 2&ndash;3 input/output pairs instead of explaining the pattern in words",
+          "<strong>3. Structured output</strong> &mdash; <em>&ldquo;respond as JSON: {severity, file, line, issue}&rdquo;</em> for guaranteed parseable format",
+          "<strong>4. The interview pattern</strong> &mdash; <em>&ldquo;before implementing, ask me 3 clarifying questions&rdquo;</em>"
         ]
       },
       {
@@ -99,7 +99,7 @@
     "desc": "Models pay most attention to the beginning and end. The middle gets lost.",
     "body": [
       {
-        "code": "  Attention\n  &uarr;\n  |  <span class=\"kw\">HIGH</span>        <span class=\"str\">... low attention zone ...</span>        <span class=\"kw\">HIGH</span>\n  |  ||||                                        ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  +--++++----++++--++++--++++--++++--++++----++++-&rarr;\n   Start                                       End\n   of context                              of context",
+        "code": "  Attention\n  &uarr;\n  |  <span class=\"kw\">HIGH</span>        <span class=\"str\">... low attention zone ...</span>       <span class=\"kw\">HIGH</span>\n  |  ||||                                         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  +--++++----++++--++++--++++--++++--++++----++++-&rarr;\n   Start                                       End\n   of context                              of context",
         "note": "Liu et al. (2023): &ldquo;Lost in the Middle: How Language Models Use Long Contexts&rdquo;"
       },
       {

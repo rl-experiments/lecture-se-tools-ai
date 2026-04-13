@@ -278,55 +278,6 @@
   {
     "type": "content",
     "mod": "9",
-    "tag": "",
-    "title": "Timeline",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Phase",
-            "Duration",
-            "Focus"
-          ],
-          "rows": [
-            [
-              "1. Setup",
-              "30 min",
-              "Git init, Maven project, pom.xml"
-            ],
-            [
-              "2. Core implementation",
-              "60 min",
-              "Student/Grade classes, file I/O"
-            ],
-            [
-              "3. Testing",
-              "45 min",
-              "JUnit tests, edge cases, Mockito"
-            ],
-            [
-              "4. Quality",
-              "30 min",
-              "PMD/CheckStyle/SpotBugs, fix violations"
-            ],
-            [
-              "5. Pipeline",
-              "30 min",
-              "Jenkinsfile"
-            ],
-            [
-              "6. Polish",
-              "15 min",
-              "Review git log, final checks"
-            ]
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
     "tag": "exercise",
     "title": "Exercise 9.1: Project Setup",
     "desc": "30 minutes",

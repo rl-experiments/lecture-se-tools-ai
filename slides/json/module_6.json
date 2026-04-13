@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-60,"anchorOffsetY":0,"facing":0.3,"hue":170}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -60,
+        "anchorOffsetY": 0,
+        "facing": 0.3,
+        "hue": 170
+      }
+    },
     "bg": 5,
     "h1": "Module 6",
     "lead": "Security and Trust in AI-Assisted Development",
@@ -41,14 +51,42 @@
     "body": [
       {
         "table": {
-          "headers": ["Layer", "What It Does", "Claude Code Example"],
+          "headers": [
+            "Layer",
+            "What It Does",
+            "Claude Code Example"
+          ],
           "rows": [
-            ["<strong>Ingress</strong>", "Controls what goes IN to the AI", "Your files, prompts, git history"],
-            ["<strong>Prompt Boundary</strong>", "Separates your instructions from external data", "CLAUDE.md rules vs. user input"],
-            ["<strong>Model Gateway</strong>", "Decides which AI model runs and with what limits", "Claude chooses tools, plans steps"],
-            ["<strong>Tool Gateway</strong>", "Controls what the AI can DO in the real world", "Permission prompt before writing files or running commands"],
-            ["<strong>Egress</strong>", "Filters what leaves the system", "Blocks secrets from being exposed"],
-            ["<strong>Audit Trail</strong>", "Records everything that happened", "Git log, conversation history"]
+            [
+              "<strong>Ingress</strong>",
+              "Controls what goes IN to the AI",
+              "Your files, prompts, git history"
+            ],
+            [
+              "<strong>Prompt Boundary</strong>",
+              "Separates your instructions from external data",
+              "CLAUDE.md rules vs. user input"
+            ],
+            [
+              "<strong>Model Gateway</strong>",
+              "Decides which AI model runs and with what limits",
+              "Claude chooses tools, plans steps"
+            ],
+            [
+              "<strong>Tool Gateway</strong>",
+              "Controls what the AI can DO in the real world",
+              "Permission prompt before writing files or running commands"
+            ],
+            [
+              "<strong>Egress</strong>",
+              "Filters what leaves the system",
+              "Blocks secrets from being exposed"
+            ],
+            [
+              "<strong>Audit Trail</strong>",
+              "Records everything that happened",
+              "Git log, conversation history"
+            ]
           ],
           "note": "Data flows top to bottom. Every layer is a checkpoint &mdash; skip one and you create a gap."
         }
@@ -103,7 +141,14 @@
     "mod": "6",
     "tag": "",
     "title": "Risk 1: AI Can Be Wrong (Hallucination)",
-    "script": {"name":"bug","opts":{"species":"cockroach","speed":"slow","scale":0.9}},
+    "script": {
+      "name": "bug",
+      "opts": {
+        "species": "cockroach",
+        "speed": "slow",
+        "scale": 0.9
+      }
+    },
     "body": [
       {
         "card": "Claude Code is not a database. It generates responses. It can:",
@@ -246,12 +291,44 @@
     "type": "content",
     "mod": "6",
     "tag": "industry",
-    "title": "cognitive-core: validate-write Hook &mdash; Secret Scanner",
-    "desc": "Automatic detection of hardcoded secrets before they reach your files.",
+    "title": "Hooks: Automated Safety Guardrails",
+    "desc": "Deterministic guards that fire automatically &mdash; no human action needed.",
     "body": [
       {
         "code": "<span class=\"cmt\"># validate-write.sh scans EVERY file write for:</span>\n\n<span class=\"str\">AWS_SECRET_ACCESS_KEY</span>   = xxxxxxxx  &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">-----BEGIN RSA PRIVATE KEY-----</span>     &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">password = \"SuperSecret123\"</span>         &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">GITHUB_TOKEN=ghp_xxxx</span>               &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">jdbc:postgresql://user:pass@host</span>    &rarr; <span class=\"kw\">BLOCKED</span>\n\n<span class=\"fn\">Output:</span>\n{\n  <span class=\"str\">\"permissionDecision\"</span>: <span class=\"str\">\"deny\"</span>,\n  <span class=\"str\">\"reason\"</span>: <span class=\"str\">\"Hardcoded secret detected: AWS key pattern\"</span>,\n  <span class=\"str\">\"errorCategory\"</span>: <span class=\"str\">\"security\"</span>\n}",
         "note": "The hook uses regex pattern matching &mdash; deterministic, cannot be bypassed by prompt. Even if Claude Code generates code with a hardcoded password, the write is blocked."
+      },
+      {
+        "table": {
+          "headers": [
+            "Hook",
+            "What It Does",
+            "Biological Analogy"
+          ],
+          "rows": [
+            [
+              "<code>post-edit-lint</code>",
+              "Auto-runs <code>mvn checkstyle:check pmd:check</code> after every file edit",
+              "Immune response"
+            ],
+            [
+              "<code>validate-bash</code>",
+              "Blocks dangerous commands: <code>git push --force</code>, <code>rm -rf /</code>",
+              "Pain reflex"
+            ],
+            [
+              "<code>validate-write</code>",
+              "Scans for hardcoded secrets (API keys, passwords)",
+              "Toxin detection"
+            ],
+            [
+              "<code>compact-reminder</code>",
+              "Re-injects critical rules after long sessions",
+              "Sleep memory"
+            ]
+          ],
+          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones."
+        }
       }
     ]
   },
@@ -559,6 +636,35 @@
   {
     "type": "content",
     "mod": "6",
+    "tag": "",
+    "title": "The Human Approval Gate",
+    "desc": "AI suggests. Humans approve. Humans fix.",
+    "body": [
+      {
+        "code": "Claude Code: <span class=\"str\">\"I want to run: rm -rf target/\"</span>\n\n  &darr; Hook intercepts &darr;\n\n<span class=\"kw\">validate-bash.sh</span>:\n  Is this command destructive? &rarr; Check pattern list\n  Is target/ safe to delete?  &rarr; Yes (build artifact)\n  Result: <span class=\"fn\">ALLOW</span>\n\nClaude Code: <span class=\"str\">\"I want to run: git push --force\"</span>\n\n  &darr; Hook intercepts &darr;\n\n<span class=\"kw\">validate-bash.sh</span>:\n  Is this command destructive? &rarr; <span class=\"str\">FORCE PUSH DETECTED</span>\n  Result: <span class=\"kw\">DENY</span> &mdash; &ldquo;Blocked: force push can destroy remote history&rdquo;",
+        "note": "Hooks use JSON protocol: receive tool input on stdin, return permission decision on stdout."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "6",
+    "tag": "",
+    "title": "Defense-in-Depth: Layered Protection",
+    "desc": "No single layer is enough. Every layer catches what the previous one missed.",
+    "body": [
+      {
+        "code": "Layer 1: <span class=\"kw\">CLAUDE.md</span> ............. prompt-level rules (probabilistic)\nLayer 2: <span class=\"kw\">validate-bash.sh</span> ...... command filtering  (deterministic)\nLayer 3: <span class=\"kw\">validate-write.sh</span> ..... secret scanning    (deterministic)\nLayer 4: <span class=\"kw\">post-edit-lint.sh</span> ..... quality gates      (deterministic)\nLayer 5: <span class=\"kw\">Human review</span> .......... final approval     (human judgment)\n\n  Prompt rules can fail (AI may ignore them).\n  Hooks <span class=\"fn\">cannot be bypassed</span> by the AI.",
+        "note": "Key insight: CLAUDE.md is probabilistic (hope-based). Hooks are deterministic (guaranteed). Use both."
+      },
+      {
+        "quote": "The parsimony principle applies within layers, not across them. Security always gets redundancy."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "6",
     "tag": "exercise",
     "title": "Exercise 6.1: Spot the Risk",
     "desc": "15 minutes",
@@ -650,76 +756,6 @@
           "Did Claude Code&rsquo;s answer work without seeing the secrets?",
           "Check: is <code>secrets.properties</code> in your git history? (<code>git log --all -- secrets.properties</code>)"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "6",
-    "tag": "",
-    "title": "Hooks: Automated Safety Guardrails",
-    "desc": "cognitive-core hooks &mdash; defense-in-depth for AI-assisted development.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Hook",
-            "What It Does",
-            "Biological Analogy"
-          ],
-          "rows": [
-            [
-              "<code>post-edit-lint</code>",
-              "Auto-runs <code>mvn checkstyle:check pmd:check</code> after every file edit",
-              "Immune response"
-            ],
-            [
-              "<code>validate-bash</code>",
-              "Blocks dangerous commands: <code>git push --force</code>, <code>rm -rf /</code>",
-              "Pain reflex"
-            ],
-            [
-              "<code>validate-write</code>",
-              "Scans for hardcoded secrets (API keys, passwords)",
-              "Toxin detection"
-            ],
-            [
-              "<code>compact-reminder</code>",
-              "Re-injects critical rules after long sessions",
-              "Sleep memory"
-            ]
-          ],
-          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "6",
-    "tag": "",
-    "title": "The Human Approval Gate",
-    "desc": "AI suggests. Humans approve. Humans fix.",
-    "body": [
-      {
-        "code": "Claude Code: <span class=\"str\">\"I want to run: rm -rf target/\"</span>\n\n  &darr; Hook intercepts &darr;\n\n<span class=\"kw\">validate-bash.sh</span>:\n  Is this command destructive? &rarr; Check pattern list\n  Is target/ safe to delete?  &rarr; Yes (build artifact)\n  Result: <span class=\"fn\">ALLOW</span>\n\nClaude Code: <span class=\"str\">\"I want to run: git push --force\"</span>\n\n  &darr; Hook intercepts &darr;\n\n<span class=\"kw\">validate-bash.sh</span>:\n  Is this command destructive? &rarr; <span class=\"str\">FORCE PUSH DETECTED</span>\n  Result: <span class=\"kw\">DENY</span> &mdash; &ldquo;Blocked: force push can destroy remote history&rdquo;",
-        "note": "Hooks use JSON protocol: receive tool input on stdin, return permission decision on stdout."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "6",
-    "tag": "",
-    "title": "Defense-in-Depth: Layered Protection",
-    "desc": "No single layer is enough. Every layer catches what the previous one missed.",
-    "body": [
-      {
-        "code": "Layer 1: <span class=\"kw\">CLAUDE.md</span> ............. prompt-level rules (probabilistic)\nLayer 2: <span class=\"kw\">validate-bash.sh</span> ...... command filtering  (deterministic)\nLayer 3: <span class=\"kw\">validate-write.sh</span> ..... secret scanning    (deterministic)\nLayer 4: <span class=\"kw\">post-edit-lint.sh</span> ..... quality gates      (deterministic)\nLayer 5: <span class=\"kw\">Human review</span> .......... final approval     (human judgment)\n\n  Prompt rules can fail (AI may ignore them).\n  Hooks <span class=\"fn\">cannot be bypassed</span> by the AI.",
-        "note": "Key insight: CLAUDE.md is probabilistic (hope-based). Hooks are deterministic (guaranteed). Use both."
-      },
-      {
-        "quote": "The parsimony principle applies within layers, not across them. Security always gets redundancy."
       }
     ]
   },
