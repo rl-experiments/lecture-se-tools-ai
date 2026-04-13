@@ -81,7 +81,7 @@
         ]
       },
       {
-        "code": "<span class=\"cmt\"># One command does everything:</span>\n<span class=\"kw\">mvn clean install</span>\n\n<span class=\"fn\">What happens behind the scenes:</span>\n  1. Deletes old build output           <span class=\"cmt\">(clean)</span>\n  2. Downloads missing dependencies     <span class=\"cmt\">(resolve)</span>\n  3. Compiles all .java files            <span class=\"cmt\">(compile)</span>\n  4. Runs all unit tests                 <span class=\"cmt\">(test)</span>\n  5. Packages into .jar                  <span class=\"cmt\">(package)</span>\n  6. Installs to local repository        <span class=\"cmt\">(install)</span>",
+        "code": "<span class=\"cmt\"># One command does everything:</span>\n<span class=\"kw\">mvn clean install</span>\n\n<span class=\"fn\">What happens behind the scenes:</span>\n  1. Deletes old build output            <span class=\"cmt\">(clean)</span>\n  2. Downloads missing dependencies      <span class=\"cmt\">(resolve)</span>\n  3. Compiles all .java files            <span class=\"cmt\">(compile)</span>\n  4. Runs all unit tests                 <span class=\"cmt\">(test)</span>\n  5. Packages into .jar                  <span class=\"cmt\">(package)</span>\n  6. Installs to local repository        <span class=\"cmt\">(install)</span>",
         "note": "Without Maven, each of these steps would be a separate script you maintain yourself."
       },
       {
@@ -173,12 +173,41 @@
   {
     "type": "content",
     "mod": "2",
-    "tag": "demo",
-    "title": "Maven Lifecycle",
+    "tag": "",
+    "title": "POM Structure: The Four Sections",
+    "desc": "Every pom.xml is organized into four logical areas.",
     "body": [
       {
-        "code": "<span class=\"kw\">mvn clean</span>        <span class=\"cmt\"># Delete all build output</span>\n<span class=\"kw\">mvn compile</span>      <span class=\"cmt\"># Compile source code</span>\n<span class=\"kw\">mvn test</span>         <span class=\"cmt\"># Run tests</span>\n<span class=\"kw\">mvn package</span>      <span class=\"cmt\"># Package into JAR file</span>\n<span class=\"kw\">mvn clean package</span>  <span class=\"cmt\"># Do everything</span>",
-        "note": "Lifecycle phases run in order: validate &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy. Running mvn test automatically compiles first."
+        "card": "POM Relationships",
+        "items": [
+          "<code>&lt;groupId&gt;</code>, <code>&lt;artifactId&gt;</code>, <code>&lt;version&gt;</code> &mdash; unique coordinate",
+          "<code>&lt;modules&gt;</code> &mdash; multi-module project structure",
+          "<code>&lt;parent&gt;</code> &mdash; inherit settings from parent POM",
+          "<code>&lt;dependencies&gt;</code> &mdash; libraries your project needs"
+        ]
+      },
+      {
+        "card": "General Project Information",
+        "items": [
+          "<code>&lt;name&gt;</code>, <code>&lt;url&gt;</code>, <code>&lt;description&gt;</code> &mdash; project metadata",
+          "<code>&lt;developers&gt;</code>, <code>&lt;contributors&gt;</code> &mdash; team members",
+          "<code>&lt;licenses&gt;</code> &mdash; project license declarations"
+        ]
+      },
+      {
+        "card": "Build Settings",
+        "items": [
+          "<code>&lt;build&gt;</code> &mdash; directories, extensions, resources, plugins",
+          "<code>&lt;reporting&gt;</code> &mdash; site generation and report plugins"
+        ]
+      },
+      {
+        "card": "Build Environment",
+        "items": [
+          "<code>&lt;issueManagement&gt;</code>, <code>&lt;ciManagement&gt;</code>, <code>&lt;scm&gt;</code> &mdash; environment info",
+          "<code>&lt;prerequisites&gt;</code> &mdash; required Maven version",
+          "<code>&lt;profiles&gt;</code> &mdash; conditional build configurations (dev, prod)"
+        ]
       }
     ]
   },
@@ -537,7 +566,7 @@
           "Standard structure: <code>src/main/java</code>, <code>src/test/java</code>, <code>pom.xml</code>",
           "Lifecycle: clean &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy",
           "Dependencies are downloaded automatically from Maven Central",
-          "<strong>Never</strong> commit <code>target/</code> to Git",
+          "<strong>Never</strong> commit <code>target/</code>, passwords, API keys, or secrets to Git",
           "Claude Code augments Maven: explains errors, manages dependencies, fixes pom.xml",
           "<strong>Industry:</strong> pom.xml = capability contract; Maven commands = read/write tools with risk levels",
           "<strong>Always verify</strong> AI-suggested dependency versions"
