@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 10 modules, 221 slides.
+University lecture slides — 10 modules, 213 slides.
 
 ## Quick Start
 
@@ -52,10 +52,10 @@ slides/
     module_3.json         ← M3: Code Quality (29 slides)
     module_4.json         ← M4: Automated Testing (19 slides)
     module_5.json         ← M5: Continuous Integration (21 slides)
-    module_6.json         ← M6: Security & Trust (26 slides)
-    module_7.json         ← M7: Agent Architecture (28 slides)
+    module_6.json         ← M6: Security & Trust (25 slides)
+    module_7.json         ← M7: Agent Architecture (22 slides)
     module_8.json         ← M8: Prompt Engineering & Context (12 slides)
-    module_9.json         ← M9: Capstone Project (14 slides)
+    module_9.json         ← M9: Capstone Project (13 slides)
     module_10.json        ← M10: Exam / Presentation (8 slides)
   images/
     slide_bg_001.jpg ...  ← background images (6 JPEGs)
@@ -74,7 +74,7 @@ Slide types:
 - **cover** — module title slide with badges and contents sidebar
 - **content** — teaching slide with body elements (cards, code, tables, quotes)
 
-TOC slide counts and cover navigation links are computed automatically at runtime.
+Cover navigation links are computed automatically at runtime.
 
 ## PDF Export
 
@@ -83,7 +83,7 @@ pip install playwright pypdf
 playwright install chromium
 python tools/export_pdf.py
 ```
-Output: `export/slides.pdf` (landscape, 221 pages)
+Output: `export/slides.pdf` (landscape, 213 pages)
 
 ## Dependencies
 
