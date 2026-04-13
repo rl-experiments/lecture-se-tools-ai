@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 10 modules, 213 slides.
+University lecture slides — 11 modules (0-10), 213 slides.
 
 ## Quick Start
 
@@ -17,9 +17,9 @@ Open `http://localhost:3000`
 ```bash
 cd slides
 npx serve                      # Node.js
-python -m http.server 8000     # Python
+python -m http.server 3000     # Python
 ```
-Open `http://localhost:3000` (serve) or `http://localhost:8000` (Python)
+Open `http://localhost:3000`
 
 ## Navigation
 
@@ -87,5 +87,5 @@ Output: `export/slides.pdf` (landscape, 213 pages)
 
 ## Dependencies
 
-- A browser and a local HTTP server (for `fetch` to work)
+- Node.js (for `npx` commands) or Python 3 (for `http.server`)
 - PDF export: Python 3, playwright, pypdf
