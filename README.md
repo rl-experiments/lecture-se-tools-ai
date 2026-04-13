@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 11 modules (0-10), 213 slides.
+University lecture slides — 10 modules, 213 slides.
 
 ## Quick Start
 
