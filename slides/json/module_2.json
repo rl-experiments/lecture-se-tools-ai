@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":0.3,"hue":170}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -55,
+        "anchorOffsetY": 0,
+        "facing": 0.3,
+        "hue": 170
+      }
+    },
     "bg": 7,
     "h1": "Module 2",
     "lead": "Build Management with Maven + Claude Code",
@@ -584,19 +594,6 @@
       },
       {
         "quote": "This pattern appears everywhere in engineering: read is free, local write is careful, external write needs approval."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
-    "tag": "industry",
-    "title": "cognitive-core: Tool Risk Classification",
-    "desc": "How production AI systems classify tool risk &mdash; same pattern as your Maven commands.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; tool risk policy</span>\n\ntools:\n  <span class=\"fn\">read_file</span>:\n    risk: low\n    approval: <span class=\"kw\">automatic</span>       <span class=\"cmt\"># like: mvn dependency:tree</span>\n  <span class=\"fn\">write_file</span>:\n    risk: medium\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: mvn deploy</span>\n  <span class=\"fn\">execute_bash</span>:\n    risk: high\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: rm -rf target/</span>\n  <span class=\"fn\">delete_database</span>:\n    risk: critical\n    approval: <span class=\"kw\">admin_required</span>  <span class=\"cmt\"># like: DROP TABLE</span>",
-        "note": "You classified Maven commands as read vs. write in Exercise 2.3. Production systems do exactly this &mdash; with automatic enforcement."
       }
     ]
   },

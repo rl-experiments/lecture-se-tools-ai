@@ -20,7 +20,6 @@
       "Reference Architecture",
       "Control Plane",
       "MCP",
-      "cognitive-core",
       "Observability"
     ]
   },
@@ -480,112 +479,6 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "cognitive-core: Three Layers of Quality",
-    "desc": "Hooks &rarr; Skills &rarr; Agents: progressive intelligence.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Layer",
-            "Type",
-            "Student Action",
-            "Intelligence"
-          ],
-          "rows": [
-            [
-              "<strong>Hooks</strong>",
-              "Automatic reflexes",
-              "None &mdash; fires after every edit",
-              "Low (pattern matching)"
-            ],
-            [
-              "<strong>Skills</strong>",
-              "Active tools",
-              "Student invokes: <code>/pre-commit</code>",
-              "Medium (structured analysis)"
-            ],
-            [
-              "<strong>Agents</strong>",
-              "Review partners",
-              "Student interacts: <code>@code-standards-reviewer</code>",
-              "High (deep reasoning)"
-            ]
-          ]
-        }
-      },
-      {
-        "card": "Your progression through this course:",
-        "items": [
-          "<strong>Session 2:</strong> Manual <code>mvn checkstyle:check</code> (you run it, you read it)",
-          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guardrails)",
-          "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
-          "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "cognitive-core: Skills & Agents",
-    "desc": "Custom slash commands and agents from the <strong>cognitive-core</strong> framework &mdash; not built into Claude Code.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "cognitive-core Skill",
-            "What It Does"
-          ],
-          "rows": [
-            [
-              "<code>/pre-commit</code>",
-              "Structured pass/fail report per file. Fix &rarr; iterate until clean."
-            ],
-            [
-              "<code>/fitness</code>",
-              "Quality score across 4 dimensions: standards, architecture, tests, security. Aim for &ge;90%."
-            ],
-            [
-              "<code>/code-review</code>",
-              "Severity-rated findings: ERROR / WARN / INFO. Provenance per finding."
-            ],
-            [
-              "<code>/test-scaffold</code>",
-              "Generates JUnit 5 test scaffolds with lifecycle annotations."
-            ]
-          ]
-        }
-      },
-      {
-        "code": "<span class=\"cmt\"># Agent definition (YAML frontmatter + markdown)</span>\n---\nname: code-standards-reviewer\nmodel: sonnet\ntools:\n  - Read\n  - Grep\n  - Glob        <span class=\"cmt\"># Read-only tools only!</span>\n---\n\n<span class=\"kw\">For each finding, provide:</span>\n  Severity: ERROR | WARN | INFO\n  File: path:line_number\n  Issue: what is wrong\n  Standard: which rule is violated\n  Provenance: documented | verified | inferred",
-        "note": "The agent does NOT fix your code. You read. You understand. You fix."
-      },
-      {
-        "quote": "Skills are not magic. They are structured prompts that run the same tools you already know &mdash; you can create your own in any project."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "industry",
-    "title": "cognitive-core: /code-review &mdash; Three-Pass Strategy",
-    "desc": "How to review more than 5 files without losing focus.",
-    "body": [
-      {
-        "code": "<span class=\"kw\">Pass 1 &mdash; Per-File Analysis</span>\n  Each file individually: style, logic, security, error handling\n  Output: table (File | Line | Severity | Issue | Fix | <span class=\"fn\">Provenance</span>)\n\n<span class=\"kw\">Pass 2 &mdash; Cross-File Integration</span>\n  Data flow across files, API contract alignment,\n  dependency direction, naming consistency\n\n<span class=\"kw\">Pass 3 &mdash; Consolidated Report</span>\n  Deduplicate (same pattern, 5 files &rarr; 1 finding)\n  Prioritize: <span class=\"str\">ERROR</span> &rarr; <span class=\"fn\">WARN</span> &rarr; INFO\n  Group by theme, not by file",
-        "note": "Single-pass reviews of large changesets miss cross-file issues. The three-pass strategy is how cognitive-core&rsquo;s <code>@code-standards-reviewer</code> agent works internally."
-      },
-      {
-        "quote": "Never single-pass a large review. It causes attention dilution &mdash; the same lost-in-the-middle effect you learned about in context management."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
     "title": "Fitness Gates: Deterministic vs. Probabilistic",
     "desc": "Two fundamentally different enforcement models.",
     "body": [
@@ -792,7 +685,7 @@
           "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
           "<strong>Control plane</strong> = policies that restrict agent actions",
           "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
-          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning)",
+          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 11)",
           "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
           "<strong>Provenance</strong>: every finding needs a source (documented / verified / inferred / automated)",
           "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"

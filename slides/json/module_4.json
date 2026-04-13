@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-50,"anchorOffsetY":0,"facing":0.4,"hue":315}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -50,
+        "anchorOffsetY": 0,
+        "facing": 0.4,
+        "hue": 315
+      }
+    },
     "bg": 3,
     "h1": "Module 4",
     "lead": "Automated Testing with JUnit, Mockito + Claude Code",
@@ -97,7 +107,14 @@
     "title": "Testing Edge Cases: Where Bugs Actually Live",
     "script": [
       "bug",
-      {"name":"bug","opts":{"species":"ant","speed":"fast","scale":0.7}}
+      {
+        "name": "bug",
+        "opts": {
+          "species": "ant",
+          "speed": "fast",
+          "scale": 0.7
+        }
+      }
     ],
     "body": [
       {
@@ -242,8 +259,21 @@
     "tag": "mistake",
     "title": "Tests That Test Nothing",
     "script": [
-      {"name":"bug","opts":{"color":"stealth","speed":"slow"}},
-      {"name":"bug","opts":{"species":"cockroach","speed":"slow","scale":1.1}}
+      {
+        "name": "bug",
+        "opts": {
+          "color": "stealth",
+          "speed": "slow"
+        }
+      },
+      {
+        "name": "bug",
+        "opts": {
+          "species": "cockroach",
+          "speed": "slow",
+          "scale": 1.1
+        }
+      }
     ],
     "body": [
       {
@@ -267,22 +297,6 @@
       {
         "code": "@Test\n<span class=\"kw\">void</span> sqrtOfPerfectSquare() {\n    assertEquals(3.0, calc.sqrt(9.0));\n}\n@Test\n<span class=\"kw\">void</span> sqrtOfNegativeThrows() {\n    assertThrows(IllegalArgumentException.<span class=\"kw\">class</span>, \n        () -&gt; calc.sqrt(-1.0));\n}",
         "note": "Then: implement sqrt() to make these tests pass."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "4",
-    "tag": "industry",
-    "title": "cognitive-core: /test-scaffold Skill",
-    "desc": "Generate test scaffolds that match your project&rsquo;s conventions.",
-    "body": [
-      {
-        "code": "<span class=\"str\">/test-scaffold src/main/java/GradeManager.java</span>\n\n<span class=\"fn\">cognitive-core detects:</span>\n  Language: Java (CC_LANGUAGE=java)\n  Layer: Service (business logic)\n  Test root: src/test/java/\n  Naming: GradeManagerTest.java\n\n<span class=\"fn\">Generated scaffold:</span>\n\n<span class=\"kw\">class</span> GradeManagerTest {\n\n  <span class=\"kw\">private</span> GradeManager manager;\n\n  <span class=\"fn\">@BeforeEach</span>\n  <span class=\"kw\">void</span> setUp() { manager = <span class=\"kw\">new</span> GradeManager(); }\n\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_positive()    { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_duplicate()   { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addStudent_null()        { <span class=\"cmt\">// FILL: test here</span> }\n  <span class=\"fn\">@Test</span> <span class=\"kw\">void</span> calculateAverage_empty() { <span class=\"cmt\">// FILL: test here</span> }\n}",
-        "note": "The scaffold creates test structure + lifecycle + one group per public method + positive/negative/edge cases. You fill in the assertions."
-      },
-      {
-        "quote": "Scaffolds save 5 minutes of boilerplate. Your job is the assertions &mdash; that&rsquo;s where the thinking happens."
       }
     ]
   },
@@ -407,19 +421,6 @@
       },
       {
         "quote": "Coverage reveals blind spots. But 100% coverage with meaningless assertions is worse than 70% with strong edge case tests."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "4",
-    "tag": "industry",
-    "title": "cognitive-core: Test Fitness Score",
-    "desc": "How production systems measure whether tests are good enough to ship.",
-    "body": [
-      {
-        "code": "<span class=\"str\">/fitness</span>\n\n<span class=\"fn\">Fitness Report:</span>\n\n  Category            Score   Threshold (commit)\n  ─────────────────────────────────────────────────\n  Code Standards       0.92    0.80  <span class=\"fn\">PASS</span>\n  Architecture         0.85    0.80  <span class=\"fn\">PASS</span>\n  <span class=\"kw\">Test Fitness</span>         <span class=\"str\">0.65</span>    0.80  <span class=\"str\">FAIL</span>\n  Security             0.90    0.80  <span class=\"fn\">PASS</span>\n  ─────────────────────────────────────────────────\n  Composite:           0.83    0.80\n  Gate: commit\n  Result:              <span class=\"str\">UNFIT &mdash; BLOCKED</span>\n\n  <span class=\"str\">Reason: Test Fitness below threshold.</span>\n  <span class=\"str\">Missing: tests for GradeManager.saveToFile()</span>\n  <span class=\"str\">Missing: edge case for empty grade list</span>",
-        "note": "Fitness is not coverage percentage. It checks: do new modules have tests? Do tests cover edge cases? Does the suite pass? A project with 90% coverage but no edge case tests can still fail fitness."
       }
     ]
   },

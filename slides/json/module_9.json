@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-60,"anchorOffsetY":0,"facing":-0.3,"hue":0}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -60,
+        "anchorOffsetY": 0,
+        "facing": -0.3,
+        "hue": 0
+      }
+    },
     "bg": 7,
     "h1": "Module 9",
     "lead": "Putting It All Together — Capstone Project",
@@ -33,7 +43,7 @@
         ]
       },
       {
-        "quote": "AI-augmented throughout with Claude Code as your co-pilot."
+        "quote": "Complete cognitive-core setup (Module 11) before starting. AI-augmented throughout with Claude Code as your co-pilot."
       }
     ]
   },
@@ -141,82 +151,6 @@
           "Fix at least 3 quality violations by hand",
           "Write at least 3 test cases by hand"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "",
-    "title": "cognitive-core Student Lab Pack",
-    "desc": "Your minimal configuration for the capstone project.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># cognitive-core.conf (Student Lab Pack)</span>\n\nCC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
-        "note": "Lower thresholds than production (50-85% vs. 60-95%). You are learning &mdash; the gates should challenge you, not block you."
-      },
-      {
-        "table": {
-          "headers": [
-            "Component",
-            "Student Pack",
-            "Full Framework"
-          ],
-          "rows": [
-            [
-              "Hooks",
-              "4 (validate-bash, post-edit-lint, setup-env, compact-reminder)",
-              "9"
-            ],
-            [
-              "Skills",
-              "7 (/pre-commit, /fitness, /code-review, /test-scaffold, /security-baseline, /smoke-test, /project-board)",
-              "20+"
-            ],
-            [
-              "Agents",
-              "2 (@project-coordinator, @code-standards-reviewer)",
-              "10"
-            ],
-            [
-              "Fitness gates",
-              "50/70/75/80/85",
-              "60/80/85/90/95"
-            ]
-          ],
-          "note": "You use 9% of the framework. The rest is for enterprise teams with 20+ developers."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "9",
-    "tag": "exercise",
-    "title": "Exercise 9.0: Configure cognitive-core",
-    "desc": "10 minutes (before starting capstone implementation)",
-    "body": [
-      {
-        "card": "Setup:",
-        "items": [
-          "Copy <code>cognitive-core.conf</code> template to your project root",
-          "Set: <code>CC_PROJECT_NAME=\"student-grade-manager\"</code>",
-          "Set: <code>CC_LANGUAGE=\"java\"</code>",
-          "Set: <code>CC_LINT_COMMAND=\"mvn checkstyle:check pmd:check\"</code>",
-          "Set: <code>CC_TEST_COMMAND=\"mvn test\"</code>",
-          "Run: <code>bash install.sh</code> — verify hooks and skills are installed"
-        ]
-      },
-      {
-        "card": "Verify it works:",
-        "items": [
-          "<code>/fitness</code> — should show a score (even if low, that’s OK)",
-          "Edit a file — <code>post-edit-lint</code> should fire",
-          "<code>/pre-commit</code> before your first commit — fix any violations"
-        ]
-      },
-      {
-        "quote": "From now on, every commit goes through /pre-commit. Every merge checks /fitness. This is how professionals work."
       }
     ]
   },

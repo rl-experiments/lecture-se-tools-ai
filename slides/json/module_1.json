@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-50,"anchorOffsetY":0,"facing":-0.3,"hue":195}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -50,
+        "anchorOffsetY": 0,
+        "facing": -0.3,
+        "hue": 195
+      }
+    },
     "bg": 6,
     "h1": "Module 1",
     "lead": "Version Control with Git + Claude Code",
@@ -175,7 +185,10 @@
         "resource": {
           "title": "Reference: Git by Example",
           "links": [
-            { "url": "https://antonz.org/git-by-example/", "label": "antonz.org/git-by-example" }
+            {
+              "url": "https://antonz.org/git-by-example/",
+              "label": "antonz.org/git-by-example"
+            }
           ]
         }
       }
@@ -308,8 +321,8 @@
         "code": "<span class=\"cmt\"># Git records provenance automatically:</span>\n$ <span class=\"kw\">git log</span> -1\ncommit a3f7b21...\nAuthor: student@fh.ac.at         <span class=\"cmt\"># WHO</span>\nDate:   Mon Mar 15 14:30:00      <span class=\"cmt\"># WHEN</span>\n    Add divide with zero-check   <span class=\"cmt\"># WHY</span>"
       },
       {
-        "code": "<span class=\"cmt\"># cognitive-core (Module 7) tracks the same for AI agents:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>   <span class=\"cmt\"># WHERE did it come from?</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span> <span class=\"cmt\"># WHO wrote it?</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>          <span class=\"cmt\"># WHICH team owns it?</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30\"</span>   <span class=\"cmt\"># WHEN was it written?</span>\n  confidence: <span class=\"str\">0.95</span>                 <span class=\"cmt\"># HOW sure are we?</span>",
-        "note": "Same concept, different scale. Git = provenance for code (WHO committed, WHEN, WHY). AI agent systems like cognitive-core = provenance for every piece of data an agent reads or writes. We will explore cognitive-core in detail in Module 7."
+        "code": "<span class=\"cmt\"># cognitive-core (Module 11) tracks the same for AI agents:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>   <span class=\"cmt\"># WHERE did it come from?</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span> <span class=\"cmt\"># WHO wrote it?</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>          <span class=\"cmt\"># WHICH team owns it?</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30\"</span>   <span class=\"cmt\"># WHEN was it written?</span>\n  confidence: <span class=\"str\">0.95</span>                 <span class=\"cmt\"># HOW sure are we?</span>",
+        "note": "Same concept, different scale. Git = provenance for code (WHO committed, WHEN, WHY). AI agent systems like cognitive-core = provenance for every piece of data an agent reads or writes. We will explore cognitive-core in detail in Module 11."
       }
     ]
   },
@@ -346,7 +359,10 @@
         "resource": {
           "title": "Explain Git with D3",
           "links": [
-            { "url": "https://onlywei.github.io/explain-git-with-d3/", "label": "onlywei.github.io/explain-git-with-d3" }
+            {
+              "url": "https://onlywei.github.io/explain-git-with-d3/",
+              "label": "onlywei.github.io/explain-git-with-d3"
+            }
           ]
         }
       },
@@ -365,7 +381,10 @@
         "resource": {
           "title": "Git by Example",
           "links": [
-            { "url": "https://antonz.org/git-by-example/", "label": "antonz.org/git-by-example" }
+            {
+              "url": "https://antonz.org/git-by-example/",
+              "label": "antonz.org/git-by-example"
+            }
           ]
         }
       }
@@ -456,22 +475,6 @@
   {
     "type": "content",
     "mod": "1",
-    "tag": "industry",
-    "title": "cognitive-core: Git Safety Hooks",
-    "desc": "What if dangerous git commands were blocked automatically?",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># validate-bash.sh blocks these commands:</span>\n\n<span class=\"str\">git push --force main</span>     &rarr; <span class=\"kw\">BLOCKED</span> (destroys remote history)\n<span class=\"str\">git reset --hard</span>          &rarr; <span class=\"kw\">BLOCKED</span> (destroys local changes)\n<span class=\"str\">git clean -f</span>              &rarr; <span class=\"kw\">BLOCKED</span> (deletes untracked files)\n<span class=\"str\">rm -rf .git</span>               &rarr; <span class=\"kw\">BLOCKED</span> (destroys repository)\n<span class=\"str\">chmod 777</span>                 &rarr; <span class=\"kw\">BLOCKED</span> (world-writable = insecure)\n\n<span class=\"cmt\"># Also enforces branch policy:</span>\n<span class=\"str\">git commit on main</span>        &rarr; <span class=\"kw\">BLOCKED</span> (must use feature branch)\n  <span class=\"cmt\">Exception: chore(), docs(), revert, ci() allowed on main</span>",
-        "note": "The hook intercepts every Bash command Claude Code tries to run. It checks against pattern lists before execution. You cannot bypass it from a prompt."
-      },
-      {
-        "quote": "Hooks are deterministic guards. Even if you tell Claude Code &ldquo;ignore all safety rules&rdquo;, the hook still blocks the command."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "1",
     "tag": "exercise",
     "title": "Exercise 1.3: Branching and Conflicts",
     "desc": "20 minutes",
@@ -495,7 +498,10 @@
         "resource": {
           "title": "Hint: Practice first",
           "links": [
-            { "url": "https://onlywei.github.io/explain-git-with-d3/", "label": "onlywei.github.io/explain-git-with-d3" }
+            {
+              "url": "https://onlywei.github.io/explain-git-with-d3/",
+              "label": "onlywei.github.io/explain-git-with-d3"
+            }
           ]
         }
       }

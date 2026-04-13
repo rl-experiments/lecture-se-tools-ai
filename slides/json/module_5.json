@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":-0.3,"hue":70}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -55,
+        "anchorOffsetY": 0,
+        "facing": -0.3,
+        "hue": 70
+      }
+    },
     "bg": 4,
     "h1": "Module 5",
     "lead": "Continuous Integration with Jenkins + Claude Code",
@@ -139,7 +149,12 @@
     "mod": "5",
     "tag": "mistake",
     "title": "&ldquo;The Build Is Red, I&rsquo;ll Fix It Later&rdquo;",
-    "script": {"name":"bug","opts":{"speed":"fast"}},
+    "script": {
+      "name": "bug",
+      "opts": {
+        "speed": "fast"
+      }
+    },
     "body": [
       {
         "card": "A red build blocks the entire team:",
@@ -289,61 +304,6 @@
       },
       {
         "quote": "Everything connects. CI automates the entire pipeline you built module by module."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "5",
-    "tag": "industry",
-    "title": "cognitive-core: Evolutionary CI/CD Pipeline",
-    "desc": "Different pipeline stages need different confidence levels.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; graduated fitness gates</span>\n\nCC_FITNESS_LINT=<span class=\"fn\">60</span>      <span class=\"cmt\"># Local iteration (low bar)</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">80</span>    <span class=\"cmt\"># Reviewable code</span>\nCC_FITNESS_TEST=<span class=\"fn\">85</span>      <span class=\"cmt\"># Integration ready</span>\nCC_FITNESS_MERGE=<span class=\"fn\">90</span>     <span class=\"cmt\"># Near-production</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">95</span>    <span class=\"cmt\"># Production-ready</span>\n\n<span class=\"kw\">Why not 100% everywhere?</span>\nBecause a work-in-progress commit at 70% fitness\nis fine on a feature branch. But deploying it\nto production would be irresponsible.",
-        "note": "No other CI tool does this. SonarQube has one threshold. Jenkins has pass/fail. cognitive-core has 5 graduated gates that match confidence to risk."
-      },
-      {
-        "table": {
-          "headers": [
-            "Your pipeline stage",
-            "Gate",
-            "Fitness",
-            "What it means"
-          ],
-          "rows": [
-            [
-              "<code>mvn checkstyle:check</code>",
-              "Lint",
-              "60%",
-              "Is the code formatted?"
-            ],
-            [
-              "<code>git commit</code>",
-              "Commit",
-              "80%",
-              "Would a reviewer understand this?"
-            ],
-            [
-              "<code>mvn test</code>",
-              "Test",
-              "85%",
-              "Are tests meaningful?"
-            ],
-            [
-              "<code>git merge to main</code>",
-              "Merge",
-              "90%",
-              "Is this safe for the team?"
-            ],
-            [
-              "<code>mvn deploy</code>",
-              "Deploy",
-              "95%",
-              "Is this safe for production?"
-            ]
-          ]
-        }
       }
     ]
   },

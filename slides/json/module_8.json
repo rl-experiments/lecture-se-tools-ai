@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":0.4,"hue":140}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -55,
+        "anchorOffsetY": 0,
+        "facing": 0.4,
+        "hue": 140
+      }
+    },
     "bg": 7,
     "h1": "Module 8",
     "lead": "Prompt Engineering & Context Management",
@@ -218,61 +228,6 @@
           "Never generic &ldquo;failed&rdquo; &mdash; agents downstream need to decide how to proceed",
           "Coverage gaps must be explicitly reported, not silently ignored"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
-    "tag": "industry",
-    "title": "cognitive-core: Team-Aware Estimation",
-    "desc": "Real project planning distinguishes who does what: human, AI, or both.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Task",
-            "Executor",
-            "Effort",
-            "Bottleneck"
-          ],
-          "rows": [
-            [
-              "Research existing solutions",
-              "AI",
-              "30 min",
-              "&mdash;"
-            ],
-            [
-              "Architecture decision",
-              "human + AI",
-              "1 hour",
-              "human review"
-            ],
-            [
-              "Implementation (3 modules)",
-              "AI",
-              "45 min",
-              "&mdash;"
-            ],
-            [
-              "Unit tests",
-              "AI",
-              "30 min",
-              "&mdash;"
-            ],
-            [
-              "Human review of all AI output",
-              "<strong>human</strong>",
-              "<strong>2 hours</strong>",
-              "<strong>CRITICAL PATH</strong>"
-            ]
-          ],
-          "note": "Total wall-clock (parallel): ~4 hours. The bottleneck is always human review &mdash; not AI generation."
-        }
-      },
-      {
-        "quote": "Generic &ldquo;5 developer-days&rdquo; estimates hide reality. Tag every task: who validates it? If no human reviews AI output, the estimate is fiction."
       }
     ]
   },

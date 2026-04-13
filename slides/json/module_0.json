@@ -434,46 +434,6 @@
   {
     "type": "content",
     "mod": "0",
-    "tag": "industry",
-    "title": "cognitive-core: A Real Framework for AI-Assisted Development",
-    "desc": "An open-source framework that adds governance, safety, and quality enforcement to Claude Code.",
-    "body": [
-      {
-        "code": "cognitive-core adds three layers on top of Claude Code:\n\n <span class=\"kw\">Hooks</span> ............ automatic safety guards (fire on every action)\n <span class=\"fn\">Skills</span> ........... structured quality tools (you invoke them)\n <span class=\"str\">Agents</span> ........... specialist reviewers (they reason about your code)\n\n Install: <span class=\"cmt\">bash install.sh</span> (into any existing project)\n Config:  <span class=\"cmt\">cognitive-core.conf</span> (one file controls everything)",
-        "note": "We will use a Student Lab Pack: 4 hooks, 7 skills, 2 agents (out of 9 hooks, 20 skills, 10 agents). You learn the subset that matters for this course."
-      },
-      {
-        "table": {
-          "headers": [
-            "Layer",
-            "Analogy",
-            "Example"
-          ],
-          "rows": [
-            [
-              "<span class=\"kw\">Hooks</span>",
-              "Reflexes &mdash; automatic, no thought needed",
-              "<code>validate-bash.sh</code> blocks <code>rm -rf /</code>"
-            ],
-            [
-              "<span class=\"fn\">Skills</span>",
-              "Tools &mdash; you pick the right one for the job",
-              "<code>/fitness</code> scores your code 0-100%"
-            ],
-            [
-              "<span class=\"str\">Agents</span>",
-              "Colleagues &mdash; they think, discuss, reason",
-              "<code>@code-standards-reviewer</code> reviews your design"
-            ]
-          ],
-          "note": "Progressive intelligence: hooks are fast and dumb, agents are slow and smart. You need both."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "0",
     "tag": "demo",
     "title": "Claude Code First Contact",
     "body": [
