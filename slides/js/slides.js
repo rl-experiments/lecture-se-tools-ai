@@ -24,6 +24,7 @@
     modules: config.modules,
     bg_rotation: config.bg_rotation,
     toc: config.toc,
+    tocGroups: config.tocGroups,
     slides: [config.cover]
   };
 
@@ -174,15 +175,27 @@
     html += `<button class="btn-ghost" id="toc-btn-slides" onclick="tocToggle('slides')" style="font-size:13px;height:30px;padding:4px 14px;border:1px solid var(--border)">All Slides</button>`;
     html += `</div>`;
 
-    // Module overview
-    html += `<div class="card card-toc" id="toc-modules">`;
-    for (const entry of data.toc) {
-      const c = modColors[entry.mod] || '#737373';
-      html += `<div class="toc-row" onclick="go(${entry.slide})" style="cursor:pointer">`;
-      html += `<span class="toc-dot" style="background:${c}"></span>`;
-      html += `<span class="toc-label" style="color:${c}">${data.modules[entry.mod].label}</span>`;
-      html += `<span class="toc-title">${entry.title}</span>`;
-      html += `<span class="toc-topics">${entry.topics}</span>`;
+    // Module overview with groups as separate cards
+    html += `<div id="toc-modules">`;
+    const tocByMod = {};
+    for (const entry of data.toc) tocByMod[entry.mod] = entry;
+    const groups = data.tocGroups || [{ label: null, mods: data.toc.map(e => e.mod) }];
+    for (const group of groups) {
+      html += `<div class="card card-toc" style="margin-bottom:8px">`;
+      if (group.label) {
+        html += `<div style="padding:10px 24px 2px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted-foreground)">${group.label}</div>`;
+      }
+      for (const mod of group.mods) {
+        const entry = tocByMod[mod];
+        if (!entry) continue;
+        const c = modColors[entry.mod] || '#737373';
+        html += `<div class="toc-row" onclick="go(${entry.slide})" style="cursor:pointer">`;
+        html += `<span class="toc-dot" style="background:${c}"></span>`;
+        html += `<span class="toc-label" style="color:${c}">${data.modules[entry.mod].label}</span>`;
+        html += `<span class="toc-title">${entry.title}</span>`;
+        html += `<span class="toc-topics">${entry.topics}</span>`;
+        html += `</div>`;
+      }
       html += `</div>`;
     }
     html += `</div>`;

@@ -54,6 +54,11 @@
     7,
     4
   ],
+  "tocGroups": [
+    { "label": "Classic SE Tools", "mods": ["0", "1", "2", "3", "4", "5"] },
+    { "label": "AI Engineering", "mods": ["6", "7", "8"] },
+    { "label": "Project + Exam", "mods": ["9", "10"] }
+  ],
   "toc": [
     {
       "mod": "0",
