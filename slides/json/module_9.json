@@ -1,7 +1,7 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-65,"facing":-0.3,"hue":0}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-60,"anchorOffsetY":0,"facing":-0.3,"hue":0}},
     "bg": 7,
     "h1": "Module 9",
     "lead": "Putting It All Together — Capstone Project",
@@ -14,7 +14,7 @@
       "Jenkins",
       "*Claude Code"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(182)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Capstone Project</span>\n<span onclick=\"event.stopPropagation();go(183)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Requirements Checklist</span>\n<span onclick=\"event.stopPropagation();go(184)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI Usage Rules</span>\n<span onclick=\"event.stopPropagation();go(185)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Architecture Checklist (Bonus)</span>\n<span onclick=\"event.stopPropagation();go(186)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Timeline</span>\n<span onclick=\"event.stopPropagation();go(187)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.1: Project Setup</span>\n<span onclick=\"event.stopPropagation();go(188)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.2: Implementation + Tests</span>\n<span onclick=\"event.stopPropagation();go(189)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 8.3: Quality + Pipeline</span>\n<span onclick=\"event.stopPropagation();go(190)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus Criteria</span>\n<span onclick=\"event.stopPropagation();go(191)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus: What We Look For</span>\n<span onclick=\"event.stopPropagation();go(192)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Evaluation Criteria</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(182)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Capstone Project</span>\n<span onclick=\"event.stopPropagation();go(183)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Requirements Checklist</span>\n<span onclick=\"event.stopPropagation();go(184)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI Usage Rules</span>\n<span onclick=\"event.stopPropagation();go(185)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Architecture Checklist (Bonus)</span>\n<span onclick=\"event.stopPropagation();go(186)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Timeline</span>\n<span onclick=\"event.stopPropagation();go(187)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.1: Project Setup</span>\n<span onclick=\"event.stopPropagation();go(188)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.2: Implementation + Tests</span>\n<span onclick=\"event.stopPropagation();go(189)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.3: Quality + Pipeline</span>\n<span onclick=\"event.stopPropagation();go(190)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus Criteria</span>\n<span onclick=\"event.stopPropagation();go(191)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Bonus: What We Look For</span>\n<span onclick=\"event.stopPropagation();go(192)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Evaluation Criteria</span>"
   },
   {
     "type": "content",
@@ -193,7 +193,7 @@
     "type": "content",
     "mod": "9",
     "tag": "exercise",
-    "title": "Exercise 9.0: Configure cognitive-core for Your Project",
+    "title": "Exercise 9.0: Configure cognitive-core",
     "desc": "10 minutes (before starting capstone implementation)",
     "body": [
       {
@@ -328,7 +328,7 @@
     "type": "content",
     "mod": "9",
     "tag": "exercise",
-    "title": "Exercise 8.1: Project Setup",
+    "title": "Exercise 9.1: Project Setup",
     "desc": "30 minutes",
     "body": [
       {
@@ -349,7 +349,7 @@
     "type": "content",
     "mod": "9",
     "tag": "exercise",
-    "title": "Exercise 8.2: Implementation + Tests",
+    "title": "Exercise 9.2: Implementation + Tests",
     "desc": "60 minutes",
     "body": [
       {
@@ -369,7 +369,7 @@
     "type": "content",
     "mod": "9",
     "tag": "exercise",
-    "title": "Exercise 8.3: Quality + Pipeline",
+    "title": "Exercise 9.3: Quality + Pipeline",
     "desc": "45 minutes",
     "body": [
       {

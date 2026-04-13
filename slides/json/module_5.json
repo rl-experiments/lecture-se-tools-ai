@@ -1,7 +1,7 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-55,"anchorOffsetY":-70,"facing":-0.3,"hue":70}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":-0.3,"hue":70}},
     "bg": 4,
     "h1": "Module 5",
     "lead": "Continuous Integration with Jenkins + Claude Code",
@@ -265,7 +265,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
-    "title": "AI-Augmented: Claude Code Creates and Debugs Pipelines",
+    "title": "AI-Augmented: Claude Code Creates & Debugs Pipelines",
     "body": [
       {
         "code": "<span class=\"str\">You:</span> Create a Jenkinsfile for my Calculator project \n     with build, test, quality, and package stages."

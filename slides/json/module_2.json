@@ -1,7 +1,7 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-55,"anchorOffsetY":-60,"facing":0.3,"hue":170}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":0.3,"hue":170}},
     "bg": 7,
     "h1": "Module 2",
     "lead": "Build Management with Maven + Claude Code",

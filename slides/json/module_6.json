@@ -1,7 +1,7 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-65,"facing":0.3,"hue":170}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-60,"anchorOffsetY":0,"facing":0.3,"hue":170}},
     "bg": 5,
     "h1": "Module 6",
     "lead": "Security and Trust in AI-Assisted Development",
@@ -250,7 +250,7 @@
     "desc": "Automatic detection of hardcoded secrets before they reach your files.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># validate-write.sh scans EVERY file write for:</span>\n\n<span class=\"str\">AWS_SECRET_ACCESS_KEY</span>   = xxxxxxxx  &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">-----BEGIN RSA PRIVATE KEY-----</span>     &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">password = \"SuperSecret123\"</span>         &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">GITHUB_TOKEN=ghp_xxxx</span>              &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">jdbc:postgresql://user:pass@host</span>    &rarr; <span class=\"kw\">BLOCKED</span>\n\n<span class=\"fn\">Output:</span>\n{\n  <span class=\"str\">\"permissionDecision\"</span>: <span class=\"str\">\"deny\"</span>,\n  <span class=\"str\">\"reason\"</span>: <span class=\"str\">\"Hardcoded secret detected: AWS key pattern\"</span>,\n  <span class=\"str\">\"errorCategory\"</span>: <span class=\"str\">\"security\"</span>\n}",
+        "code": "<span class=\"cmt\"># validate-write.sh scans EVERY file write for:</span>\n\n<span class=\"str\">AWS_SECRET_ACCESS_KEY</span>   = xxxxxxxx  &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">-----BEGIN RSA PRIVATE KEY-----</span>     &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">password = \"SuperSecret123\"</span>         &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">GITHUB_TOKEN=ghp_xxxx</span>               &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">jdbc:postgresql://user:pass@host</span>    &rarr; <span class=\"kw\">BLOCKED</span>\n\n<span class=\"fn\">Output:</span>\n{\n  <span class=\"str\">\"permissionDecision\"</span>: <span class=\"str\">\"deny\"</span>,\n  <span class=\"str\">\"reason\"</span>: <span class=\"str\">\"Hardcoded secret detected: AWS key pattern\"</span>,\n  <span class=\"str\">\"errorCategory\"</span>: <span class=\"str\">\"security\"</span>\n}",
         "note": "The hook uses regex pattern matching &mdash; deterministic, cannot be bypassed by prompt. Even if Claude Code generates code with a hardcoded password, the write is blocked."
       }
     ]

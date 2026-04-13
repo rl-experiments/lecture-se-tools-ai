@@ -207,12 +207,19 @@ function initButterfly(opts = {}) {
   const vh = () => window.innerHeight;
 
   // ── resolve perched position ──
+  // Calculate feet offset from SVG geometry:
+  // Body bottom is at y≈98 in viewBox(0 0 160 120), SVG renders at 114px height,
+  // so body bottom in SVG px = 98 * (114/120) = 93.1.
+  // SVG is offset top:-57px from host origin, so feet = 93.1 - 57 = 36.1px at scale 1.
+  const FEET_OFFSET = 6;
   function perchedPos() {
     if (opts.anchor) {
       const el = document.querySelector(opts.anchor);
       if (el) {
         const r = el.getBoundingClientRect();
-        return [r.left + (opts.anchorOffsetX||0), r.top + (opts.anchorOffsetY||0)];
+        const x = r.left + (opts.anchorOffsetX || 0);
+        const y = r.top - FEET_OFFSET * BASE_SCALE + (opts.anchorOffsetY || 0);
+        return [x, y];
       }
     }
     return [vw()*(opts.x||0.5), vh()*(opts.y||0.5)];

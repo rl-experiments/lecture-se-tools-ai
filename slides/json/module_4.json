@@ -1,7 +1,7 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-50,"anchorOffsetY":-65,"facing":0.4,"hue":315}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-50,"anchorOffsetY":0,"facing":0.4,"hue":315}},
     "bg": 3,
     "h1": "Module 4",
     "lead": "Automated Testing with JUnit, Mockito + Claude Code",

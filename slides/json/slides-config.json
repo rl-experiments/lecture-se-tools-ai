@@ -113,7 +113,7 @@
   ],
   "cover": {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":"h1","anchorOffsetX":-60,"anchorOffsetY":-70,"facing":-0.4}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":90,"anchorOffsetY":0,"facing":-0.4}},
     "bg": 2,
     "h1": "Professional Java Development",
     "lead": "SE Tools & AI-Assisted Engineering",
@@ -121,10 +121,9 @@
     "badges": [
       "Git",
       "Maven",
-      "PMD / SpotBugs",
+      "CheckStyle / PMD / SpotBugs",
       "JUnit / Mockito",
       "Jenkins",
-      "CheckStyle",
       "*Claude Code"
     ]
   }
