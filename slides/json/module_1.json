@@ -285,11 +285,11 @@
     "desc": "Every piece of data needs a traceable origin &mdash; in Git and in AI systems.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># Git records provenance automatically:</span>\n$ <span class=\"kw\">git log</span> -1\ncommit a3f7b21...\nAuthor: student@fh.ac.at       <span class=\"cmt\"># WHO</span>\nDate:   Mon Mar 15 14:30:00     <span class=\"cmt\"># WHEN</span>\n    Add divide with zero-check   <span class=\"cmt\"># WHY</span>"
+        "code": "<span class=\"cmt\"># Git records provenance automatically:</span>\n$ <span class=\"kw\">git log</span> -1\ncommit a3f7b21...\nAuthor: student@fh.ac.at         <span class=\"cmt\"># WHO</span>\nDate:   Mon Mar 15 14:30:00      <span class=\"cmt\"># WHEN</span>\n    Add divide with zero-check   <span class=\"cmt\"># WHY</span>"
       },
       {
-        "code": "<span class=\"cmt\"># Production AI systems need the same:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30:00Z\"</span>\n  confidence: <span class=\"str\">0.95</span>",
-        "note": "Same concept. Different scale. Git = provenance for code. Agent systems = provenance for everything."
+        "code": "<span class=\"cmt\"># cognitive-core (Module 7) tracks the same for AI agents:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>   <span class=\"cmt\"># WHERE did it come from?</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span> <span class=\"cmt\"># WHO wrote it?</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>          <span class=\"cmt\"># WHICH team owns it?</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30\"</span>   <span class=\"cmt\"># WHEN was it written?</span>\n  confidence: <span class=\"str\">0.95</span>                 <span class=\"cmt\"># HOW sure are we?</span>",
+        "note": "Same concept, different scale. Git = provenance for code (WHO committed, WHEN, WHY). AI agent systems like cognitive-core = provenance for every piece of data an agent reads or writes. We will explore cognitive-core in detail in Module 7."
       }
     ]
   },
