@@ -213,7 +213,7 @@
     "type": "content",
     "mod": "10",
     "tag": "exercise",
-    "title": "Exercise 9.1: Project Setup",
+    "title": "Exercise 10.1: Project Setup",
     "desc": "30 minutes",
     "body": [
       {
@@ -234,7 +234,7 @@
     "type": "content",
     "mod": "10",
     "tag": "exercise",
-    "title": "Exercise 9.2: Implementation + Tests",
+    "title": "Exercise 10.2: Implementation + Tests",
     "desc": "60 minutes",
     "body": [
       {
@@ -254,7 +254,7 @@
     "type": "content",
     "mod": "10",
     "tag": "exercise",
-    "title": "Exercise 9.3: Quality + Pipeline",
+    "title": "Exercise 10.3: Quality + Pipeline",
     "desc": "45 minutes",
     "body": [
       {
