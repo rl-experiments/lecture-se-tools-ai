@@ -202,6 +202,16 @@
               "<strong>Launch readiness</strong>",
               "All 7 blocks checked",
               "Module 7 checklist"
+            ],
+            [
+              "<strong>Decision log</strong>",
+              "&ge;1 ADR per major architectural choice",
+              "<code>docs/adr/*.md</code>"
+            ],
+            [
+              "<strong>Architecture diagram</strong>",
+              "Current system rendered as PlantUML",
+              "<code>docs/architecture/*.puml</code>"
             ]
           ],
           "note": "Bonus points for students who complete this architecture evaluation."

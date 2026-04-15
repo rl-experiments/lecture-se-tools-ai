@@ -30,7 +30,7 @@
     "title": "Why This Module Exists",
     "body": [
       {
-        "card": "You&rsquo;ve used Claude Code for 6 modules. Now understand how it actually works.",
+        "card": "You&rsquo;ve used Claude Code for 7 modules. Now understand how it actually works.",
         "items": [
           "Understanding architecture helps you use tools better",
           "Security decisions require architectural understanding",
@@ -95,8 +95,71 @@
               "Sensitive data never leaves the perimeter"
             ]
           ],
-          "note": "You&rsquo;ve been learning production agent architecture for 6 modules &mdash; without realizing it."
+          "note": "You&rsquo;ve been learning production agent architecture for 7 modules &mdash; without realizing it."
         }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The 8 Layers of an Agent System",
+    "desc": "A reference model for reasoning about any AI agent &mdash; from Claude Code to a production banking agent.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Layer",
+            "Responsibility",
+            "Claude Code example"
+          ],
+          "rows": [
+            [
+              "<strong>1. Interface</strong>",
+              "Receives user input, renders output",
+              "Terminal REPL, IDE extension, web UI"
+            ],
+            [
+              "<strong>2. Identity</strong>",
+              "Who is calling? Which account, which session?",
+              "API key, OAuth token, session ID"
+            ],
+            [
+              "<strong>3. Control plane</strong>",
+              "Policies: what is allowed, what needs approval",
+              "Permission prompts, hook gates, <code>.claude/settings.json</code>"
+            ],
+            [
+              "<strong>4. Orchestration</strong>",
+              "Breaks the task down, sequences steps, handles retries",
+              "Query loop, sub-agent spawning (Explore, Plan)"
+            ],
+            [
+              "<strong>5. Cognition</strong>",
+              "The LLM call &mdash; reasoning, planning, generation",
+              "Claude model invocation"
+            ],
+            [
+              "<strong>6. Memory</strong>",
+              "Persistent knowledge across steps and sessions",
+              "CLAUDE.md, <code>~/.claude</code>, conversation history"
+            ],
+            [
+              "<strong>7. Tool execution</strong>",
+              "Actually reads files, runs commands, calls APIs",
+              "Read, Edit, Bash, Grep, MCP servers"
+            ],
+            [
+              "<strong>8. Telemetry</strong>",
+              "Records what happened for audit and debugging",
+              "Traces, hook logs, token usage counters"
+            ]
+          ]
+        }
+      },
+      {
+        "quote": "Every agent system has these 8 layers &mdash; even if some are implicit. When you debug or secure an agent, ask: <em>which layer is this problem in?</em>"
       }
     ]
   },
@@ -218,6 +281,7 @@
     "mod": "7",
     "tag": "",
     "title": "MCP: Standard Protocol for Agent-Tool Communication",
+    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
     "body": [
       {
         "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server\nAgent &lt;--MCP--&gt; Any tool with MCP adapter"
@@ -243,8 +307,7 @@
           "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
         ]
       }
-    ],
-    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication."
+    ]
   },
   {
     "type": "content",
@@ -356,8 +419,8 @@
         }
       },
       {
-        "code": "                  <span class=\"kw\">PROJECT-COORDINATOR</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
-        "note": "cognitive-core implements this: 10 specialist agents, each with scoped tools and instructions."
+        "code": "                  <span class=\"kw\">COORDINATOR</span> (Hub)\n                 /        |        |        \\\n          Specialist  Specialist  Specialist  Specialist\n              A           B           C           D\n              |           |           |           |\n         (one scoped  (one scoped  (one scoped  (one scoped\n          task only)   task only)   task only)   task only)\n\n  Each specialist has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
+        "note": "A concrete implementation of this pattern &mdash; cognitive-core&rsquo;s @project-coordinator with 10 specialist agents &mdash; is shown in Module 9."
       }
     ]
   },
@@ -424,6 +487,56 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "title": "ADRs: Keeping Overview of What the Agent Built",
+    "desc": "Traces tell you <em>what</em> happened. ADRs tell you <em>why</em> it still looks that way three months later.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># docs/adr/0007-use-jacoco-over-cobertura.md</span>\n<span class=\"kw\"># Status:</span> Accepted\n<span class=\"kw\"># Date:</span> 2026-03-14\n\n<span class=\"kw\">## Context</span>\nClaude Code proposed JaCoCo during capstone setup.\nWe needed a coverage tool compatible with JDK 21\nand the Jenkins pipeline.\n\n<span class=\"kw\">## Decision</span>\nUse JaCoCo 0.8.11, wired via the Maven profile\n<span class=\"str\">-Pcoverage</span>.\n\n<span class=\"kw\">## Consequences</span>\n+ Mature, actively maintained, good Jenkins plugin\n&minus; Adds ~3s to verify phase\n&minus; Mutation testing (PIT) must be added separately",
+        "note": "One Markdown file per decision. Numbered. Append-only. Commit alongside the code it describes."
+      },
+      {
+        "card": "Why this matters for AI-assisted work:",
+        "items": [
+          "AI suggests 5 libraries, you pick one &mdash; the ADR records <strong>why that one</strong>, not what AI rejected",
+          "Next semester, a teammate asks &ldquo;why JaCoCo not Cobertura?&rdquo; &mdash; the answer is in-repo, not in a lost chat",
+          "Commits say <em>what</em> changed, ADRs say <em>why it was allowed to change that way</em>",
+          "AI can draft the ADR from the diff + your decision &mdash; you review and commit"
+        ]
+      },
+      {
+        "quote": "Same principle as git provenance (Module 1): the decision log lives next to the code, in version control, reviewable."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "PlantUML: Diagrams as Code, Generated by AI",
+    "desc": "Ask Claude Code to render the current architecture. Commit the <code>.puml</code> file. Regenerate when the code changes.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// docs/architecture/pipeline.puml</span>\n@startuml\n<span class=\"kw\">component</span> \"Developer + Claude Code\" <span class=\"kw\">as</span> Dev\n<span class=\"kw\">component</span> \"Git Repository\"            <span class=\"kw\">as</span> Git\n<span class=\"kw\">component</span> \"Jenkins Pipeline\"          <span class=\"kw\">as</span> CI\n<span class=\"kw\">component</span> \"Nexus Artifact Store\"      <span class=\"kw\">as</span> Nexus\n\nDev  --> Git  : push\nGit  --> CI   : webhook\nCI   --> CI   : mvn verify + checkstyle\nCI   --> Nexus: deploy artifact\n@enduml",
+        "note": "Plain text. Diffable. Reviewable in a PR. Rendered to SVG by Maven or CI."
+      },
+      {
+        "card": "The AI-assisted loop:",
+        "items": [
+          "<strong>1. Ask:</strong> &ldquo;Render <code>src/main/java</code> as a PlantUML component diagram&rdquo;",
+          "<strong>2. Review:</strong> does it match the code you think you have? Mismatches = drift",
+          "<strong>3. Commit</strong> the <code>.puml</code> file &mdash; it becomes part of provenance",
+          "<strong>4. Regenerate</strong> each sprint &mdash; or wire it into the Jenkins pipeline (Module 5)"
+        ]
+      },
+      {
+        "quote": "ADRs capture the <em>why</em>. PlantUML captures the <em>shape</em>. Both live in-repo, both survive context resets, both are reviewable. That is how you keep the overview when AI writes most of the code."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
     "title": "The Production Launch Checklist",
     "desc": "Seven checks every system must pass before production.",
     "body": [
@@ -440,7 +553,7 @@
         ]
       },
       {
-        "quote": "Compare to your capstone project (Module 8): does your project satisfy all 7?"
+        "quote": "Compare to your capstone project (Module 10): does your project satisfy all 7?"
       }
     ]
   },
@@ -658,16 +771,16 @@
     "desc": "20 minutes",
     "body": [
       {
-        "card": "Compare all four quality layers on your project:",
+        "card": "Compare all four quality tiers on your project:",
         "items": [
-          "<strong>Layer 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
-          "<strong>Layer 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
-          "<strong>Layer 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
-          "<strong>Layer 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
+          "<strong>Tier 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
+          "<strong>Tier 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
+          "<strong>Tier 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
+          "<strong>Tier 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
         ]
       },
       {
-        "quote": "Each layer adds intelligence. None replaces your judgment."
+        "quote": "Each tier adds intelligence. None replaces your judgment."
       }
     ]
   },
@@ -681,13 +794,13 @@
       {
         "card": "",
         "items": [
-          "You&rsquo;ve been learning production architecture patterns since Module 0",
+          "You&rsquo;ve been learning production architecture patterns since the first module",
           "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
           "<strong>Control plane</strong> = policies that restrict agent actions",
           "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
           "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 9)",
           "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
-          "<strong>Provenance</strong>: every finding needs a source (documented / verified / inferred / automated)",
+          "<strong>ADRs + PlantUML</strong>: keep the overview when AI writes most of the code",
           "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"
         ]
       }

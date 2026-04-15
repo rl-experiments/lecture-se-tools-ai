@@ -259,6 +259,31 @@
   {
     "type": "content",
     "mod": "9",
+    "tag": "",
+    "title": "cognitive-core: @project-coordinator Topology",
+    "desc": "The Coordinator pattern from Module 7, made concrete: one hub, ten specialists.",
+    "body": [
+      {
+        "code": "                  <span class=\"kw\">@project-coordinator</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
+        "note": "10 specialists total. Each has scoped tools (mostly read-only) and narrow instructions. The coordinator decides which ones to invoke for a given task."
+      },
+      {
+        "card": "Why this topology and not one big agent?",
+        "items": [
+          "<strong>Context isolation</strong> &mdash; the reviewer never sees the architect&rsquo;s prompt; less noise, better focus",
+          "<strong>Tool scoping</strong> &mdash; a read-only reviewer cannot accidentally write files",
+          "<strong>Parallelism</strong> &mdash; independent specialists run concurrently",
+          "<strong>Auditability</strong> &mdash; each specialist&rsquo;s summary is a separate log entry"
+        ]
+      },
+      {
+        "quote": "This is the Module 7 Coordinator pattern running in production. Same theory, named agents, real tool scopes."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
     "tag": "industry",
     "title": "cognitive-core: Source Authority Model (T1&ndash;T5)",
     "desc": "Not all information sources are equal. AI must distinguish fact from noise.",

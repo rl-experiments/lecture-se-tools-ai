@@ -76,6 +76,28 @@
     "type": "content",
     "mod": "8",
     "tag": "",
+    "title": "Structured Output: Make Responses Parseable",
+    "desc": "Ask for a schema, not prose. The result is guaranteed-parseable and directly usable.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// BAD: prose output</span>\n<span class=\"str\">\"Review this file and tell me the issues.\"</span>\n\n<span class=\"fn\">&rarr;</span> Free-form paragraphs. Fine to read.\n    Impossible to pipe into a script.\n\n<span class=\"cmt\">// GOOD: structured output</span>\n<span class=\"str\">\"Review this file. Respond as JSON:</span>\n<span class=\"str\">  [</span>\n<span class=\"str\">    {</span>\n<span class=\"str\">      \"severity\": \"ERROR | WARN | INFO\",</span>\n<span class=\"str\">      \"file\": \"path/to/file.java\",</span>\n<span class=\"str\">      \"line\": 42,</span>\n<span class=\"str\">      \"issue\": \"short description\",</span>\n<span class=\"str\">      \"fix\": \"concrete suggestion\"</span>\n<span class=\"str\">    }</span>\n<span class=\"str\">  ]\"</span>",
+        "note": "JSON, Markdown tables, CSV &mdash; pick a shape a tool can read. cognitive-core&rsquo;s <code>/code-review</code> uses this to post findings into CI."
+      },
+      {
+        "card": "When structured output pays off:",
+        "items": [
+          "<strong>CI integration</strong> &mdash; scripts can parse the result, fail the build on <code>ERROR</code>",
+          "<strong>Batch work</strong> &mdash; run the prompt on 50 files, aggregate findings automatically",
+          "<strong>Auditability</strong> &mdash; each finding has a field set, nothing hidden in prose",
+          "<strong>Consistency</strong> &mdash; the schema forces the model to answer every field, every time"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
     "title": "The Interview Pattern",
     "desc": "Let the AI ask questions before implementing &mdash; like a senior developer would.",
     "body": [
@@ -97,7 +119,7 @@
     "body": [
       {
         "code": "Context window = <span class=\"kw\">everything the model can see</span>\n\n  System prompt\n  + CLAUDE.md rules\n  + conversation history\n  + file contents read\n  + tool outputs\n  + your current request\n  ________________________\n  = total tokens consumed\n\n  When you exceed the limit:\n  <span class=\"str\">older context gets compressed or dropped</span>",
-        "note": "Claude Code&rsquo;s context: 200K tokens. Sounds huge &mdash; but a large codebase fills it fast."
+        "note": "Claude Code&rsquo;s context: 200K tokens standard, up to 1M on Opus/Sonnet extended. Sounds huge &mdash; but a large codebase fills it fast."
       }
     ]
   },
@@ -136,8 +158,8 @@
           ],
           "rows": [
             [
-              "<strong>Case facts blocks</strong>",
-              "Extract key findings into a persistent summary at the top"
+              "<strong>Fact blocks</strong>",
+              "Extract key findings into a persistent summary pinned at the top"
             ],
             [
               "<strong>Trim verbose output</strong>",
@@ -222,12 +244,78 @@
         }
       },
       {
-        "card": "Error propagation in multi-agent systems:",
+        "card": "How AI should surface uncertainty to you:",
         "items": [
-          "Structured errors: failure type + partial results + what was attempted",
-          "Never generic &ldquo;failed&rdquo; &mdash; agents downstream need to decide how to proceed",
-          "Coverage gaps must be explicitly reported, not silently ignored"
+          "<strong>State confidence explicitly</strong> &mdash; &ldquo;I am not sure X, proceeding with assumption Y&rdquo; &gt; silent guessing",
+          "<strong>Report partial results</strong> &mdash; what succeeded, what failed, what was skipped",
+          "<strong>Name coverage gaps</strong> &mdash; &ldquo;I reviewed 8 of 12 files, 4 were too large&rdquo; &gt; &ldquo;done&rdquo;",
+          "<strong>Never generic &ldquo;failed&rdquo;</strong> &mdash; you cannot decide next steps without the failure mode"
         ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "exercise",
+    "title": "Exercise 8.1: Rewrite a Vague Prompt",
+    "desc": "20 minutes &mdash; apply all four techniques to a real task.",
+    "body": [
+      {
+        "card": "Starting prompt (vague):",
+        "items": [
+          "<em>&ldquo;Review my Calculator class and make it better.&rdquo;</em>"
+        ]
+      },
+      {
+        "card": "Rewrite it using all four techniques:",
+        "items": [
+          "<strong>1. Explicit criteria</strong> &mdash; what counts as &ldquo;better&rdquo;? List 3&ndash;5 concrete rules",
+          "<strong>2. Few-shot</strong> &mdash; give 2 examples of acceptable review findings",
+          "<strong>3. Structured output</strong> &mdash; specify the exact JSON/table format for the response",
+          "<strong>4. Interview pattern</strong> &mdash; ask Claude to clarify 3 things before reviewing"
+        ]
+      },
+      {
+        "card": "Run both prompts on the same code. Compare:",
+        "items": [
+          "Which response is easier to act on?",
+          "Which response is easier to parse with a script?",
+          "Did the rewritten prompt catch issues the vague one missed?",
+          "How much longer is the rewritten prompt &mdash; and was it worth it?"
+        ]
+      },
+      {
+        "quote": "The goal is not a perfect prompt. The goal is to feel the difference between vague and specific &mdash; so you notice it in your own daily prompts."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "exercise",
+    "title": "Exercise 8.2: Build a Fact Block",
+    "desc": "10 minutes &mdash; protect critical context from summarization.",
+    "body": [
+      {
+        "card": "Take a task you are working on. Write a <code>FACTS.md</code> file with:",
+        "items": [
+          "<strong>Constraints</strong> that must never be violated (e.g., &ldquo;JDK 21, no new dependencies&rdquo;)",
+          "<strong>Decisions already made</strong> (e.g., &ldquo;We use JaCoCo, not Cobertura &mdash; see ADR 0007&rdquo;)",
+          "<strong>Known traps</strong> (e.g., &ldquo;<code>Calculator.divide()</code> throws on zero &mdash; do not catch silently&rdquo;)",
+          "<strong>Open questions</strong> still waiting on human answers"
+        ]
+      },
+      {
+        "card": "Then:",
+        "items": [
+          "Reference <code>FACTS.md</code> at the start of your next Claude Code session",
+          "After <code>/compact</code>, re-reference it &mdash; facts survive outside the context window",
+          "Update it as decisions are made &mdash; it becomes the <strong>single source of truth</strong> across sessions"
+        ]
+      },
+      {
+        "quote": "Scratchpad files beat conversation memory. The file is still there tomorrow; the context is not."
       }
     ]
   },
@@ -244,6 +332,7 @@
           "<strong>Prompt quality</strong> is the most transferable daily skill in AI-assisted development",
           "<strong>Explicit criteria</strong> &gt; vague instructions &mdash; specificity removes ambiguity",
           "<strong>Few-shot examples</strong> are the single most powerful prompting technique",
+          "<strong>Structured output</strong> (JSON, tables) makes responses parseable &mdash; the bridge to CI",
           "<strong>The interview pattern</strong>: let AI ask questions before implementing",
           "<strong>Context windows</strong> are finite &mdash; manage them or lose critical information",
           "<strong>Lost-in-the-middle</strong>: important info at start and end, not buried in middle",
