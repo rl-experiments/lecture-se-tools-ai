@@ -64,7 +64,7 @@
     "mod": "8",
     "tag": "",
     "title": "Few-Shot Examples: Show, Don&rsquo;t Tell",
-    "desc": "2&ndash;3 examples eliminate ambiguity better than paragraphs of instructions.",
+    "desc": "<em>Few-shot</em> = giving the model a few worked examples in the prompt. 2&ndash;3 examples eliminate ambiguity better than paragraphs of instructions.",
     "body": [
       {
         "code": "<span class=\"str\">\"Review this code. Format findings like these examples:</span>\n\n<span class=\"str\">Example 1:</span>\n<span class=\"str\">  File: Calculator.java:15</span>\n<span class=\"str\">  Severity: ERROR</span>\n<span class=\"str\">  Issue: Division by zero not handled</span>\n<span class=\"str\">  Fix: Add zero-check before divide()</span>\n\n<span class=\"str\">Example 2:</span>\n<span class=\"str\">  File: Student.java:42</span>\n<span class=\"str\">  Severity: WARN</span>\n<span class=\"str\">  Issue: equals() without hashCode()</span>\n<span class=\"str\">  Fix: Override hashCode() using same fields\"</span>",
@@ -119,7 +119,7 @@
     "body": [
       {
         "code": "Context window = <span class=\"kw\">everything the model can see</span>\n\n  System prompt\n  + CLAUDE.md rules\n  + conversation history\n  + file contents read\n  + tool outputs\n  + your current request\n  ________________________\n  = total tokens consumed\n\n  When you exceed the limit:\n  <span class=\"str\">older context gets compressed or dropped</span>",
-        "note": "Claude Code&rsquo;s context: 200K tokens standard, up to 1M on Opus/Sonnet extended. Sounds huge &mdash; but a large codebase fills it fast."
+        "note": "<strong>Token</strong> &asymp; a word chunk the model reads (roughly 4 characters of English, or ~0.75 words). Claude Code&rsquo;s context: 200K tokens standard, up to 1M on Opus/Sonnet extended. Sounds huge &mdash; but a large codebase fills it fast."
       }
     ]
   },
@@ -131,7 +131,7 @@
     "desc": "Models pay most attention to the beginning and end. The middle gets lost.",
     "body": [
       {
-        "code": "  Attention\n  &uarr;\n  |  <span class=\"kw\">HIGH</span>        <span class=\"str\">... low attention zone ...</span>       <span class=\"kw\">HIGH</span>\n  |  ||||                                         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  |  ||||    ....  ....  ....  ....  ....         ||||\n  +--++++----++++--++++--++++--++++--++++----++++-&rarr;\n   Start                                       End\n   of context                              of context",
+        "code": "  Attention\n  &uarr;\n  <span class=\"kw\">HIGH</span>  ||||                                         ||||\n        ||||                                         ||||\n        ||||                                         ||||\n  <span class=\"str\">LOW</span>  ||||    ....  ....  ....  ....  ....         ||||\n      --++++----++++--++++--++++--++++--++++----++++--&rarr;\n        Start                                       End\n        of context                              of context",
         "note": "Liu et al. (2023): &ldquo;Lost in the Middle: How Language Models Use Long Contexts&rdquo;"
       },
       {
@@ -175,11 +175,11 @@
             ],
             [
               "<strong><code>/compact</code></strong>",
-              "Compress conversation history, keeping essential facts"
+              "Claude Code slash command &mdash; summarizes older turns in-place to free up tokens while keeping essential facts"
             ],
             [
               "<strong><code>--resume</code></strong>",
-              "Continue work across sessions with preserved context"
+              "Claude Code CLI flag &mdash; relaunches a prior session so context carries across terminal restarts"
             ]
           ]
         }
@@ -197,7 +197,7 @@
     "desc": "Every time context is compressed, specifics are lost.",
     "body": [
       {
-        "code": "<span class=\"kw\">Original fact:</span>\n  <span class=\"str\">\"The API rate limit is 429 requests/minute,</span>\n  <span class=\"str\"> measured per API key, reset at UTC midnight\"</span>\n\n<span class=\"kw\">After 1st compression:</span>\n  <span class=\"str\">\"API has a rate limit of ~400/min per key\"</span>\n\n<span class=\"kw\">After 2nd compression:</span>\n  <span class=\"str\">\"API has rate limiting\"</span>\n\n<span class=\"kw\">After 3rd compression:</span>\n  <span class=\"str\">(fact is gone)</span>",
+        "code": "<span class=\"kw\">Original fact:</span>\n  <span class=\"str\">\"The API rate limit is 429 requests/minute,</span>\n  <span class=\"str\"> measured per API key, reset at UTC midnight\"</span>\n\n<span class=\"kw\">After 1st compression:</span>\n  <span class=\"str\">\"API has a rate limit of ~400/min per key\"</span>\n\n<span class=\"kw\">After 2nd compression:</span>\n  <span class=\"str\">\"API has rate limiting\"</span>\n\n<span class=\"kw\">After 3rd compression:</span>\n  <span class=\"str\">(specifics dropped &mdash; only &ldquo;API exists&rdquo; remains)</span>",
         "note": "Numbers, dates, and specific thresholds are the first casualties of summarization."
       },
       {
@@ -249,8 +249,24 @@
           "<strong>State confidence explicitly</strong> &mdash; &ldquo;I am not sure X, proceeding with assumption Y&rdquo; &gt; silent guessing",
           "<strong>Report partial results</strong> &mdash; what succeeded, what failed, what was skipped",
           "<strong>Name coverage gaps</strong> &mdash; &ldquo;I reviewed 8 of 12 files, 4 were too large&rdquo; &gt; &ldquo;done&rdquo;",
-          "<strong>Never generic &ldquo;failed&rdquo;</strong> &mdash; you cannot decide next steps without the failure mode"
+          "<strong>Name the failure mode</strong> &mdash; a bare &ldquo;failed&rdquo; is useless; you cannot decide next steps without <em>why</em>"
         ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "CLAUDE.md: Standing Rules for AI Coding",
+    "desc": "Pin these at the top of <code>CLAUDE.md</code>. They survive context compression and become the AI&rsquo;s defaults.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\"># Coding rules</span>\n\n- Ask clarifying questions before implementing.\n  If multiple interpretations exist, present them\n  &mdash; do not pick silently.\n- State success criteria before writing code.\n  Make them verifiable (tests, checks, examples).\n- Prefer the simplest solution that meets the\n  requirement. No speculative abstractions.\n- Touch only what the request needs. No drive-by\n  refactors. Match existing style.",
+        "note": "These four rules recap techniques from this course: <em>Interview Pattern</em> and <em>Explicit Criteria</em> (this module), <em>KISS &amp; YAGNI</em> (Module 7, Parsimony Principle). The fourth &mdash; <em>surgical changes</em> &mdash; is the one you have not seen yet, and it is the single most common LLM coding failure in practice."
+      },
+      {
+        "quote": "<code>CLAUDE.md</code> is the AI&rsquo;s standing orders. Everything else is a one-off instruction that gets forgotten after <code>/compact</code>."
       }
     ]
   },
