@@ -61,7 +61,8 @@
   "tocGroups": [
     { "label": null, "mods": ["0"] },
     { "label": "Classic Software Engineering Tools", "mods": ["1", "2", "3", "4", "5"] },
-    { "label": "AI Engineering", "mods": ["6", "7", "8", "9"] },
+    { "label": "AI Engineering with Claude Code", "mods": ["6", "7", "8"] },
+    { "label": "Case Study", "mods": ["9"] },
     { "label": "Project + Exam", "mods": ["10", "11"] }
   ],
   "toc": [
