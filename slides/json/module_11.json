@@ -182,60 +182,81 @@
     "mod": "11",
     "tag": "",
     "title": "FAQ: How Can I Achieve a 1.0 Grade?",
-    "desc": "Each violation below costs -0.3 in addition to your grade.",
+    "desc": "Violations subtract from your grade. Penalty shown per row.",
     "body": [
       {
         "table": {
           "headers": [
             "Requirement",
-            "Violation (-0.3 each)"
+            "Violation",
+            "Penalty"
           ],
           "rows": [
             [
               "<strong>Clean Code</strong>",
-              "No code formatting!? Use Google style guide <code>eclipse-java-google-style.xml</code>"
+              "No code formatting!? Use Google style guide <code>eclipse-java-google-style.xml</code>",
+              "-0.3"
             ],
             [
               "<strong>Clean CheckStyle</strong>",
-              "Use <code>google_checks.xml</code>. Still has warnings or errors!?"
+              "Use <code>google_checks.xml</code>. Still has warnings or errors!?",
+              "-0.3"
             ],
             [
               "<strong>Clean PMD</strong>",
-              "Use <code>pmd-custom-ruleset.xml</code>. Still has warnings or errors!?"
+              "Use <code>pmd-custom-ruleset.xml</code>. Still has warnings or errors!?",
+              "-0.3"
             ],
             [
               "<strong>Clean SpotBugs</strong>",
-              "SpotBugs still has warnings or errors!?"
+              "SpotBugs still has warnings or errors!?",
+              "-0.3"
             ],
             [
               "<strong>Clean Maven Build</strong>",
-              "<code>mvn clean install</code> still has errors!?"
+              "<code>mvn clean install</code> still has errors!?",
+              "-0.3"
             ],
             [
               "<strong>Clean GIT</strong>",
-              "GitHub contains generated stuff, Eclipse config files, log files!?"
+              "GitHub contains generated stuff, Eclipse config files, log files!?",
+              "-0.3"
             ],
             [
               "<strong>Clean JUnit + Lifecycle</strong>",
-              "JUnit without Assertions!? Lifecycle with empty methods!? No JUnit plugin in pom.xml!?"
+              "JUnit without Assertions!? Lifecycle with empty methods!? No JUnit plugin in pom.xml!?",
+              "-0.3"
             ],
             [
               "<strong>Clean Mocking</strong>",
-              "Mockito has no examples at all!?"
+              "Mockito has no examples at all!?",
+              "-0.3"
             ],
             [
               "<strong>Clean Maven Structure</strong>",
-              "Properties in <code>/src/main/java</code>? Tests in <code>/src/main/java</code>!?"
+              "Properties in <code>/src/main/java</code>? Tests in <code>/src/main/java</code>!?",
+              "-0.3"
             ],
             [
               "<strong>Clean Logging</strong>",
-              "<code>System.out.println()</code> or <code>e.printStackTrace()</code> instead of Log4J!?"
+              "<code>System.out.println()</code> or <code>e.printStackTrace()</code> instead of Log4J!?",
+              "-0.3"
+            ],
+            [
+              "<strong>Explain Your Code</strong>",
+              "Cannot explain <em>why</em> the code exists or <em>how</em> it works &mdash; shipped AI output you do not understand",
+              "<span style=\"color:#ef4444\"><strong>-1.0</strong></span>"
+            ],
+            [
+              "<strong>Configure AI</strong>",
+              "No <code>CLAUDE.md</code> with project-specific rules!? AI running without guards on your codebase!?",
+              "-0.3"
             ]
           ]
         }
       },
       {
-        "quote": "All 10 requirements clean = 1.0. Each violation adds -0.3. Do the math."
+        "quote": "All requirements clean = 1.0. Violations accumulate &mdash; do the math."
       }
     ]
   }
