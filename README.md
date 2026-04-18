@@ -53,8 +53,8 @@ slides/
     module_4.json         ← M4: Automated Testing
     module_5.json         ← M5: Continuous Integration
     module_6.json         ← M6: Security & Trust
-    module_7.json         ← M7: Agent Architecture
-    module_8.json         ← M8: Prompt Engineering & Context
+    module_7.json         ← M7: Prompt Engineering & Context
+    module_8.json         ← M8: Agent Architecture & Production Patterns
     module_9.json         ← M9: cognitive-core Framework
     module_10.json        ← M10: Capstone Project
     module_11.json        ← M11: Exam / Presentation
