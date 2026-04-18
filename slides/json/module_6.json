@@ -29,16 +29,28 @@
     "mod": "6",
     "tag": "",
     "title": "This Module Is Different",
+    "desc": "Previous modules taught you how to use AI. This one teaches you when AI is dangerous &mdash; and how to defend against it.",
     "body": [
       {
-        "card": "",
+        "card": "The five risks we will cover, each with a defense:",
         "items": [
-          "Previous modules: learn a tool + use AI with it",
-          "This module: learn <strong>when AI is dangerous</strong> and how to protect yourself"
+          "<strong>Risk 1 &mdash; Hallucination:</strong> AI confidently invents APIs, libraries, facts",
+          "<strong>Risk 2 &mdash; Data Leakage:</strong> secrets, PII, proprietary code crossing trust boundaries",
+          "<strong>Risk 3 &mdash; Prompt Injection:</strong> attacker-supplied input hijacks the agent",
+          "<strong>Risk 4 &mdash; Identity &amp; Permissions:</strong> agent acts with your authority on systems you don&rsquo;t control",
+          "<strong>Risk 5 &mdash; Over-Reliance:</strong> you stop thinking and ship whatever AI produced"
         ]
       },
       {
-        "quote": "This is the most important module for your career."
+        "card": "What &ldquo;defend&rdquo; means here:",
+        "items": [
+          "<strong>Trust boundaries</strong> &mdash; decide what AI can see, write, and call",
+          "<strong>Hooks</strong> &mdash; automated guardrails that fire before/after tool use",
+          "<strong>Approval flows</strong> &mdash; you stay the decision-maker on destructive actions"
+        ]
+      },
+      {
+        "quote": "The other modules make you productive with AI. This one keeps you (and your employer) out of trouble. It is the most important module for your career."
       }
     ]
   },
@@ -616,7 +628,7 @@
         ]
       },
       {
-        "quote": "For each: name the threat type (hallucination, data leakage, prompt injection, over-reliance, destructive action)."
+        "quote": "For each: name the threat type (hallucination, data leakage, prompt injection, identity/permissions, over-reliance)."
       }
     ]
   },

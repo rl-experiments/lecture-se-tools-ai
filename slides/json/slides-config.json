@@ -60,7 +60,7 @@
   ],
   "tocGroups": [
     { "label": null, "mods": ["0"] },
-    { "label": "Classic SE Tools", "mods": ["1", "2", "3", "4", "5"] },
+    { "label": "Classic Software Engineering Tools", "mods": ["1", "2", "3", "4", "5"] },
     { "label": "AI Engineering", "mods": ["6", "7", "8", "9"] },
     { "label": "Project + Exam", "mods": ["10", "11"] }
   ],
