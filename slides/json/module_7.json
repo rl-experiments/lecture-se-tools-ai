@@ -15,29 +15,13 @@
     "bg": 6,
     "h1": "Module 7",
     "lead": "Agent Architecture & Production Patterns",
-    "sub": "How AI agents work and why architecture matters",
+    "sub": "From the 8-layer model to production: patterns that make agents reliable",
     "badges": [
-      "Reference Architecture",
-      "Control Plane",
+      "8-Layer Model",
       "MCP",
-      "Observability"
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "Why This Module Exists",
-    "body": [
-      {
-        "card": "You&rsquo;ve used Claude Code for 7 modules. Now understand how it actually works.",
-        "items": [
-          "Understanding architecture helps you use tools better",
-          "Security decisions require architectural understanding",
-          "You&rsquo;ll encounter (and maybe build) agent systems in your career",
-          "<strong>You already know most of these patterns</strong> &mdash; you just need the vocabulary"
-        ]
-      }
+      "Observability",
+      "Fitness Gates",
+      "Parsimony"
     ]
   },
   {
@@ -238,48 +222,6 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Memory Architecture: Three Layers",
-    "desc": "Different types of knowledge need different storage and trust levels.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Memory Type",
-            "What It Stores",
-            "Lifetime",
-            "Claude Code Example"
-          ],
-          "rows": [
-            [
-              "<strong>Short-term</strong>",
-              "Current task state",
-              "This session",
-              "Current conversation context"
-            ],
-            [
-              "<strong>Long-term</strong>",
-              "Verified facts, summaries",
-              "Weeks/months",
-              "(not in basic Claude Code)"
-            ],
-            [
-              "<strong>Profile</strong>",
-              "User preferences, habits",
-              "Persistent",
-              "CLAUDE.md project rules"
-            ]
-          ]
-        }
-      },
-      {
-        "quote": "&ldquo;Memory write path must be treated as security-sensitive, not a technical detail. Errors in memory live longer than errors in single responses.&rdquo;"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
     "title": "MCP: Standard Protocol for Agent-Tool Communication",
     "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
     "body": [
@@ -306,16 +248,7 @@
           "Tool descriptions are critical: include input formats, examples, boundaries",
           "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "industry",
-    "title": "MCP for Tools, A2A for Agents",
-    "desc": "Two emerging protocols for two different problems.",
-    "body": [
+      },
       {
         "table": {
           "headers": [
@@ -760,27 +693,6 @@
       },
       {
         "quote": "How many blocks can you honestly mark as &ldquo;ready&rdquo;?"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "exercise",
-    "title": "Exercise 7.4: Agent Review Comparison",
-    "desc": "20 minutes",
-    "body": [
-      {
-        "card": "Compare all four quality tiers on your project:",
-        "items": [
-          "<strong>Tier 1:</strong> Run <code>mvn checkstyle:check pmd:check</code> manually &mdash; count violations",
-          "<strong>Tier 2:</strong> Edit a file and watch <code>post-edit-lint</code> hook fire automatically",
-          "<strong>Tier 3:</strong> Run <code>/code-review</code> skill &mdash; read the structured findings",
-          "<strong>Tier 4:</strong> Ask <code>@code-standards-reviewer</code> agent to review &mdash; compare depth"
-        ]
-      },
-      {
-        "quote": "Each tier adds intelligence. None replaces your judgment."
       }
     ]
   },

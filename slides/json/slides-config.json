@@ -103,8 +103,8 @@
     },
     {
       "mod": "7",
-      "title": "Agent Architecture",
-      "topics": "MCP, Control Plane, cognitive-core, Observability"
+      "title": "Agent Architecture & Production Patterns",
+      "topics": "MCP, 8-Layer Model, Observability, Fitness Gates"
     },
     {
       "mod": "8",
