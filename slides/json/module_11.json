@@ -22,7 +22,7 @@
       "Exam",
       "Portfolio"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(207)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Presentation Format</span>\n<span onclick=\"event.stopPropagation();go(208)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Sample Exam Questions</span>\n<span onclick=\"event.stopPropagation();go(209)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What You Take Away from This Course</span>\n<span onclick=\"event.stopPropagation();go(210)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Complete Pipeline</span>\n<span onclick=\"event.stopPropagation();go(211)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Five Final Messages</span>\n<span onclick=\"event.stopPropagation();go(212)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Grading: Bonus Points Summary</span>\n<span onclick=\"event.stopPropagation();go(213)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">FAQ: How Can I Achieve a 1.0 Grade?</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(207)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Presentation Format</span>\n<span onclick=\"event.stopPropagation();go(208)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Sample Exam Questions</span>\n<span onclick=\"event.stopPropagation();go(209)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What You Take Away from This Course</span>\n<span onclick=\"event.stopPropagation();go(210)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Complete Pipeline</span>\n<span onclick=\"event.stopPropagation();go(211)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Five Final Messages</span>\n<span onclick=\"event.stopPropagation();go(212)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Grading Policy</span>"
   },
   {
     "type": "content",
@@ -108,7 +108,8 @@
     "title": "The Complete Pipeline",
     "body": [
       {
-        "code": "You + Claude Code + cognitive-core\n       |\n  <span class=\"kw\">Git</span> ................. audit trail + provenance\n       |                 <span class=\"cmt\">+ validate-bash hook (branch guard)</span>\n  <span class=\"kw\">Maven</span> ............... capability contracts\n       |                 <span class=\"cmt\">+ tool risk classification</span>\n  <span class=\"kw\">PMD/SpotBugs/CS</span> ..... regression gates\n       |                 <span class=\"cmt\">+ post-edit-lint hook (automatic)</span>\n  <span class=\"kw\">JUnit/Mockito</span> ....... eval datasets\n       |                 <span class=\"cmt\">+ /test-scaffold + /fitness score</span>\n  <span class=\"kw\">Jenkins/Nexus</span> ....... traces + SLOs\n       |                 <span class=\"cmt\">+ graduated fitness gates (60&rarr;95%)</span>\n  <span class=\"kw\">Security</span> awareness ... trust boundaries + perimeter\n       |                 <span class=\"cmt\">+ validate-write + Source Authority T1-T5</span>\n  <span class=\"kw\">Architecture</span> ........ control plane + tool gateway + memory\n       |                 <span class=\"cmt\">+ @code-standards-reviewer + parsimony</span>\n  PROFESSIONAL DEVELOPER WITH ARCHITECTURAL THINKING"
+        "code": "You + Claude Code + cognitive-core\n       |\n  <span class=\"kw\">Git</span> ........................... audit trail + provenance\n       |                          <span class=\"cmt\">+ validate-bash hook (branch guard)</span>\n  <span class=\"kw\">Maven</span> ......................... capability contracts\n       |                          <span class=\"cmt\">+ tool risk classification</span>\n  <span class=\"kw\">PMD/SpotBugs/CheckStyle</span> ....... regression gates\n       |                          <span class=\"cmt\">+ post-edit-lint hook (automatic)</span>\n  <span class=\"kw\">JUnit/Mockito</span> ................. eval datasets\n       |                          <span class=\"cmt\">+ /test-scaffold + /fitness score</span>\n  <span class=\"kw\">Jenkins/Nexus</span> ................. traces + SLOs\n       |                          <span class=\"cmt\">+ graduated fitness gates (60&rarr;95%)</span>\n  <span class=\"kw\">Security</span> awareness ............ trust boundaries + perimeter\n       |                          <span class=\"cmt\">+ validate-write + Source Authority T1-T5</span>\n  <span class=\"kw\">Architecture</span> .................. control plane + tool gateway + memory\n       |                          <span class=\"cmt\">+ @code-standards-reviewer + parsimony</span>\n  PROFESSIONAL DEVELOPER WITH ARCHITECTURAL THINKING",
+        "note": "<strong>Prompt Engineering</strong> (Module 7) shapes every stage &mdash; it is the <em>how</em>, not a <em>where</em>. You prompt to generate, refactor, review, and debug at every row above."
       }
     ]
   },
@@ -135,55 +136,12 @@
     "type": "content",
     "mod": "11",
     "tag": "",
-    "title": "LLM Grading: Bonus Points Summary",
+    "title": "Grading Policy",
+    "desc": "Base grade 1.0. Violations subtract; bonuses add.",
     "body": [
       {
-        "table": {
-          "headers": [
-            "Category",
-            "Impact"
-          ],
-          "rows": [
-            [
-              "Base grade: 10 criteria",
-              "Each violation: <strong>-0.3</strong>"
-            ],
-            [
-              "Architecture bonus",
-              "<strong>+0.5</strong> (checklist completed with evidence)"
-            ],
-            [
-              "LLM Bonus 1: CLAUDE.md configured",
-              "<strong>+0.3</strong>"
-            ],
-            [
-              "LLM Bonus 2: Custom command/skill",
-              "<strong>+0.3</strong>"
-            ],
-            [
-              "LLM Bonus 3: Fitness &ge; 90%",
-              "<strong>+0.3</strong>"
-            ],
-            [
-              "LLM Bonus 4: Meaningful AI usage",
-              "<strong>+0.3</strong>"
-            ]
-          ],
-          "note": "Best possible outcome: 1.0 base + up to 1.7 bonus. The bonus cannot compensate for missing fundamentals."
-        }
+        "card": "Penalties &mdash; each violation subtracts from base"
       },
-      {
-        "quote": "The LLM bonus rewards students who treat AI as a professional tool, not a shortcut."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "11",
-    "tag": "",
-    "title": "FAQ: How Can I Achieve a 1.0 Grade?",
-    "desc": "Violations subtract from your grade. Penalty shown per row.",
-    "body": [
       {
         "table": {
           "headers": [
@@ -193,70 +151,102 @@
           ],
           "rows": [
             [
-              "<strong>Clean Code</strong>",
-              "No code formatting!? Use Google style guide <code>eclipse-java-google-style.xml</code>",
+              "<strong>Code formatting</strong>",
+              "Not formatted per Google Java Style (<code>eclipse-java-google-style.xml</code>)",
               "-0.3"
             ],
             [
-              "<strong>Clean CheckStyle</strong>",
-              "Use <code>google_checks.xml</code>. Still has warnings or errors!?",
+              "<strong>CheckStyle</strong>",
+              "<code>google_checks.xml</code> reports warnings or errors",
               "-0.3"
             ],
             [
-              "<strong>Clean PMD</strong>",
-              "Use <code>pmd-custom-ruleset.xml</code>. Still has warnings or errors!?",
+              "<strong>PMD</strong>",
+              "<code>pmd-custom-ruleset.xml</code> reports warnings or errors",
               "-0.3"
             ],
             [
-              "<strong>Clean SpotBugs</strong>",
-              "SpotBugs still has warnings or errors!?",
+              "<strong>SpotBugs</strong>",
+              "Reports warnings or errors",
               "-0.3"
             ],
             [
-              "<strong>Clean Maven Build</strong>",
-              "<code>mvn clean install</code> still has errors!?",
+              "<strong>Maven build</strong>",
+              "<code>mvn clean install</code> fails or reports errors",
               "-0.3"
             ],
             [
-              "<strong>Clean GIT</strong>",
-              "GitHub contains generated stuff, Eclipse config files, log files!?",
+              "<strong>Repository hygiene</strong>",
+              "Contains generated files, IDE config, or log files",
               "-0.3"
             ],
             [
-              "<strong>Clean JUnit + Lifecycle</strong>",
-              "JUnit without Assertions!? Lifecycle with empty methods!? No JUnit plugin in pom.xml!?",
+              "<strong>JUnit tests</strong>",
+              "Missing assertions, empty lifecycle methods, or no JUnit plugin in <code>pom.xml</code>",
               "-0.3"
             ],
             [
-              "<strong>Clean Mocking</strong>",
-              "Mockito has no examples at all!?",
+              "<strong>Mockito usage</strong>",
+              "No Mockito examples in the test suite",
               "-0.3"
             ],
             [
-              "<strong>Clean Maven Structure</strong>",
-              "Properties in <code>/src/main/java</code>? Tests in <code>/src/main/java</code>!?",
+              "<strong>Maven structure</strong>",
+              "Properties or tests placed in <code>src/main/java</code>",
               "-0.3"
             ],
             [
-              "<strong>Clean Logging</strong>",
-              "<code>System.out.println()</code> or <code>e.printStackTrace()</code> instead of Log4J!?",
+              "<strong>Logging</strong>",
+              "Uses <code>System.out.println()</code> or <code>e.printStackTrace()</code> instead of Log4J",
               "-0.3"
             ],
             [
-              "<strong>Explain Your Code</strong>",
+              "<strong>CLAUDE.md</strong>",
+              "Missing or empty &mdash; no project-specific rules for AI",
+              "-0.3"
+            ],
+            [
+              "<strong>Explain your code</strong>",
               "Cannot explain <em>why</em> the code exists or <em>how</em> it works &mdash; shipped AI output you do not understand",
               "<span style=\"color:#ef4444\"><strong>-1.0</strong></span>"
-            ],
-            [
-              "<strong>Configure AI</strong>",
-              "No <code>CLAUDE.md</code> with project-specific rules!? AI running without guards on your codebase!?",
-              "-0.3"
             ]
           ]
         }
       },
       {
-        "quote": "All requirements clean = 1.0. Violations accumulate &mdash; do the math."
+        "card": "Bonuses &mdash; added to final grade"
+      },
+      {
+        "table": {
+          "headers": [
+            "Category",
+            "Condition",
+            "Bonus"
+          ],
+          "rows": [
+            [
+              "<strong>Architecture Checklist</strong>",
+              "All 9 patterns from Module 10 evidenced (git log, ADRs, PlantUML, etc.)",
+              "+0.5"
+            ],
+            [
+              "<strong>Custom command / skill</strong>",
+              "You built a reusable slash command or skill",
+              "+0.3"
+            ],
+            [
+              "<strong>Fitness &ge; 90%</strong>",
+              "Quality score threshold met",
+              "+0.3"
+            ],
+            [
+              "<strong>AI usage log</strong>",
+              "<code>AI-LOG.md</code> (or similar) documenting where and how AI was used during the project",
+              "+0.3"
+            ]
+          ],
+          "note": "Max bonus: +1.4. Bonuses cannot compensate for missing fundamentals."
+        }
       }
     ]
   }
