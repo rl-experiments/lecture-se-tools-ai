@@ -477,7 +477,7 @@
         "card": "",
         "items": [
           "<strong>1. Runtime correctness</strong> &mdash; does the happy path work?",
-          "<strong>2. Safety and policy</strong> &mdash; are guardrails in place?",
+          "<strong>2. Safety and policy</strong> &mdash; are guards in place?",
           "<strong>3. Capability readiness</strong> &mdash; does each tool have an owner?",
           "<strong>4. Observability</strong> &mdash; can you see what happened?",
           "<strong>5. Eval readiness</strong> &mdash; do tests cover critical scenarios?",

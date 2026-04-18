@@ -117,7 +117,7 @@
         "card": "Your progression through this course:",
         "items": [
           "<strong>Session 2:</strong> Manual <code>mvn checkstyle:check</code> (you run it, you read it)",
-          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guardrails)",
+          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guards)",
           "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
           "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
         ]

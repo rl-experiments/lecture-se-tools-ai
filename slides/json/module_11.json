@@ -1,7 +1,18 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-50,"anchorOffsetY":0,"facing":0.3,"hue":0,"saturate":0.15}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -50,
+        "anchorOffsetY": 0,
+        "facing": 0.3,
+        "hue": 0,
+        "saturate": 0.15
+      }
+    },
     "bg": 2,
     "h1": "Module 11",
     "lead": "Exam / Presentation",
@@ -11,7 +22,7 @@
       "Exam",
       "Portfolio"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(194)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Presentation Format</span>\n<span onclick=\"event.stopPropagation();go(195)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Sample Exam Questions</span>\n<span onclick=\"event.stopPropagation();go(196)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What You Take Away from This Course</span>\n<span onclick=\"event.stopPropagation();go(197)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Complete Pipeline</span>\n<span onclick=\"event.stopPropagation();go(198)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Five Final Messages</span>\n<span onclick=\"event.stopPropagation();go(199)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Grading: Bonus Points Summary</span>\n<span onclick=\"event.stopPropagation();go(200)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">FAQ: How Can I Achieve a 1.0 Grade?</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(207)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Presentation Format</span>\n<span onclick=\"event.stopPropagation();go(208)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Sample Exam Questions</span>\n<span onclick=\"event.stopPropagation();go(209)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What You Take Away from This Course</span>\n<span onclick=\"event.stopPropagation();go(210)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Complete Pipeline</span>\n<span onclick=\"event.stopPropagation();go(211)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Five Final Messages</span>\n<span onclick=\"event.stopPropagation();go(212)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">LLM Grading: Bonus Points Summary</span>\n<span onclick=\"event.stopPropagation();go(213)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">FAQ: How Can I Achieve a 1.0 Grade?</span>"
   },
   {
     "type": "content",

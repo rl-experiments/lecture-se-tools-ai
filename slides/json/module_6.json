@@ -22,14 +22,14 @@
       "Prompt Injection",
       "Approval Flows"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(125)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">This Module Is Different</span>\n<span onclick=\"event.stopPropagation();go(126)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Security Perimeter Model</span>\n<span onclick=\"event.stopPropagation();go(127)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Three Core Questions for Any AI System</span>\n<span onclick=\"event.stopPropagation();go(128)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 1: AI Can Be Wrong (Hallucination)</span>\n<span onclick=\"event.stopPropagation();go(129)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Rule: AI Output Is a Draft, Not a Commit</span>\n<span onclick=\"event.stopPropagation();go(130)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Case Study: Hallucinations 61% &rarr; 0%</span>\n<span onclick=\"event.stopPropagation();go(131)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Grounding Principle</span>\n<span onclick=\"event.stopPropagation();go(132)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 2: Data Leakage &mdash; The Egress Problem</span>\n<span onclick=\"event.stopPropagation();go(133)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Pasting Secrets into AI</span>\n<span onclick=\"event.stopPropagation();go(134)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 3: Prompt Injection</span>\n<span onclick=\"event.stopPropagation();go(135)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Separating Instructions from Data</span>\n<span onclick=\"event.stopPropagation();go(136)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 4: Identity and Permissions</span>\n<span onclick=\"event.stopPropagation();go(137)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Trust Boundary Model</span>\n<span onclick=\"event.stopPropagation();go(138)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Tool Gateway Pattern</span>\n<span onclick=\"event.stopPropagation();go(139)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 5: Over-Reliance (&ldquo;AI Dependency&rdquo;)</span>\n<span onclick=\"event.stopPropagation();go(140)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Professional Balance</span>\n<span onclick=\"event.stopPropagation();go(141)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.1: Spot the Risk</span>\n<span onclick=\"event.stopPropagation();go(142)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.2: Build a Security Policy</span>\n<span onclick=\"event.stopPropagation();go(143)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.3: Secure AI Workflow</span>\n<span onclick=\"event.stopPropagation();go(144)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Hooks: Automated Safety Guardrails</span>\n<span onclick=\"event.stopPropagation();go(145)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Human Approval Gate</span>\n<span onclick=\"event.stopPropagation();go(146)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Defense-in-Depth: Layered Protection</span>\n<span onclick=\"event.stopPropagation();go(147)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 6: Key Takeaways</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(125)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">This Module Is Different</span>\n<span onclick=\"event.stopPropagation();go(126)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Security Perimeter Model</span>\n<span onclick=\"event.stopPropagation();go(127)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Three Core Questions for Any AI System</span>\n<span onclick=\"event.stopPropagation();go(128)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 1: AI Can Be Wrong (Hallucination)</span>\n<span onclick=\"event.stopPropagation();go(129)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Rule: AI Output Is a Draft, Not a Commit</span>\n<span onclick=\"event.stopPropagation();go(130)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Case Study: Hallucinations 61% &rarr; 0%</span>\n<span onclick=\"event.stopPropagation();go(131)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Grounding Principle</span>\n<span onclick=\"event.stopPropagation();go(132)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 2: Data Leakage &mdash; The Egress Problem</span>\n<span onclick=\"event.stopPropagation();go(133)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Pasting Secrets into AI</span>\n<span onclick=\"event.stopPropagation();go(134)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 3: Prompt Injection</span>\n<span onclick=\"event.stopPropagation();go(135)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Separating Instructions from Data</span>\n<span onclick=\"event.stopPropagation();go(136)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 4: Identity and Permissions</span>\n<span onclick=\"event.stopPropagation();go(137)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Trust Boundary Model</span>\n<span onclick=\"event.stopPropagation();go(138)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Tool Gateway Pattern</span>\n<span onclick=\"event.stopPropagation();go(139)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Risk 5: Over-Reliance (&ldquo;AI Dependency&rdquo;)</span>\n<span onclick=\"event.stopPropagation();go(140)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Professional Balance</span>\n<span onclick=\"event.stopPropagation();go(141)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.1: Spot the Risk</span>\n<span onclick=\"event.stopPropagation();go(142)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.2: Build a Security Policy</span>\n<span onclick=\"event.stopPropagation();go(143)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 6.3: Secure AI Workflow</span>\n<span onclick=\"event.stopPropagation();go(144)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Hooks: Automated Safety Guards</span>\n<span onclick=\"event.stopPropagation();go(145)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Human Approval Gate</span>\n<span onclick=\"event.stopPropagation();go(146)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Defense-in-Depth: Layered Protection</span>\n<span onclick=\"event.stopPropagation();go(147)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 6: Key Takeaways</span>"
   },
   {
     "type": "content",
     "mod": "6",
     "tag": "",
     "title": "This Module Is Different",
-    "desc": "Previous modules taught you how to use AI. This one teaches you when AI is dangerous &mdash; and how to defend against it.",
+    "desc": "Previous modules covered classical software engineering tools. This one shifts focus to the risks AI itself introduces &mdash; and how to defend against them.",
     "body": [
       {
         "card": "The five risks we will cover, each with a defense:",
@@ -45,12 +45,12 @@
         "card": "What &ldquo;defend&rdquo; means here:",
         "items": [
           "<strong>Trust boundaries</strong> &mdash; decide what AI can see, write, and call",
-          "<strong>Hooks</strong> &mdash; automated guardrails that fire before/after tool use",
+          "<strong>Hooks</strong> &mdash; automated guards that fire before/after tool use",
           "<strong>Approval flows</strong> &mdash; you stay the decision-maker on destructive actions"
         ]
       },
       {
-        "quote": "The other modules make you productive with AI. This one keeps you (and your employer) out of trouble. It is the most important module for your career."
+        "quote": "AI-assisted development introduces failure modes that classical tooling does not address. The controls in this module are non-optional once an agent operates on production code or data."
       }
     ]
   },
@@ -195,7 +195,7 @@
     "mod": "6",
     "tag": "industry",
     "title": "Case Study: Hallucinations 61% &rarr; 0%",
-    "desc": "Real estate risk analysis &mdash; 170+ data fields per building from government sources.",
+    "desc": "Real estate risk analysis at <a href=\"https://Secrets.RealEstate\" target=\"_blank\">Secrets.RealEstate</a> &mdash; 170+ data fields per building from government sources.",
     "body": [
       {
         "table": {
@@ -206,7 +206,7 @@
           "rows": [
             [
               "LLM without verified data",
-              "<strong>Missed 75%</strong> of real risks OR <strong>invented facts ~13%</strong> of the time"
+              "<strong>~61% hallucination rate</strong> &mdash; missed 75% of real risks OR invented facts ~13% of the time"
             ],
             [
               "Prompt engineering / fine-tuning",
@@ -224,8 +224,8 @@
         "card": "The surprising finding:",
         "items": [
           "<strong>Stronger models don&rsquo;t hallucinate less</strong> &mdash; they hallucinate differently",
-          "Model A: <strong>commission errors</strong> &mdash; invents facts that don&rsquo;t exist",
-          "Model B: <strong>omission errors</strong> &mdash; says almost nothing, misses real risks",
+          "<strong>Claude Sonnet 4.5</strong> &mdash; commission errors: invents facts that don&rsquo;t exist",
+          "<strong>Claude Sonnet 4.6</strong> &mdash; omission errors: says almost nothing, misses real risks",
           "Both are dangerous. Verified data in the prompt fixes both."
         ]
       },
@@ -307,7 +307,7 @@
     "type": "content",
     "mod": "6",
     "tag": "industry",
-    "title": "Hooks: Automated Safety Guardrails",
+    "title": "Hooks: Automated Safety Guards",
     "desc": "Deterministic guards that fire automatically &mdash; no human action needed.",
     "body": [
       {
@@ -381,7 +381,7 @@
         ]
       },
       {
-        "quote": "When Claude Code asks <em>&ldquo;Should I run this command?&rdquo;</em> &mdash; that prompt is the approver role. Don&rsquo;t click yes reflexively."
+        "quote": "When Claude Code asks <em>&ldquo;Should I run this command?&rdquo;</em> &mdash; that prompt is the approver role. <span style=\"color:#ef4444\"><strong>Don&rsquo;t click yes reflexively.</strong></span>"
       },
       {
         "card": "<span style=\"font-style:normal\">&#9888;&#65039;</span> What happens when identities collapse",
@@ -495,6 +495,9 @@
       },
       {
         "quote": "AI should make a good developer faster &mdash; not replace the need to be a good developer."
+      },
+      {
+        "quote": "<span style=\"color:#ef4444\"><strong>Grading policy:</strong> if you cannot explain why your code exists and how it works, &minus;0.3 to your grade.</span>"
       }
     ]
   },
