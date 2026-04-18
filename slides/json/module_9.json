@@ -261,7 +261,7 @@
         "note": "Single-pass reviews of large changesets miss cross-file issues. The three-pass strategy is how cognitive-core&rsquo;s <code>@code-standards-reviewer</code> agent works internally."
       },
       {
-        "quote": "Never single-pass a large review. It causes attention dilution &mdash; the same lost-in-the-middle effect you learned about in context management."
+        "quote": "Never single-pass a large review. Attention gets diluted across too many files and too many concerns &mdash; findings get missed or softened."
       }
     ]
   },
@@ -312,7 +312,7 @@
     "mod": "9",
     "tag": "",
     "title": "cognitive-core: @project-coordinator Topology",
-    "desc": "The Coordinator pattern from Module 7, made concrete: one hub, ten specialists.",
+    "desc": "The Coordinator pattern from Module 8, made concrete: one hub, ten specialists.",
     "body": [
       {
         "code": "                  <span class=\"kw\">@project-coordinator</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
@@ -328,7 +328,7 @@
         ]
       },
       {
-        "quote": "This is the Module 7 Coordinator pattern running in production. Same theory, named agents, real tool scopes."
+        "quote": "This is the Module 8 Coordinator pattern running in production. Same theory, named agents, real tool scopes."
       }
     ]
   },

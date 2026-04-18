@@ -6,144 +6,41 @@
       "opts": {
         "perched": true,
         "anchor": ".cover-card",
-        "anchorOffsetX": -50,
+        "anchorOffsetX": -55,
         "anchorOffsetY": 0,
-        "facing": -0.4,
-        "hue": 215
+        "facing": 0.4,
+        "hue": 140
       }
     },
-    "bg": 6,
+    "bg": 7,
     "h1": "Module 7",
-    "lead": "Agent Architecture & Production Patterns",
-    "sub": "From the 8-layer model to production: patterns that make agents reliable",
+    "lead": "Prompt Engineering & Context Management",
+    "sub": "How to communicate effectively with AI and manage its limitations",
     "badges": [
-      "8-Layer Model",
-      "MCP",
-      "Observability",
-      "Fitness Gates",
-      "Parsimony"
+      "Prompt Engineering",
+      "Few-Shot",
+      "Context Windows",
+      "Human-in-the-Loop"
     ]
   },
   {
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "You Already Know Agent Architecture",
+    "title": "Prompt Engineering for Developers",
+    "desc": "The most transferable daily skill in AI-assisted development.",
     "body": [
       {
-        "table": {
-          "headers": [
-            "What you did",
-            "Architecture name",
-            "Why it matters in production"
-          ],
-          "rows": [
-            [
-              "Git commits",
-              "Audit trail with provenance",
-              "Who changed what, when, and why"
-            ],
-            [
-              "pom.xml",
-              "Capability contract",
-              "Declares exactly what a system can do"
-            ],
-            [
-              "CheckStyle/PMD blocking builds",
-              "Regression gates",
-              "Automated quality checks before deployment"
-            ],
-            [
-              "JUnit test suites",
-              "Eval datasets",
-              "Proves the system behaves correctly"
-            ],
-            [
-              "Jenkins pipeline",
-              "Trace with spans",
-              "Every step is visible and measurable"
-            ],
-            [
-              "Pipeline health metrics",
-              "SLOs",
-              "Targets for reliability and speed"
-            ],
-            [
-              "Claude Code asking permission",
-              "Approval flow / tool gateway",
-              "Humans approve before risky actions execute"
-            ],
-            [
-              ".gitignore for secrets",
-              "Trust boundary / egress control",
-              "Sensitive data never leaves the perimeter"
-            ]
-          ],
-          "note": "You&rsquo;ve been learning production agent architecture for 7 modules &mdash; without realizing it."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "The 8 Layers of an Agent System",
-    "desc": "A reference model for reasoning about any AI agent &mdash; from Claude Code to a production banking agent.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Layer",
-            "Responsibility",
-            "Claude Code example"
-          ],
-          "rows": [
-            [
-              "<strong>1. Interface</strong>",
-              "Receives user input, renders output",
-              "Terminal REPL, IDE extension, web UI"
-            ],
-            [
-              "<strong>2. Identity</strong>",
-              "Who is calling? Which account, which session?",
-              "API key, OAuth token, session ID"
-            ],
-            [
-              "<strong>3. Control plane</strong>",
-              "Policies: what is allowed, what needs approval",
-              "Permission prompts, hook gates, <code>.claude/settings.json</code>"
-            ],
-            [
-              "<strong>4. Orchestration</strong>",
-              "Breaks the task down, sequences steps, handles retries",
-              "Query loop, sub-agent spawning (Explore, Plan)"
-            ],
-            [
-              "<strong>5. Cognition</strong>",
-              "The LLM call &mdash; reasoning, planning, generation",
-              "Claude model invocation"
-            ],
-            [
-              "<strong>6. Memory</strong>",
-              "Persistent knowledge across steps and sessions",
-              "CLAUDE.md, <code>~/.claude</code>, conversation history"
-            ],
-            [
-              "<strong>7. Tool execution</strong>",
-              "Actually reads files, runs commands, calls APIs",
-              "Read, Edit, Bash, Grep, MCP servers"
-            ],
-            [
-              "<strong>8. Telemetry</strong>",
-              "Records what happened for audit and debugging",
-              "Traces, hook logs, token usage counters"
-            ]
-          ]
-        }
+        "card": "The techniques we will cover:",
+        "items": [
+          "<strong>Explicit criteria</strong> &gt; vague instructions &mdash; <em>&ldquo;method &le;20 lines, no static&rdquo;</em> instead of <em>&ldquo;write clean code&rdquo;</em>",
+          "<strong>Few-shot examples</strong> &mdash; show 2&ndash;3 input/output pairs instead of explaining the pattern in words",
+          "<strong>Structured output</strong> &mdash; <em>&ldquo;respond as JSON: {severity, file, line, issue}&rdquo;</em> for guaranteed parseable format",
+          "<strong>The interview pattern</strong> &mdash; <em>&ldquo;before implementing, ask me 3 clarifying questions&rdquo;</em>"
+        ]
       },
       {
-        "quote": "Every agent system has these 8 layers &mdash; even if some are implicit. When you debug or secure an agent, ask: <em>which layer is this problem in?</em>"
+        "quote": "Good prompts are not about being polite or verbose. They are about removing ambiguity."
       }
     ]
   },
@@ -151,70 +48,122 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Claude Code: The Six Key Abstractions",
-    "desc": "Everything in Claude Code exists to support these six core building blocks.",
+    "title": "Explicit Criteria Beat Vague Instructions",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// BAD: vague</span>\n<span class=\"str\">\"Check that the comments are accurate.\"</span>\n\n<span class=\"cmt\">// GOOD: explicit criteria</span>\n<span class=\"str\">\"Flag comments ONLY when the claimed behavior</span>\n<span class=\"str\"> contradicts the actual code behavior.</span>\n<span class=\"str\"> Ignore style preferences and subjective opinions.\"</span>\n\n<span class=\"cmt\">// BAD: vague</span>\n<span class=\"str\">\"Write good tests.\"</span>\n\n<span class=\"cmt\">// GOOD: explicit criteria</span>\n<span class=\"str\">\"Write JUnit 5 tests using AAA pattern.</span>\n<span class=\"str\"> Cover: happy path, null input, boundary values.</span>\n<span class=\"str\"> Each test must have exactly one assertion.\"</span>"
+      },
+      {
+        "quote": "Specificity is not about length. It is about removing ways for the AI to misinterpret you."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Few-Shot Examples: Show, Don&rsquo;t Tell",
+    "desc": "<em>Few-shot</em> = giving the model a few worked examples in the prompt. 2&ndash;3 examples eliminate ambiguity better than paragraphs of instructions.",
+    "body": [
+      {
+        "code": "<span class=\"str\">\"Review this code. Format findings like these examples:</span>\n\n<span class=\"str\">Example 1:</span>\n<span class=\"str\">  File: Calculator.java:15</span>\n<span class=\"str\">  Severity: ERROR</span>\n<span class=\"str\">  Issue: Division by zero not handled</span>\n<span class=\"str\">  Fix: Add zero-check before divide()</span>\n\n<span class=\"str\">Example 2:</span>\n<span class=\"str\">  File: Student.java:42</span>\n<span class=\"str\">  Severity: WARN</span>\n<span class=\"str\">  Issue: equals() without hashCode()</span>\n<span class=\"str\">  Fix: Override hashCode() using same fields\"</span>",
+        "note": "The model generalizes from examples to novel patterns. Show edge cases in your examples."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Structured Output: Make Responses Parseable",
+    "desc": "Ask for a schema, not prose. Output is far more likely to be machine-readable &mdash; but still validate before using it.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// BAD: prose output</span>\n<span class=\"str\">\"Review this file and tell me the issues.\"</span>\n\n<span class=\"fn\">&rarr;</span> Free-form paragraphs. Fine to read.\n    Impossible to pipe into a script.\n\n<span class=\"cmt\">// GOOD: structured output</span>\n<span class=\"str\">\"Review this file. Respond as JSON:</span>\n<span class=\"str\">  [</span>\n<span class=\"str\">    {</span>\n<span class=\"str\">      \"severity\": \"ERROR | WARN | INFO\",</span>\n<span class=\"str\">      \"file\": \"path/to/file.java\",</span>\n<span class=\"str\">      \"line\": 42,</span>\n<span class=\"str\">      \"issue\": \"short description\",</span>\n<span class=\"str\">      \"fix\": \"concrete suggestion\"</span>\n<span class=\"str\">    }</span>\n<span class=\"str\">  ]\"</span>",
+        "note": "JSON, Markdown tables, CSV &mdash; pick a shape a tool can read. A CI script can then parse findings and fail the build on any <code>ERROR</code>-severity row."
+      },
+      {
+        "card": "When structured output pays off:",
+        "items": [
+          "<strong>Downstream automation</strong> &mdash; scripts consume the output directly; no prose parsing",
+          "<strong>Batch aggregation</strong> &mdash; combine findings across many files or PRs into one table",
+          "<strong>Forces specificity</strong> &mdash; every row commits to severity / file / line instead of hedging in prose",
+          "<strong>Comparable runs</strong> &mdash; same schema across runs lets you diff outputs and spot drift"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "The Interview Pattern",
+    "desc": "Let the AI ask questions before implementing &mdash; like a senior developer would.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// Instead of:</span>\n<span class=\"str\">\"Implement a caching layer for the grade lookups.\"</span>\n\n<span class=\"cmt\">// Use the interview pattern:</span>\n<span class=\"str\">\"I need a caching layer for grade lookups.</span>\n<span class=\"str\"> Before implementing, ask me questions about:</span>\n<span class=\"str\"> - Invalidation strategy</span>\n<span class=\"str\"> - Expected load and data volume</span>\n<span class=\"str\"> - Failure modes and fallback behavior</span>\n<span class=\"str\"> - Consistency requirements\"</span>",
+        "note": "Claude asks &rarr; you think through design &rarr; better architecture before any code is written."
+      },
+      {
+        "quote": "The interview pattern forces design thinking. You get better results AND better understanding."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Context Windows: The Invisible Constraint",
+    "desc": "Every AI model has a maximum amount of text it can process at once.",
+    "body": [
+      {
+        "code": "Context window = <span class=\"kw\">everything the model can see</span>\n\n  System prompt\n  + CLAUDE.md rules\n  + conversation history\n  + file contents read\n  + tool outputs\n  + your current request\n  ________________________\n  = total tokens consumed\n\n  When you exceed the limit:\n  <span class=\"str\">older context gets compressed or dropped</span>",
+        "note": "<strong>Token</strong> &asymp; a word chunk the model reads (roughly 4 characters of English, or ~0.75 words). Claude Code&rsquo;s context: 200K tokens standard, up to 1M on Opus/Sonnet extended. Sounds huge &mdash; but a large codebase fills it fast."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "7",
+    "tag": "",
+    "title": "Strategies for Context Management",
     "body": [
       {
         "table": {
           "headers": [
-            "Abstraction",
-            "What it does",
-            "Why it matters"
+            "Strategy",
+            "How It Works"
           ],
           "rows": [
             [
-              "<strong>Query Loop</strong>",
-              "Streams model response, collects tool calls, executes them, loops",
-              "Single heartbeat for REPL, SDK, sub-agents, and headless mode"
+              "<strong>Fact blocks</strong>",
+              "Extract key findings into a persistent summary pinned at the top"
             ],
             [
-              "<strong>Tool System</strong>",
-              "Read, edit, run shell, search &mdash; anything the agent can do",
-              "Tools carry their own permissions, concurrency rules, and UI rendering"
+              "<strong>Trim verbose output</strong>",
+              "Don&rsquo;t paste 500 lines of logs &mdash; extract the relevant 10"
             ],
             [
-              "<strong>Tasks</strong>",
-              "Background work units &mdash; primarily sub-agents",
-              "Recursive capability: agents delegate to sub-agents"
+              "<strong>Scratchpad files</strong>",
+              "Write findings to a file that survives context compaction"
             ],
             [
-              "<strong>State Layer</strong>",
-              "Session config (mutable singleton) + UI state (reactive store)",
-              "Infrastructure state vs. render state &mdash; separated by design"
+              "<strong>Subagent delegation</strong>",
+              "Isolate verbose exploration in a subagent, return only summary"
             ],
             [
-              "<strong>Hooks</strong>",
-              "Lifecycle interceptors at PreToolUse, PostToolUse, Stop events",
-              "Deterministic guards &mdash; can block tool calls before permission prompt"
+              "<strong><code>/compact</code></strong>",
+              "Claude Code slash command &mdash; summarizes older turns in-place to free up tokens while keeping essential facts"
             ],
             [
-              "<strong>Memory</strong>",
-              "Persistent context: CLAUDE.md (project), ~/.claude (user), shared (team)",
-              "How Claude Code remembers conventions and decisions across sessions"
+              "<strong><code>--resume</code></strong>",
+              "Claude Code CLI flag &mdash; relaunches a prior session so context carries across terminal restarts"
             ]
           ]
         }
       },
       {
-        "note": "Deep dive: <a href=\"https://claude-code-from-source.com/\" target=\"_blank\">claude-code-from-source.com</a>"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "industry",
-    "title": "Four Guiding Principles",
-    "desc": "Four rules that guide every production AI agent platform.",
-    "body": [
-      {
-        "card": "",
-        "items": [
-          "<strong>1. Control Before Autonomy</strong> &mdash; First construct predictable paths; then expand agent freedom.",
-          "<strong>2. Security Can&rsquo;t Be Sidelined</strong> &mdash; If policy and approvals aren&rsquo;t embedded in runtime, architecture fixes become emergencies.",
-          "<strong>3. State Must Be Explicit</strong> &mdash; Long tasks shouldn&rsquo;t lose steps because someone restarted the process.",
-          "<strong>4. Observability Over Impressiveness</strong> &mdash; If agents &ldquo;appear intelligent&rdquo; but lack traces, the system isn&rsquo;t managed."
-        ]
+        "quote": "Context management is not about saving tokens. It is about keeping the AI focused on what matters now."
       }
     ]
   },
@@ -222,76 +171,19 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "MCP: Standard Protocol for Agent-Tool Communication",
-    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
+    "title": "Context Compaction Is Lossy",
+    "desc": "Long sessions eventually get compacted. Anything you haven&rsquo;t anchored in durable storage may lose fidelity.",
     "body": [
       {
-        "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server\nAgent &lt;--MCP--&gt; Any tool with MCP adapter"
-      },
-      {
-        "card": "",
+        "card": "Protection strategies:",
         "items": [
-          "Think of MCP like <strong>USB for AI tools</strong>: one standard plug for any tool",
-          "Without standards, every AI tool reinvents file reading, command execution, and search",
-          "MCP makes tools reusable"
+          "Write critical facts to <strong>scratchpad files</strong> (persist outside context)",
+          "Use <strong>CLAUDE.md</strong> for facts that must never be lost",
+          "Restate key constraints in your <strong>current message</strong> (recent turns are preserved verbatim)"
         ]
       },
       {
-        "code": "<span class=\"cmt\">// .mcp.json &mdash; project-level (shared in Git)</span>\n{\n  <span class=\"str\">\"mcpServers\"</span>: {\n    <span class=\"str\">\"github\"</span>: {\n      <span class=\"str\">\"command\"</span>: <span class=\"str\">\"npx\"</span>,\n      <span class=\"str\">\"args\"</span>: [<span class=\"str\">\"@modelcontextprotocol/server-github\"</span>]\n    }\n  }\n}\n\n<span class=\"cmt\">// ~/.claude.json &mdash; personal (NOT in Git)</span>\n<span class=\"cmt\">// API keys, personal tool connections</span>",
-        "note": "Project tools go in <code>.mcp.json</code> (shared). Personal credentials go in <code>~/.claude.json</code> (private)."
-      },
-      {
-        "card": "MCP golden rule:",
-        "warn": true,
-        "items": [
-          "<strong>4&ndash;5 tools per agent maximum</strong> &mdash; more tools = worse tool selection",
-          "Tool descriptions are critical: include input formats, examples, boundaries",
-          "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
-        ]
-      },
-      {
-        "table": {
-          "headers": [
-            "",
-            "MCP (Model Context Protocol)",
-            "A2A (Agent-to-Agent)"
-          ],
-          "rows": [
-            [
-              "<strong>Created by</strong>",
-              "Anthropic (open standard)",
-              "Google (open standard)"
-            ],
-            [
-              "<strong>Purpose</strong>",
-              "Agent &harr; <strong>tools</strong>",
-              "Agent &harr; <strong>other agents</strong>"
-            ],
-            [
-              "<strong>Analogy</strong>",
-              "USB &mdash; one plug for any device",
-              "Email &mdash; different people, different skills, collaborate on a task"
-            ],
-            [
-              "<strong>Use when</strong>",
-              "You need to connect to APIs, databases, file systems",
-              "You need to delegate work to a specialized agent that reasons independently"
-            ],
-            [
-              "<strong>Example</strong>",
-              "Claude Code &harr; Git MCP server",
-              "Coding agent asks a security-review agent to audit its output"
-            ]
-          ]
-        }
-      },
-      {
-        "card": "How to tell them apart",
-        "items": [
-          "If it <strong>executes a command</strong> and returns a result &rarr; it&rsquo;s a <strong>tool</strong> &rarr; use <strong>MCP</strong>",
-          "If it <strong>reasons, plans, and makes its own decisions</strong> &rarr; it&rsquo;s an <strong>agent</strong> &rarr; use <strong>A2A</strong>",
-          "A database connector does not &ldquo;think&rdquo; &mdash; MCP. A code-review bot that decides what to flag &mdash; A2A."
-        ]
+        "quote": "Don&rsquo;t trust the compactor with anything you can&rsquo;t re-derive. Pin it down yourself."
       }
     ]
   },
@@ -299,224 +191,43 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Coordinator vs. Handoff Patterns",
-    "desc": "When multiple agents collaborate, who is in charge?",
-    "body": [
-      {
-        "card": "&#x1F3AF; Coordinator pattern &mdash; one manager, many specialists",
-        "items": [
-          "A <strong>central agent</strong> receives the task, splits it, delegates to specialists, and assembles the final result",
-          "Specialists report back &mdash; they never talk to each other directly",
-          "<strong>Real-world analogy:</strong> a project manager assigns tasks to developers, testers, and designers, then combines their work",
-          "<strong>Example:</strong> Claude Code spawns sub-agents (Explore, Plan, test-runner) &mdash; each does one job and reports back"
-        ]
-      },
-      {
-        "card": "&#x1F501; Handoff pattern &mdash; passing the baton",
-        "items": [
-          "Agent A finishes its part and <strong>transfers full control</strong> to Agent B, which then transfers to Agent C",
-          "No central manager &mdash; each agent owns the task while it holds the baton",
-          "<strong>Real-world analogy:</strong> a support ticket escalation: L1 support &rarr; L2 engineer &rarr; L3 specialist",
-          "<strong>Example:</strong> coding agent writes code &rarr; hands off to review agent &rarr; hands off to deploy agent"
-        ]
-      },
-      {
-        "table": {
-          "headers": [
-            "You need&hellip;",
-            "Use Coordinator",
-            "Use Handoff"
-          ],
-          "rows": [
-            [
-              "Central oversight and cost control",
-              "&#x2705; Manager tracks all steps",
-              "&#x274C; No single point of control"
-            ],
-            [
-              "Clear audit trail",
-              "&#x2705; One place to check logs",
-              "&#x274C; Logs spread across agents"
-            ],
-            [
-              "Distinct domain expertise per step",
-              "&#x274C; Manager becomes a bottleneck",
-              "&#x2705; Each agent owns its domain fully"
-            ],
-            [
-              "Sequential pipeline (A then B then C)",
-              "&#x274C; Unnecessary overhead",
-              "&#x2705; Natural fit for pipelines"
-            ]
-          ]
-        }
-      },
-      {
-        "code": "                  <span class=\"kw\">COORDINATOR</span> (Hub)\n                 /        |        |        \\\n          Specialist  Specialist  Specialist  Specialist\n              A           B           C           D\n              |           |           |           |\n         (one scoped  (one scoped  (one scoped  (one scoped\n          task only)   task only)   task only)   task only)\n\n  Each specialist has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
-        "note": "A concrete implementation of this pattern &mdash; cognitive-core&rsquo;s @project-coordinator with 10 specialist agents &mdash; is shown in Module 9."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "When AI Agent vs. When Simple Automation",
+    "title": "Human-in-the-Loop: When to Escalate",
+    "desc": "Not every decision should be automated. Define escalation triggers explicitly &mdash; don&rsquo;t rely on the model to self-assess.",
     "body": [
       {
         "table": {
           "headers": [
-            "Situation",
-            "Better approach"
+            "Trigger",
+            "Action"
           ],
           "rows": [
             [
-              "Run tests on every commit",
-              "<strong>Jenkins</strong> (automation)"
+              "<strong>Routine, reversible</strong> (read files, run tests, run linter)",
+              "AI proceeds"
             ],
             [
-              "Check code style",
-              "<strong>CheckStyle</strong> (rules)"
+              "<strong>Design decision or tradeoff</strong>",
+              "AI presents options with trade-offs; human chooses"
             ],
             [
-              "Explain why a test fails",
-              "<strong>Claude Code</strong> (reasoning)"
+              "<strong>Ambiguous or unspecified scope</strong>",
+              "AI asks before acting"
             ],
             [
-              "Decide which refactoring approach",
-              "<strong>Claude Code</strong> (judgment)"
-            ],
-            [
-              "Format code consistently",
-              "<strong>IDE formatter</strong> (deterministic)"
-            ],
-            [
-              "Review code for design issues",
-              "<strong>Claude Code</strong> (understanding)"
+              "<strong>Irreversible action</strong> (deploy, delete, force-push, DB write)",
+              "Always requires human approval"
             ]
-          ]
+          ],
+          "note": "Triggers are things <em>you</em> define and the model can observe. Self-assessed confidence is not a reliable trigger &mdash; LLMs are miscalibrated."
         }
       },
       {
-        "quote": "&ldquo;Use workflows when execution paths are known. Use agents when the system must make non-obvious decisions.&rdquo;"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "Observability: Seeing What the Agent Did",
-    "body": [
-      {
-        "code": "Run #1234\n  |&mdash; Step 1: Read Calculator.java         (2ms)\n  |&mdash; Step 2: Analyze code structure        (model, 800ms)\n  |&mdash; Step 3: Generate test cases           (model, 1200ms)\n  |&mdash; Step 4: Write CalculatorTest.java     (5ms)\n  |&mdash; Step 5: Run mvn test                  (3400ms) &mdash; SUCCESS\n  Total: 5407ms | 2 model calls | 1800 tokens"
-      },
-      {
-        "quote": "Without traces, agent systems are black boxes. Same as Jenkins (Module 5): you need to see each step, its duration, and its outcome."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "ADRs: Keeping Overview of What the Agent Built",
-    "desc": "Traces tell you <em>what</em> happened. ADRs tell you <em>why</em> it still looks that way three months later.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># docs/adr/0007-use-jacoco-over-cobertura.md</span>\n<span class=\"kw\"># Status:</span> Accepted\n<span class=\"kw\"># Date:</span> 2026-03-14\n\n<span class=\"kw\">## Context</span>\nClaude Code proposed JaCoCo during capstone setup.\nWe needed a coverage tool compatible with JDK 21\nand the Jenkins pipeline.\n\n<span class=\"kw\">## Decision</span>\nUse JaCoCo 0.8.11, wired via the Maven profile\n<span class=\"str\">-Pcoverage</span>.\n\n<span class=\"kw\">## Consequences</span>\n+ Mature, actively maintained, good Jenkins plugin\n&minus; Adds ~3s to verify phase\n&minus; Mutation testing (PIT) must be added separately",
-        "note": "One Markdown file per decision. Numbered. Append-only. Commit alongside the code it describes."
-      },
-      {
-        "card": "Why this matters for AI-assisted work:",
+        "card": "Prompt AI to report these &mdash; then verify:",
         "items": [
-          "AI suggests 5 libraries, you pick one &mdash; the ADR records <strong>why that one</strong>, not what AI rejected",
-          "Next semester, a teammate asks &ldquo;why JaCoCo not Cobertura?&rdquo; &mdash; the answer is in-repo, not in a lost chat",
-          "Commits say <em>what</em> changed, ADRs say <em>why it was allowed to change that way</em>",
-          "AI can draft the ADR from the diff + your decision &mdash; you review and commit"
-        ]
-      },
-      {
-        "quote": "Same principle as git provenance (Module 1): the decision log lives next to the code, in version control, reviewable."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "PlantUML: Diagrams as Code, Generated by AI",
-    "desc": "Ask Claude Code to render the current architecture. Commit the <code>.puml</code> file. Regenerate when the code changes.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\">// docs/architecture/pipeline.puml</span>\n@startuml\n<span class=\"kw\">component</span> \"Developer + Claude Code\" <span class=\"kw\">as</span> Dev\n<span class=\"kw\">component</span> \"Git Repository\"            <span class=\"kw\">as</span> Git\n<span class=\"kw\">component</span> \"Jenkins Pipeline\"          <span class=\"kw\">as</span> CI\n<span class=\"kw\">component</span> \"Nexus Artifact Store\"      <span class=\"kw\">as</span> Nexus\n\nDev  --> Git  : push\nGit  --> CI   : webhook\nCI   --> CI   : mvn verify + checkstyle\nCI   --> Nexus: deploy artifact\n@enduml",
-        "note": "Plain text. Diffable. Reviewable in a PR. Rendered to SVG by Maven or CI."
-      },
-      {
-        "card": "The AI-assisted loop:",
-        "items": [
-          "<strong>1. Ask:</strong> &ldquo;Render <code>src/main/java</code> as a PlantUML component diagram&rdquo;",
-          "<strong>2. Review:</strong> does it match the code you think you have? Mismatches = drift",
-          "<strong>3. Commit</strong> the <code>.puml</code> file &mdash; it becomes part of provenance",
-          "<strong>4. Regenerate</strong> each sprint &mdash; or wire it into the Jenkins pipeline (Module 5)"
-        ]
-      },
-      {
-        "quote": "ADRs capture the <em>why</em>. PlantUML captures the <em>shape</em>. Both live in-repo, both survive context resets, both are reviewable. That is how you keep the overview when AI writes most of the code."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "",
-    "title": "The Production Launch Checklist",
-    "desc": "Seven checks every system must pass before production.",
-    "body": [
-      {
-        "card": "",
-        "items": [
-          "<strong>1. Runtime correctness</strong> &mdash; does the happy path work?",
-          "<strong>2. Safety and policy</strong> &mdash; are guards in place?",
-          "<strong>3. Capability readiness</strong> &mdash; does each tool have an owner?",
-          "<strong>4. Observability</strong> &mdash; can you see what happened?",
-          "<strong>5. Eval readiness</strong> &mdash; do tests cover critical scenarios?",
-          "<strong>6. Operational readiness</strong> &mdash; who&rsquo;s on call when it breaks?",
-          "<strong>7. Ownership and rollback</strong> &mdash; can you undo a bad release?"
-        ]
-      },
-      {
-        "quote": "Compare to your capstone project (Module 10): does your project satisfy all 7?"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "industry",
-    "title": "The Parsimony Principle: KISS and YAGNI",
-    "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
-    "body": [
-      {
-        "code": "<span class=\"kw\">User:</span> I need audit trails for grade changes.\n\n<span class=\"fn\">Simple (parsimony):</span>\n  CRUD operations + append-only audit table.\n  Meets all requirements. Minimal complexity.\n\n<span class=\"str\">Complex (premature):</span>\n  Event Sourcing with temporal queries, replay,\n  projection rebuilds, saga orchestration.\n  Not requested. Not needed. Not now.\n\n<span class=\"kw\">Verdict:</span> Start simple. Migrate to Event Sourcing\n  only if future features require it.",
-        "note": "Anthropic&rsquo;s own guidance: &ldquo;Find the simplest solution possible, and only increase complexity when needed.&rdquo; cognitive-core enforces this in every agent."
-      },
-      {
-        "card": "You already know this under other names",
-        "items": [
-          "<strong>KISS</strong> (Keep It Simple, Stupid) &mdash; don&rsquo;t overcomplicate what can be straightforward",
-          "<strong>YAGNI</strong> (You Aren&rsquo;t Gonna Need It) &mdash; don&rsquo;t build features until they&rsquo;re actually required",
-          "<strong>Parsimony</strong> combines both: start with the simplest solution, add complexity only when you have evidence it&rsquo;s needed"
-        ]
-      },
-      {
-        "card": "Applied to AI-assisted development:",
-        "items": [
-          "<strong>Agents</strong>: activate only the specialists a task requires &mdash; not every agent for every task",
-          "<strong>Tools</strong>: request only tools the task cannot work without (4&ndash;5 max)",
-          "<strong>Code</strong>: three similar lines &gt; a premature abstraction",
-          "<strong>AI prompts</strong>: ask for exactly what you need &mdash; vague prompts produce over-engineered solutions",
-          "<strong>Exception</strong>: security uses defense-in-depth &mdash; parsimony within layers, not across them"
+          "<strong>State assumptions</strong> &mdash; &ldquo;I assumed X was Y; flag if wrong&rdquo; &gt; silent guessing",
+          "<strong>Report partial results</strong> &mdash; what succeeded, what failed, what was skipped",
+          "<strong>Name coverage gaps</strong> &mdash; &ldquo;I reviewed 8 of 12 files, 4 were too large&rdquo; &gt; &ldquo;done&rdquo;",
+          "<strong>Name the failure mode</strong> &mdash; a bare &ldquo;failed&rdquo; is useless; you cannot decide next steps without <em>why</em>"
         ]
       }
     ]
@@ -525,22 +236,15 @@
     "type": "content",
     "mod": "7",
     "tag": "",
-    "title": "Fitness Gates: Deterministic vs. Probabilistic",
-    "desc": "Two fundamentally different enforcement models.",
+    "title": "CLAUDE.md: Standing Rules for AI Coding",
+    "desc": "Pin these at the top of <code>CLAUDE.md</code>. They survive context compression and become the AI&rsquo;s defaults.",
     "body": [
       {
-        "code": "<span class=\"kw\">Probabilistic</span> (prompt-based):\n  CLAUDE.md: <span class=\"str\">\"Never use System.out.println()\"</span>\n  Reality: AI <span class=\"str\">might</span> follow this. Or might not.\n\n<span class=\"kw\">Deterministic</span> (hook/gate-based):\n  post-edit-lint.sh: <span class=\"fn\">runs mvn checkstyle:check</span>\n  Reality: violation is <span class=\"fn\">always</span> caught. Cannot be bypassed.",
-        "note": "Production systems use both: prompts for guidance, gates for enforcement."
+        "code": "<span class=\"cmt\"># Coding rules</span>\n\n- Ask clarifying questions before implementing.\n  If multiple interpretations exist, present them\n  &mdash; do not pick silently.\n- State success criteria before writing code.\n  Make them verifiable (tests, checks, examples).\n- Prefer the simplest solution that meets the\n  requirement. No speculative abstractions.\n- Touch only what the request needs. No drive-by\n  refactors. Match existing style.",
+        "note": "These four rules recap techniques from this course: <em>Interview Pattern</em> and <em>Explicit Criteria</em> (this module), <em>KISS &amp; YAGNI</em> (Module 8, Parsimony Principle). The fourth &mdash; <em>surgical changes</em> &mdash; is the one you have not seen yet, and it is the single most common LLM coding failure in practice."
       },
       {
-        "card": "Graduated fitness gates (cognitive-core):",
-        "items": [
-          "<strong>Lint gate:</strong> 60% &mdash; basic formatting",
-          "<strong>Commit gate:</strong> 80% &mdash; standards + architecture",
-          "<strong>Test gate:</strong> 85% &mdash; coverage + quality",
-          "<strong>Merge gate:</strong> 90% &mdash; full review",
-          "<strong>Deploy gate:</strong> 95% &mdash; production readiness"
-        ]
+        "quote": "<code>CLAUDE.md</code> is the AI&rsquo;s standing orders. Everything else is a one-off instruction that gets forgotten after <code>/compact</code>."
       }
     ]
   },
@@ -548,23 +252,35 @@
     "type": "content",
     "mod": "7",
     "tag": "exercise",
-    "title": "Exercise 7.1: Map the Architecture",
-    "desc": "15 minutes",
+    "title": "Exercise 7.1: Rewrite a Vague Prompt",
+    "desc": "20 minutes &mdash; apply all four techniques to a real task.",
     "body": [
       {
-        "code": "<span class=\"str\">You:</span> Add a sqrt() method to Calculator with tests"
+        "card": "Starting prompt (vague):",
+        "items": [
+          "<em>&ldquo;Review my Calculator class and make it better.&rdquo;</em>"
+        ]
       },
       {
-        "card": "Map each step to the architecture:",
+        "card": "Rewrite it using all four techniques:",
         "items": [
-          "Which layer receives your input? (Interface)",
-          "Which layer decides what to do? (Cognition/orchestration)",
-          "Which layer reads Calculator.java? (Tool execution)",
-          "Which layer checks if it can write files? (Control plane)",
-          "Which layer writes the new code? (Tool execution)",
-          "Which layer runs the tests? (Tool execution)",
-          "Which layer shows you the result? (Interface)"
+          "<strong>1. Explicit criteria</strong> &mdash; what counts as &ldquo;better&rdquo;? List 3&ndash;5 concrete rules",
+          "<strong>2. Few-shot</strong> &mdash; give 2 examples of acceptable review findings",
+          "<strong>3. Structured output</strong> &mdash; specify the exact JSON/table format for the response",
+          "<strong>4. Interview pattern</strong> &mdash; ask Claude to clarify 3 things before reviewing"
         ]
+      },
+      {
+        "card": "Run both prompts on the same code. Compare:",
+        "items": [
+          "Which response is easier to act on?",
+          "Which response is easier to parse with a script?",
+          "Did the rewritten prompt catch issues the vague one missed?",
+          "How much longer is the rewritten prompt &mdash; and was it worth it?"
+        ]
+      },
+      {
+        "quote": "The goal is not a perfect prompt. The goal is to feel the difference between vague and specific &mdash; so you notice it in your own daily prompts."
       }
     ]
   },
@@ -572,127 +288,34 @@
     "type": "content",
     "mod": "7",
     "tag": "exercise",
-    "title": "Exercise 7.2: Design a Policy",
-    "desc": "15 minutes &mdash; think like a security architect",
+    "title": "Exercise 7.2: Watch Compaction Happen",
+    "desc": "15 minutes &mdash; observe what compaction preserves and what it drops.",
     "body": [
       {
-        "card": "Scenario",
+        "card": "Setup (5 min):",
         "items": [
-          "You are building an AI agent for a <strong>banking application</strong>",
-          "The agent can perform the actions listed below",
-          "Your job: assign a risk level and decide who must approve each action"
+          "Pick a task with specific details &mdash; a bug with a stack trace, a config with concrete values, or a file with named fields and line numbers",
+          "Have a conversation with Claude Code about it &mdash; include specific numbers, file paths, error strings, and at least one decision you change your mind about mid-conversation"
         ]
       },
       {
-        "table": {
-          "headers": [
-            "Agent action",
-            "Risk level?",
-            "Who approves?",
-            "Your reasoning"
-          ],
-          "rows": [
-            [
-              "Read account balance",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
-              "&hellip;"
-            ],
-            [
-              "Send notification email",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
-              "&hellip;"
-            ],
-            [
-              "Transfer money",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
-              "&hellip;"
-            ],
-            [
-              "Generate monthly report",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
-              "&hellip;"
-            ],
-            [
-              "Close an account",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
-              "&hellip;"
-            ]
-          ]
-        }
-      },
-      {
-        "card": "Also discuss:",
+        "card": "Run the experiment (5 min):",
         "items": [
-          "Should the agent have a <strong>maximum number of steps</strong> per task? Why?",
-          "What data should the agent <strong>never</strong> store in its memory (e.g., passwords, account numbers)?",
-          "How does this compare to the <strong>Tool Gateway Pattern</strong> from Module 6?"
+          "Run <code>/compact</code>",
+          "Ask Claude to recall 3 specific facts from before the compaction: <em>&ldquo;What was the error code? Which file was at line 42? What did I decide about the timeout value?&rdquo;</em>",
+          "Note which survived verbatim, which got paraphrased, which disappeared"
         ]
       },
       {
-        "quote": "Compare your answers with a classmate. Did you agree on risk levels? Where did you disagree and why?"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "7",
-    "tag": "exercise",
-    "title": "Exercise 7.3: Launch Checklist for Your Project",
-    "desc": "10 minutes",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Block",
-            "Status",
-            "Evidence"
-          ],
-          "rows": [
-            [
-              "Runtime correctness",
-              "?",
-              "<code>mvn test</code> passes?"
-            ],
-            [
-              "Safety and policy",
-              "?",
-              ".gitignore? No secrets?"
-            ],
-            [
-              "Capability readiness",
-              "?",
-              "All Maven plugins configured?"
-            ],
-            [
-              "Observability",
-              "?",
-              "Jenkinsfile with traced stages?"
-            ],
-            [
-              "Eval readiness",
-              "?",
-              "JUnit coverage 70%+?"
-            ],
-            [
-              "Operational readiness",
-              "?",
-              "Can you debug a failure?"
-            ],
-            [
-              "Rollback plan",
-              "?",
-              "Can you <code>git revert</code>?"
-            ]
-          ]
-        }
+        "card": "Reflect (5 min):",
+        "items": [
+          "Which types of facts survived &mdash; numbers, names, decisions, reasoning chains?",
+          "Which got softened or generalized beyond usefulness?",
+          "Which facts would <em>you</em> have pinned in CLAUDE.md or a scratchpad ahead of compaction?"
+        ]
       },
       {
-        "quote": "How many blocks can you honestly mark as &ldquo;ready&rdquo;?"
+        "quote": "You cannot predict what compaction will drop until you see it happen. Do this once &mdash; it changes how you structure long sessions."
       }
     ]
   },
@@ -706,14 +329,14 @@
       {
         "card": "",
         "items": [
-          "You&rsquo;ve been learning production architecture patterns since the first module",
-          "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
-          "<strong>Control plane</strong> = policies that restrict agent actions",
-          "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
-          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 9)",
-          "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
-          "<strong>ADRs + PlantUML</strong>: keep the overview when AI writes most of the code",
-          "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"
+          "<strong>Prompt quality</strong> is the most transferable daily skill in AI-assisted development",
+          "<strong>Explicit criteria</strong> &gt; vague instructions &mdash; specificity removes ambiguity",
+          "<strong>Few-shot examples</strong> are the single most powerful prompting technique",
+          "<strong>Structured output</strong> (JSON, tables) makes responses parseable &mdash; the bridge to CI",
+          "<strong>The interview pattern</strong>: let AI ask questions before implementing",
+          "<strong>Context windows</strong> are finite &mdash; manage them or lose critical information",
+          "<strong>Scratchpad files</strong> and <strong>CLAUDE.md</strong> anchor facts that must survive compaction",
+          "<strong>Human-in-the-loop</strong>: irreversible actions always require human approval regardless of AI confidence"
         ]
       }
     ]

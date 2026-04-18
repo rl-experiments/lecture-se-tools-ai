@@ -370,7 +370,7 @@
               "System prompt <em>(Anthropic)</em> + CLAUDE.md <em>(you)</em> + project files <em>(at runtime)</em>"
             ]
           ],
-          "note": "Remove any one and the agent breaks: a model without tools can only <em>talk</em>, tools without a model act <em>randomly</em>, both without instructions have no idea what &ldquo;good&rdquo; means <em>in your project</em>. Module 7 shows how memory and the control loop sit on top of these three."
+          "note": "Remove any one and the agent breaks: a model without tools can only <em>talk</em>, tools without a model act <em>randomly</em>, both without instructions have no idea what &ldquo;good&rdquo; means <em>in your project</em>. Module 8 shows how memory and the control loop sit on top of these three."
         }
       },
       {

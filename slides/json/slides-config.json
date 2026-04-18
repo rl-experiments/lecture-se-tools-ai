@@ -103,13 +103,13 @@
     },
     {
       "mod": "7",
-      "title": "Agent Architecture & Production Patterns",
-      "topics": "MCP, 8-Layer Model, Observability, Fitness Gates"
+      "title": "Prompt Engineering & Context",
+      "topics": "Few-Shot, Context Windows, Human-in-the-Loop"
     },
     {
       "mod": "8",
-      "title": "Prompt Engineering & Context",
-      "topics": "Few-Shot, Context Windows, Human-in-the-Loop"
+      "title": "Agent Architecture & Production Patterns",
+      "topics": "MCP, 8-Layer Model, Observability, Fitness Gates"
     },
     {
       "mod": "9",
