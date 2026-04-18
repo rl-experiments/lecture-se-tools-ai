@@ -83,17 +83,17 @@
     {
       "mod": "3",
       "title": "Code Quality",
-      "topics": "PMD, SpotBugs, CheckStyle, AI Constraints"
+      "topics": "PMD, SpotBugs, CheckStyle, CLAUDE.md Rules"
     },
     {
       "mod": "4",
       "title": "Automated Testing",
-      "topics": "JUnit, Mockito, TDD, Fitness"
+      "topics": "JUnit, Mockito, TDD, JaCoCo"
     },
     {
       "mod": "5",
       "title": "Continuous Integration",
-      "topics": "Jenkins, Nexus, Pipelines, AI in CI"
+      "topics": "Jenkins, Pipelines, GitHub Actions"
     },
     {
       "mod": "6",
