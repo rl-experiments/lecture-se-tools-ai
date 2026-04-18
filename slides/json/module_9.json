@@ -1,7 +1,17 @@
 [
   {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":-55,"anchorOffsetY":0,"facing":0.3,"hue":160}},
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -55,
+        "anchorOffsetY": 0,
+        "facing": 0.3,
+        "hue": 160
+      }
+    },
     "bg": 3,
     "h1": "Module 9",
     "lead": "cognitive-core Framework",
@@ -13,7 +23,7 @@
       "Fitness Gates",
       "Student Lab Pack"
     ],
-    "contents": ""
+    "contents": "<span onclick=\"event.stopPropagation();go(179)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: A Framework for AI-Assisted Dev</span>\n<span onclick=\"event.stopPropagation();go(180)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Three Layers of Quality</span>\n<span onclick=\"event.stopPropagation();go(181)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Git Safety Hooks</span>\n<span onclick=\"event.stopPropagation();go(182)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: post-edit-lint Hook</span>\n<span onclick=\"event.stopPropagation();go(183)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Tool Risk Classification</span>\n<span onclick=\"event.stopPropagation();go(184)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: /pre-commit Skill</span>\n<span onclick=\"event.stopPropagation();go(185)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: /test-scaffold Skill</span>\n<span onclick=\"event.stopPropagation();go(186)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Test Fitness Score</span>\n<span onclick=\"event.stopPropagation();go(187)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: /code-review &mdash; Three-Pass Strategy</span>\n<span onclick=\"event.stopPropagation();go(188)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Skills & Agents</span>\n<span onclick=\"event.stopPropagation();go(189)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: @project-coordinator Topology</span>\n<span onclick=\"event.stopPropagation();go(190)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Source Authority Model (T1&ndash;T5)</span>\n<span onclick=\"event.stopPropagation();go(191)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Evolutionary CI/CD Pipeline</span>\n<span onclick=\"event.stopPropagation();go(192)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core: Team-Aware Estimation</span>\n<span onclick=\"event.stopPropagation();go(193)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">cognitive-core Student Lab Pack</span>\n<span onclick=\"event.stopPropagation();go(194)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.1: Configure cognitive-core</span>\n<span onclick=\"event.stopPropagation();go(195)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 9.2: cognitive-core in Action</span>"
   },
   {
     "type": "content",
@@ -111,6 +121,47 @@
           "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
           "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
         ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: The Hook Library",
+    "desc": "Four deterministic guards that ship with cognitive-core. Each maps to a biological defense.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Hook",
+            "What It Does",
+            "Biological Analogy"
+          ],
+          "rows": [
+            [
+              "<code>post-edit-lint</code>",
+              "Auto-runs <code>mvn checkstyle:check pmd:check</code> after every file edit",
+              "Immune response"
+            ],
+            [
+              "<code>validate-bash</code>",
+              "Blocks dangerous commands: <code>git push --force</code>, <code>rm -rf /</code>",
+              "Pain reflex"
+            ],
+            [
+              "<code>validate-write</code>",
+              "Scans for hardcoded secrets (API keys, passwords)",
+              "Toxin detection"
+            ],
+            [
+              "<code>compact-reminder</code>",
+              "Re-injects critical rules after long sessions",
+              "Sleep memory"
+            ]
+          ],
+          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones. The next slides drill into each one."
+        }
       }
     ]
   },

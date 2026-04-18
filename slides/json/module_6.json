@@ -70,7 +70,7 @@
           ],
           "rows": [
             [
-              "<strong>Ingress</strong>",
+              "<strong>Ingress</strong> <em>(input)</em>",
               "Controls what goes IN to the AI",
               "Your files, prompts, git history"
             ],
@@ -90,7 +90,7 @@
               "Permission prompt before writing files or running commands"
             ],
             [
-              "<strong>Egress</strong>",
+              "<strong>Egress</strong> <em>(output)</em>",
               "Filters what leaves the system",
               "Blocks secrets from being exposed"
             ],
@@ -217,7 +217,7 @@
               "<strong>F1 improved from 0.39 &rarr; 1.00</strong> (zero hallucinations)"
             ]
           ],
-          "note": "Source: Spatial Claim Score metric across buildings in multiple cities."
+          "note": "Source: Spatial Claim Score metric across buildings in multiple cities. Tested with Claude Sonnet 4.6."
         }
       },
       {
@@ -226,8 +226,11 @@
           "<strong>Stronger models don&rsquo;t hallucinate less</strong> &mdash; they hallucinate differently",
           "Model A: <strong>commission errors</strong> &mdash; invents facts that don&rsquo;t exist",
           "Model B: <strong>omission errors</strong> &mdash; says almost nothing, misses real risks",
-          "Both are dangerous. Grounding with verified data fixes both."
+          "Both are dangerous. Verified data in the prompt fixes both."
         ]
+      },
+      {
+        "quote": "What the Knowledge Graph actually did: stopped asking the LLM to <em>know</em> facts, started feeding it <em>verified</em> facts to present. That pattern has a name &mdash; the <strong>Grounding Principle</strong>, next slide."
       }
     ]
   },
@@ -261,6 +264,7 @@
     "mod": "6",
     "tag": "",
     "title": "Risk 2: Data Leakage &mdash; The Egress Problem",
+    "desc": "Egress = data <em>leaving</em> the system. The risk: your secrets, customer data, or proprietary code end up in a conversation with an external model.",
     "body": [
       {
         "card": "NEVER put these into AI conversations:",
@@ -274,7 +278,7 @@
         ]
       },
       {
-        "card": "Egress checklist &mdash; before any data leaves your system:",
+        "card": "Egress <em>(output)</em> checklist &mdash; before any data leaves your system:",
         "items": [
           "Redact PII where required",
           "Mask secrets and tokens",
@@ -307,40 +311,12 @@
     "desc": "Deterministic guards that fire automatically &mdash; no human action needed.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># validate-write.sh scans EVERY file write for:</span>\n\n<span class=\"str\">AWS_SECRET_ACCESS_KEY</span>   = xxxxxxxx  &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">-----BEGIN RSA PRIVATE KEY-----</span>     &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">password = \"SuperSecret123\"</span>         &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">GITHUB_TOKEN=ghp_xxxx</span>               &rarr; <span class=\"kw\">BLOCKED</span>\n<span class=\"str\">jdbc:postgresql://user:pass@host</span>    &rarr; <span class=\"kw\">BLOCKED</span>\n\n<span class=\"fn\">Output:</span>\n{\n  <span class=\"str\">\"permissionDecision\"</span>: <span class=\"str\">\"deny\"</span>,\n  <span class=\"str\">\"reason\"</span>: <span class=\"str\">\"Hardcoded secret detected: AWS key pattern\"</span>,\n  <span class=\"str\">\"errorCategory\"</span>: <span class=\"str\">\"security\"</span>\n}",
-        "note": "The hook uses regex pattern matching &mdash; deterministic, cannot be bypassed by prompt. Even if Claude Code generates code with a hardcoded password, the write is blocked."
+        "code": "<span class=\"cmt\">#!/usr/bin/env bash</span>\n<span class=\"cmt\"># .claude/hooks/validate-write.sh &mdash; PreToolUse hook for Write/Edit</span>\n<span class=\"cmt\"># Reads tool call as JSON on stdin; returns permission decision on stdout.</span>\n\n<span class=\"kw\">INPUT</span>=$(cat)\n<span class=\"kw\">CONTENT</span>=$(jq -r <span class=\"str\">'.tool_input.content // .tool_input.new_string // \"\"'</span> &lt;&lt;&lt;<span class=\"str\">\"$INPUT\"</span>)\n\n<span class=\"cmt\"># Regex patterns &mdash; any match blocks the write</span>\n<span class=\"kw\">PATTERNS</span>=<span class=\"str\">'(AWS_SECRET_ACCESS_KEY|BEGIN RSA PRIVATE KEY|GITHUB_TOKEN=ghp_|password *= *\"[^\"]{8,}\"|jdbc:.*://[^/]*:[^@]+@)'</span>\n\n<span class=\"kw\">if</span> grep -qE <span class=\"str\">\"$PATTERNS\"</span> &lt;&lt;&lt;<span class=\"str\">\"$CONTENT\"</span>; <span class=\"kw\">then</span>\n  <span class=\"fn\">echo</span> <span class=\"str\">'{\"permissionDecision\":\"deny\",\"reason\":\"Hardcoded secret detected\",\"errorCategory\":\"security\"}'</span>\n<span class=\"kw\">else</span>\n  <span class=\"fn\">echo</span> <span class=\"str\">'{\"permissionDecision\":\"allow\"}'</span>\n<span class=\"kw\">fi</span>",
+        "note": "The hook is deterministic regex &mdash; no prompt can bypass it. Even if Claude generates code with a hardcoded password, the write is blocked."
       },
       {
-        "table": {
-          "headers": [
-            "Hook",
-            "What It Does",
-            "Biological Analogy"
-          ],
-          "rows": [
-            [
-              "<code>post-edit-lint</code>",
-              "Auto-runs <code>mvn checkstyle:check pmd:check</code> after every file edit",
-              "Immune response"
-            ],
-            [
-              "<code>validate-bash</code>",
-              "Blocks dangerous commands: <code>git push --force</code>, <code>rm -rf /</code>",
-              "Pain reflex"
-            ],
-            [
-              "<code>validate-write</code>",
-              "Scans for hardcoded secrets (API keys, passwords)",
-              "Toxin detection"
-            ],
-            [
-              "<code>compact-reminder</code>",
-              "Re-injects critical rules after long sessions",
-              "Sleep memory"
-            ]
-          ],
-          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones."
-        }
+        "code": "<span class=\"cmt\">// .claude/settings.json &mdash; register the hook so Claude Code runs it</span>\n{\n  <span class=\"str\">\"hooks\"</span>: {\n    <span class=\"str\">\"PreToolUse\"</span>: [\n      {\n        <span class=\"str\">\"matcher\"</span>: <span class=\"str\">\"Write|Edit\"</span>,\n        <span class=\"str\">\"hooks\"</span>: [\n          {\n            <span class=\"str\">\"type\"</span>: <span class=\"str\">\"command\"</span>,\n            <span class=\"str\">\"command\"</span>: <span class=\"str\">\".claude/hooks/validate-write.sh\"</span>\n          }\n        ]\n      }\n    ]\n  }\n}",
+        "note": "<code>matcher: \"Write|Edit\"</code> is a regex against tool names &mdash; the hook fires only for those two tools. <code>PreToolUse</code> runs <em>before</em> the tool; a deny response cancels the call. Full event list and payload schema: <a href=\"https://code.claude.com/docs/en/hooks\" target=\"_blank\">code.claude.com/docs/en/hooks</a>"
       }
     ]
   },
@@ -393,39 +369,19 @@
     "mod": "6",
     "tag": "",
     "title": "Risk 4: Identity and Permissions",
-    "desc": "Different roles need different permissions &mdash; never mix them.",
+    "desc": "If Claude runs with <em>your</em> full credentials, one prompt injection can delete your repos, push code in your name, or leak production secrets. Keeping identities separate prevents this.",
     "body": [
       {
-        "table": {
-          "headers": [
-            "Identity",
-            "What It Means",
-            "Example"
-          ],
-          "rows": [
-            [
-              "<code>user_principal</code>",
-              "Current user rights",
-              "Your account permissions"
-            ],
-            [
-              "<code>agent_runtime_principal</code>",
-              "What the agent can do",
-              "Claude Code&rsquo;s tool access"
-            ],
-            [
-              "<code>tool_principal</code>",
-              "Scoped per-tool credentials",
-              "Git credentials, Maven repo access"
-            ],
-            [
-              "<code>approval_actor</code>",
-              "Human who confirms",
-              "You, approving a file write"
-            ]
-          ],
-          "note": "Mixing these into one &ldquo;magic account&rdquo; undermines security. When Claude Code asks &ldquo;Should I run this command?&rdquo; &mdash; that&rsquo;s the approval_actor boundary."
-        }
+        "card": "Four distinct roles in any AI-assisted workflow:",
+        "items": [
+          "<strong>You</strong> &mdash; the human using Claude Code. Has your personal permissions. <em>(<code>user_principal</code>)</em>",
+          "<strong>The agent</strong> &mdash; Claude Code itself. Only the tools you enabled for it. <em>(<code>agent_runtime_principal</code>)</em>",
+          "<strong>A tool</strong> &mdash; git, mvn, the GitHub API. Scoped per-tool credentials, not god-mode. <em>(<code>tool_principal</code>)</em>",
+          "<strong>The approver</strong> &mdash; you again, but this time saying yes/no to a risky action. <em>(<code>approval_actor</code>)</em>"
+        ]
+      },
+      {
+        "quote": "When Claude Code asks <em>&ldquo;Should I run this command?&rdquo;</em> &mdash; that prompt is the approver role. Don&rsquo;t click yes reflexively."
       },
       {
         "card": "<span style=\"font-style:normal\">&#9888;&#65039;</span> What happens when identities collapse",
@@ -602,8 +558,8 @@
     "desc": "No single layer is enough. Every layer catches what the previous one missed.",
     "body": [
       {
-        "code": "Layer 1: <span class=\"kw\">CLAUDE.md</span> ............. prompt-level rules (probabilistic)\nLayer 2: <span class=\"kw\">validate-bash.sh</span> ...... command filtering  (deterministic)\nLayer 3: <span class=\"kw\">validate-write.sh</span> ..... secret scanning    (deterministic)\nLayer 4: <span class=\"kw\">post-edit-lint.sh</span> ..... quality gates      (deterministic)\nLayer 5: <span class=\"kw\">Human review</span> .......... final approval     (human judgment)\n\n  Prompt rules can fail (AI may ignore them).\n  Hooks <span class=\"fn\">cannot be bypassed</span> by the AI.",
-        "note": "Key insight: CLAUDE.md is probabilistic (hope-based). Hooks are deterministic (guaranteed). Use both."
+        "code": "  <span class=\"fn\">You prompt Claude Code</span>\n       |\n       +--[ <span class=\"kw\">Layer 1: CLAUDE.md</span>  &mdash; rules that <em>shape</em> Claude&rsquo;s plan  (<span style=\"color:#ef4444\">probabilistic</span>) ]\n       |\n       v\n  <span class=\"fn\">Claude Code proposes a tool call</span> (Bash, Write, Edit...)\n       |\n       +--[ <span class=\"kw\">Layer 2: validate-bash.sh</span>   &mdash; blocks dangerous commands ]\n       +--[ <span class=\"kw\">Layer 3: validate-write.sh</span>  &mdash; blocks hardcoded secrets ]\n       +--[ <span class=\"kw\">Layer 4: post-edit-lint.sh</span>  &mdash; runs quality checks      ]\n       |       <span class=\"cmt\">(all three deterministic &mdash; the AI cannot skip them)</span>\n       v\n  <span class=\"fn\">Tool executes, or the hook denies it</span>\n       |\n       +--[ <span class=\"kw\">Layer 5: Human review</span> &mdash; you approve the PR / commit ]\n       v\n  <span class=\"fn\">Safe action reaches production</span>",
+        "note": "Claude Code is the actor; the layers wrap its actions. Layer 1 (CLAUDE.md) is <span style=\"color:#ef4444\">probabilistic</span> &mdash; Claude may still propose something bad. Layers 2&ndash;4 (hooks) are deterministic &mdash; no prompt can bypass them. Layer 5 (you) is the last safety net."
       },
       {
         "quote": "The parsimony principle applies within layers, not across them. Security always gets redundancy."
@@ -636,63 +592,7 @@
     "type": "content",
     "mod": "6",
     "tag": "exercise",
-    "title": "Exercise 6.2: Build a Security Policy",
-    "desc": "15 minutes &mdash; define rules for your team&rsquo;s AI-assisted project",
-    "body": [
-      {
-        "card": "Task: write a security policy for your project",
-        "items": [
-          "Create a file <code>AI-SECURITY-POLICY.md</code> in your repo root",
-          "Define rules for each category below",
-          "Be specific &mdash; name actual files, directories, and data types from your project"
-        ]
-      },
-      {
-        "table": {
-          "headers": [
-            "Category",
-            "Question to answer",
-            "Example"
-          ],
-          "rows": [
-            [
-              "&#x1F7E2; AI can read",
-              "Which files/dirs can AI freely access?",
-              "<code>src/</code>, <code>pom.xml</code>, <code>README.md</code>"
-            ],
-            [
-              "&#x1F7E1; AI can write",
-              "What can AI create or modify?",
-              "<code>src/main/</code>, <code>src/test/</code>, not CI configs"
-            ],
-            [
-              "&#x1F7E0; Requires approval",
-              "What needs human review before executing?",
-              "Shell commands, dependency changes, any deletion"
-            ],
-            [
-              "&#x1F534; Forbidden",
-              "What should AI <strong>never</strong> do?",
-              "<code>git push --force</code>, modify <code>.github/workflows/</code>"
-            ],
-            [
-              "&#x26D4; Never send to AI",
-              "What data must stay out of prompts?",
-              "Passwords, API keys, customer data, <code>.env</code> files"
-            ]
-          ]
-        }
-      },
-      {
-        "quote": "Compare your policy with a classmate. Did you miss anything? Could you enforce some of these rules with <code>.gitignore</code> or Claude Code hooks?"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "6",
-    "tag": "exercise",
-    "title": "Exercise 6.3: Secure AI Workflow",
+    "title": "Exercise 6.2: Secure AI Workflow",
     "desc": "10 minutes",
     "body": [
       {
