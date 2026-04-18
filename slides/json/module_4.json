@@ -23,7 +23,7 @@
       "JaCoCo",
       "*Claude Code"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(88)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem: &ldquo;I Tested It Manually&rdquo;</span>\n<span onclick=\"event.stopPropagation();go(89)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is JUnit?</span>\n<span onclick=\"event.stopPropagation();go(90)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Anatomy: Arrange, Act, Assert</span>\n<span onclick=\"event.stopPropagation();go(91)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Testing Edge Cases: Where Bugs Actually Live</span>\n<span onclick=\"event.stopPropagation();go(92)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Running Tests with Maven</span>\n<span onclick=\"event.stopPropagation();go(93)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Suites as Eval Datasets</span>\n<span onclick=\"event.stopPropagation();go(94)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Mockito?</span>\n<span onclick=\"event.stopPropagation();go(95)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Generates Tests</span>\n<span onclick=\"event.stopPropagation();go(96)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Tests That Test Nothing</span>\n<span onclick=\"event.stopPropagation();go(97)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">TDD with Claude Code</span>\n<span onclick=\"event.stopPropagation();go(98)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Offline Evals and Online Evals</span>\n<span onclick=\"event.stopPropagation();go(99)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.1: Write Tests by Hand</span>\n<span onclick=\"event.stopPropagation();go(100)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.2: AI-Generated Tests &mdash; Critical Review</span>\n<span onclick=\"event.stopPropagation();go(101)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.3: TDD with AI</span>\n<span onclick=\"event.stopPropagation();go(102)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Coverage</span>\n<span onclick=\"event.stopPropagation();go(103)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 4: Key Takeaways</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(88)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem: &ldquo;I Tested It Manually&rdquo;</span>\n<span onclick=\"event.stopPropagation();go(89)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is JUnit?</span>\n<span onclick=\"event.stopPropagation();go(90)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">JUnit Lifecycle: Setup and Teardown</span>\n<span onclick=\"event.stopPropagation();go(91)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Anatomy: Given, When, Then</span>\n<span onclick=\"event.stopPropagation();go(92)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Testing Edge Cases: Where Bugs Actually Live</span>\n<span onclick=\"event.stopPropagation();go(93)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Running Tests with Maven</span>\n<span onclick=\"event.stopPropagation();go(94)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Suites as Eval Datasets</span>\n<span onclick=\"event.stopPropagation();go(95)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Mockito?</span>\n<span onclick=\"event.stopPropagation();go(96)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Mockito: Stubbing with when/thenReturn</span>\n<span onclick=\"event.stopPropagation();go(97)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Generates Tests</span>\n<span onclick=\"event.stopPropagation();go(98)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Tests That Test Nothing</span>\n<span onclick=\"event.stopPropagation();go(99)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">TDD with Claude Code</span>\n<span onclick=\"event.stopPropagation();go(100)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.1: Write Tests by Hand</span>\n<span onclick=\"event.stopPropagation();go(101)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.2: AI-Generated Tests &mdash; Critical Review</span>\n<span onclick=\"event.stopPropagation();go(102)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 4.3: TDD with AI</span>\n<span onclick=\"event.stopPropagation();go(103)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Test Coverage</span>\n<span onclick=\"event.stopPropagation();go(104)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 4: Key Takeaways</span>"
   },
   {
     "type": "content",
@@ -74,9 +74,9 @@
         "code": "<span class=\"kw\">class</span> OrderServiceTest {\n\n    @BeforeAll  <span class=\"cmt\">// once before ALL tests (static)</span>\n    <span class=\"kw\">static void</span> startDatabase() { ... }\n\n    @BeforeEach <span class=\"cmt\">// before EACH test method</span>\n    <span class=\"kw\">void</span> createTestOrder() { ... }\n\n    @Test\n    <span class=\"kw\">void</span> cancelledOrderRefundsPayment() { ... }\n\n    @AfterEach  <span class=\"cmt\">// after EACH test method</span>\n    <span class=\"kw\">void</span> cleanupTestData() { ... }\n\n    @AfterAll   <span class=\"cmt\">// once after ALL tests (static)</span>\n    <span class=\"kw\">static void</span> stopDatabase() { ... }\n}"
       },
       {
-        "card": "Execution order for 3 tests",
+        "card": "Execution order (<em>N</em> = number of <code>@Test</code> methods in the class)",
         "items": [
-          "<code>@BeforeAll</code> &rarr; (<code>@BeforeEach</code> &rarr; <code>@Test</code> &rarr; <code>@AfterEach</code>) &times;3 &rarr; <code>@AfterAll</code>",
+          "<code>@BeforeAll</code> &rarr; (<code>@BeforeEach</code> &rarr; <code>@Test</code> &rarr; <code>@AfterEach</code>) &times;<em>N</em> &rarr; <code>@AfterAll</code>",
           "<code>@BeforeAll</code> / <code>@AfterAll</code> are <strong>static</strong> &mdash; shared expensive setup (DB, server)",
           "<code>@BeforeEach</code> / <code>@AfterEach</code> &mdash; fresh state per test, prevents test coupling"
         ]
@@ -123,8 +123,8 @@
     ],
     "body": [
       {
-        "code": "@Test\n<span class=\"kw\">void</span> divideByZeroThrowsException() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    assertThrows(ArithmeticException.<span class=\"kw\">class</span>, \n        () -&gt; calc.divide(10.0, 0.0));\n}\n\n@Test\n<span class=\"kw\">void</span> addMaxValues() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    <span class=\"kw\">double</span> result = calc.add(Double.MAX_VALUE, Double.MAX_VALUE);\n    assertEquals(Double.POSITIVE_INFINITY, result);\n}",
-        "note": "Edge cases: zero, negative numbers, very large values, null, empty strings &mdash; these are the inputs that break code."
+        "code": "<span class=\"cmt\">// TEST 1: we WANT divide(x, 0) to throw. If it doesn&rsquo;t, the test fails.</span>\n@Test\n<span class=\"kw\">void</span> divideByZeroThrowsException() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n\n    <span class=\"cmt\">// Why the weird () -&gt; syntax?</span>\n    <span class=\"cmt\">// If we just called calc.divide(10.0, 0.0) directly, the exception would</span>\n    <span class=\"cmt\">// crash our test method. We need JUnit to run it for us and CATCH the</span>\n    <span class=\"cmt\">// exception. () -&gt; ... is a lambda &mdash; a small function JUnit can call.</span>\n    assertThrows(ArithmeticException.<span class=\"kw\">class</span>, () -&gt; calc.divide(10.0, 0.0));\n    <span class=\"cmt\">//           ^^^ which exception we expect     ^^^ the code that should throw it</span>\n}\n\n<span class=\"cmt\">// TEST 2: very large numbers overflow. Java doesn&rsquo;t crash &mdash; it returns a</span>\n<span class=\"cmt\">// special value called POSITIVE_INFINITY. Good code must handle that.</span>\n@Test\n<span class=\"kw\">void</span> addMaxValues() {\n    Calculator calc = <span class=\"kw\">new</span> Calculator();\n    <span class=\"kw\">double</span> result = calc.add(Double.MAX_VALUE, Double.MAX_VALUE);\n\n    <span class=\"cmt\">// MAX_VALUE + MAX_VALUE is too big to fit in a double &rarr; becomes POSITIVE_INFINITY</span>\n    assertEquals(Double.POSITIVE_INFINITY, result);\n}",
+        "note": "Edge cases: zero, negative numbers, very large values, null, empty strings &mdash; these are the inputs that break code. The test is worthless if it doesn&rsquo;t cover them."
       }
     ]
   },
@@ -139,67 +139,6 @@
       },
       {
         "quote": "The build fails. You cannot package or deploy with failing tests."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "4",
-    "tag": "industry",
-    "title": "Test Suites as Eval Datasets",
-    "desc": "Your test suite follows the same structure used to evaluate AI systems.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Test Type",
-            "What It Verifies",
-            "AI Eval Equivalent"
-          ],
-          "rows": [
-            [
-              "<strong>Unit tests</strong>",
-              "Single method/class in isolation",
-              "Single-task benchmarks"
-            ],
-            [
-              "<strong>Integration tests</strong>",
-              "Multiple components working together (DB, API, services)",
-              "Multi-step task evaluation"
-            ],
-            [
-              "<strong>Edge case tests</strong>",
-              "Boundary values, null, empty, overflow",
-              "Ambiguous/tricky scenarios"
-            ],
-            [
-              "<strong>Exception tests</strong>",
-              "Error handling, invalid input",
-              "Error and failure cases"
-            ],
-            [
-              "<strong>Regression tests</strong>",
-              "Previously fixed bugs stay fixed",
-              "Regression gates"
-            ],
-            [
-              "<strong>Smoke tests</strong>",
-              "Basic sanity &mdash; does the app start at all?",
-              "Baseline health checks"
-            ],
-            [
-              "<strong>Performance tests</strong>",
-              "Response time, throughput under load",
-              "Latency and cost benchmarks"
-            ],
-            [
-              "<strong>Coverage report</strong>",
-              "% of code exercised by tests",
-              "Eval coverage metrics"
-            ]
-          ],
-          "note": "Same purpose: verify that the system behaves correctly before releasing it. In this course we focus on unit tests and integration tests."
-        }
       }
     ]
   },
@@ -241,19 +180,18 @@
     "mod": "4",
     "tag": "",
     "title": "AI-Augmented: Claude Code Generates Tests",
+    "desc": "AI will confidently generate tests that don&rsquo;t actually test anything. Review is non-optional.",
     "body": [
       {
-        "code": "<span class=\"str\">You:</span> Generate JUnit tests for Calculator (add, divide, modulo).\n\n<span class=\"fn\">Claude Code generates 8 tests:</span>\n\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addPositives()        { assertEquals(5.0, calc.add(2, 3)); }        <span class=\"cmt\">// ✅ Good</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> addNegatives()        { assertEquals(-5.0, calc.add(-2, -3)); }     <span class=\"cmt\">// ✅ Good</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> divideByZero()       { assertThrows(ArithmeticException.class,\n                                  () -> calc.divide(1, 0)); }       <span class=\"cmt\">// ✅ Good</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> divideNormal()       { assertEquals(2.5, calc.divide(5, 2)); }     <span class=\"cmt\">// ✅ Good</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> moduloWorks()        { assertEquals(1, calc.modulo(10, 3)); }      <span class=\"cmt\">// ✅ Good</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> testLargeNumbers()   { calc.add(999999, 999999); }                 <span class=\"str\">// ❌ No assertion!</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> testCalculator()     { assertNotNull(calc); }                      <span class=\"str\">// ❌ Tests Java, not you</span>\n<span class=\"fn\">@Test</span> <span class=\"kw\">void</span> moduloNegative()     { assertEquals(-1, calc.modulo(-10, 3)); }    <span class=\"str\">// ❓ Right answer?</span>",
-        "note": "5 good, 2 worthless, 1 questionable. The <code>moduloNegative</code> test assumes Java’s <code>%</code> operator behavior — is -1 correct or should it be 2? AI didn’t think about this. <strong>You</strong> must."
+        "code": "<span class=\"str\">You:</span> Generate JUnit tests for Calculator.\n\n<span class=\"fn\">Claude Code returns, among others:</span>\n\n<span class=\"cmt\">// GOOD &mdash; real input, real expected value, real assertion</span>\n@Test\n<span class=\"kw\">void</span> addPositives() {\n    assertEquals(5.0, calc.add(2, 3));\n}\n\n<span class=\"cmt\">// BAD &mdash; calls the method but never checks the result</span>\n@Test\n<span class=\"kw\">void</span> testLargeNumbers() {\n    calc.add(999999, 999999);\n}\n\n<span class=\"cmt\">// BAD &mdash; passes even if your Calculator is completely broken</span>\n@Test\n<span class=\"kw\">void</span> testCalculator() {\n    assertNotNull(calc);\n}\n\n<span class=\"cmt\">// QUESTIONABLE &mdash; AI rounded the result to 2 decimals.</span>\n<span class=\"cmt\">// But does YOUR spec say 2 decimals? 4? Or no rounding at all?</span>\n@Test\n<span class=\"kw\">void</span> divideTenByThree() {\n    assertEquals(3.33, calc.divide(10, 3));\n}",
+        "note": "AI writes all four with the same confidence. It cannot tell a real test from a fake one &mdash; only you can."
       },
       {
-        "card": "Your review checklist for AI-generated tests:",
+        "card": "Every AI-generated test must answer three questions:",
         "items": [
-          "Does every <code>@Test</code> have an <strong>assertEquals</strong> or <strong>assertThrows</strong>?",
-          "Does the assertion test <strong>your code</strong>, not Java itself?",
-          "Are <strong>edge cases</strong> covered? (zero, negative, MAX_VALUE, null)",
-          "Would the test <strong>fail</strong> if you introduced a bug?",
-          "Is the <strong>expected value</strong> actually correct? (AI can assert wrong answers confidently)"
+          "<strong>1. Does it have a real assertion?</strong> <code>assertEquals</code>, <code>assertThrows</code>, <code>assertTrue</code>. Calling a method is not a test.",
+          "<strong>2. Does it test YOUR code?</strong> <code>assertNotNull(new Foo())</code> tests Java&rsquo;s <code>new</code> keyword, not <code>Foo</code>.",
+          "<strong>3. Is the expected value actually correct?</strong> AI picks answers that look plausible &mdash; verify each one against the spec."
         ]
       }
     ]
@@ -297,50 +235,11 @@
     "desc": "Test-Driven Development: write tests FIRST, then implementation",
     "body": [
       {
-        "code": "<span class=\"str\">You:</span> I want to add a sqrt() method to Calculator. \n     Write the tests first. Don&rsquo;t implement the method yet."
+        "code": "<span class=\"str\">You:</span> I want to add a sqrt() method to Calculator.\n     Write the tests first. Don&rsquo;t implement the method yet."
       },
       {
-        "code": "@Test\n<span class=\"kw\">void</span> sqrtOfPerfectSquare() {\n    assertEquals(3.0, calc.sqrt(9.0));\n}\n@Test\n<span class=\"kw\">void</span> sqrtOfNegativeThrows() {\n    assertThrows(IllegalArgumentException.<span class=\"kw\">class</span>, \n        () -&gt; calc.sqrt(-1.0));\n}",
-        "note": "Then: implement sqrt() to make these tests pass."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "4",
-    "tag": "industry",
-    "title": "Offline Evals and Online Evals",
-    "desc": "Your testing strategy mirrors how production AI systems ensure quality.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Your Java Project",
-            "Production AI System"
-          ],
-          "rows": [
-            [
-              "JUnit tests before merge",
-              "<strong>Offline evals</strong> before deployment"
-            ],
-            [
-              "Bug reports after release",
-              "<strong>Online evals</strong> in production"
-            ],
-            [
-              "Test coverage report",
-              "Eval coverage metrics"
-            ],
-            [
-              "<code>mvn test</code> blocks release",
-              "Regression gate blocks rollout"
-            ]
-          ]
-        }
-      },
-      {
-        "code": "Code change &rarr; Offline evals &rarr; Regression gates &rarr; Production\n&rarr; Online evals + traces &rarr; Failure analysis &rarr; (back to code)",
-        "note": "You&rsquo;re already doing this with JUnit + Git + Maven."
+        "code": "<span class=\"cmt\">// Happy path: the square root of 9 is 3.</span>\n@Test\n<span class=\"kw\">void</span> sqrtOfPerfectSquare() {\n    assertEquals(3.0, calc.sqrt(9.0));\n}\n\n<span class=\"cmt\">// Edge case: negative input has no real square root &mdash; we expect an exception.</span>\n@Test\n<span class=\"kw\">void</span> sqrtOfNegativeThrows() {\n    assertThrows(IllegalArgumentException.<span class=\"kw\">class</span>, () -&gt; calc.sqrt(-1.0));\n}",
+        "note": "Tests describe the behaviour first. Next step: ask Claude Code to implement <code>sqrt()</code> until both tests pass &mdash; no more, no less."
       }
     ]
   },
@@ -414,7 +313,10 @@
     "title": "Test Coverage",
     "body": [
       {
-        "code": "<span class=\"cmt\"># Add JaCoCo plugin, then:</span>\n<span class=\"kw\">mvn test jacoco:report</span>\n<span class=\"cmt\"># Open target/site/jacoco/index.html</span>"
+        "code": "<span class=\"cmt\">&lt;!-- Add to pom.xml &lt;build&gt;&lt;plugins&gt; --&gt;</span>\n&lt;plugin&gt;\n  &lt;groupId&gt;org.jacoco&lt;/groupId&gt;\n  &lt;artifactId&gt;<span class=\"kw\">jacoco-maven-plugin</span>&lt;/artifactId&gt;\n  &lt;version&gt;0.8.14&lt;/version&gt;\n  &lt;executions&gt;\n    &lt;execution&gt;\n      &lt;goals&gt;\n        &lt;goal&gt;prepare-agent&lt;/goal&gt;\n      &lt;/goals&gt;\n    &lt;/execution&gt;\n  &lt;/executions&gt;\n&lt;/plugin&gt;"
+      },
+      {
+        "code": "<span class=\"cmt\"># Then run tests + generate the coverage report:</span>\n<span class=\"kw\">mvn test jacoco:report</span>\n<span class=\"cmt\"># Open target/site/jacoco/index.html in your browser</span>"
       },
       {
         "card": "",

@@ -23,7 +23,7 @@
       "lifecycle",
       "*Claude Code"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(44)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Build Management</span>\n<span onclick=\"event.stopPropagation();go(45)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Maven?</span>\n<span onclick=\"event.stopPropagation();go(46)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Project Structure</span>\n<span onclick=\"event.stopPropagation();go(47)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The pom.xml: Heart of Every Maven Project</span>\n<span onclick=\"event.stopPropagation();go(48)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">pom.xml as a Capability Contract</span>\n<span onclick=\"event.stopPropagation();go(49)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Lifecycle</span>\n<span onclick=\"event.stopPropagation();go(50)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Build Lifecycle: What Actually Matters</span>\n<span onclick=\"event.stopPropagation();go(51)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Plugins: Who Does the Actual Work</span>\n<span onclick=\"event.stopPropagation();go(52)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependencies: Maven Downloads Libraries for You</span>\n<span onclick=\"event.stopPropagation();go(53)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependency Version Conflicts</span>\n<span onclick=\"event.stopPropagation();go(54)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Explains Maven Errors</span>\n<span onclick=\"event.stopPropagation();go(55)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code Manages Dependencies</span>\n<span onclick=\"event.stopPropagation();go(56)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Read Tools vs. Write Tools</span>\n<span onclick=\"event.stopPropagation();go(57)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.1: Maven from Scratch</span>\n<span onclick=\"event.stopPropagation();go(58)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.2: Dependency Management with AI</span>\n<span onclick=\"event.stopPropagation();go(59)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.3: Classify Your Tools</span>\n<span onclick=\"event.stopPropagation();go(60)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 2: Key Takeaways</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(44)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Build Management</span>\n<span onclick=\"event.stopPropagation();go(45)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Maven?</span>\n<span onclick=\"event.stopPropagation();go(46)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Project Structure</span>\n<span onclick=\"event.stopPropagation();go(47)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The pom.xml: Heart of Every Maven Project</span>\n<span onclick=\"event.stopPropagation();go(48)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">pom.xml as a Capability Contract</span>\n<span onclick=\"event.stopPropagation();go(49)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">POM Structure: The Four Sections</span>\n<span onclick=\"event.stopPropagation();go(50)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Build Lifecycle: Complete 23 Phases</span>\n<span onclick=\"event.stopPropagation();go(51)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Maven Plugins: Who Does the Actual Work</span>\n<span onclick=\"event.stopPropagation();go(52)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependencies: Maven Downloads Libraries for You</span>\n<span onclick=\"event.stopPropagation();go(53)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Dependency Version Conflicts</span>\n<span onclick=\"event.stopPropagation();go(54)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Explains Maven Errors</span>\n<span onclick=\"event.stopPropagation();go(55)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code Manages Dependencies</span>\n<span onclick=\"event.stopPropagation();go(56)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Read Tools vs. Write Tools</span>\n<span onclick=\"event.stopPropagation();go(57)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.1: Maven from Scratch</span>\n<span onclick=\"event.stopPropagation();go(58)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.2: Dependency Management with AI</span>\n<span onclick=\"event.stopPropagation();go(59)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 2.3: Classify Your Tools</span>\n<span onclick=\"event.stopPropagation();go(60)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 2: Key Takeaways</span>"
   },
   {
     "type": "content",
@@ -119,7 +119,7 @@
     "title": "The pom.xml: Heart of Every Maven Project",
     "body": [
       {
-        "code": "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\n&lt;project&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;com.example&lt;/groupId&gt;       <span class=\"cmt\">&lt;!-- your organization --&gt;</span>\n    &lt;artifactId&gt;calculator&lt;/artifactId&gt;   <span class=\"cmt\">&lt;!-- project name --&gt;</span>\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;       <span class=\"cmt\">&lt;!-- current version --&gt;</span>\n\n    &lt;dependencies&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;\n            &lt;version&gt;5.10.2&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n&lt;/project&gt;"
+        "code": "&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;\n&lt;project&gt;\n    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;\n\n    &lt;groupId&gt;com.example&lt;/groupId&gt;        <span class=\"cmt\">&lt;!-- your organization --&gt;</span>\n    &lt;artifactId&gt;calculator&lt;/artifactId&gt;   <span class=\"cmt\">&lt;!-- project name --&gt;</span>\n    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;       <span class=\"cmt\">&lt;!-- current version --&gt;</span>\n\n    &lt;dependencies&gt;\n        &lt;dependency&gt;\n            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;\n            &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;\n            &lt;version&gt;5.10.2&lt;/version&gt;\n            &lt;scope&gt;test&lt;/scope&gt;\n        &lt;/dependency&gt;\n    &lt;/dependencies&gt;\n&lt;/project&gt;"
       }
     ]
   },
@@ -226,27 +226,6 @@
     "type": "content",
     "mod": "2",
     "tag": "",
-    "title": "Maven Profiles: One POM, Multiple Environments",
-    "desc": "Profiles let you customize builds for dev, test, and production — without separate pom files.",
-    "body": [
-      {
-        "code": "&lt;<span class=\"kw\">profiles</span>&gt;\n  &lt;<span class=\"kw\">profile</span>&gt;\n    &lt;id&gt;<span class=\"str\">release</span>&lt;/id&gt;\n    &lt;build&gt;\n      &lt;plugins&gt;\n        &lt;plugin&gt;  <span class=\"cmt\">&lt;!-- attach javadoc.jar --&gt;</span>\n          &lt;groupId&gt;<span class=\"str\">org.apache.maven.plugins</span>&lt;/groupId&gt;\n          &lt;artifactId&gt;<span class=\"str\">maven-javadoc-plugin</span>&lt;/artifactId&gt;\n        &lt;/plugin&gt;\n      &lt;/plugins&gt;\n    &lt;/build&gt;\n  &lt;/profile&gt;\n\n  &lt;<span class=\"kw\">profile</span>&gt;\n    &lt;id&gt;<span class=\"str\">coverage</span>&lt;/id&gt;\n    &lt;build&gt;\n      &lt;plugins&gt;\n        &lt;plugin&gt;  <span class=\"cmt\">&lt;!-- JaCoCo code coverage --&gt;</span>\n          &lt;groupId&gt;<span class=\"str\">org.jacoco</span>&lt;/groupId&gt;\n          &lt;artifactId&gt;<span class=\"str\">jacoco-maven-plugin</span>&lt;/artifactId&gt;\n        &lt;/plugin&gt;\n      &lt;/plugins&gt;\n    &lt;/build&gt;\n  &lt;/profile&gt;\n&lt;/profiles&gt;"
-      },
-      {
-        "card": "Activation & Usage",
-        "items": [
-          "<code>mvn deploy -Prelease</code> &mdash; activate by name (<code>-P</code> flag)",
-          "<code>mvn verify -Pcoverage</code> &mdash; run tests with JaCoCo coverage report",
-          "Can also activate by JDK version, OS, system property, or file existence",
-          "Maven profiles = <strong>build-time</strong> (plugins, compiler flags) &mdash; Spring profiles = <strong>runtime</strong> (DB, logging, feature flags)"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
-    "tag": "",
     "title": "Maven Build Lifecycle: Complete 23 Phases",
     "desc": "Bold = phases you call directly. Grey = run automatically by plugins.",
     "body": [
@@ -345,128 +324,6 @@
   {
     "type": "content",
     "mod": "2",
-    "tag": "",
-    "title": "Dependency Scopes: When Is a JAR on the Classpath?",
-    "desc": "Not every dependency belongs everywhere. Scopes control visibility.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Scope",
-            "Compile",
-            "Test",
-            "JAR",
-            "When to use"
-          ],
-          "rows": [
-            [
-              "<code>compile</code>",
-              "&#10003;",
-              "&#10003;",
-              "&#10003;",
-              "Default. You call this library in your code &mdash; needed everywhere."
-            ],
-            [
-              "<code>test</code>",
-              "",
-              "&#10003;",
-              "",
-              "Only for testing. Not shipped to production &mdash; keeps your JAR small."
-            ],
-            [
-              "<code>provided</code>",
-              "&#10003;",
-              "&#10003;",
-              "",
-              "You code against it, but the server already has it (e.g. Tomcat provides the Servlet API). Not in JAR &mdash; would conflict."
-            ],
-            [
-              "<code>runtime</code>",
-              "",
-              "&#10003;",
-              "&#10003;",
-              "Not needed to compile (you use an interface), but needed at runtime (the driver that implements it)."
-            ]
-          ]
-        }
-      },
-      {
-        "code": "&lt;dependency&gt;\n    &lt;groupId&gt;<span class=\"str\">org.junit.jupiter</span>&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"str\">junit-jupiter</span>&lt;/artifactId&gt;\n    &lt;version&gt;<span class=\"str\">5.11.0</span>&lt;/version&gt;\n    &lt;scope&gt;<span class=\"kw\">test</span>&lt;/scope&gt;  <span class=\"cmt\">&lt;!-- NOT in production JAR --&gt;</span>\n&lt;/dependency&gt;",
-        "note": "Without <code>&lt;scope&gt;</code> the default is <code>compile</code> &mdash; available everywhere."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
-    "tag": "",
-    "title": "dependencyManagement vs. dependencies",
-    "desc": "One declares versions. The other adds JARs. Don't confuse them.",
-    "body": [
-      {
-        "code": "&lt;<span class=\"kw\">dependencyManagement</span>&gt;  <span class=\"cmt\">&lt;!-- declares versions, does NOT add JARs --&gt;</span>\n  &lt;dependencies&gt;\n    &lt;dependency&gt;\n      &lt;groupId&gt;<span class=\"str\">com.google.code.gson</span>&lt;/groupId&gt;\n      &lt;artifactId&gt;<span class=\"str\">gson</span>&lt;/artifactId&gt;\n      &lt;version&gt;<span class=\"str\">2.10.1</span>&lt;/version&gt;\n    &lt;/dependency&gt;\n  &lt;/dependencies&gt;\n&lt;/dependencyManagement&gt;\n\n&lt;<span class=\"kw\">dependencies</span>&gt;            <span class=\"cmt\">&lt;!-- actually adds the JAR, no version needed --&gt;</span>\n  &lt;dependency&gt;\n    &lt;groupId&gt;<span class=\"str\">com.google.code.gson</span>&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"str\">gson</span>&lt;/artifactId&gt;\n  &lt;/dependency&gt;\n&lt;/dependencies&gt;",
-        "note": "<code>&lt;dependencyManagement&gt;</code> = menu (lists what's available + versions). <code>&lt;dependencies&gt;</code> = order (actually adds JARs to classpath)."
-      },
-      {
-        "card": "Why separate them?",
-        "items": [
-          "Define all versions in <strong>one place</strong> &mdash; no version scattered across 20 pom files",
-          "Child modules just reference groupId + artifactId &mdash; version comes from parent",
-          "Upgrade a library? Change <strong>one line</strong> in the parent, all modules get the new version"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
-    "tag": "",
-    "title": "Multi-Module Projects: One Build, Many JARs",
-    "desc": "Real-world projects split code into modules with a shared parent POM.",
-    "body": [
-      {
-        "code": "<span class=\"str\">my-app/</span>               <span class=\"cmt\">&larr; parent (pom.xml only, no code)</span>\n  pom.xml\n  <span class=\"str\">my-app-api/</span>         <span class=\"cmt\">&larr; module: interfaces + DTOs</span>\n    pom.xml\n    src/\n  <span class=\"str\">my-app-core/</span>        <span class=\"cmt\">&larr; module: business logic</span>\n    pom.xml\n    src/\n  <span class=\"str\">my-app-web/</span>         <span class=\"cmt\">&larr; module: REST controllers</span>\n    pom.xml\n    src/"
-      },
-      {
-        "code": "<span class=\"cmt\">&lt;!-- parent pom.xml --&gt;</span>\n&lt;packaging&gt;<span class=\"kw\">pom</span>&lt;/packaging&gt;\n&lt;<span class=\"kw\">modules</span>&gt;\n    &lt;module&gt;<span class=\"str\">my-app-api</span>&lt;/module&gt;\n    &lt;module&gt;<span class=\"str\">my-app-core</span>&lt;/module&gt;\n    &lt;module&gt;<span class=\"str\">my-app-web</span>&lt;/module&gt;\n&lt;/modules&gt;",
-        "note": "<code>mvn package</code> in the parent builds all modules in the correct order."
-      },
-      {
-        "card": "Parent POM provides",
-        "items": [
-          "<strong>Shared versions</strong> &mdash; <code>&lt;dependencyManagement&gt;</code> defines versions once, children inherit",
-          "<strong>Shared plugins</strong> &mdash; compiler settings, code style rules apply to all modules",
-          "<strong>Build order</strong> &mdash; Maven resolves inter-module dependencies automatically"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
-    "tag": "",
-    "title": "Maven Repository Chain: Where JARs Come From",
-    "desc": "Maven searches repositories in order — local first, then remote.",
-    "body": [
-      {
-        "code": "<span class=\"kw\">mvn compile</span>\n\n  1. <span class=\"str\">Local Repository</span>     ~/.m2/repository/\n     &darr; not found?\n  2. <span class=\"str\">Company Repository</span>   Nexus / Artifactory (your organization)\n     &darr; not found?\n  3. <span class=\"str\">Maven Central</span>        repo.maven.apache.org (internet)"
-      },
-      {
-        "card": "Why a company repository?",
-        "items": [
-          "<strong>Internal libraries</strong> &mdash; shared code that cannot be published to the internet",
-          "<strong>Proxy/cache</strong> &mdash; caches Maven Central locally, faster builds, works offline",
-          "<strong>Security</strong> &mdash; approved dependencies only, block vulnerable versions"
-        ]
-      },
-      {
-        "code": "<span class=\"cmt\">&lt;!-- pom.xml &mdash; configure company repository --&gt;</span>\n&lt;<span class=\"kw\">repositories</span>&gt;\n  &lt;<span class=\"kw\">repository</span>&gt;\n    &lt;id&gt;<span class=\"str\">company-nexus</span>&lt;/id&gt;\n    &lt;url&gt;<span class=\"str\">https://nexus.company.com/repository/maven-public/</span>&lt;/url&gt;\n  &lt;/repository&gt;\n&lt;/repositories&gt;"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "2",
     "tag": "mistake",
     "title": "Dependency Version Conflicts",
     "body": [
@@ -509,7 +366,7 @@
     "body": [
       {
         "code": "<span class=\"str\">You:</span> I need to parse JSON files in my Calculator project.\n     What library should I use?\n\n<span class=\"fn\">Claude Code:</span> For a simple project, use <span class=\"kw\">Gson</span> (Google).\n  It&rsquo;s lightweight, has no transitive dependencies,\n  and is the most common choice for small Java projects.\n\n  I&rsquo;ll add it to your pom.xml:\n\n  <span class=\"kw\">&lt;dependency&gt;</span>\n    &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;\n    &lt;artifactId&gt;gson&lt;/artifactId&gt;\n    &lt;version&gt;<span class=\"fn\">2.11.0</span>&lt;/version&gt;\n  <span class=\"kw\">&lt;/dependency&gt;</span>\n\n  <span class=\"cmt\">Verify: mvn dependency:tree | grep gson</span>",
-        "note": "Always verify the version Claude Code suggests. Check <a href=\"https://search.maven.org\" target=\"_blank\">search.maven.org</a> &mdash; AI may suggest outdated versions."
+        "note": "Always verify the version Claude Code suggests. Check <a href=\"https://search.maven.org\" target=\"_blank\">search.maven.org</a> or <a href=\"https://mvnrepository.com\" target=\"_blank\">mvnrepository.com</a> &mdash; AI may suggest outdated versions."
       },
       {
         "quote": "Trust but verify. AI picks reasonable defaults &mdash; but &ldquo;reasonable&rdquo; is not the same as &ldquo;current.&rdquo;"

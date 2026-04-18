@@ -61,12 +61,24 @@
               "<strong>JUnit</strong> &mdash; automated tests catch it before release"
             ],
             [
+              "Need to test code that calls a database or external API &mdash; too slow, too flaky",
+              "<strong>Mockito</strong> &mdash; fakes dependencies so tests run fast and isolated"
+            ],
+            [
               "Junior developer introduces a security vulnerability",
               "<strong>PMD / SpotBugs</strong> &mdash; static analysis flags it instantly"
             ],
             [
+              "Every developer formats code differently &mdash; reviews drown in style nitpicks",
+              "<strong>CheckStyle</strong> &mdash; enforces one consistent style across the team"
+            ],
+            [
               "Release day is chaos &mdash; manual steps, forgotten configs",
               "<strong>Jenkins</strong> &mdash; automated pipeline, same process every time"
+            ],
+            [
+              "Stuck on a cryptic error, onboarding is slow, boilerplate eats hours",
+              "<strong>Claude Code</strong> &mdash; AI pair that explains, generates, and debugs in your terminal"
             ]
           ]
         }
@@ -178,7 +190,7 @@
         "table": {
           "headers": [
             "Property",
-            "AI Tool (autocomplete)",
+            "AI Tool (e.g. autocomplete)",
             "AI Agent (Claude Code)"
           ],
           "rows": [
@@ -226,73 +238,11 @@
     "type": "content",
     "mod": "0",
     "tag": "",
-    "title": "Why Claude Code and Not Copilot / Cursor / ChatGPT?",
-    "desc": "There are many AI coding tools. Here is how they differ.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Tool",
-            "Type",
-            "Reads Project",
-            "Runs Commands",
-            "Multi-Step"
-          ],
-          "rows": [
-            [
-              "<strong>GitHub Copilot</strong>",
-              "Autocomplete",
-              "Current file only",
-              "No",
-              "No"
-            ],
-            [
-              "<strong>Cursor</strong>",
-              "IDE + AI",
-              "Yes (via IDE)",
-              "Limited",
-              "Partial"
-            ],
-            [
-              "<strong>ChatGPT / Gemini</strong>",
-              "Chatbot",
-              "No &mdash; you paste code",
-              "No",
-              "No"
-            ],
-            [
-              "<strong>Claude Code</strong>",
-              "Agent",
-              "Full project",
-              "git, mvn, java, bash",
-              "Yes &mdash; plans &amp; executes"
-            ]
-          ]
-        }
-      },
-      {
-        "card": "Why this matters for the course:",
-        "items": [
-          "<strong>Copilot</strong> cannot run <code>mvn test</code> or <code>git commit</code> &mdash; you still do everything manually",
-          "<strong>ChatGPT</strong> cannot see your <code>pom.xml</code> &mdash; its advice may not match your project",
-          "<strong>Cursor</strong> is powerful but locks you into one editor &mdash; Claude Code works in any terminal",
-          "<strong>Claude Code</strong> sees your project, runs your tools, and asks before acting &mdash; that is what an agent does"
-        ]
-      },
-      {
-        "quote": "The principles you learn here apply to any AI coding tool. We use Claude Code because it is the most complete agent today."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "0",
-    "tag": "",
     "title": "The AI-First Workflow",
     "desc": "Modern development is not \"code first, ask AI later.\" It starts with intent.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># OLD workflow</span>\n1. Think about what to write\n2. Write code from scratch\n3. Debug errors yourself\n4. Maybe ask AI if stuck\n\n<span class=\"cmt\"># AI-FIRST workflow</span>\n1. <span class=\"kw\">Describe your intent</span> to Claude Code\n2. <span class=\"kw\">Review</span> what it generates\n3. <span class=\"kw\">Verify</span> with tests and quality tools\n4. <span class=\"kw\">Commit</span> only what you understand"
+        "code": "<span class=\"cmt\"># OLD workflow</span>\n1. Think about what to write\n2. Write code from scratch\n3. Debug errors yourself\n4. Google / StackOverflow if stuck\n\n<span class=\"cmt\"># AI-FIRST workflow</span>\n1. <span class=\"kw\">Describe your intent</span> to Claude Code\n2. <span class=\"kw\">Review</span> what it generates\n3. <span class=\"kw\">Verify</span> with tests and quality tools\n4. <span class=\"kw\">Commit</span> only what you understand"
       },
       {
         "quote": "You spend less time writing and more time reviewing. That is the fundamental shift."
@@ -322,6 +272,10 @@
               "AI wrote buggy logic? Tests catch it before you ship."
             ],
             [
+              "<strong>Mockito</strong>",
+              "AI-generated test passes by calling real services? Mocks force it to test your logic, not theirs."
+            ],
+            [
               "<strong>PMD / SpotBugs</strong>",
               "AI introduced a bad pattern? Quality gates block it."
             ],
@@ -332,10 +286,6 @@
             [
               "<strong>Jenkins</strong>",
               "AI broke the build? Pipeline stops it from reaching production."
-            ],
-            [
-              "<strong>.gitignore</strong>",
-              "AI suggested committing secrets? Your config prevents it."
             ]
           ]
         }
@@ -393,9 +343,6 @@
     "desc": "Every AI agent has the same three components. Claude Code is no exception.",
     "body": [
       {
-        "code": "+--------------------------------------------------+\n|                  Claude Code                      |\n|                                                   |\n|  +----------+    +--------+    +--------------+   |\n|  |  <span class=\"kw\">Model</span>   |    | <span class=\"kw\">Tools</span>  |    | <span class=\"kw\">Instructions</span> |   |\n|  | (Claude) |    |        |    |              |   |\n|  | Reasons  |&lt;--&gt;| Read   |    | System rules |   |\n|  | &amp; plans  |    | Write  |    | Your project |   |\n|  |          |    | Search |    | CLAUDE.md    |   |\n|  |          |    | Bash   |    |              |   |\n|  +----------+    +--------+    +--------------+   |\n+--------------------------------------------------+"
-      },
-      {
         "table": {
           "headers": [
             "Component",
@@ -412,18 +359,18 @@
             ],
             [
               "<strong>Tools</strong>",
-              "Takes actions in the real world",
+              "Takes actions in your environment",
               "The hands",
-              "Read, Write, Search, Bash, Git"
+              "Read, Edit, Grep, Glob, Bash, WebFetch, TodoWrite&hellip;"
             ],
             [
               "<strong>Instructions</strong>",
-              "Defines rules and boundaries",
-              "The training manual",
-              "System prompt, CLAUDE.md, project context"
+              "Defines rules and context",
+              "The manual",
+              "System prompt <em>(Anthropic)</em> + CLAUDE.md <em>(you)</em> + project files <em>(at runtime)</em>"
             ]
           ],
-          "note": "Remove any one component and the agent breaks: a model without tools can only talk, tools without a model act randomly, both without instructions are uncontrolled."
+          "note": "Remove any one and the agent breaks: a model without tools can only <em>talk</em>, tools without a model act <em>randomly</em>, both without instructions have no idea what &ldquo;good&rdquo; means <em>in your project</em>. Module 7 shows how memory and the control loop sit on top of these three."
         }
       },
       {
@@ -506,29 +453,7 @@
     "type": "content",
     "mod": "0",
     "tag": "exercise",
-    "title": "Exercise 0.2: Your First AI-Assisted Project",
-    "desc": "20 minutes",
-    "body": [
-      {
-        "card": "Task:",
-        "items": [
-          "Use Claude Code: &ldquo;Create a Java Maven project with a Calculator class with add, subtract, multiply, divide&rdquo;",
-          "Open every created file and <strong>read it</strong>",
-          "Can you explain what each file does?",
-          "Run <code>mvn compile</code> &mdash; does it work?",
-          "Run <code>mvn test</code> &mdash; does it work?"
-        ]
-      },
-      {
-        "quote": "Rule: You must be able to explain every file Claude Code created."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "0",
-    "tag": "exercise",
-    "title": "Exercise 0.3: Test the Limits",
+    "title": "Exercise 0.2: Test the Limits",
     "desc": "10 minutes",
     "body": [
       {

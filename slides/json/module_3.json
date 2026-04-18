@@ -104,17 +104,17 @@
     "body": [
       {
         "code": "<span class=\"cmt\">&lt;!-- pom.xml: CheckStyle with Google rules --&gt;</span>\n&lt;plugin&gt;\n  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n  &lt;artifactId&gt;maven-checkstyle-plugin&lt;/artifactId&gt;\n  &lt;version&gt;3.3.1&lt;/version&gt;\n  &lt;configuration&gt;\n    &lt;configLocation&gt;<span class=\"kw\">google_checks.xml</span>&lt;/configLocation&gt;\n    &lt;failOnViolation&gt;<span class=\"kw\">true</span>&lt;/failOnViolation&gt;\n  &lt;/configuration&gt;\n&lt;/plugin&gt;",
-        "note": "google_checks.xml is bundled with CheckStyle. No extra download needed."
+        "note": "The maven-checkstyle-plugin resolves <code>google_checks.xml</code> (and <code>sun_checks.xml</code>) from inside the CheckStyle JAR by name &mdash; no file, no download needed. The GitHub link is just for reading the rules: <a href=\"https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml\" target=\"_blank\">github.com/checkstyle/checkstyle/&hellip;/google_checks.xml</a>"
       },
       {
         "card": "What Google Style enforces:",
         "items": [
-          "Indentation: 2 spaces (not 4, not tabs)",
-          "Line length: max 100 characters",
-          "Braces: always required, even for single-line if/else",
-          "Naming: <code>camelCase</code> for methods, <code>UPPER_SNAKE</code> for constants",
-          "Javadoc: required on all public methods",
-          "Import order: static imports separated, no wildcards"
+          "Indentation: 2 spaces (not 4, not tabs) &mdash; <code>&nbsp;&nbsp;if (x) {</code> not <code>&nbsp;&nbsp;&nbsp;&nbsp;if (x) {</code>",
+          "Line length: max 100 characters &mdash; long method chains must wrap",
+          "Braces: always required, even for single-line if/else &mdash; <code>if (x) doIt();</code> &rarr; <code>if (x) { doIt(); }</code>",
+          "Naming: <code>camelCase</code> for methods (<code>calculateTotal</code>), <code>UPPER_SNAKE</code> for constants (<code>MAX_RETRIES</code>), <code>PascalCase</code> for classes (<code>OrderService</code>)",
+          "Javadoc: required on all public methods &mdash; <code>/** Returns the user&rsquo;s full name. */</code>",
+          "Import order: static imports separated, no wildcards &mdash; <code>import java.util.*;</code> is rejected, use <code>import java.util.List;</code>"
         ]
       }
     ]
@@ -129,7 +129,7 @@
       {
         "card": "Eclipse / IntelliJ Setup:",
         "items": [
-          "<strong>Eclipse</strong>: Import <code>eclipse-java-google-style.xml</code> via Preferences &rarr; Java &rarr; Code Style &rarr; Formatter",
+          "<strong>Eclipse</strong>: Download <a href=\"https://google.github.io/styleguide/eclipse-java-google-style.xml\" target=\"_blank\"><code>eclipse-java-google-style.xml</code></a>, then import via Preferences &rarr; Java &rarr; Code Style &rarr; Formatter",
           "<strong>IntelliJ</strong>: Install google-java-format plugin, or import Eclipse formatter XML",
           "Enable <strong>Format on Save</strong> &mdash; code is always clean",
           "Run <code>mvn checkstyle:check</code> to verify &mdash; zero violations expected"
@@ -154,12 +154,12 @@
         "note": "Each PMD rule exists because someone had a real production incident from that exact pattern."
       },
       {
-        "card": "What PMD catches that CheckStyle doesn&rsquo;t:",
+        "card": "Examples of what PMD catches that CheckStyle doesn&rsquo;t:",
         "items": [
-          "<strong>Empty catch blocks</strong> &mdash; errors swallowed silently",
-          "<strong>Unused variables</strong> &mdash; dead code that confuses readers",
-          "<strong>God methods</strong> &mdash; 200-line methods nobody can review",
-          "<strong>Copy-paste code</strong> &mdash; fix a bug in one copy, forget the other"
+          "<strong>Empty catch blocks</strong> &mdash; <code>try { save(); } catch (Exception e) { }</code> &mdash; production failure with no log line",
+          "<strong>Unused variables</strong> &mdash; <code>String unused = computeExpensive();</code> &mdash; wasted work and reader confusion",
+          "<strong>God methods</strong> &mdash; a 200-line <code>processOrder()</code> doing validation + pricing + tax + shipping &mdash; nobody can review or test it",
+          "<strong>Copy-paste code</strong> &mdash; same 15-line block in <code>UserService</code> and <code>AdminService</code>; fix a bug in one, forget the other"
         ]
       }
     ]
@@ -323,28 +323,48 @@
         "table": {
           "headers": [
             "Tool finds",
-            "Claude Code finds"
+            "Claude Code also explains"
           ],
           "rows": [
             [
-              "&ldquo;Line too long&rdquo;",
-              "&ldquo;This method does three things &mdash; split it&rdquo;"
-            ],
-            [
               "&ldquo;Empty catch block&rdquo;",
-              "&ldquo;This hides a database connection failure&rdquo;"
+              "&ldquo;This swallows the DB failure &mdash; at least log it, or let the caller handle it&rdquo;"
             ],
             [
-              "&ldquo;Unused variable&rdquo;",
-              "&ldquo;This design doesn&rsquo;t fit your use case&rdquo;"
+              "&ldquo;Duplicate code block&rdquo;",
+              "&ldquo;<code>UserService</code> and <code>AdminService</code> share 90% logic &mdash; extract a helper&rdquo;"
+            ],
+            [
+              "&ldquo;Method exceeds 100 lines&rdquo;",
+              "&ldquo;<code>processOrder</code> does validation + pricing + tax &mdash; three responsibilities, three methods&rdquo;"
             ]
           ],
-          "note": "Static analysis answers: &ldquo;Does this violate a rule?&rdquo; AI answers: &ldquo;Is this the right design?&rdquo; You need both."
+          "note": "Static analysis answers: &ldquo;Does this violate a rule?&rdquo; AI answers: &ldquo;<em>Why</em> does this rule matter <em>here</em>?&rdquo; You need both."
         }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "3",
+    "tag": "",
+    "title": "Clean Logging: SLF4J Instead of System.out",
+    "desc": "System.out.println() is not logging. It is debugging that stayed in production.",
+    "body": [
+      {
+        "code": "<span class=\"cmt\">// WRONG &mdash; not logging</span>\nSystem.out.println(<span class=\"str\">\"User logged in: \"</span> + username);\ne.printStackTrace();\n\n<span class=\"cmt\">// RIGHT &mdash; proper logging</span>\n<span class=\"kw\">import</span> org.slf4j.Logger;\n<span class=\"kw\">import</span> org.slf4j.LoggerFactory;\n\n<span class=\"kw\">private static final</span> Logger <span class=\"fn\">LOG</span> = LoggerFactory.getLogger(Calculator.<span class=\"kw\">class</span>);\n\nLOG.info(<span class=\"str\">\"User logged in: {}\"</span>, username);\nLOG.error(<span class=\"str\">\"Calculation failed\"</span>, exception);"
       },
       {
-        "code": "<span class=\"str\">You:</span> Review Calculator.java for quality issues \n     that PMD might miss",
-        "note": "Static analysis tools follow rules. Claude Code understands intent."
+        "card": "Why proper logging:",
+        "items": [
+          "<strong>Log levels</strong>: DEBUG, INFO, WARN, ERROR &mdash; filter what you see",
+          "<strong>Configuration</strong>: change output without changing code",
+          "<strong>Files</strong>: logs go to files, not just console",
+          "<strong>Production</strong>: <code>System.out</code> disappears in server environments"
+        ]
+      },
+      {
+        "quote": "<span style=\"font-style:normal\">&#9888;&#65039;</span> <span style=\"color:#ef4444\">System.out.println() or e.printStackTrace() in your project costs <strong>-0.3</strong> on your grade.</span> Use SLF4J."
       }
     ]
   },
@@ -357,6 +377,15 @@
       {
         "code": "<span class=\"str\">You:</span> Review my Calculator class for design and quality.\n\n<span class=\"fn\">Claude Code:</span>\n\n  <span class=\"kw\">1. Design issue</span> (Calculator.java:5-45)\n  All methods are static. This prevents testing with mocks\n  and violates OOP principles. Consider instance methods.\n  <span class=\"cmt\">Provenance: documented (Google Java Style Guide §3.4)</span>\n\n  <span class=\"kw\">2. Missing validation</span> (Calculator.java:25)\n  modulo(a, b) doesn’t check b == 0. Will throw\n  ArithmeticException with no useful message.\n  <span class=\"cmt\">Provenance: verified (code inspection)</span>\n\n  <span class=\"kw\">3. Logging gap</span> (Calculator.java:18)\n  divide() uses System.out.println() instead of SLF4J.\n  <span class=\"cmt\">Provenance: documented (CLAUDE.md rule: use SLF4J)</span>\n\n  <span class=\"kw\">4. Naming</span> (Calculator.java:31)\n  Parameter <span class=\"str\">\"a\"</span> and <span class=\"str\">\"b\"</span> — non-descriptive. Use\n  <span class=\"str\">\"dividend\"</span> and <span class=\"str\">\"divisor\"</span> for domain clarity.\n  <span class=\"cmt\">Provenance: inferred (readability best practice)</span>\n\n  <span class=\"kw\">5. Architecture</span> (Calculator.java)\n  Business logic mixed with I/O (readLine in main).\n  Separate input handling from calculation logic.\n  <span class=\"cmt\">Provenance: documented (layered architecture pattern)</span>\n\n  <span class=\"fn\">Summary:</span> 1 design, 1 bug, 1 convention, 1 naming, 1 architecture.",
         "note": "5 findings across 4 provenance types. Static tools catch #3 (logging). Only AI catches #1 (design), #2 (missing guard), #5 (architecture)."
+      },
+      {
+        "card": "Claude Code is not deterministic",
+        "warn": true,
+        "items": [
+          "Different runs on the same code may surface <strong>different findings</strong> &mdash; the review above is illustrative, not guaranteed.",
+          "It can <strong>miss real issues</strong> (false negatives) and <strong>flag non-issues</strong> (false positives).",
+          "Always pair AI review with <strong>static analysis + tests</strong>. Treat findings as hypotheses to verify, not verdicts."
+        ]
       }
     ]
   },
@@ -400,7 +429,7 @@
         ]
       },
       {
-        "code": "<span class=\"cmt\">&lt;!-- Minimum pom.xml plugins block to add: --&gt;</span>\n&lt;build&gt;&lt;plugins&gt;\n  <span class=\"cmt\">&lt;!-- CheckStyle --&gt;</span>\n  &lt;plugin&gt;\n    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n    &lt;artifactId&gt;<span class=\"kw\">maven-checkstyle-plugin</span>&lt;/artifactId&gt;\n    &lt;version&gt;3.3.1&lt;/version&gt;\n    &lt;configuration&gt;&lt;configLocation&gt;<span class=\"fn\">google_checks.xml</span>&lt;/configLocation&gt;\n      &lt;failOnViolation&gt;true&lt;/failOnViolation&gt;&lt;/configuration&gt;\n  &lt;/plugin&gt;\n  <span class=\"cmt\">&lt;!-- PMD + SpotBugs: same pattern, ask Claude Code --&gt;</span>\n&lt;/plugins&gt;&lt;/build&gt;",
+        "code": "<span class=\"cmt\">&lt;!-- Minimum pom.xml plugins block to add: --&gt;</span>\n&lt;build&gt;\n  &lt;plugins&gt;\n    <span class=\"cmt\">&lt;!-- CheckStyle --&gt;</span>\n    &lt;plugin&gt;\n      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;\n      &lt;artifactId&gt;<span class=\"kw\">maven-checkstyle-plugin</span>&lt;/artifactId&gt;\n      &lt;version&gt;3.3.1&lt;/version&gt;\n      &lt;configuration&gt;\n        &lt;configLocation&gt;<span class=\"fn\">google_checks.xml</span>&lt;/configLocation&gt;\n        &lt;failOnViolation&gt;true&lt;/failOnViolation&gt;\n      &lt;/configuration&gt;\n    &lt;/plugin&gt;\n    <span class=\"cmt\">&lt;!-- PMD + SpotBugs: same pattern, ask Claude Code --&gt;</span>\n  &lt;/plugins&gt;\n&lt;/build&gt;",
         "note": "CheckStyle config shown above. For PMD and SpotBugs, ask Claude Code to add them &mdash; then verify the versions on <a href=\"https://search.maven.org\" target=\"_blank\">search.maven.org</a>."
       }
     ]
@@ -517,41 +546,16 @@
     "type": "content",
     "mod": "3",
     "tag": "",
-    "title": "Clean Logging: SLF4J Instead of System.out",
-    "desc": "System.out.println() is not logging. It is debugging that stayed in production.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\">// WRONG &mdash; not logging</span>\nSystem.out.println(<span class=\"str\">\"User logged in: \"</span> + username);\ne.printStackTrace();\n\n<span class=\"cmt\">// RIGHT &mdash; proper logging</span>\n<span class=\"kw\">import</span> org.slf4j.Logger;\n<span class=\"kw\">import</span> org.slf4j.LoggerFactory;\n\n<span class=\"kw\">private static final</span> Logger <span class=\"fn\">log</span> =\n    LoggerFactory.getLogger(Calculator.<span class=\"kw\">class</span>);\n\nlog.info(<span class=\"str\">\"User logged in: {}\"</span>, username);\nlog.error(<span class=\"str\">\"Calculation failed\"</span>, exception);"
-      },
-      {
-        "card": "Why proper logging:",
-        "items": [
-          "<strong>Log levels</strong>: DEBUG, INFO, WARN, ERROR &mdash; filter what you see",
-          "<strong>Configuration</strong>: change output without changing code",
-          "<strong>Files</strong>: logs go to files, not just console",
-          "<strong>Production</strong>: <code>System.out</code> disappears in server environments"
-        ]
-      },
-      {
-        "quote": "<span style=\"font-style:normal\">&#9888;&#65039;</span> <span style=\"color:#ef4444\">System.out.println() or e.printStackTrace() in your project costs <strong>-0.3</strong> on your grade.</span> Use SLF4J."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "3",
-    "tag": "",
     "title": "The Vibe Coding Experiment",
     "desc": "What happens when you let AI code without constraints?",
     "body": [
       {
-        "card": "The experiment:",
+        "card": "The setup:",
         "items": [
-          "Use Claude Code with <strong>zero configuration</strong> &mdash; no CLAUDE.md, no rules, no constraints",
-          "Task: &ldquo;Add a complete new feature to your project&rdquo;",
-          "Commit the unreviewed AI-generated code to a <code>vibe-coding-experiment</code> branch",
-          "Then <strong>count the damage</strong>: run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
-          "Post your violation count on the whiteboard"
+          "Claude Code with <strong>zero configuration</strong> &mdash; no CLAUDE.md, no rules, no constraints",
+          "A vague task: &ldquo;add a complete new feature to your project&rdquo;",
+          "AI-generated code committed to a <code>vibe-coding-experiment</code> branch, <strong>unreviewed</strong>",
+          "Then the reckoning: <code>mvn checkstyle:check pmd:check spotbugs:check</code> &mdash; how many violations?"
         ]
       },
       {
@@ -585,11 +589,6 @@
               "CodeRabbit 2025"
             ],
             [
-              "Correct solutions",
-              "Only <span style=\"color:#ef4444\"><strong>65.2%</strong></span> of Copilot suggestions were correct in study tasks",
-              "NYU 2023"
-            ],
-            [
               "Performance issues",
               "<span style=\"color:#ef4444\"><strong>8&times; more</strong></span> performance problems than human code",
               "CodeRabbit 2025"
@@ -605,7 +604,7 @@
               "GitClear 2024"
             ]
           ],
-          "note": "Multiple independent studies, same conclusion: AI-generated code needs review and quality gates."
+          "note": "Numbers move as models improve. The direction &mdash; AI-generated code needs review and quality gates &mdash; has not."
         }
       },
       {
@@ -653,12 +652,12 @@
     "desc": "Fine-grained control over AI behavior in your project.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># .claude/rules/java-conventions.md</span>\n---\nglobs: \"src/**/*.java\"\n---\n\n- Google Java Style Guide (2-space indent)\n- SLF4J + LoggerFactory, never System.out\n- Exception handling: catch specific, log with context\n- JUnit 5 with @DisplayName on every test",
-        "note": "Rules in <code>.claude/rules/</code> activate only for matching file patterns."
+        "code": "<span class=\"cmt\"># .claude/rules/java-conventions.md</span>\n---\npaths: \"src/**/*.java\"\n---\n\n- Google Java Style Guide (2-space indent)\n- SLF4J + LoggerFactory, never System.out\n- Exception handling: catch specific, log with context\n- JUnit 5 with @DisplayName on every test",
+        "note": "Rules load <strong>automatically</strong> &mdash; you never invoke them. Claude Code injects a rule into context when it reads a file matching <code>paths:</code>. A rule without <code>paths:</code> loads at session start (like CLAUDE.md)."
       },
       {
         "code": "<span class=\"cmt\"># .claude/commands/quality-check.md</span>\n\nRun the full quality pipeline:\n1. <span class=\"kw\">mvn checkstyle:check</span>\n2. <span class=\"kw\">mvn pmd:check</span>\n3. <span class=\"kw\">mvn spotbugs:check</span>\nReport violations grouped by tool.\nSuggest fixes for each violation.",
-        "note": "Custom slash commands: type <code>/project:quality-check</code> in Claude Code."
+        "note": "Custom slash commands: type <code>/quality-check</code> in Claude Code. The command file&rsquo;s contents become the prompt."
       }
     ]
   },

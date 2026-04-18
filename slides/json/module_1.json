@@ -24,7 +24,7 @@
       "git merge",
       "*Claude Code"
     ],
-    "contents": "<span onclick=\"event.stopPropagation();go(20)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Version Control</span>\n<span onclick=\"event.stopPropagation();go(21)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Git?</span>\n<span onclick=\"event.stopPropagation();go(22)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git's Core Concept: Snapshots</span>\n<span onclick=\"event.stopPropagation();go(23)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Three Areas of Git</span>\n<span onclick=\"event.stopPropagation();go(24)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Basics</span>\n<span onclick=\"event.stopPropagation();go(25)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.1: Git Basics</span>\n<span onclick=\"event.stopPropagation();go(26)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">\"I Committed the Wrong Thing\"</span>\n<span onclick=\"event.stopPropagation();go(27)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Understands Git State</span>\n<span onclick=\"event.stopPropagation();go(28)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Meaningful Commit Messages</span>\n<span onclick=\"event.stopPropagation();go(29)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code as Pre-Commit Reviewer</span>\n<span onclick=\"event.stopPropagation();go(30)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.2: AI-Assisted Commits</span>\n<span onclick=\"event.stopPropagation();go(31)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Commits as Audit Trail</span>\n<span onclick=\"event.stopPropagation();go(32)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Provenance: Where Did This Come From?</span>\n<span onclick=\"event.stopPropagation();go(33)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Branching: Working in Parallel</span>\n<span onclick=\"event.stopPropagation();go(34)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Interactive: Visualize Git with D3</span>\n<span onclick=\"event.stopPropagation();go(35)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Working Directly on Main</span>\n<span onclick=\"event.stopPropagation();go(36)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Merge Conflicts: Don't Panic</span>\n<span onclick=\"event.stopPropagation();go(37)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Resolves Conflicts</span>\n<span onclick=\"event.stopPropagation();go(38)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">.gitignore: What NOT to Track</span>\n<span onclick=\"event.stopPropagation();go(39)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.3: Branching and Conflicts</span>\n<span onclick=\"event.stopPropagation();go(40)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Pull Requests: Code Review Before Merge</span>\n<span onclick=\"event.stopPropagation();go(41)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Remote Repositories: Working with a Team</span>\n<span onclick=\"event.stopPropagation();go(42)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 1: Key Takeaways</span>"
+    "contents": "<span onclick=\"event.stopPropagation();go(19)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Problem Without Version Control</span>\n<span onclick=\"event.stopPropagation();go(20)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">SVN vs. Git: Centralized vs. Distributed</span>\n<span onclick=\"event.stopPropagation();go(21)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">What Is Git?</span>\n<span onclick=\"event.stopPropagation();go(22)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git's Core Concept: Snapshots</span>\n<span onclick=\"event.stopPropagation();go(23)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">The Three Areas of Git</span>\n<span onclick=\"event.stopPropagation();go(24)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Basics</span>\n<span onclick=\"event.stopPropagation();go(25)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.1: Git Basics</span>\n<span onclick=\"event.stopPropagation();go(26)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">\"I Committed the Wrong Thing\"</span>\n<span onclick=\"event.stopPropagation();go(27)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Understands Git State</span>\n<span onclick=\"event.stopPropagation();go(28)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Meaningful Commit Messages</span>\n<span onclick=\"event.stopPropagation();go(29)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Claude Code as Pre-Commit Reviewer</span>\n<span onclick=\"event.stopPropagation();go(30)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.2: AI-Assisted Commits</span>\n<span onclick=\"event.stopPropagation();go(31)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Commits as Audit Trail</span>\n<span onclick=\"event.stopPropagation();go(32)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Provenance: Where Did This Come From?</span>\n<span onclick=\"event.stopPropagation();go(33)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Git Branching: Working in Parallel</span>\n<span onclick=\"event.stopPropagation();go(34)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Interactive: Visualize Git with D3</span>\n<span onclick=\"event.stopPropagation();go(35)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">git stash: Save Work Without Committing</span>\n<span onclick=\"event.stopPropagation();go(36)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Merge Conflicts: Don't Panic</span>\n<span onclick=\"event.stopPropagation();go(37)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">AI-Augmented: Claude Code Resolves Conflicts</span>\n<span onclick=\"event.stopPropagation();go(38)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">.gitignore: What NOT to Track</span>\n<span onclick=\"event.stopPropagation();go(39)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Exercise 1.3: Branching and Conflicts</span>\n<span onclick=\"event.stopPropagation();go(40)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Pull Requests: Code Review Before Merge</span>\n<span onclick=\"event.stopPropagation();go(41)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Remote Repositories: Working with a Team</span>\n<span onclick=\"event.stopPropagation();go(42)\" style=\"cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px\" onmouseover=\"this.style.background='var(--accent)'\" onmouseout=\"this.style.background='transparent'\">Module 1: Key Takeaways</span>"
   },
   {
     "type": "content",
@@ -134,7 +134,7 @@
     "title": "The Three Areas of Git",
     "body": [
       {
-        "code": "Working Directory    Staging Area       Repository\n(your files)        (prepared)          (permanent)\n\n  edit files -----&gt; <span class=\"kw\">git add</span> ---------&gt; <span class=\"kw\">git commit</span>\n\n  <span class=\"str\">\"my desk\"</span>         <span class=\"str\">\"outbox\"</span>           <span class=\"str\">\"sealed archive\"</span>"
+        "code": "Working Directory    Staging Area       Repository\n(your files)         (prepared)         (permanent)\n\n  edit files -----&gt; <span class=\"kw\">git add</span> ---------&gt; <span class=\"kw\">git commit</span>\n\n  <span class=\"str\">\"my desk\"</span>         <span class=\"str\">\"outbox\"</span>           <span class=\"str\">\"sealed archive\"</span>"
       },
       {
         "card": "",
@@ -256,10 +256,7 @@
       {
         "card": "Task:",
         "items": [
-          "Make 3 separate changes to your Calculator:",
-          "&emsp;&mdash; Add a <code>modulo()</code> method",
-          "&emsp;&mdash; Fix a bug in <code>divide()</code>",
-          "&emsp;&mdash; Add a comment explaining the class",
+          "Make 3 separate changes to your Calculator:<ul><li>Add a <code>modulo()</code> method</li><li>Fix a bug in <code>divide()</code></li><li>Add a comment explaining the class</li></ul>",
           "For each: ask Claude Code to review and suggest a commit message",
           "Make <strong>3 separate commits</strong> (not one big commit!)",
           "<code>git log --oneline</code> &mdash; your history should tell a clear story"
@@ -267,62 +264,6 @@
       },
       {
         "quote": "Rule: Read every suggested message. Modify if inaccurate."
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "1",
-    "tag": "industry",
-    "title": "Git Commits as Audit Trail",
-    "desc": "What you just learned maps directly to production system patterns.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Git",
-            "Agent System"
-          ],
-          "rows": [
-            [
-              "<code>git log</code>",
-              "Audit trail"
-            ],
-            [
-              "Commit message",
-              "Decision record"
-            ],
-            [
-              "Author + timestamp",
-              "Principal + trace ID"
-            ],
-            [
-              "<code>git diff</code>",
-              "Change evidence"
-            ],
-            [
-              "<code>git blame</code>",
-              "Accountability trace"
-            ]
-          ],
-          "note": "&ldquo;Audit trails should answer: Who initiated? Who authorized? Under what identity? What side effect?&rdquo; &mdash; Your git log already answers these."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "1",
-    "tag": "industry",
-    "title": "Provenance: Where Did This Come From?",
-    "desc": "Every piece of data needs a traceable origin &mdash; in Git and in AI systems.",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># Git records provenance automatically:</span>\n$ <span class=\"kw\">git log</span> -1\ncommit a3f7b21...\nAuthor: student@fh.ac.at         <span class=\"cmt\"># WHO</span>\nDate:   Mon Mar 15 14:30:00      <span class=\"cmt\"># WHEN</span>\n    Add divide with zero-check   <span class=\"cmt\"># WHY</span>"
-      },
-      {
-        "code": "<span class=\"cmt\"># cognitive-core (Module 9) tracks the same for AI agents:</span>\n<span class=\"kw\">memory_record</span>:\n  source_type: <span class=\"str\">\"trusted_service\"</span>   <span class=\"cmt\"># WHERE did it come from?</span>\n  writer_identity: <span class=\"str\">\"agent_runtime\"</span> <span class=\"cmt\"># WHO wrote it?</span>\n  tenant_id: <span class=\"str\">\"team_alpha\"</span>          <span class=\"cmt\"># WHICH team owns it?</span>\n  written_at: <span class=\"str\">\"2026-03-15T14:30\"</span>   <span class=\"cmt\"># WHEN was it written?</span>\n  confidence: <span class=\"str\">0.95</span>                 <span class=\"cmt\"># HOW sure are we?</span>",
-        "note": "Same concept, different scale. Git = provenance for code (WHO committed, WHEN, WHY). AI agent systems like cognitive-core = provenance for every piece of data an agent reads or writes. We will explore cognitive-core in detail in Module 9."
       }
     ]
   },
@@ -345,6 +286,15 @@
       },
       {
         "code": "<span class=\"kw\">git checkout</span> -b feature/add-modulo\n<span class=\"cmt\"># work, commit, work, commit...</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"kw\">git merge</span> feature/add-modulo"
+      },
+      {
+        "card": "Working Directly on Main",
+        "warn": true,
+        "items": [
+          "<strong>WRONG:</strong> <code>git checkout main</code> &rarr; edit &rarr; commit &mdash; main is now broken for everyone",
+          "<strong>RIGHT:</strong> <code>git checkout -b feature/my-task</code> &rarr; edit &rarr; commit &rarr; merge back to main",
+          "Rule: Never commit unfinished work to main"
+        ]
       }
     ]
   },
@@ -387,20 +337,6 @@
             }
           ]
         }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "1",
-    "tag": "mistake",
-    "title": "Working Directly on Main",
-    "body": [
-      {
-        "code": "<span class=\"cmt\"># WRONG:</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"cmt\"># edit, edit, commit &mdash; main is now broken for everyone</span>\n\n<span class=\"cmt\"># RIGHT:</span>\n<span class=\"kw\">git checkout</span> -b feature/my-task\n<span class=\"cmt\"># edit, edit, commit &mdash; main is still safe</span>\n<span class=\"kw\">git checkout</span> main\n<span class=\"kw\">git merge</span> feature/my-task"
-      },
-      {
-        "quote": "Rule: Never commit unfinished work to main."
       }
     ]
   },

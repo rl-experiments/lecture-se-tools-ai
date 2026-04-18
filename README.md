@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 11 modules + introduction, 223 slides.
+University lecture slides — 11 modules + introduction.
 
 ## Quick Start
 
@@ -46,18 +46,18 @@ slides/
     bug.js                ← animated bugs for code quality slides
   json/
     slides-config.json    ← metadata (title, modules, TOC, cover)
-    module_0.json         ← M0: Introduction (18 slides)
-    module_1.json         ← M1: Version Control with Git (26 slides)
-    module_2.json         ← M2: Build Management with Maven (23 slides)
-    module_3.json         ← M3: Code Quality (26 slides)
-    module_4.json         ← M4: Automated Testing (19 slides)
-    module_5.json         ← M5: Continuous Integration (20 slides)
-    module_6.json         ← M6: Security & Trust (24 slides)
-    module_7.json         ← M7: Agent Architecture (19 slides)
-    module_8.json         ← M8: Prompt Engineering & Context (11 slides)
-    module_9.json         ← M9: cognitive-core Framework (17 slides)
-    module_10.json        ← M10: Capstone Project (11 slides)
-    module_11.json        ← M11: Exam / Presentation (8 slides)
+    module_0.json         ← M0: Introduction
+    module_1.json         ← M1: Version Control with Git
+    module_2.json         ← M2: Build Management with Maven
+    module_3.json         ← M3: Code Quality
+    module_4.json         ← M4: Automated Testing
+    module_5.json         ← M5: Continuous Integration
+    module_6.json         ← M6: Security & Trust
+    module_7.json         ← M7: Agent Architecture
+    module_8.json         ← M8: Prompt Engineering & Context
+    module_9.json         ← M9: cognitive-core Framework
+    module_10.json        ← M10: Capstone Project
+    module_11.json        ← M11: Exam / Presentation
   images/
     bg/                   ← background images (6 JPEGs)
     content/              ← slide content images (SVN-vs-GIT, etc.)
@@ -85,7 +85,7 @@ pip install playwright pypdf
 playwright install chromium
 python tools/export_pdf.py
 ```
-Output: `export/slides.pdf` (landscape, 223 pages)
+Output: `export/slides.pdf` (landscape)
 
 ## Dependencies
 
