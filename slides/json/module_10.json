@@ -13,8 +13,8 @@
       }
     },
     "bg": 7,
-    "h1": "Module 10",
-    "lead": "Putting It All Together — Capstone Project",
+    "h1": "Capstone",
+    "lead": "Putting It All Together",
     "sub": "Build a complete Java application using every tool",
     "badges": [
       "Full Pipeline",
@@ -31,7 +31,7 @@
     "mod": "10",
     "tag": "",
     "title": "The Capstone Project",
-    "desc": "Build a complete Java application using every tool from this course",
+    "desc": "Build a complete Java application using every tool from this course. <strong>Solo project &mdash; submitted via GitHub.</strong>",
     "body": [
       {
         "card": "Project: A command-line Student Grade Manager",
@@ -52,6 +52,7 @@
     "mod": "10",
     "tag": "",
     "title": "Requirements Checklist",
+    "desc": "Each requirement maps to a module. Grading rules (penalties &amp; bonuses): see <strong>Module 11 &mdash; Grading Policy</strong>.",
     "body": [
       {
         "table": {
@@ -222,60 +223,46 @@
   {
     "type": "content",
     "mod": "10",
-    "tag": "exercise",
-    "title": "Exercise 10.1: Project Setup",
-    "desc": "30 minutes",
+    "tag": "",
+    "title": "Project Plan: 3 Phases",
+    "desc": "Each phase ends with a verification command that must succeed before you move on.",
     "body": [
       {
-        "card": "Task:",
+        "card": "Phase 1 &mdash; Setup (30 min)",
         "items": [
-          "Create Git repo: <code>student-grade-manager</code>",
+          "Create public <strong>GitHub</strong> repo: <code>student-grade-manager</code>",
           "Use Claude Code to scaffold Maven project",
           "Add dependencies: Gson, JUnit 5, Mockito",
           "Create initial classes: <code>Student</code>, <code>Grade</code>, <code>GradeManager</code>",
+          "Install <strong>cognitive-core</strong> (from M9); confirm <code>/fitness</code> runs",
           "First commit on <code>main</code>: &ldquo;Initial project structure&rdquo;",
           "Create branch: <code>feature/core-logic</code>",
           "<strong>Verify:</strong> <code>mvn compile</code> works"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "10",
-    "tag": "exercise",
-    "title": "Exercise 10.2: Implementation + Tests",
-    "desc": "60 minutes",
-    "body": [
+      },
       {
-        "card": "On feature branch:",
+        "card": "Phase 2 &mdash; Implementation + Tests (60 min)",
         "items": [
           "Implement <code>Student</code> (name, ID, list of grades)",
           "Implement <code>GradeManager</code> (add student, add grade, calculate average, save/load JSON)",
           "Write JUnit tests &mdash; use Claude Code + write some by hand",
           "Use TDD for at least one method",
-          "Regular commits with meaningful messages",
+          "Run <code>/test-scaffold</code> to surface edge cases you missed",
+          "Commit iteratively: one feature at a time, meaningful messages",
           "<strong>Verify:</strong> <code>mvn test</code> all green"
         ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "10",
-    "tag": "exercise",
-    "title": "Exercise 10.3: Quality + Pipeline",
-    "desc": "45 minutes",
-    "body": [
+      },
       {
-        "card": "Task:",
+        "card": "Phase 3 &mdash; Quality + Pipeline (45 min)",
         "items": [
+          "Run <code>/code-review</code> &mdash; fix findings before you merge",
           "Merge feature branch to main",
           "Run <code>mvn checkstyle:check pmd:check spotbugs:check</code>",
           "Fix all violations (AI help OK, but understand each fix)",
           "Add JaCoCo &mdash; target 70%+ coverage",
           "Write Jenkinsfile with stages: Build, Test, Quality, Package",
-          "Final commit: &ldquo;Add CI pipeline and quality gates&rdquo;",
+          "Capture <code>/fitness</code> score (needed for the M11 bonus)",
+          "Final commit &amp; push to GitHub: &ldquo;Add CI pipeline and quality gates&rdquo;",
           "<strong>Verify:</strong> <code>mvn clean package</code> succeeds with zero warnings"
         ]
       }
@@ -285,41 +272,9 @@
     "type": "content",
     "mod": "10",
     "tag": "",
-    "title": "LLM Bonus Criteria",
-    "desc": "Additional points for professional AI-assisted development practices.",
+    "title": "Professional AI Usage: Signs & Red Flags",
+    "desc": "What professional AI-assisted development looks like &mdash; and what it doesn&rsquo;t. (Grading bonuses: see Module 11.)",
     "body": [
-      {
-        "table": {
-          "headers": [
-            "Bonus Criterion",
-            "Points",
-            "Evidence Required"
-          ],
-          "rows": [
-            [
-              "<code>CLAUDE.md</code> + <code>.claude/rules/</code> configured",
-              "+0.3",
-              "Meaningful content in repository (not empty templates)"
-            ],
-            [
-              "Custom slash command or skill",
-              "+0.3",
-              "Working <code>.claude/commands/</code> file that does something useful"
-            ],
-            [
-              "cognitive-core fitness &ge; 90%",
-              "+0.3",
-              "Screenshot of <code>/fitness</code> output showing score"
-            ],
-            [
-              "Meaningful LLM usage in commits",
-              "+0.3",
-              "Commit history shows iterative refinement, not vibe-coded dumps"
-            ]
-          ],
-          "note": "Maximum LLM bonus: +1.2 grade points. Combined with architecture bonus (+0.5): up to +1.7 total."
-        }
-      },
       {
         "card": "Good signs (iterative, professional):",
         "items": [
@@ -345,53 +300,26 @@
     "type": "content",
     "mod": "10",
     "tag": "",
-    "title": "Evaluation Criteria",
+    "title": "Submission",
+    "desc": "Solo project &mdash; push to GitHub by the announced deadline.",
     "body": [
       {
-        "table": {
-          "headers": [
-            "Criteria",
-            "Points",
-            "What we check"
-          ],
-          "rows": [
-            [
-              "Git workflow",
-              "20%",
-              "Clean history, branches, meaningful commits"
-            ],
-            [
-              "Maven build",
-              "15%",
-              "pom.xml correct, dependencies resolve, builds clean"
-            ],
-            [
-              "Code quality",
-              "15%",
-              "Zero critical violations (all three tools)"
-            ],
-            [
-              "Test quality",
-              "20%",
-              "Coverage 70%+, edge cases, meaningful assertions"
-            ],
-            [
-              "CI pipeline",
-              "15%",
-              "Jenkinsfile works, all stages present"
-            ],
-            [
-              "Security",
-              "10%",
-              ".gitignore, no secrets, AI output reviewed"
-            ],
-            [
-              "<strong>Bonus</strong>",
-              "+5%",
-              "Architecture checklist completed with evidence"
-            ]
-          ]
-        }
+        "card": "How to submit",
+        "items": [
+          "Create a <strong>GitHub</strong> repo (public, or private with instructor granted access)",
+          "Push <strong>all</strong> your commits &mdash; the git history is part of the grade",
+          "Final commit on <code>main</code> before the deadline",
+          "Submit the <strong>repo URL</strong> through the course channel"
+        ]
+      },
+      {
+        "card": "What the reviewer opens first",
+        "items": [
+          "<code>git log --oneline</code> &mdash; iterative commits, not one big dump",
+          "<code>CLAUDE.md</code> + <code>.claude/</code> &mdash; your rules and commands",
+          "<code>mvn clean verify</code> &mdash; must pass",
+          "For bonuses: <code>/fitness</code> screenshot, Architecture Checklist evidence &mdash; see <strong>Module 11 Grading Policy</strong>"
+        ]
       }
     ]
   }

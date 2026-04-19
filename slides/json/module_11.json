@@ -14,8 +14,8 @@
       }
     },
     "bg": 2,
-    "h1": "Module 11",
-    "lead": "Exam / Presentation",
+    "h1": "Exam",
+    "lead": "Presentation & Grading",
     "sub": "Demonstrate your understanding",
     "badges": [
       "Presentation",
@@ -284,14 +284,9 @@
               "<strong>Fitness &ge; 90%</strong>",
               "Quality score threshold met",
               "+0.3"
-            ],
-            [
-              "<strong>AI usage log</strong>",
-              "<code>AI-LOG.md</code> (or similar) documenting where and how AI was used during the project",
-              "+0.3"
             ]
           ],
-          "note": "Max bonus: +1.4. Bonuses cannot compensate for missing fundamentals."
+          "note": "Max bonus: +1.1. Bonuses cannot compensate for missing fundamentals."
         }
       }
     ]

@@ -32,7 +32,7 @@ function updateTocAndCovers() {
     if (entry.mod === '0') {
       entry.slide = 2;
     } else {
-      const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === `Module ${entry.mod}`);
+      const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === data.modules[entry.mod].label);
       if (ci >= 0) entry.slide = ci;
     }
   });
@@ -40,7 +40,8 @@ function updateTocAndCovers() {
   // Update cover contents for all modules
   for (let m = 0; m <= 20; m++) {
     const mod = String(m);
-    const coverIdx = data.slides.findIndex(s => s.type === 'cover' && s.h1 === `Module ${mod}`);
+    if (!data.modules[mod]) continue;
+    const coverIdx = data.slides.findIndex(s => s.type === 'cover' && s.h1 === data.modules[mod].label);
     if (coverIdx < 0) continue;
     const modSlides = [];
     for (let i = 0; i < data.slides.length; i++) {
@@ -72,14 +73,17 @@ function bgForSlide(idx) {
 
 // Build module color lookup
 const modColors = {};
+const labelToMod = {};
 for (const [k, v] of Object.entries(data.modules)) {
   modColors[k] = v.color;
+  labelToMod[v.label] = k;
 }
 
 function renderModBadge(mod) {
   if (!mod) return '';
   const c = modColors[mod] || '#737373';
-  return `<span class="module-badge" style="background:${c}20;color:${c}">Module ${mod}</span>`;
+  const label = (data.modules[mod] && data.modules[mod].label) || `Module ${mod}`;
+  return `<span class="module-badge" style="background:${c}20;color:${c}">${label}</span>`;
 }
 
 function renderTypeBadge(tag) {
@@ -212,8 +216,8 @@ function renderToc(slideData) {
     const mod = s.mod || null;
 
     // Module group header for cover slides
-    if (s.type === 'cover' && s.h1 && s.h1.startsWith('Module')) {
-      const modNum = s.h1.replace('Module ', '');
+    if (s.type === 'cover' && s.h1 && labelToMod[s.h1] !== undefined) {
+      const modNum = labelToMod[s.h1];
       const c = modColors[modNum] || '#737373';
       html += `<div style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600" onclick="go(${i})">`;
       html += `<span style="color:${c};font-size:13px;font-weight:700;letter-spacing:0.02em;text-align:right">${s.h1}</span>`;

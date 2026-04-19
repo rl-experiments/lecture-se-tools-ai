@@ -2,7 +2,7 @@
   "title": "Professional Java Development: SE Tools & AI-Assisted Engineering",
   "modules": {
     "0": {
-      "label": "Module 0",
+      "label": "Intro",
       "color": "#737373"
     },
     "1": {
@@ -42,11 +42,11 @@
       "color": "#14b8a6"
     },
     "10": {
-      "label": "Module 10",
+      "label": "Capstone",
       "color": "#06b6d4"
     },
     "11": {
-      "label": "Module 11",
+      "label": "Exam",
       "color": "#737373"
     }
   },
@@ -59,7 +59,7 @@
     4
   ],
   "tocGroups": [
-    { "label": null, "mods": ["0"] },
+    { "label": "Introduction", "mods": ["0"] },
     { "label": "Classic Software Engineering Tools", "mods": ["1", "2", "3", "4", "5"] },
     { "label": "AI Engineering with Claude Code", "mods": ["6", "7", "8"] },
     { "label": "Case Study", "mods": ["9"] },
@@ -68,8 +68,8 @@
   "toc": [
     {
       "mod": "0",
-      "title": "Introduction",
-      "topics": "Claude Code, Agent Model, Setup"
+      "title": "Course Overview",
+      "topics": "Why Tools Matter, Toolchain + AI Layer, Agent Model, First Contact"
     },
     {
       "mod": "1",
@@ -118,12 +118,12 @@
     },
     {
       "mod": "10",
-      "title": "Capstone Project",
+      "title": "Final Project",
       "topics": "Full Pipeline, AI-Augmented Development"
     },
     {
       "mod": "11",
-      "title": "Exam / Presentation",
+      "title": "Presentation & Grading",
       "topics": "Demonstrate Understanding, LLM Assessment"
     }
   ],
