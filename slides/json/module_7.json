@@ -335,7 +335,7 @@
           "<strong>Structured output</strong> (JSON, tables) makes responses parseable &mdash; the bridge to CI",
           "<strong>The interview pattern</strong>: let AI ask questions before implementing",
           "<strong>Context windows</strong> are finite &mdash; manage them or lose critical information",
-          "<strong>Scratchpad files</strong> and <strong>CLAUDE.md</strong> anchor facts that must survive compaction",
+          "<strong>Scratchpad files</strong> and <strong>CLAUDE.md</strong> anchor facts that must survive when older context gets compacted away",
           "<strong>Human-in-the-loop</strong>: irreversible actions always require human approval regardless of AI confidence"
         ]
       }

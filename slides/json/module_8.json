@@ -711,8 +711,8 @@
           "<strong>Control plane</strong> = policies that restrict agent actions",
           "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
           "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 9)",
-          "<strong>Fitness gates</strong>: deterministic enforcement (60&rarr;95%) beats hope-based prompts",
-          "<strong>ADRs + PlantUML</strong>: keep the overview when AI writes most of the code",
+          "<strong>Fitness gates</strong>: code must pass a scored check to merge &mdash; raise the bar from 60% to 95% over time",
+          "<strong>ADRs</strong> (architecture decision records) + <strong>PlantUML</strong> diagrams: how you keep the overview when AI writes most of the code",
           "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"
         ]
       }

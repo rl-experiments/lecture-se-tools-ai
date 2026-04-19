@@ -627,7 +627,7 @@
           "Every AI action has a <strong>risk level</strong> &mdash; read/write/critical",
           "<strong>Approval flows</strong> are security, not inconvenience",
           "The <strong>trust boundary</strong> separates what you control from what you don&rsquo;t",
-          "<strong>Industry:</strong> the full security perimeter model from production agent architecture applies directly to your daily workflow"
+          "Production AI systems defend themselves with the same layers you just learned: <strong>identity, policies, gateways, audit</strong>"
         ]
       }
     ]

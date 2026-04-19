@@ -118,17 +118,63 @@
     "mod": "11",
     "tag": "takeaway",
     "layout": "center",
-    "title": "Five Final Messages",
+    "title": "Nine Final Messages",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>1. Tools are not optional</strong> &mdash; they separate professional from amateur",
-          "<strong>2. AI amplifies your skill level</strong> &mdash; high skill + AI = powerful",
-          "<strong>3. Always understand what you commit</strong> &mdash; AI writes drafts, you decide",
-          "<strong>4. Security is everyone&rsquo;s job</strong> &mdash; trust boundaries, data protection, approval flows",
-          "<strong>5. You already know production architecture</strong> &mdash; the patterns scale from JUnit to AI platforms"
-        ]
+        "table": {
+          "headers": [
+            "Module",
+            "<span style=\"display:inline-block;min-width:130px\">Topic</span>",
+            "Final Message"
+          ],
+          "rows": [
+            [
+              "<strong>M1</strong>",
+              "Git",
+              "AI writes the diff; you sign the commit. Git records who <em>decided</em> &mdash; not who typed."
+            ],
+            [
+              "<strong>M2</strong>",
+              "Maven",
+              "<code>pom.xml</code> is a contract, not config. Classify every Maven command by blast radius."
+            ],
+            [
+              "<strong>M3</strong>",
+              "Quality",
+              "CLAUDE.md is a suggestion AI may ignore. CheckStyle / PMD / SpotBugs are gates it cannot."
+            ],
+            [
+              "<strong>M4</strong>",
+              "Testing",
+              "Tests are your AI eval dataset. One edge case beats a hundred trivial assertions."
+            ],
+            [
+              "<strong>M5</strong>",
+              "CI",
+              "Stop the line when the build is red. A pipeline with weak gates is just theater."
+            ],
+            [
+              "<strong>M6</strong>",
+              "Security",
+              "You draw the trust boundary; AI won&rsquo;t. No secrets in, no irreversible actions out unsupervised."
+            ],
+            [
+              "<strong>M7</strong>",
+              "Prompts",
+              "Show, don&rsquo;t tell: examples beat polite instructions. Structured output is the bridge from chat to CI."
+            ],
+            [
+              "<strong>M8</strong>",
+              "Architecture",
+              "Production AI is familiar at every layer: tests become evals, linters become guardrails, CI becomes orchestration."
+            ],
+            [
+              "<strong>M9</strong>",
+              "cognitive-core",
+              "Deterministic hooks beat probabilistic prompts. Install cognitive-core in the capstone &mdash; don&rsquo;t hand-roll guardrails."
+            ]
+          ]
+        }
       }
     ]
   },

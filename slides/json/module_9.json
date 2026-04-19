@@ -616,5 +616,27 @@
         ]
       }
     ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
+    "tag": "takeaway",
+    "layout": "center",
+    "title": "Module 9: Key Takeaways",
+    "body": [
+      {
+        "card": "",
+        "items": [
+          "<strong>cognitive-core</strong> is Module 8&rsquo;s architecture made concrete &mdash; a working install you can run today",
+          "<strong>Three layers:</strong> hooks (reflexes, always fire) &rarr; skills (workflows you invoke) &rarr; agents (reasoning you delegate)",
+          "<strong>Hooks are deterministic</strong>: no prompt can bypass them &mdash; e.g. <code>validate-bash</code> blocks <code>rm -rf /</code>, <code>post-edit-lint</code> runs after every edit",
+          "<strong>Skills</strong> codify repeatable workflows: <code>/pre-commit</code>, <code>/test-scaffold</code>, <code>/code-review</code>",
+          "<strong>Fitness score</strong> turns &ldquo;is this good enough?&rdquo; into a measurable threshold, not a vibe",
+          "<strong>Source Authority</strong>: weight inputs by credibility &mdash; your tests &gt; Stack Overflow &gt; AI guess",
+          "<strong>Coordinator topology</strong>: one lead agent delegates to specialists (review, test, docs) and aggregates their findings",
+          "The cognitive-core <strong>Lab Pack</strong> is installable &mdash; use it in the capstone and beyond"
+        ]
+      }
+    ]
   }
 ]

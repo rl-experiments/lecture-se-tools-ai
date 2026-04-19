@@ -796,13 +796,12 @@
       {
         "card": "",
         "items": [
-          "<strong>CheckStyle</strong> = formatting and style consistency",
-          "<strong>PMD</strong> = bad patterns and code smells",
-          "<strong>SpotBugs</strong> = actual bugs in compiled bytecode",
-          "Configure tools to <strong>fail the build</strong> on violations",
+          "<strong>CheckStyle</strong> = style &middot; <strong>PMD</strong> = smells &middot; <strong>SpotBugs</strong> = bugs in bytecode",
+          "Configure tools to <strong>fail the build</strong> on violations &mdash; regression gates",
           "Claude Code goes beyond rules &mdash; understands design and intent",
           "<strong>Always run tests after refactoring</strong> (even AI-suggested)",
-          "<strong>Industry:</strong> quality checks that block builds = regression gates in production systems",
+          "<strong>CLAUDE.md</strong> teaches AI your project rules &mdash; but it is <em>guidance, not enforcement</em>",
+          "<strong>Vibe coding lesson:</strong> unconstrained AI produces poor code &mdash; rules + gates matter",
           "Use <strong>tools for automated gates</strong>, <strong>AI for deeper review</strong>"
         ]
       }

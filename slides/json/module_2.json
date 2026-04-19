@@ -566,7 +566,8 @@
           "Dependencies are downloaded automatically from Maven Central",
           "<strong>Never</strong> commit <code>target/</code>, passwords, API keys, or secrets to Git",
           "Claude Code augments Maven: explains errors, manages dependencies, fixes pom.xml",
-          "<strong>Industry:</strong> pom.xml = capability contract; Maven commands = read/write tools with risk levels",
+          "<code>pom.xml</code> is a <strong>contract</strong>: exactly what the project depends on, versioned and shareable",
+          "Maven commands differ in <strong>blast radius</strong>: <code>mvn compile</code> is safe; <code>mvn deploy</code> isn&rsquo;t",
           "<strong>Always verify</strong> AI-suggested dependency versions"
         ]
       }
