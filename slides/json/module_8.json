@@ -453,6 +453,11 @@
         "note": "Plain text. Diffable. Reviewable in a PR. Rendered to SVG by Maven or CI."
       },
       {
+        "img": "text-to-UML.jfif",
+        "alt": "Text description on the left becomes a rendered UML diagram on the right",
+        "caption": "From plain text to a reviewable diagram &mdash; the code <em>is</em> the source of truth."
+      },
+      {
         "card": "The AI-assisted loop:",
         "items": [
           "<strong>1. Ask:</strong> &ldquo;Render <code>src/main/java</code> as a PlantUML component diagram&rdquo;",
@@ -463,6 +468,17 @@
       },
       {
         "quote": "ADRs capture the <em>why</em>. PlantUML captures the <em>shape</em>. Both live in-repo, both survive context resets, both are reviewable. That is how you keep the overview when AI writes most of the code."
+      },
+      {
+        "resource": {
+          "title": "Further reading",
+          "links": [
+            {
+              "url": "https://www.linkedin.com/posts/tigraff_uml-claude-wibecoding-activity-7420595633826258944-gGO5",
+              "label": "LinkedIn: UML + Claude + vibe coding (@tigraff)"
+            }
+          ]
+        }
       }
     ]
   },
@@ -510,14 +526,10 @@
         ]
       },
       {
-        "card": "Applied to AI-assisted development:",
-        "items": [
-          "<strong>Agents</strong>: activate only the specialists a task requires &mdash; not every agent for every task",
-          "<strong>Tools</strong>: request only tools the task cannot work without (4&ndash;5 max)",
-          "<strong>Code</strong>: three similar lines &gt; a premature abstraction",
-          "<strong>AI prompts</strong>: ask for exactly what you need &mdash; vague prompts produce over-engineered solutions",
-          "<strong>Exception</strong>: security uses defense-in-depth &mdash; parsimony within layers, not across them"
-        ]
+        "img": "picasso.jfif",
+        "alt": "Picasso's progressive simplification of a bull",
+        "height": 500,
+        "caption": "Picasso's &ldquo;Bull&rdquo; lithographs &mdash; eleven stages, from realistic to a few essential lines. Mastery is knowing what to remove."
       }
     ]
   },

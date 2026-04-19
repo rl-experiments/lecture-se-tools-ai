@@ -247,8 +247,19 @@
 
   function renderImage(item) {
     let html = `<div class="card"><div class="card-content" style="padding:12px">`;
-    const maxH = item.height === 0 ? 'none' : (item.height ? item.height + 'px' : '400px');
-    html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="display:block;height:auto;width:auto;max-width:100%;max-height:${maxH}">`;
+    // height > 0: force that pixel height (width auto-scales, upscaling small sources)
+    // height === 0: no cap (natural size)
+    // no height: default 400px max-height cap
+    let sizeStyle;
+    if (item.height && item.height > 0) {
+      sizeStyle = `height:${item.height}px;width:auto;max-width:100%`;
+    } else if (item.height === 0) {
+      sizeStyle = item.fill ? 'width:100%;height:auto' : 'width:auto;height:auto;max-width:100%';
+    } else {
+      const widthStyle = item.fill ? 'width:100%' : 'width:auto;max-width:100%';
+      sizeStyle = `height:auto;${widthStyle};max-height:400px`;
+    }
+    html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="display:block;${sizeStyle}">`;
     if (item.caption) {
       html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
     }

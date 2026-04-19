@@ -255,7 +255,16 @@ function renderToc(slideData) {
 
 function renderImage(item) {
   let html = `<div class="card" style="text-align:center;padding:12px">`;
-  html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="max-height:420px;border-radius:6px">`;
+  let sizeStyle;
+  if (item.height && item.height > 0) {
+    sizeStyle = `height:${item.height}px;width:auto;max-width:100%;`;
+  } else if (item.height === 0) {
+    sizeStyle = item.fill ? 'width:100%;height:auto;' : 'max-width:100%;';
+  } else {
+    const widthStyle = item.fill ? 'width:100%;' : '';
+    sizeStyle = `${widthStyle}max-height:420px;`;
+  }
+  html += `<img src="images/content/${item.img}" alt="${item.alt || ''}" style="${sizeStyle}border-radius:6px">`;
   if (item.caption) {
     html += `<p style="font-size:14px;color:var(--muted-foreground);margin-top:8px">${item.caption}</p>`;
   }
@@ -365,6 +374,7 @@ for (let i = 0; i < data.slides.length; i++) {
 html += `
 <div id="nav">
   <span class="nav-hint">Arrow keys &middot; Space &middot; Click counter to jump</span>
+  <button class="btn-ghost" onclick="go(0)" title="Cover slide">Cover</button>
   <button class="btn-ghost" onclick="go(1)" title="Table of Contents">TOC</button>
   <button class="btn" id="bp" onclick="prev()">&larr; Prev</button>
   <span id="counter" onclick="jumpPrompt()" style="cursor:pointer" title="Click to jump to slide">1 / ${N}</span>

@@ -32,13 +32,15 @@
     "desc": "Previous modules covered classical software engineering tools. This one shifts focus to the risks AI itself introduces &mdash; and how to defend against them.",
     "body": [
       {
-        "card": "The five risks we will cover, each with a defense:",
+        "card": "The seven risks we will cover, each with a defense:",
         "items": [
           "<strong>Risk 1 &mdash; Hallucination:</strong> AI confidently invents APIs, libraries, facts",
           "<strong>Risk 2 &mdash; Data Leakage:</strong> secrets, PII, proprietary code crossing trust boundaries",
           "<strong>Risk 3 &mdash; Prompt Injection:</strong> attacker-supplied input hijacks the agent",
           "<strong>Risk 4 &mdash; Identity &amp; Permissions:</strong> agent acts with your authority on systems you don&rsquo;t control",
-          "<strong>Risk 5 &mdash; Over-Reliance:</strong> you stop thinking and ship whatever AI produced"
+          "<strong>Risk 5 &mdash; Over-Reliance:</strong> you stop thinking and ship whatever AI produced",
+          "<strong>Risk 6 &mdash; Supply Chain:</strong> AI suggests a package; attacker registered that name",
+          "<strong>Risk 7 &mdash; Insecure Generated Code:</strong> it works, tests pass &mdash; still exploitable (SQL injection, unvalidated user input)"
         ]
       },
       {
@@ -498,6 +500,67 @@
       },
       {
         "quote": "<span style=\"color:#ef4444\"><strong>Grading policy:</strong> if you cannot explain why your code exists and how it works, &minus;1.0 to your grade.</span>"
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "6",
+    "tag": "",
+    "title": "Risk 6: Supply Chain (Slopsquatting)",
+    "desc": "AI confidently suggests a package name. Attackers register it. <code>mvn install</code> / <code>npm install</code> pulls the malware.",
+    "body": [
+      {
+        "card": "How the attack works",
+        "items": [
+          "AI hallucinates a plausible-sounding dependency (e.g., <code>com.example:json-helper</code>) that doesn&rsquo;t exist",
+          "Attackers monitor AI outputs and public chatter for these hallucinated names",
+          "They register the name on Maven Central / npm with a malicious payload",
+          "The next developer who trusts the AI runs <code>mvn install</code> and ships the malware"
+        ]
+      },
+      {
+        "card": "Defense",
+        "warn": true,
+        "items": [
+          "<strong>Verify upstream</strong> &mdash; confirm every AI-suggested dependency actually exists on Maven Central / npm before you add it",
+          "<strong>Pin versions</strong> &mdash; no ranges, no <code>LATEST</code>. Reproducible builds catch silent tampering",
+          "<strong>Never</strong> let AI run <code>mvn install</code> or package-manager commands unreviewed &mdash; it&rsquo;s a Write to your classpath",
+          "Check the package&rsquo;s publish date, download count, and maintainer &mdash; a brand-new package with zero history is a red flag"
+        ]
+      },
+      {
+        "quote": "Slopsquatting is real and documented in production. Pin, verify, then install &mdash; in that order."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "6",
+    "tag": "",
+    "title": "Risk 7: Insecure Generated Code",
+    "desc": "The code compiles. Tests pass. It is functionally correct &mdash; and full of SQL injection, path traversal, or missing input validation.",
+    "body": [
+      {
+        "card": "Why it happens",
+        "items": [
+          "AI reproduces patterns from its training data &mdash; including the <em>insecure</em> ones",
+          "&ldquo;It works&rdquo; &ne; &ldquo;it&rsquo;s safe&rdquo;. A missing bounds check doesn&rsquo;t fail a unit test",
+          "You can&rsquo;t see what isn&rsquo;t there: unvalidated input, unsafe defaults, hardcoded algorithms"
+        ]
+      },
+      {
+        "card": "Defense",
+        "warn": true,
+        "items": [
+          "<strong>SpotBugs + security rulesets</strong> catch classic sinks (SQL string concatenation, <code>MessageDigest.getInstance(&quot;MD5&quot;)</code>, <code>new Random()</code> for tokens) &mdash; Module 3",
+          "<strong>Dedicated scanners</strong>: Snyk, OWASP Dependency-Check, <code>mvn dependency:analyze</code>",
+          "<strong>Human security review</strong> for anything touching: user input, file paths, SQL, auth, crypto",
+          "Treat AI-generated code as an <em>untrusted contributor&rsquo;s PR</em> &mdash; would you merge this from a stranger?"
+        ]
+      },
+      {
+        "quote": "AI generates plausible code. Plausible &ne; secure."
       }
     ]
   },
