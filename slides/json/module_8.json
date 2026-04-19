@@ -203,27 +203,9 @@
   {
     "type": "content",
     "mod": "8",
-    "tag": "industry",
-    "title": "Four Guiding Principles",
-    "desc": "Four rules that guide every production AI agent platform.",
-    "body": [
-      {
-        "card": "",
-        "items": [
-          "<strong>1. Control Before Autonomy</strong> &mdash; First construct predictable paths; then expand agent freedom.",
-          "<strong>2. Security Can&rsquo;t Be Sidelined</strong> &mdash; If policy and approvals aren&rsquo;t embedded in runtime, architecture fixes become emergencies.",
-          "<strong>3. State Must Be Explicit</strong> &mdash; Long tasks shouldn&rsquo;t lose steps because someone restarted the process.",
-          "<strong>4. Observability Over Impressiveness</strong> &mdash; If agents &ldquo;appear intelligent&rdquo; but lack traces, the system isn&rsquo;t managed."
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
     "tag": "",
-    "title": "MCP: Standard Protocol for Agent-Tool Communication",
-    "desc": "Model Context Protocol &mdash; the standard for agent-tool communication.",
+    "title": "MCP: How Agents Talk to Tools",
+    "desc": "Model Context Protocol &mdash; the standard plug for connecting any agent to any tool.",
     "body": [
       {
         "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server\nAgent &lt;--MCP--&gt; Any tool with MCP adapter"
@@ -233,7 +215,7 @@
         "items": [
           "Think of MCP like <strong>USB for AI tools</strong>: one standard plug for any tool",
           "Without standards, every AI tool reinvents file reading, command execution, and search",
-          "MCP makes tools reusable"
+          "MCP makes tools reusable across agents"
         ]
       },
       {
@@ -248,7 +230,16 @@
           "Tool descriptions are critical: include input formats, examples, boundaries",
           "Tell the tool when <strong>NOT</strong> to be used &mdash; negative constraints matter"
         ]
-      },
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
+    "title": "MCP vs. A2A: Tools vs. Agents",
+    "desc": "Two open standards, two different jobs. MCP connects an agent to a tool. A2A connects an agent to another agent.",
+    "body": [
       {
         "table": {
           "headers": [
@@ -281,6 +272,11 @@
               "<strong>Example</strong>",
               "Claude Code &harr; Git MCP server",
               "Coding agent asks a security-review agent to audit its output"
+            ],
+            [
+              "<strong>Protocol</strong>",
+              "JSON-RPC 2.0 &mdash; client/server, tool invocation",
+              "HTTP + task lifecycle &mdash; peer-to-peer, long-running tasks"
             ]
           ]
         }
@@ -560,78 +556,76 @@
     "type": "content",
     "mod": "8",
     "tag": "exercise",
-    "title": "Exercise 8.1: Map the Architecture",
-    "desc": "15 minutes",
-    "body": [
-      {
-        "code": "<span class=\"str\">You:</span> Add a sqrt() method to Calculator with tests"
-      },
-      {
-        "card": "Map each step to the architecture:",
-        "items": [
-          "Which layer receives your input? (Interface)",
-          "Which layer decides what to do? (Cognition/orchestration)",
-          "Which layer reads Calculator.java? (Tool execution)",
-          "Which layer checks if it can write files? (Control plane)",
-          "Which layer writes the new code? (Tool execution)",
-          "Which layer runs the tests? (Tool execution)",
-          "Which layer shows you the result? (Interface)"
-        ]
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
-    "tag": "exercise",
-    "title": "Exercise 8.2: Design a Policy",
+    "title": "Exercise 8.1: Design a Policy",
     "desc": "15 minutes &mdash; think like a security architect",
     "body": [
       {
-        "card": "Scenario",
+        "card": "Scenario &mdash; Claude Code in a professional dev team",
         "items": [
-          "You are building an AI agent for a <strong>banking application</strong>",
-          "The agent can perform the actions listed below",
-          "Your job: assign a risk level and decide who must approve each action"
+          "Claude Code is acting as your co-pilot on a shared Java repo with teammates and CI",
+          "Four enforcement levels, automation separate from humans:",
+          "<strong>1. None</strong> &mdash; agent executes without any gate (the action is inherently safe)",
+          "<strong>2. Automated gate</strong> &mdash; deterministic hook or CI rule allows/blocks (no human in the loop)",
+          "<strong>3. Developer</strong> &mdash; you approve at the terminal permission prompt",
+          "<strong>4. Team Lead / PR review</strong> &mdash; another human signs off before it lands on <code>main</code>",
+          "Your job: assign a risk level and pick the <em>lightest</em> enforcement that is still safe"
         ]
       },
       {
         "table": {
           "headers": [
             "Agent action",
-            "Risk level?",
-            "Who approves?",
+            "Risk?",
+            "Enforcement (1&ndash;4)?",
             "Your reasoning"
           ],
           "rows": [
             [
-              "Read account balance",
+              "Read a source file",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
+              "1 / 2 / 3 / 4?",
               "&hellip;"
             ],
             [
-              "Send notification email",
+              "Run <code>mvn test</code>",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
+              "1 / 2 / 3 / 4?",
               "&hellip;"
             ],
             [
-              "Transfer money",
+              "Edit a source file",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
+              "1 / 2 / 3 / 4?",
               "&hellip;"
             ],
             [
-              "Generate monthly report",
+              "Add a dependency to <code>pom.xml</code>",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
+              "1 / 2 / 3 / 4?",
               "&hellip;"
             ],
             [
-              "Close an account",
+              "Commit to a feature branch",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "None / User / Manager?",
+              "1 / 2 / 3 / 4?",
+              "&hellip;"
+            ],
+            [
+              "Push to <code>main</code>",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "1 / 2 / 3 / 4?",
+              "&hellip;"
+            ],
+            [
+              "<code>git push --force</code> on a shared branch",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "1 / 2 / 3 / 4?",
+              "&hellip;"
+            ],
+            [
+              "Run a deployment script",
+              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
+              "1 / 2 / 3 / 4?",
               "&hellip;"
             ]
           ]
@@ -640,71 +634,13 @@
       {
         "card": "Also discuss:",
         "items": [
-          "Should the agent have a <strong>maximum number of steps</strong> per task? Why?",
-          "What data should the agent <strong>never</strong> store in its memory (e.g., passwords, account numbers)?",
-          "How does this compare to the <strong>Tool Gateway Pattern</strong> from Module 6?"
+          "Should the agent have a <strong>maximum number of tool calls</strong> per task? Why?",
+          "What data should the agent <strong>never</strong> see or store (e.g., <code>.env</code> files, API keys, customer PII in fixtures)?",
+          "How does this map to the <strong>Tool Gateway Pattern</strong> and the <strong>hooks</strong> from Module 6?"
         ]
       },
       {
         "quote": "Compare your answers with a classmate. Did you agree on risk levels? Where did you disagree and why?"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
-    "tag": "exercise",
-    "title": "Exercise 8.3: Launch Checklist for Your Project",
-    "desc": "10 minutes",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Block",
-            "Status",
-            "Evidence"
-          ],
-          "rows": [
-            [
-              "Runtime correctness",
-              "?",
-              "<code>mvn test</code> passes?"
-            ],
-            [
-              "Safety and policy",
-              "?",
-              ".gitignore? No secrets?"
-            ],
-            [
-              "Capability readiness",
-              "?",
-              "All Maven plugins configured?"
-            ],
-            [
-              "Observability",
-              "?",
-              "Jenkinsfile with traced stages?"
-            ],
-            [
-              "Eval readiness",
-              "?",
-              "JUnit coverage 70%+?"
-            ],
-            [
-              "Operational readiness",
-              "?",
-              "Can you debug a failure?"
-            ],
-            [
-              "Rollback plan",
-              "?",
-              "Can you <code>git revert</code>?"
-            ]
-          ]
-        }
-      },
-      {
-        "quote": "How many blocks can you honestly mark as &ldquo;ready&rdquo;?"
       }
     ]
   },
