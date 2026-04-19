@@ -133,7 +133,7 @@
     "bg": 2,
     "h1": "Professional Java Development",
     "lead": "SE Tools & AI-Assisted Engineering",
-    "sub": "<span style=\"font-weight:600;font-size:22px;color:var(--foreground)\">Dennis Piskovatskov</span><br><span style=\"font-size:17px\">Albstadt-Sigmaringen University of Applied Sciences</span>",
+    "sub": "<span style=\"font-weight:600;font-size:22px;color:var(--foreground)\">Dennis Piskovatskov</span><br><span style=\"font-size:17px\">Albstadt-Sigmaringen University of Applied Sciences, Germany</span>",
     "badges": [
       "Git",
       "Maven",
