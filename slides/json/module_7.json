@@ -240,7 +240,7 @@
     "desc": "Pin these at the top of <code>CLAUDE.md</code>. They survive context compression and become the AI&rsquo;s defaults.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># Coding rules</span>\n\n- Ask clarifying questions before implementing.\n  If multiple interpretations exist, present them\n  &mdash; do not pick silently.\n- State success criteria before writing code.\n  Make them verifiable (tests, checks, examples).\n- Prefer the simplest solution that meets the\n  requirement. No speculative abstractions.\n- Touch only what the request needs. No drive-by\n  refactors. Match existing style.",
+        "code": "<span class=\"cmt\"># Coding rules</span>\n\n- Ask questions before implementing. If multiple interpretations exist, present them &mdash; do not pick silently.\n- State success criteria before writing code. Make them verifiable (tests, checks, examples).\n- Prefer the simplest solution that meets the requirement. No speculative abstractions.\n- Touch only what the request needs. No drive-by refactors. Match existing style.",
         "note": "These four rules recap techniques from this course: <em>Interview Pattern</em> and <em>Explicit Criteria</em> (this module), <em>KISS &amp; YAGNI</em> (Module 8, Parsimony Principle). The fourth &mdash; <em>surgical changes</em> &mdash; is the one you have not seen yet, and it is the single most common LLM coding failure in practice."
       },
       {
