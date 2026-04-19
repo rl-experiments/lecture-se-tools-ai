@@ -405,7 +405,7 @@
     "title": "Observability: Seeing What the Agent Did",
     "body": [
       {
-        "code": "Run #1234\n  |&mdash; Step 1: Read Calculator.java         (2ms)\n  |&mdash; Step 2: Analyze code structure        (model, 800ms)\n  |&mdash; Step 3: Generate test cases           (model, 1200ms)\n  |&mdash; Step 4: Write CalculatorTest.java     (5ms)\n  |&mdash; Step 5: Run mvn test                  (3400ms) &mdash; SUCCESS\n  Total: 5407ms | 2 model calls | 1800 tokens"
+        "code": "Run #1234\n  |&mdash; Step 1: Read Calculator.java          (2ms)\n  |&mdash; Step 2: Analyze code structure        (model, 800ms)\n  |&mdash; Step 3: Generate test cases           (model, 1200ms)\n  |&mdash; Step 4: Write CalculatorTest.java     (5ms)\n  |&mdash; Step 5: Run mvn test                  (3400ms) &mdash; SUCCESS\n  Total: 5407ms | 2 model calls | 1800 tokens"
       },
       {
         "quote": "Without traces, agent systems are black boxes. Same as Jenkins (Module 5): you need to see each step, its duration, and its outcome."

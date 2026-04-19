@@ -228,7 +228,7 @@
     "desc": "Each phase ends with a verification command that must succeed before you move on.",
     "body": [
       {
-        "card": "Phase 1 &mdash; Setup (30 min)",
+        "card": "Phase 1 &mdash; Setup",
         "items": [
           "Create public <strong>GitHub</strong> repo: <code>student-grade-manager</code>",
           "Use Claude Code to scaffold Maven project",
@@ -241,7 +241,7 @@
         ]
       },
       {
-        "card": "Phase 2 &mdash; Implementation + Tests (60 min)",
+        "card": "Phase 2 &mdash; Implementation + Tests",
         "items": [
           "Implement <code>Student</code> (name, ID, list of grades)",
           "Implement <code>GradeManager</code> (add student, add grade, calculate average, save/load JSON)",
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "card": "Phase 3 &mdash; Quality + Pipeline (45 min)",
+        "card": "Phase 3 &mdash; Quality + Pipeline",
         "items": [
           "Run <code>/code-review</code> &mdash; fix findings before you merge",
           "Merge feature branch to main",
