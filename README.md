@@ -1,6 +1,6 @@
 # Professional Java Development: SE Tools & AI-Assisted Engineering
 
-University lecture slides — 11 modules + introduction.
+University lecture slides — Introduction, 9 modules, Final Project, Exam.
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ slides/
     bug.js                ← animated bugs for code quality slides
   json/
     slides-config.json    ← metadata (title, modules, TOC, cover)
-    module_0.json         ← M0: Introduction
+    module_0.json         ← Introduction: Course Overview
     module_1.json         ← M1: Version Control with Git
     module_2.json         ← M2: Build Management with Maven
     module_3.json         ← M3: Code Quality
@@ -56,8 +56,8 @@ slides/
     module_7.json         ← M7: Prompt Engineering & Context
     module_8.json         ← M8: Agent Architecture & Production Patterns
     module_9.json         ← M9: cognitive-core Framework
-    module_10.json        ← M10: Capstone Project
-    module_11.json        ← M11: Exam / Presentation
+    module_10.json        ← Capstone: Final Project
+    module_11.json        ← Exam: Presentation & Grading
   images/
     bg/                   ← background images (6 JPEGs)
     content/              ← slide content images (SVN-vs-GIT, etc.)
@@ -91,3 +91,8 @@ Output: `export/slides.pdf` (landscape)
 
 - Node.js (for `npx` commands) or Python 3 (for `http.server`)
 - PDF export: Python 3, playwright, pypdf
+
+## License
+
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see [LICENSE](LICENSE).
+Copyright © 2026 Dennis Piskovatskov.

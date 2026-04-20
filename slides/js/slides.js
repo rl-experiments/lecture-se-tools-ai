@@ -431,7 +431,7 @@
     if (k === 'ArrowLeft' || k === 'Backspace' || k === 'PageUp') { e.preventDefault(); prev(); }
     if (k === 'Home') { e.preventDefault(); go(0); }
     if (k === 'End') { e.preventDefault(); go(N - 1); }
-    if (k === 'f' || k === 'F') fs();
+    if ((k === 'f' || k === 'F') && !e.ctrlKey && !e.metaKey && !e.altKey) fs();
   });
 
   let ht;
