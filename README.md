@@ -2,6 +2,8 @@
 
 University lecture slides — Introduction, 9 modules, Final Project, Exam.
 
+![Cover slide](.github/cover.png)
+
 ## Quick Start
 
 No build step needed — slides load JSON at runtime.
