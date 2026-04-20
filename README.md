@@ -1,4 +1,4 @@
-# Professional Java Development<br>SE Tools & AI-Assisted Engineering
+# Professional Java Development<br><sub>SE Tools & AI-Assisted Engineering</sub>
 
 University lecture slides — Introduction, 9 modules, Final Project, Exam.
 
