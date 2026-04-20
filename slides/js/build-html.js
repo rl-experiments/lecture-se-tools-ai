@@ -374,7 +374,7 @@ for (let i = 0; i < data.slides.length; i++) {
 html += `
 <div id="nav">
   <span class="nav-hint">Arrow keys &middot; Space &middot; Click counter to jump</span>
-  <button class="btn-ghost" onclick="go(0)" title="Cover slide">Cover</button>
+  <button class="btn-ghost" onclick="go(0)" title="Home"><svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" style="margin-right:6px;flex-shrink:0" aria-hidden="true"><rect x="3" y="3" width="2" height="10"/><path d="M13 3L6 8l7 5V3z"/></svg>Home</button>
   <button class="btn-ghost" onclick="go(1)" title="Table of Contents">TOC</button>
   <button class="btn" id="bp" onclick="prev()">&larr; Prev</button>
   <span id="counter" onclick="jumpPrompt()" style="cursor:pointer" title="Click to jump to slide">1 / ${N}</span>
