@@ -1,8 +1,8 @@
-# Professional Java Development: SE Tools & AI-Assisted Engineering
+# Professional Java Development<br>SE Tools & AI-Assisted Engineering
 
 University lecture slides — Introduction, 9 modules, Final Project, Exam.
 
-![Cover slide](.github/cover.png)
+![Cover slide](.github/cover.webp)
 
 ## Quick Start
 

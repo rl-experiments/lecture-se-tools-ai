@@ -25,6 +25,7 @@ try:
         page.evaluate("""() => {
             const nav = document.getElementById('nav'); if (nav) nav.style.display = 'none';
             const pr = document.getElementById('progress'); if (pr) pr.style.display = 'none';
+            document.querySelectorAll('.badge-draft').forEach(b => b.style.display = 'none');
             const s = document.querySelector('.slide.active');
             const cs = getComputedStyle(s);
             document.body.style.backgroundImage = cs.backgroundImage;
@@ -33,7 +34,7 @@ try:
             document.body.style.backgroundPosition = 'center';
             s.style.backgroundImage = 'none';
             s.style.backgroundColor = 'transparent';
-            s.style.transform = 'scale(0.7)';
+            s.style.transform = 'scale(0.75)';
             s.style.transformOrigin = 'center center';
         }""")
         time.sleep(1.2)
