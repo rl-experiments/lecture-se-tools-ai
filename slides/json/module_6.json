@@ -727,17 +727,22 @@
     "title": "Module 6: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>Three questions:</strong> What can AI see? Decide? Do?",
-          "AI can be <strong>wrong</strong> &mdash; review everything",
-          "<strong>Never</strong> send secrets or personal data to AI",
-          "<strong>Separate instructions from data</strong> (prompt injection defense)",
-          "Every AI action has a <strong>risk level</strong> &mdash; read/write/critical",
-          "<strong>Approval flows</strong> are security, not inconvenience",
-          "The <strong>trust boundary</strong> separates what you control from what you don&rsquo;t",
-          "Production AI systems defend themselves with the same layers you just learned: <strong>identity, policies, gateways, audit</strong>"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>Three questions</strong>", "What can AI see? Decide? Do?" ],
+            [ "<strong>Hallucination</strong>", "AI can be wrong &mdash; review everything" ],
+            [ "<strong>Data leakage</strong>", "Never send secrets or personal data to AI" ],
+            [ "<strong>Prompt injection</strong>", "Separate instructions from data" ],
+            [ "<strong>Risk classification</strong>", "Every AI action has a level &mdash; read / write / critical" ],
+            [ "<strong>Approval flows</strong>", "Security, not inconvenience" ],
+            [ "<strong>Trust boundary</strong>", "Separates what you control from what you don&rsquo;t" ],
+            [ "<strong>Production defenses</strong>", "Identity, policies, gateways, audit &mdash; the same layers you just learned" ]
+          ]
+        }
       }
     ]
   }

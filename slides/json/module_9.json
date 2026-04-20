@@ -101,13 +101,13 @@
             [
               "<strong>Skills</strong>",
               "Active tools",
-              "Student invokes: <code>/pre-commit</code>",
+              "Run <code>/pre-commit</code>",
               "Medium (structured analysis)"
             ],
             [
               "<strong>Agents</strong>",
               "Review partners",
-              "Student interacts: <code>@code-standards-reviewer</code>",
+              "Interact with <code>@code-standards-reviewer</code>",
               "High (deep reasoning)"
             ]
           ]
@@ -653,17 +653,22 @@
     "title": "Module 9: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>cognitive-core</strong> is Module 8&rsquo;s architecture made concrete &mdash; a working install you can run today",
-          "<strong>Three layers:</strong> hooks (reflexes, always fire) &rarr; skills (workflows you invoke) &rarr; agents (reasoning you delegate)",
-          "<strong>Hooks are deterministic</strong>: no prompt can bypass them &mdash; e.g. <code>validate-bash</code> blocks <code>rm -rf /</code>, <code>post-edit-lint</code> runs after every edit",
-          "<strong>Skills</strong> codify repeatable workflows: <code>/pre-commit</code>, <code>/test-scaffold</code>, <code>/code-review</code>",
-          "<strong>Fitness score</strong> turns &ldquo;is this good enough?&rdquo; into a measurable threshold, not a vibe",
-          "<strong>Source Authority</strong>: weight inputs by credibility &mdash; your tests &gt; Stack Overflow &gt; AI guess",
-          "<strong>Coordinator topology</strong>: one lead agent delegates to specialists (review, test, docs) and aggregates their findings",
-          "The cognitive-core <strong>Lab Pack</strong> is the minimal config you build for the capstone &mdash; use it there and beyond"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>cognitive-core</strong>", "Module 8&rsquo;s architecture made concrete &mdash; a working install you can run today" ],
+            [ "<strong>Three layers</strong>", "Hooks (reflexes, always fire) &rarr; Skills (workflows you invoke) &rarr; Agents (reasoning you delegate)" ],
+            [ "<strong>Hooks</strong>", "Deterministic &mdash; no prompt can bypass them (<code>validate-bash</code> blocks <code>rm -rf /</code>)" ],
+            [ "<strong>Skills</strong>", "Codify repeatable workflows: <code>/pre-commit</code>, <code>/test-scaffold</code>, <code>/code-review</code>" ],
+            [ "<strong>Fitness score</strong>", "Turns &ldquo;is this good enough?&rdquo; into a measurable threshold, not a vibe" ],
+            [ "<strong>Source Authority</strong>", "Weight inputs by credibility &mdash; your tests &gt; Stack Overflow &gt; AI guess" ],
+            [ "<strong>Coordinator topology</strong>", "One lead agent delegates to specialists and aggregates their findings" ],
+            [ "<strong>Student Lab Pack</strong>", "The minimal config you build for the capstone &mdash; use it there and beyond" ]
+          ]
+        }
       }
     ]
   }

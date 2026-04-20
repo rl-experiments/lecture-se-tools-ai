@@ -339,18 +339,23 @@
     "title": "Module 4: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "Automated tests catch <strong>regressions</strong> that manual testing misses",
-          "Every test: <strong>Arrange, Act, Assert</strong>",
-          "<strong>Edge cases</strong> catch real bugs (zero, null, negative, overflow)",
-          "<strong>Mockito</strong> creates fake dependencies for isolated testing",
-          "<strong>JaCoCo</strong> measures line and branch coverage &mdash; but 70% with strong assertions beats 100% with empty ones",
-          "Claude Code generates tests &mdash; but watch for <strong>false confidence</strong>",
-          "<strong>TDD with AI</strong>: let AI write tests first, you implement",
-          "A test suite is the same idea as an AI <strong>eval dataset</strong>: a scored check that blocks regressions",
-          "Always read AI-generated tests: <strong>&ldquo;What does this actually prove?&rdquo;</strong>"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>Automated tests</strong>", "Catch regressions that manual testing misses" ],
+            [ "<strong>Test structure</strong>", "Arrange, Act, Assert" ],
+            [ "<strong>Edge cases</strong>", "Zero, null, negative, overflow &mdash; where real bugs live" ],
+            [ "<strong>Mockito</strong>", "Fake dependencies for isolated testing" ],
+            [ "<strong>JaCoCo</strong>", "70% with strong assertions beats 100% with empty ones" ],
+            [ "<strong>AI-generated tests</strong>", "Fast to write; watch for false confidence" ],
+            [ "<strong>TDD with AI</strong>", "Let AI write tests first, you implement" ],
+            [ "<strong>Tests = evals</strong>", "A scored check that blocks regressions &mdash; same idea as AI eval datasets" ],
+            [ "<strong>Review AI tests</strong>", "Always ask: &ldquo;What does this actually prove?&rdquo;" ]
+          ]
+        }
       }
     ]
   }

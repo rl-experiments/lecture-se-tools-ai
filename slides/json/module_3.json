@@ -794,16 +794,21 @@
     "title": "Module 3: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>CheckStyle</strong> = style &middot; <strong>PMD</strong> = smells &middot; <strong>SpotBugs</strong> = bugs in bytecode",
-          "Configure tools to <strong>fail the build</strong> on violations &mdash; regression gates",
-          "Claude Code goes beyond rules &mdash; understands design and intent",
-          "<strong>Always run tests after refactoring</strong> (even AI-suggested)",
-          "<strong>CLAUDE.md</strong> teaches AI your project rules &mdash; but it is <em>guidance, not enforcement</em>",
-          "<strong>Vibe coding lesson:</strong> unconstrained AI produces poor code &mdash; rules + gates matter",
-          "Use <strong>tools for automated gates</strong>, <strong>AI for deeper review</strong>"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>Three tools, three jobs</strong>", "CheckStyle = style &middot; PMD = smells &middot; SpotBugs = bugs in bytecode" ],
+            [ "<strong>Regression gates</strong>", "Configure tools to <em>fail the build</em> on violations" ],
+            [ "<strong>AI beyond rules</strong>", "Claude Code understands design and intent, not just patterns" ],
+            [ "<strong>Post-refactor tests</strong>", "Always run tests after refactoring &mdash; even AI-suggested" ],
+            [ "<strong>CLAUDE.md</strong>", "Teaches AI your rules &mdash; but it&rsquo;s guidance, not enforcement" ],
+            [ "<strong>Vibe coding</strong>", "Unconstrained AI produces poor code &mdash; rules + gates matter" ],
+            [ "<strong>Division of labor</strong>", "Tools for automated gates; AI for deeper review" ]
+          ]
+        }
       }
     ]
   }

@@ -622,17 +622,22 @@
     "title": "Module 8: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>8 layers</strong> (interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry) &mdash; ask <em>&ldquo;which layer is this problem in?&rdquo;</em>",
-          "<strong>MCP vs. A2A</strong>: MCP connects an agent to tools (the USB plug); A2A connects an agent to other agents",
-          "<strong>Coordinator vs. Handoff</strong>: central manager with isolated sub-agent contexts vs. linear baton pass where context travels with the task",
-          "<strong>Telemetry vs. Observability</strong>: raw JSONL under <code>~/.claude/projects/</code> is telemetry; answering <em>why a run behaved this way</em> is observability",
-          "<strong>Fitness gates</strong>: deterministic hooks enforce, probabilistic prompts suggest &mdash; raise the bar stage by stage (60% &rarr; 95%)",
-          "<strong>ADRs + PlantUML</strong>: decisions (why) and architecture (shape), both in-repo, both reviewable &mdash; how you keep the overview when AI writes most of the code",
-          "<strong>Parsimony (KISS/YAGNI)</strong>: simplest solution that meets requirements; justify every added complexity",
-          "<strong>Production launch</strong> = 7 checks: runtime, safety, capability, observability, eval, ops, rollback"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>8 layers</strong>", "interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry &mdash; ask <em>&ldquo;which layer is this problem in?&rdquo;</em>" ],
+            [ "<strong>MCP vs. A2A</strong>", "MCP connects an agent to tools (the USB plug); A2A connects an agent to other agents" ],
+            [ "<strong>Coordinator vs. Handoff</strong>", "Central manager with isolated sub-agent contexts vs. linear baton pass where context travels" ],
+            [ "<strong>Telemetry vs. Observability</strong>", "Raw JSONL under <code>~/.claude/projects/</code> is telemetry; answering <em>why a run behaved this way</em> is observability" ],
+            [ "<strong>Fitness gates</strong>", "Deterministic hooks enforce, probabilistic prompts suggest &mdash; raise the bar 60% &rarr; 95%" ],
+            [ "<strong>ADRs + PlantUML</strong>", "Decisions (why) and architecture (shape), both in-repo, both reviewable" ],
+            [ "<strong>Parsimony (KISS/YAGNI)</strong>", "Simplest solution that meets requirements; justify every added complexity" ],
+            [ "<strong>Production launch</strong>", "7 checks: runtime, safety, capability, observability, eval, ops, rollback" ]
+          ]
+        }
       }
     ]
   }

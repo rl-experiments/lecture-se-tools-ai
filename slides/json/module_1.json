@@ -486,16 +486,21 @@
     "title": "Module 1: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "Git = <strong>snapshots</strong> of your project over time",
-          "Core cycle: <code>edit &rarr; add &rarr; commit &rarr; push</code>",
-          "<strong>Branches</strong> isolate work. <strong>Merges</strong> integrate it.",
-          "<strong>Conflicts</strong> are normal &mdash; not errors",
-          "<code>.gitignore</code> protects secrets and junk",
-          "Every commit = an <strong>audit trail</strong> entry with <strong>provenance</strong>",
-          "Claude Code augments Git: explains state, writes commits, reviews changes, resolves conflicts"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>What is Git?</strong>", "Snapshots of your project over time" ],
+            [ "<strong>Core cycle</strong>", "<code>edit &rarr; add &rarr; commit &rarr; push</code>" ],
+            [ "<strong>Branches &amp; merges</strong>", "Branches isolate work. Merges integrate it." ],
+            [ "<strong>Conflicts</strong>", "A normal part of the workflow, not errors" ],
+            [ "<strong>.gitignore</strong>", "Protects secrets and build artifacts from being committed" ],
+            [ "<strong>Audit trail</strong>", "Every commit records who decided what, when, and why &mdash; provenance" ],
+            [ "<strong>AI-augmented Git</strong>", "Claude Code explains state, drafts commits, reviews changes, resolves conflicts" ]
+          ]
+        }
       }
     ]
   }

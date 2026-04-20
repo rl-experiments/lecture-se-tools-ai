@@ -278,18 +278,23 @@
     "title": "Module 5: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>CI = merge and verify frequently</strong>, not &ldquo;integrate on Friday&rdquo;",
-          "<strong>Jenkins</strong> automates: build, test, quality, package",
-          "<strong>Jenkinsfile</strong> = pipeline as code, versioned in Git",
-          "<strong>Stop the line:</strong> a red build blocks every merge &mdash; revert or fix, never stack commits on red",
-          "CI connects <strong>all previous modules</strong> into one automated pipeline",
-          "<strong>Jenkins vs. GitHub Actions</strong>: same concepts, different syntax &mdash; we teach Jenkins; you&rsquo;ll likely use Actions at work",
-          "A CI pipeline is a <strong>trace</strong>: each stage is a timed, inspectable step &mdash; like AI agent observability",
-          "Claude Code helps: create Jenkinsfiles, debug logs, explain failures",
-          "<strong>Pipeline is only as good as your tests and quality gates</strong>"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>What is CI?</strong>", "Merge and verify frequently &mdash; not &ldquo;integrate on Friday&rdquo;" ],
+            [ "<strong>Jenkins</strong>", "Automates build, test, quality, package" ],
+            [ "<strong>Jenkinsfile</strong>", "Pipeline as code, versioned in Git" ],
+            [ "<strong>Stop the line</strong>", "A red build blocks every merge &mdash; revert or fix, never stack on red" ],
+            [ "<strong>Integration</strong>", "CI connects Git + Maven + Quality + Tests into one automated pipeline" ],
+            [ "<strong>Jenkins vs. GitHub Actions</strong>", "Same concepts, different syntax &mdash; we teach Jenkins; you&rsquo;ll likely use Actions at work" ],
+            [ "<strong>Pipeline = trace</strong>", "Each stage is timed and inspectable &mdash; like AI agent observability" ],
+            [ "<strong>AI-augmented CI</strong>", "Claude Code creates Jenkinsfiles, debugs logs, explains failures" ],
+            [ "<strong>Pipeline quality</strong>", "Only as good as your tests and quality gates" ]
+          ]
+        }
       }
     ]
   }

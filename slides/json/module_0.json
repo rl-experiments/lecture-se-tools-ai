@@ -495,15 +495,20 @@
     "title": "Module 0: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "Professional Java development = Java + <strong>toolchain</strong>",
-          "Pipeline: Git &rarr; Maven &rarr; Quality &rarr; Testing &rarr; CI/CD",
-          "Claude Code = AI <strong>agent</strong> (not chatbot) that acts in your terminal",
-          "Agent = <strong>Model</strong> + <strong>Tools</strong> + <strong>Instructions</strong> (industry standard)",
-          "Agents need <strong>control and approval</strong> &mdash; not unlimited autonomy",
-          "<strong>AI writes drafts. You make decisions.</strong>"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>Professional Java</strong>", "Java alone isn&rsquo;t enough &mdash; you need the toolchain: Git, Maven, quality, testing, CI/CD" ],
+            [ "<strong>The pipeline</strong>", "Git &rarr; Maven &rarr; Quality &rarr; Testing &rarr; CI/CD, each stage depends on the last" ],
+            [ "<strong>Claude Code</strong>", "An AI <em>agent</em> (not a chatbot) that acts in your terminal" ],
+            [ "<strong>What is an agent?</strong>", "Model + Tools + Instructions &mdash; the industry-standard definition" ],
+            [ "<strong>Autonomy</strong>", "Agents need control and approval, not unlimited autonomy" ],
+            [ "<strong>Responsibility</strong>", "AI writes drafts. You make decisions." ]
+          ]
+        }
       }
     ]
   }

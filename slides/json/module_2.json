@@ -558,18 +558,23 @@
     "title": "Module 2: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "Maven = <strong>build management</strong> + <strong>dependency management</strong>",
-          "Standard structure: <code>src/main/java</code>, <code>src/test/java</code>, <code>pom.xml</code>",
-          "Lifecycle: clean &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy",
-          "Dependencies are downloaded automatically from Maven Central",
-          "<strong>Never</strong> commit <code>target/</code>, passwords, API keys, or secrets to Git",
-          "Claude Code augments Maven: explains errors, manages dependencies, fixes pom.xml",
-          "<code>pom.xml</code> is a <strong>contract</strong>: exactly what the project depends on, versioned and shareable",
-          "Maven commands differ in <strong>blast radius</strong>: <code>mvn compile</code> is safe; <code>mvn deploy</code> isn&rsquo;t",
-          "<strong>Always verify</strong> AI-suggested dependency versions"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>What is Maven?</strong>", "Build management + dependency management" ],
+            [ "<strong>Project structure</strong>", "<code>src/main/java</code>, <code>src/test/java</code>, <code>pom.xml</code>" ],
+            [ "<strong>Lifecycle</strong>", "clean &rarr; compile &rarr; test &rarr; package &rarr; install &rarr; deploy" ],
+            [ "<strong>Dependencies</strong>", "Auto-downloaded from Maven Central" ],
+            [ "<strong>Never commit</strong>", "<code>target/</code>, passwords, API keys, or secrets" ],
+            [ "<strong>AI-augmented Maven</strong>", "Claude Code explains errors, manages dependencies, fixes <code>pom.xml</code>" ],
+            [ "<strong>pom.xml</strong>", "A contract &mdash; exactly what the project depends on, versioned and shareable" ],
+            [ "<strong>Blast radius</strong>", "<code>mvn compile</code> is safe; <code>mvn deploy</code> isn&rsquo;t &mdash; classify every command" ],
+            [ "<strong>Verify AI output</strong>", "Always verify AI-suggested dependency versions" ]
+          ]
+        }
       }
     ]
   }

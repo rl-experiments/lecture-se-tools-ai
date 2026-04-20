@@ -327,17 +327,22 @@
     "title": "Module 7: Key Takeaways",
     "body": [
       {
-        "card": "",
-        "items": [
-          "<strong>Prompt quality</strong> is the most transferable daily skill in AI-assisted development",
-          "<strong>Explicit criteria</strong> &gt; vague instructions &mdash; specificity removes ambiguity",
-          "<strong>Few-shot examples</strong> are the single most powerful prompting technique",
-          "<strong>Structured output</strong> (JSON, tables) makes responses parseable &mdash; the bridge to CI",
-          "<strong>The interview pattern</strong>: let AI ask questions before implementing",
-          "<strong>Context windows</strong> are finite &mdash; manage them or lose critical information",
-          "<strong>Scratchpad files</strong> and <strong>CLAUDE.md</strong> anchor facts that must survive when older context gets compacted away",
-          "<strong>Human-in-the-loop</strong>: irreversible actions always require human approval regardless of AI confidence"
-        ]
+        "table": {
+          "headers": [
+            "<span style=\"display:inline-block;min-width:130px\">Concept</span>",
+            "Takeaway"
+          ],
+          "rows": [
+            [ "<strong>Why it matters</strong>", "Prompt quality is the most transferable daily skill in AI-assisted development" ],
+            [ "<strong>Explicit criteria</strong>", "Specificity removes ambiguity &mdash; explicit &gt; vague" ],
+            [ "<strong>Few-shot examples</strong>", "The single most powerful prompting technique" ],
+            [ "<strong>Structured output</strong>", "JSON / tables make responses parseable &mdash; the bridge to CI" ],
+            [ "<strong>Interview pattern</strong>", "Let AI ask clarifying questions before implementing" ],
+            [ "<strong>Context windows</strong>", "Finite &mdash; manage them or lose critical information" ],
+            [ "<strong>Scratchpads + CLAUDE.md</strong>", "Anchor facts that must survive context compaction" ],
+            [ "<strong>Human-in-the-loop</strong>", "Irreversible actions always require human approval, regardless of AI confidence" ]
+          ]
+        }
       }
     ]
   }
