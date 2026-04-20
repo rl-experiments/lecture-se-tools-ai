@@ -34,7 +34,7 @@
     "body": [
       {
         "code": "cognitive-core adds three layers on top of Claude Code:\n\n <span class=\"kw\">Hooks</span> ............ automatic safety guards (fire on every action)\n <span class=\"fn\">Skills</span> ........... structured quality tools (you invoke them)\n <span class=\"str\">Agents</span> ........... specialist reviewers (they reason about your code)\n\n Install: <span class=\"cmt\">bash install.sh</span> (into any existing project)\n Config:  <span class=\"cmt\">cognitive-core.conf</span> (one file controls everything)",
-        "note": "We will use a Student Lab Pack: 4 hooks, 7 skills, 2 agents (out of 9 hooks, 20 skills, 10 agents). You learn the subset that matters for this course."
+        "note": "Installs on Claude Code, Aider, IntelliJ, VS Code. Language packs for Java, Python, Node, Go, Rust, C#, Angular, React, Spring Boot. For this course we use a Student Lab Pack: 4 hooks, 7 skills, 2 agents (out of 13 hooks, 20 core skills, 10 agents)."
       },
       {
         "table": {
@@ -81,7 +81,7 @@
     "mod": "9",
     "tag": "",
     "title": "cognitive-core: Three Layers of Quality",
-    "desc": "Hooks &rarr; Skills &rarr; Agents: progressive intelligence.",
+    "desc": "Hooks are <strong>born abilities</strong> (reflexes from day one). Skills &amp; Agents are <strong>learned abilities</strong> (they grow with your project).",
     "body": [
       {
         "table": {
@@ -116,10 +116,10 @@
       {
         "card": "Your progression through this course:",
         "items": [
-          "<strong>Session 2:</strong> Manual <code>mvn checkstyle:check</code> (you run it, you read it)",
-          "<strong>Session 3:</strong> Hooks auto-run it after every edit (passive guards)",
-          "<strong>Session 4:</strong> Skills give structured, multi-dimensional scores (active tools)",
-          "<strong>Session 4+:</strong> Agents reason deeply about your code (collaborative review)"
+          "<strong>Manual</strong> &rarr; you run <code>mvn checkstyle:check</code>, you read the output",
+          "<strong>Automatic</strong> &rarr; hooks fire after every edit &mdash; you never forget",
+          "<strong>Structured</strong> &rarr; skills score quality across multiple dimensions",
+          "<strong>Reasoned</strong> &rarr; agents collaborate on deep code review"
         ]
       }
     ]
@@ -128,8 +128,8 @@
     "type": "content",
     "mod": "9",
     "tag": "industry",
-    "title": "cognitive-core: The Hook Library",
-    "desc": "Four deterministic guards that ship with cognitive-core. Each maps to a biological defense.",
+    "title": "cognitive-core: Your First Four Hooks",
+    "desc": "Four hooks you&rsquo;ll use in the capstone &mdash; a subset of the 13 that ship with cognitive-core. Each maps to a biological defense.",
     "body": [
       {
         "table": {
@@ -160,7 +160,7 @@
               "Sleep memory"
             ]
           ],
-          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones. The next slides drill into each one."
+          "note": "Hooks fire automatically &mdash; no human action needed. They are born abilities, not learned ones. The next slides drill into <code>validate-bash</code> and <code>post-edit-lint</code> in depth."
         }
       }
     ]
@@ -202,7 +202,7 @@
     "desc": "How production AI systems classify tool risk &mdash; same pattern as your Maven commands.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># cognitive-core.conf &mdash; tool risk policy</span>\n\ntools:\n  <span class=\"fn\">read_file</span>:\n    risk: low\n    approval: <span class=\"kw\">automatic</span>       <span class=\"cmt\"># like: mvn dependency:tree</span>\n  <span class=\"fn\">write_file</span>:\n    risk: medium\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: mvn deploy</span>\n  <span class=\"fn\">execute_bash</span>:\n    risk: high\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: rm -rf target/</span>\n  <span class=\"fn\">delete_database</span>:\n    risk: critical\n    approval: <span class=\"kw\">admin_required</span>  <span class=\"cmt\"># like: DROP TABLE</span>",
+        "code": "<span class=\"cmt\"># Conceptual tool risk policy (production pattern)</span>\n\ntools:\n  <span class=\"fn\">read_file</span>:\n    risk: low\n    approval: <span class=\"kw\">automatic</span>       <span class=\"cmt\"># like: mvn dependency:tree</span>\n  <span class=\"fn\">write_file</span>:\n    risk: medium\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: mvn deploy</span>\n  <span class=\"fn\">execute_bash</span>:\n    risk: high\n    approval: <span class=\"kw\">user_confirm</span>    <span class=\"cmt\"># like: rm -rf target/</span>\n  <span class=\"fn\">delete_database</span>:\n    risk: critical\n    approval: <span class=\"kw\">admin_required</span>  <span class=\"cmt\"># like: DROP TABLE</span>",
         "note": "You classified Maven commands as read vs. write in Exercise 2.3. Production systems do exactly this &mdash; with automatic enforcement."
       }
     ]
@@ -244,7 +244,7 @@
     "desc": "How production systems measure whether tests are good enough to ship.",
     "body": [
       {
-        "code": "<span class=\"str\">/fitness</span>\n\n<span class=\"fn\">Fitness Report:</span>\n\n  Category            Score   Threshold (commit)\n  ─────────────────────────────────────────────────\n  Code Standards       0.92    0.80  <span class=\"fn\">PASS</span>\n  Architecture         0.85    0.80  <span class=\"fn\">PASS</span>\n  <span class=\"kw\">Test Fitness</span>         <span class=\"str\">0.65</span>    0.80  <span class=\"str\">FAIL</span>\n  Security             0.90    0.80  <span class=\"fn\">PASS</span>\n  ─────────────────────────────────────────────────\n  Composite:           0.83    0.80\n  Gate: commit\n  Result:              <span class=\"str\">UNFIT &mdash; BLOCKED</span>\n\n  <span class=\"str\">Reason: Test Fitness below threshold.</span>\n  <span class=\"str\">Missing: tests for GradeManager.saveToFile()</span>\n  <span class=\"str\">Missing: edge case for empty grade list</span>",
+        "code": "<span class=\"str\">/fitness</span>\n\n<span class=\"fn\">FITNESS EVALUATION</span>\n==================\nTarget:  GradeManager.java\nGate:    commit\n\nCATEGORY SCORES\n---------------\nCode Standards:  <span class=\"fn\">0.92</span>\nArchitecture:    <span class=\"fn\">0.85</span>\nTest Fitness:    <span class=\"str\">0.65</span>   &larr; below gate\nSecurity:        <span class=\"fn\">0.90</span>\n---------------\nOVERALL:         0.83\n\nGATE THRESHOLD:  <span class=\"kw\">80%</span>  (commit gate)\nSTATUS:          <span class=\"str\">UNFIT &mdash; BLOCKED</span>\n\n<span class=\"str\">Reason: Test Fitness below threshold.</span>\n<span class=\"str\">Missing: tests for GradeManager.saveToFile()</span>\n<span class=\"str\">Missing: edge case for empty grade list</span>",
         "note": "Fitness is not coverage percentage. It checks: do new modules have tests? Do tests cover edge cases? Does the suite pass? A project with 90% coverage but no edge case tests can still fail fitness."
       }
     ]
@@ -295,7 +295,8 @@
               "<code>/test-scaffold</code>",
               "Generates JUnit 5 test scaffolds with lifecycle annotations."
             ]
-          ]
+          ],
+          "note": "The Student Lab Pack adds <code>/security-baseline</code>, <code>/smoke-test</code>, and <code>/project-board</code>. Full framework has 20 core skills."
         }
       },
       {
@@ -312,11 +313,38 @@
     "mod": "9",
     "tag": "",
     "title": "cognitive-core: @project-coordinator Topology",
-    "desc": "The Coordinator pattern from Module 8, made concrete: one hub, ten specialists.",
+    "desc": "The Coordinator pattern from Module 8, made concrete &mdash; plus a routing layer (focused vs. parallel) that Module 8 didn&rsquo;t show.",
     "body": [
       {
         "code": "                  <span class=\"kw\">@project-coordinator</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
         "note": "10 specialists total. Each has scoped tools (mostly read-only) and narrow instructions. The coordinator decides which ones to invoke for a given task."
+      },
+      {
+        "table": {
+          "headers": [
+            "When the task needs&hellip;",
+            "Path",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Deep analysis, strict isolation",
+              "<strong>Focused</strong>",
+              "Security review (one specialist, read-only, full precision)"
+            ],
+            [
+              "Parallel research or multi-file work",
+              "<strong>Parallel</strong>",
+              "Code review + tests + docs (three specialists, merged output)"
+            ],
+            [
+              "Stuck task detection, deadlock recovery",
+              "<strong>Team Guard</strong>",
+              "Watchdog scans every ~3 min; breaks deadlocks"
+            ]
+          ],
+          "note": "<strong>Focused</strong> = one specialist at a time &mdash; the Module 8 coordinator pattern. <strong>Parallel</strong> = multiple specialists with a shared task list (faster, harder to audit). <strong>Team Guard</strong> is homeostasis: proactive health monitoring."
+        }
       },
       {
         "card": "Why this topology and not one big agent?",
@@ -328,7 +356,7 @@
         ]
       },
       {
-        "quote": "This is the Module 8 Coordinator pattern running in production. Same theory, named agents, real tool scopes."
+        "quote": "This is the Module 8 Coordinator pattern running in production &mdash; with a routing decision (focused vs. parallel) on top."
       }
     ]
   },
@@ -511,7 +539,7 @@
     "mod": "9",
     "tag": "",
     "title": "cognitive-core Student Lab Pack",
-    "desc": "Your minimal configuration for the capstone project.",
+    "desc": "A configuration pattern you&rsquo;ll create yourself &mdash; not a download. Minimal setup for the capstone: reduced thresholds, a handful of hooks, skills, and agents.",
     "body": [
       {
         "code": "<span class=\"cmt\"># cognitive-core.conf (Student Lab Pack)</span>\n\nCC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
@@ -528,12 +556,12 @@
             [
               "Hooks",
               "4 (validate-bash, post-edit-lint, setup-env, compact-reminder)",
-              "9"
+              "13"
             ],
             [
               "Skills",
               "7 (/pre-commit, /fitness, /code-review, /test-scaffold, /security-baseline, /smoke-test, /project-board)",
-              "20+"
+              "20 core (+ language &amp; database packs)"
             ],
             [
               "Agents",
@@ -542,11 +570,11 @@
             ],
             [
               "Fitness gates",
-              "50/70/75/80/85",
-              "60/80/85/90/95"
+              "50 / 70 / 75 / 80 / 85",
+              "60 / 80 / 85 / 90 / 95"
             ]
           ],
-          "note": "You use 9% of the framework. The rest is for enterprise teams with 20+ developers."
+          "note": "The pack is a starting point &mdash; you graduate to more hooks, skills, and agents after the course. The extras are for enterprise teams with 20+ developers."
         }
       }
     ]
@@ -634,7 +662,7 @@
           "<strong>Fitness score</strong> turns &ldquo;is this good enough?&rdquo; into a measurable threshold, not a vibe",
           "<strong>Source Authority</strong>: weight inputs by credibility &mdash; your tests &gt; Stack Overflow &gt; AI guess",
           "<strong>Coordinator topology</strong>: one lead agent delegates to specialists (review, test, docs) and aggregates their findings",
-          "The cognitive-core <strong>Lab Pack</strong> is installable &mdash; use it in the capstone and beyond"
+          "The cognitive-core <strong>Lab Pack</strong> is the minimal config you build for the capstone &mdash; use it there and beyond"
         ]
       }
     ]
