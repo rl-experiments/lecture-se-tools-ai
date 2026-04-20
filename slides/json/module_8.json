@@ -28,175 +28,74 @@
     "type": "content",
     "mod": "8",
     "tag": "",
-    "title": "You Already Know Agent Architecture",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "What you did",
-            "Architecture name",
-            "Why it matters in production"
-          ],
-          "rows": [
-            [
-              "Git commits",
-              "Audit trail with provenance",
-              "Who changed what, when, and why"
-            ],
-            [
-              "pom.xml",
-              "Capability contract",
-              "Declares exactly what a system can do"
-            ],
-            [
-              "CheckStyle/PMD blocking builds",
-              "Regression gates",
-              "Automated quality checks before deployment"
-            ],
-            [
-              "JUnit test suites",
-              "Eval datasets",
-              "Proves the system behaves correctly"
-            ],
-            [
-              "Jenkins pipeline",
-              "Trace with spans",
-              "Every step is visible and measurable"
-            ],
-            [
-              "Pipeline health metrics",
-              "SLOs",
-              "Targets for reliability and speed"
-            ],
-            [
-              "Claude Code asking permission",
-              "Approval flow / tool gateway",
-              "Humans approve before risky actions execute"
-            ],
-            [
-              ".gitignore for secrets",
-              "Trust boundary / egress control",
-              "Sensitive data never leaves the perimeter"
-            ]
-          ],
-          "note": "You&rsquo;ve been learning production agent architecture for 7 modules &mdash; without realizing it."
-        }
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
-    "tag": "",
     "title": "The 8 Layers of an Agent System",
-    "desc": "A reference model for reasoning about any AI agent &mdash; from Claude Code to a production banking agent.",
+    "desc": "You&rsquo;ve seen every one of these layers in CI/CD &mdash; Module 8 gives them names and shows how they fail in production.",
     "body": [
       {
         "table": {
           "headers": [
             "Layer",
             "Responsibility",
-            "Claude Code example"
+            "Claude Code example",
+            "How it fails in production"
           ],
           "rows": [
             [
               "<strong>1. Interface</strong>",
               "Receives user input, renders output",
-              "Terminal REPL, IDE extension, web UI"
+              "Terminal REPL, IDE extension, web UI",
+              "Prompt injection via pasted content or tool output"
             ],
             [
               "<strong>2. Identity</strong>",
               "Who is calling? Which account, which session?",
-              "API key, OAuth token, session ID"
+              "API key, OAuth token, session ID",
+              "Leaked keys, over-scoped tokens, no per-user attribution"
             ],
             [
               "<strong>3. Control plane</strong>",
               "Policies: what is allowed, what needs approval",
-              "Permission prompts, hook gates, <code>.claude/settings.json</code>"
+              "Permission prompts, hook gates, <code>.claude/settings.json</code>",
+              "Missing gate on a destructive tool; policy drift between envs"
             ],
             [
               "<strong>4. Orchestration</strong>",
               "Breaks the task down, sequences steps, handles retries",
-              "Query loop, sub-agent spawning (Explore, Plan)"
+              "Query loop, sub-agent spawning (Explore, Plan)",
+              "Runaway loops, retry storms, unbounded sub-agent fan-out"
             ],
             [
               "<strong>5. Cognition</strong>",
               "The LLM call &mdash; reasoning, planning, generation",
-              "Claude model invocation"
+              "Claude model invocation",
+              "Hallucinated APIs, context-window exhaustion, confident wrong answers"
             ],
             [
               "<strong>6. Memory</strong>",
               "Persistent knowledge across steps and sessions",
-              "CLAUDE.md, <code>~/.claude</code>, conversation history"
+              "CLAUDE.md, <code>~/.claude</code>, conversation history",
+              "Stale context, poisoned memory, unbounded growth across sessions"
             ],
             [
               "<strong>7. Tool execution</strong>",
               "Actually reads files, runs commands, calls APIs",
-              "Read, Edit, Bash, Grep, MCP servers"
+              "Read, Edit, Bash, Grep, MCP servers",
+              "Command injection, sandbox escape, destructive ops without confirm"
             ],
             [
               "<strong>8. Telemetry</strong>",
               "Records what happened for audit and debugging",
-              "Traces, hook logs, token usage counters"
+              "Traces, hook logs, token usage counters",
+              "No audit trail, PII leaked into logs, silent failures"
             ]
           ]
         }
       },
       {
         "quote": "Every agent system has these 8 layers &mdash; even if some are implicit. When you debug or secure an agent, ask: <em>which layer is this problem in?</em>"
-      }
-    ]
-  },
-  {
-    "type": "content",
-    "mod": "8",
-    "tag": "",
-    "title": "Claude Code: The Six Key Abstractions",
-    "desc": "Everything in Claude Code exists to support these six core building blocks.",
-    "body": [
-      {
-        "table": {
-          "headers": [
-            "Abstraction",
-            "What it does",
-            "Why it matters"
-          ],
-          "rows": [
-            [
-              "<strong>Query Loop</strong>",
-              "Streams model response, collects tool calls, executes them, loops",
-              "Single heartbeat for REPL, SDK, sub-agents, and headless mode"
-            ],
-            [
-              "<strong>Tool System</strong>",
-              "Read, edit, run shell, search &mdash; anything the agent can do",
-              "Tools carry their own permissions, concurrency rules, and UI rendering"
-            ],
-            [
-              "<strong>Tasks</strong>",
-              "Background work units &mdash; primarily sub-agents",
-              "Recursive capability: agents delegate to sub-agents"
-            ],
-            [
-              "<strong>State Layer</strong>",
-              "Session config (mutable singleton) + UI state (reactive store)",
-              "Infrastructure state vs. render state &mdash; separated by design"
-            ],
-            [
-              "<strong>Hooks</strong>",
-              "Lifecycle interceptors at PreToolUse, PostToolUse, Stop events",
-              "Deterministic guards &mdash; can block tool calls before permission prompt"
-            ],
-            [
-              "<strong>Memory</strong>",
-              "Persistent context: CLAUDE.md (project), ~/.claude (user), shared (team)",
-              "How Claude Code remembers conventions and decisions across sessions"
-            ]
-          ]
-        }
       },
       {
-        "note": "Deep dive: <a href=\"https://claude-code-from-source.com/\" target=\"_blank\">claude-code-from-source.com</a>"
+        "note": "Want to see how Claude Code implements these layers internally? Deep dive: <a href=\"https://claude-code-from-source.com/\" target=\"_blank\">claude-code-from-source.com</a>"
       }
     ]
   },
@@ -303,7 +202,7 @@
         "items": [
           "A <strong>central agent</strong> receives the task, splits it, delegates to specialists, and assembles the final result",
           "Specialists report back &mdash; they never talk to each other directly",
-          "<strong>Real-world analogy:</strong> a project manager assigns tasks to developers, testers, and designers, then combines their work",
+          "<strong>Unlike a human PM,</strong> each specialist runs in <strong>isolated context</strong> &mdash; no inheritance from the coordinator, returns only a summary",
           "<strong>Example:</strong> Claude Code spawns sub-agents (Explore, Plan, test-runner) &mdash; each does one job and reports back"
         ]
       },
@@ -312,8 +211,8 @@
         "items": [
           "Agent A finishes its part and <strong>transfers full control</strong> to Agent B, which then transfers to Agent C",
           "No central manager &mdash; each agent owns the task while it holds the baton",
-          "<strong>Real-world analogy:</strong> a support ticket escalation: L1 support &rarr; L2 engineer &rarr; L3 specialist",
-          "<strong>Example:</strong> coding agent writes code &rarr; hands off to review agent &rarr; hands off to deploy agent"
+          "<strong>Full context travels with the baton</strong> &mdash; the receiving agent inherits what came before",
+          "<strong>Example:</strong> support ticket escalation &mdash; L1 triages, hands off to L2 with the diagnosis, L2 hands off to L3 with the reproduction steps"
         ]
       },
       {
@@ -348,8 +247,8 @@
         }
       },
       {
-        "code": "                  <span class=\"kw\">COORDINATOR</span> (Hub)\n                 /        |        |        \\\n          Specialist  Specialist  Specialist  Specialist\n              A           B           C           D\n              |           |           |           |\n         (one scoped  (one scoped  (one scoped  (one scoped\n          task only)   task only)   task only)   task only)\n\n  Each specialist has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
-        "note": "A concrete implementation of this pattern &mdash; cognitive-core&rsquo;s @project-coordinator with 10 specialist agents &mdash; is shown in Module 9."
+        "code": "<span class=\"cmt\">// Coordinator &mdash; hub and spokes (isolated contexts)</span>\n                 <span class=\"kw\">COORDINATOR</span>\n                /     |     \\\n          Spec A   Spec B   Spec C\n\n<span class=\"cmt\">// Handoff &mdash; linear baton pass (context travels)</span>\n     Agent A  &rarr;  Agent B  &rarr;  Agent C",
+        "note": "A concrete coordinator implementation &mdash; cognitive-core&rsquo;s @project-coordinator with 10 specialist agents &mdash; is shown in Module 9."
       }
     ]
   },
@@ -403,12 +302,22 @@
     "mod": "8",
     "tag": "",
     "title": "Observability: Seeing What the Agent Did",
+    "desc": "<strong>Telemetry</strong> (Layer 8) is the data your agent emits. <strong>Observability</strong> is whether that data answers <em>why a run behaved this way</em> &mdash; including why it failed.",
     "body": [
       {
-        "code": "Run #1234\n  |&mdash; Step 1: Read Calculator.java          (2ms)\n  |&mdash; Step 2: Analyze code structure        (model, 800ms)\n  |&mdash; Step 3: Generate test cases           (model, 1200ms)\n  |&mdash; Step 4: Write CalculatorTest.java     (5ms)\n  |&mdash; Step 5: Run mvn test                  (3400ms) &mdash; SUCCESS\n  Total: 5407ms | 2 model calls | 1800 tokens"
+        "code": "<span class=\"cmt\">// 1. Raw telemetry &mdash; ~/.claude/projects/&lt;hash&gt;/&lt;session&gt;.jsonl (one JSON per line)</span>\n{\"type\":\"user\",\"message\":{\"role\":\"user\",\"content\":\"add tests for Calculator\"},\"timestamp\":\"2026-04-20T08:10:18Z\"}\n{\"type\":\"assistant\",\"message\":{\"model\":\"claude-opus-4-7\",\"content\":[{\"type\":\"tool_use\",\"name\":\"Read\",\"input\":{\"file_path\":\"Calculator.java\"}}],\"usage\":{\"input_tokens\":1200,\"output_tokens\":48}}}\n\n<span class=\"cmt\">// 2. Observability &mdash; what a parser/viewer renders from that JSONL</span>\nRun #1234 &mdash; failed-then-recovered\n  |&mdash; Read Calculator.java       (2ms)\n  |&mdash; Generate tests             (model, 2000ms, 4600 tok)\n  |&mdash; Run mvn test               (2100ms) &mdash; FAILED (2 assertions)\n  |&mdash; Plan fix + edit            (model, 905ms, 2100 tok)\n  |&mdash; Re-run mvn test            (2300ms) &mdash; SUCCESS\n  Total: 7307ms | 2 model calls | 6700 tokens | cost &asymp; $0.18"
       },
       {
-        "quote": "Without traces, agent systems are black boxes. Same as Jenkins (Module 5): you need to see each step, its duration, and its outcome."
+        "card": "What to observe &mdash; and where to see it",
+        "items": [
+          "<strong>Tool calls + outcomes</strong>, <strong>token burn per step</strong>, <strong>policy-gate hits</strong>, <strong>sub-agent fan-out + cost</strong> &mdash; the signals that matter",
+          "<code>/cost</code> or <code>/stats</code> &mdash; token usage and spend for the current session",
+          "JSONL transcripts under <code>~/.claude/projects/</code> &mdash; raw prompts, tool calls, and responses",
+          "<code>PostToolUse</code> hooks in <code>.claude/settings.json</code> &mdash; shell out to log per tool call"
+        ]
+      },
+      {
+        "quote": "Watch out for PII in logs, silent tool successes, and sub-agent runs with no parent-child IDs &mdash; these are the classic production failures."
       }
     ]
   },
@@ -416,24 +325,24 @@
     "type": "content",
     "mod": "8",
     "tag": "",
-    "title": "ADRs: Keeping Overview of What the Agent Built",
+    "title": "ADRs: Why Decisions Still Make Sense Three Months Later",
     "desc": "Traces tell you <em>what</em> happened. ADRs tell you <em>why</em> it still looks that way three months later.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># docs/adr/0007-use-jacoco-over-cobertura.md</span>\n<span class=\"kw\"># Status:</span> Accepted\n<span class=\"kw\"># Date:</span> 2026-03-14\n\n<span class=\"kw\">## Context</span>\nClaude Code proposed JaCoCo during capstone setup.\nWe needed a coverage tool compatible with JDK 21\nand the Jenkins pipeline.\n\n<span class=\"kw\">## Decision</span>\nUse JaCoCo 0.8.11, wired via the Maven profile\n<span class=\"str\">-Pcoverage</span>.\n\n<span class=\"kw\">## Consequences</span>\n+ Mature, actively maintained, good Jenkins plugin\n&minus; Adds ~3s to verify phase\n&minus; Mutation testing (PIT) must be added separately",
-        "note": "One Markdown file per decision. Numbered. Append-only. Commit alongside the code it describes."
+        "code": "<span class=\"cmt\"># docs/adr/0007-use-jacoco-over-cobertura.md</span>\n<span class=\"kw\"># Status:</span> Accepted  <span class=\"cmt\"># Proposed &rarr; Accepted &rarr; Superseded</span>\n<span class=\"kw\"># Date:</span> 2026-03-14\n\n<span class=\"kw\">## Context</span>\nClaude Code proposed JaCoCo during capstone setup.\nWe needed a coverage tool compatible with JDK 21\nand the Jenkins pipeline.\n\n<span class=\"kw\">## Decision</span>\nUse JaCoCo 0.8.11, wired via the Maven profile\n<span class=\"str\">-Pcoverage</span>.\n\n<span class=\"kw\">## Consequences</span>\n+ Mature, actively maintained, good Jenkins plugin\n&minus; Adds ~3s to verify phase\n&minus; Mutation testing (PIT) must be added separately",
+        "note": "One Markdown file per decision, numbered, committed alongside the code. Immutable once accepted &mdash; supersede with a new ADR rather than rewriting. Template reference: <a href=\"https://adr.github.io/\" target=\"_blank\">adr.github.io</a> (Nygard template)."
       },
       {
         "card": "Why this matters for AI-assisted work:",
         "items": [
+          "<strong>AI can draft the ADR from the diff + your decision</strong> &mdash; you review and commit (fastest way to beat ADR fatigue)",
           "AI suggests 5 libraries, you pick one &mdash; the ADR records <strong>why that one</strong>, not what AI rejected",
           "Next semester, a teammate asks &ldquo;why JaCoCo not Cobertura?&rdquo; &mdash; the answer is in-repo, not in a lost chat",
-          "Commits say <em>what</em> changed, ADRs say <em>why it was allowed to change that way</em>",
-          "AI can draft the ADR from the diff + your decision &mdash; you review and commit"
+          "Commits say <em>what</em> changed, ADRs say <em>why it was allowed to change that way</em>"
         ]
       },
       {
-        "quote": "Same principle as git provenance (Module 1): the decision log lives next to the code, in version control, reviewable."
+        "quote": "Watch for ADR graveyards, stale statuses, and one-per-trivial-choice noise &mdash; the log is only useful if people read it."
       }
     ]
   },
@@ -541,14 +450,15 @@
         "note": "Production systems use both: prompts for guidance, gates for enforcement."
       },
       {
-        "card": "Graduated fitness gates (cognitive-core):",
+        "card": "Graduated fitness gates &mdash; raising the bar stage by stage:",
         "items": [
           "<strong>Lint gate:</strong> 60% &mdash; basic formatting",
           "<strong>Commit gate:</strong> 80% &mdash; standards + architecture",
           "<strong>Test gate:</strong> 85% &mdash; coverage + quality",
           "<strong>Merge gate:</strong> 90% &mdash; full review",
           "<strong>Deploy gate:</strong> 95% &mdash; production readiness"
-        ]
+        ],
+        "note": "A concrete implementation with exactly these thresholds &mdash; cognitive-core &mdash; is introduced in Module 9."
       }
     ]
   },
@@ -654,14 +564,14 @@
       {
         "card": "",
         "items": [
-          "You&rsquo;ve been learning production architecture patterns since the first module",
-          "<strong>8 layers:</strong> interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry",
-          "<strong>Control plane</strong> = policies that restrict agent actions",
-          "<strong>MCP</strong> = standard for agent-tool communication; <strong>A2A</strong> = agent-to-agent",
-          "<strong>cognitive-core</strong>: hooks (reflexes) &rarr; skills (tools) &rarr; agents (reasoning) (see Module 9)",
-          "<strong>Fitness gates</strong>: code must pass a scored check to merge &mdash; raise the bar from 60% to 95% over time",
-          "<strong>ADRs</strong> (architecture decision records) + <strong>PlantUML</strong> diagrams: how you keep the overview when AI writes most of the code",
-          "<strong>4 principles:</strong> control before autonomy, security embedded, explicit state, observability over impressiveness"
+          "<strong>8 layers</strong> (interface, identity, control plane, orchestration, cognition, memory, tool execution, telemetry) &mdash; ask <em>&ldquo;which layer is this problem in?&rdquo;</em>",
+          "<strong>MCP vs. A2A</strong>: MCP connects an agent to tools (the USB plug); A2A connects an agent to other agents",
+          "<strong>Coordinator vs. Handoff</strong>: central manager with isolated sub-agent contexts vs. linear baton pass where context travels with the task",
+          "<strong>Telemetry vs. Observability</strong>: raw JSONL under <code>~/.claude/projects/</code> is telemetry; answering <em>why a run behaved this way</em> is observability",
+          "<strong>Fitness gates</strong>: deterministic hooks enforce, probabilistic prompts suggest &mdash; raise the bar stage by stage (60% &rarr; 95%)",
+          "<strong>ADRs + PlantUML</strong>: decisions (why) and architecture (shape), both in-repo, both reviewable &mdash; how you keep the overview when AI writes most of the code",
+          "<strong>Parsimony (KISS/YAGNI)</strong>: simplest solution that meets requirements; justify every added complexity",
+          "<strong>Production launch</strong> = 7 checks: runtime, safety, capability, observability, eval, ops, rollback"
         ]
       }
     ]
