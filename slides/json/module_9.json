@@ -311,6 +311,61 @@
   {
     "type": "content",
     "mod": "9",
+    "tag": "industry",
+    "title": "cognitive-core: Extension Cost Hierarchy",
+    "desc": "Hooks, skills, plugins, MCP &mdash; all extend Claude Code. They do <em>not</em> cost the same.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Mechanism",
+            "Per-turn context cost",
+            "Use when"
+          ],
+          "rows": [
+            [
+              "<strong>Hook</strong>",
+              "Zero &mdash; runs outside the model loop",
+              "Event-driven guardrails: block on lint fail, pre-commit checks, audit logs"
+            ],
+            [
+              "<strong>Skill</strong>",
+              "Minimal &mdash; loaded only when invoked",
+              "Reusable workflows: <code>/pre-commit</code>, <code>/code-review</code>, <code>/test-scaffold</code>"
+            ],
+            [
+              "<strong>Plugin</strong>",
+              "Medium &mdash; definitions sit in context",
+              "Domain-specific bundles you ship and reuse across projects"
+            ],
+            [
+              "<strong>MCP</strong>",
+              "High &mdash; every tool description stays in every turn",
+              "External systems only: databases, APIs, internal services"
+            ]
+          ],
+          "note": "Hooks don&rsquo;t consume model tokens. MCP tool descriptions do &mdash; on <em>every</em> turn."
+        }
+      },
+      {
+        "quote": "Default to the cheapest layer that does the job. Reach for MCP only when a hook, skill, or plugin cannot."
+      },
+      {
+        "resource": {
+          "title": "Further reading",
+          "links": [
+            {
+              "url": "https://arxiviq.substack.com/p/dive-into-claude-code-the-design",
+              "label": "ArXivIQ &mdash; Dive into Claude Code: The Design Space of Today&rsquo;s and Future AI Agent Systems"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "9",
     "tag": "",
     "title": "cognitive-core: @project-coordinator Topology",
     "desc": "The Coordinator pattern from Module 8, made concrete &mdash; plus a routing layer (focused vs. parallel) that Module 8 didn&rsquo;t show.",
