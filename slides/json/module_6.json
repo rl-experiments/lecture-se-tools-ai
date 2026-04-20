@@ -232,7 +232,53 @@
         ]
       },
       {
-        "quote": "What the Knowledge Graph actually did: stopped asking the LLM to <em>know</em> facts, started feeding it <em>verified</em> facts to present. That pattern has a name &mdash; the <strong>Grounding Principle</strong>, next slide."
+        "quote": "What the Knowledge Graph actually did: stopped asking the LLM to <em>know</em> facts, started feeding it <em>verified</em> facts to present. That pattern has a name &mdash; the <strong>Grounding Principle</strong>, two slides ahead."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "6",
+    "tag": "",
+    "title": "Hallucination Types &amp; Defenses",
+    "desc": "One failure, three shapes &mdash; each with a different signature and a different defense.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Type",
+            "What it looks like",
+            "Defense"
+          ],
+          "rows": [
+            [
+              "<strong>Commission</strong>",
+              "AI invents <code>List.shuffle()</code> &mdash; Java&rsquo;s <code>List</code> has no such method (it&rsquo;s <code>Collections.shuffle(list)</code>)",
+              "Grounding &mdash; feed verified context; forbid extrapolation"
+            ],
+            [
+              "<strong>Omission</strong>",
+              "AI says &ldquo;Mockito can&rsquo;t mock final classes&rdquo; &mdash; it can, via <code>mockito-inline</code>",
+              "Grounding + &ldquo;cite your sources&rdquo; in the system prompt"
+            ],
+            [
+              "<strong>Detail error</strong>",
+              "AI writes <code>@Mock</code> when the code needs <code>@InjectMocks</code> &mdash; right framework, wrong annotation",
+              "Static analysis + code review + running the code &mdash; grounding doesn&rsquo;t catch these"
+            ]
+          ]
+        }
+      },
+      {
+        "card": "How this shapes your workflow:",
+        "items": [
+          "<strong>Different models lean toward different types</strong> &mdash; know which your model tends toward",
+          "<strong>Grounding is the primary defense</strong> against commission + omission",
+          "<strong>Detail errors survive grounding</strong> &mdash; catch them at compile, review, or test time"
+        ]
+      },
+      {
+        "quote": "Commission and omission are opposite errors &mdash; one fabricates, one withholds. Both disappear when you stop asking the LLM to <em>know</em> facts and start feeding it <em>verified</em> ones."
       }
     ]
   },

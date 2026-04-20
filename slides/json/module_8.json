@@ -442,6 +442,66 @@
     "type": "content",
     "mod": "8",
     "tag": "",
+    "title": "Evaluation Architecture",
+    "desc": "End-to-end tests say <em>if</em> it broke. Per-layer evals say <em>where</em> &mdash; so you can debug the agent instead of guessing.",
+    "body": [
+      {
+        "table": {
+          "headers": [
+            "Layer",
+            "Metric to watch",
+            "What regression looks like"
+          ],
+          "rows": [
+            [
+              "<strong>3. Control plane</strong>",
+              "Policy hit rate",
+              "Drop in blocked actions &mdash; policy drift"
+            ],
+            [
+              "<strong>4. Orchestration</strong>",
+              "Retry depth, sub-agent count",
+              "Runs exceeding the retry or fan-out budget"
+            ],
+            [
+              "<strong>5. Cognition</strong>",
+              "Expected-output match rate on ground-truth set",
+              "Pass rate regresses after a model or prompt change"
+            ],
+            [
+              "<strong>7. Tool execution</strong>",
+              "Tool success rate",
+              "Silent failures; new error types"
+            ],
+            [
+              "<strong>8. Telemetry</strong>",
+              "Trace completeness",
+              "Missing spans; orphaned sub-agents"
+            ]
+          ],
+          "note": "Layers 1 (Interface), 2 (Identity), and 6 (Memory) share one metric: contract compliance &mdash; input format valid, auth scope correct, memory fresh."
+        }
+      },
+      {
+        "code": "<span class=\"cmt\">// A ground-truth entry for a coding agent</span>\n{\n  <span class=\"str\">\"prompt\"</span>: <span class=\"str\">\"Add null-check to getUser() in UserService\"</span>,\n  <span class=\"str\">\"expected_tools\"</span>: [<span class=\"str\">\"Read\"</span>, <span class=\"str\">\"Edit\"</span>],\n  <span class=\"str\">\"must_contain\"</span>: <span class=\"str\">\"if (id == null)\"</span>,\n  <span class=\"str\">\"must_pass\"</span>: <span class=\"str\">\"mvn test\"</span>\n}"
+      },
+      {
+        "card": "Evaluation discipline:",
+        "items": [
+          "<strong>Ground-truth set</strong> &mdash; curated input/output pairs (like above); the &ldquo;answer key&rdquo; for the system",
+          "<strong>Hypothesis before change</strong> &mdash; one variable at a time; commit the prediction before the experiment",
+          "<strong>Regression re-run</strong> &mdash; ground-truth runs on every merge; humans catch the new failure modes"
+        ]
+      },
+      {
+        "quote": "The agent silently gets worse before anyone notices. Evals are how you notice &mdash; the gates come next."
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "mod": "8",
+    "tag": "",
     "title": "Fitness Gates: Deterministic vs. Probabilistic",
     "desc": "Two fundamentally different enforcement models.",
     "body": [
