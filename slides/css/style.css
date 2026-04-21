@@ -188,13 +188,15 @@ html, body {
    TABLE OF CONTENTS
    ══════════════════════════════════════ */
 
-.card-toc { padding: 12px 0; }
+.card-toc { padding: 12px 0; gap: 0; }
 .toc-row {
   display: flex; align-items: center; gap: 12px;
   padding: 6px 24px; font-size: 17px;
   border-bottom: 1px solid var(--border);
 }
 .toc-row:last-child { border-bottom: none; }
+.toc-slide-row { border-bottom: 1px solid var(--border); }
+.toc-slide-row:last-child { border-bottom: none; }
 .toc-row[onclick]:hover { background: var(--accent); border-radius: 6px; }
 .toc-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .toc-label { font-weight: 700; font-size: 13px; min-width: 72px; flex-shrink: 0; letter-spacing: 0.02em; }

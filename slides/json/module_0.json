@@ -1,11 +1,34 @@
 [
   {
     "type": "content",
-    "mod": "0",
+    "mod": "",
     "tag": "",
     "title": "Table of Contents",
     "desc": "Course Structure &mdash; Introduction &rarr; 9 Modules &rarr; Capstone + Exam",
     "body": "toc"
+  },
+  {
+    "type": "cover",
+    "script": {
+      "name": "butterfly",
+      "opts": {
+        "perched": true,
+        "anchor": ".cover-card",
+        "anchorOffsetX": -50,
+        "anchorOffsetY": 0,
+        "facing": 0.3
+      }
+    },
+    "bg": 4,
+    "h1": "Intro",
+    "lead": "Course Overview & Toolchain",
+    "sub": "Professional tools meet the AI layer &mdash; why both matter",
+    "badges": [
+      "Toolchain",
+      "AI Layer",
+      "Agent Model",
+      "*Claude Code"
+    ]
   },
   {
     "type": "content",

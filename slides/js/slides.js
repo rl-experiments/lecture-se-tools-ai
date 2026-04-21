@@ -47,12 +47,8 @@
   // ── TOC & cover contents ───────────────────────────
   function updateTocAndCovers() {
     data.toc.forEach(entry => {
-      if (entry.mod === '0') {
-        entry.slide = 2;
-      } else {
-        const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === data.modules[entry.mod].label);
-        if (ci >= 0) entry.slide = ci;
-      }
+      const ci = data.slides.findIndex(s => s.type === 'cover' && s.h1 === data.modules[entry.mod].label);
+      if (ci >= 0) entry.slide = ci;
     });
 
     const modCounts = {};
@@ -195,7 +191,7 @@
     for (const group of groups) {
       html += `<div class="card card-toc" style="margin-bottom:8px">`;
       if (group.label) {
-        html += `<div style="padding:10px 24px 2px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted-foreground)">${group.label}</div>`;
+        html += `<div style="padding:10px 24px 14px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted-foreground)">${group.label}</div>`;
       }
       for (const mod of group.mods) {
         const entry = tocByMod[mod];
@@ -212,26 +208,26 @@
     }
     html += `</div>`;
 
-    // All slides view
-    const gridStyle = `display:grid;grid-template-columns:80px 1fr 70px;align-items:center;gap:0 12px;padding:6px 24px;border-bottom:1px solid var(--border);cursor:pointer;font-size:15px`;
-    html += `<div class="card card-toc" id="toc-slides" style="display:none;max-height:70vh;overflow-y:auto">`;
+    // All slides view: one card per module (cover + its content), standalone slides (main cover, TOC) get their own card
+    const gridStyle = `display:grid;grid-template-columns:80px 1fr 70px;align-items:center;gap:0 12px;padding:10px 24px;cursor:pointer;font-size:15px`;
+    const allSlidesTagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
+    html += `<div id="toc-slides" style="display:none;max-height:70vh;overflow-y:auto;padding-right:10px">`;
+
+    let cardOpen = false;
+    const openCard = () => {
+      if (cardOpen) html += `</div>`;
+      html += `<div class="card card-toc" style="margin-bottom:8px">`;
+      cardOpen = true;
+    };
+
     for (let i = 0; i < data.slides.length; i++) {
       const s = data.slides[i];
       const mod = s.mod || null;
 
-      if (s.type === 'cover' && s.h1 && labelToMod[s.h1] !== undefined) {
-        const modNum = labelToMod[s.h1];
-        const c = modColors[modNum] || '#737373';
-        html += `<div style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600" onclick="go(${i})">`;
-        html += `<span style="color:${c};font-size:13px;font-weight:700;letter-spacing:0.02em;text-align:right">${s.h1}</span>`;
-        html += `<span style="color:var(--foreground);padding-left:16px">${s.lead || ''}</span>`;
-        html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
-        html += `</div>`;
-        continue;
-      }
-
+      // Main cover (i===0) → own card
       if (s.type === 'cover' && i === 0) {
-        html += `<div style="${gridStyle};font-weight:600;padding-top:10px;padding-bottom:10px" onclick="go(0)">`;
+        openCard();
+        html += `<div class="toc-slide-row" style="${gridStyle};font-weight:600;padding-top:10px;padding-bottom:10px" onclick="go(0)">`;
         html += `<span></span>`;
         html += `<span style="color:var(--foreground);font-size:16px;letter-spacing:-0.01em;padding-left:16px">${s.h1} ${s.lead || ''}</span>`;
         html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide 1</span>`;
@@ -239,18 +235,34 @@
         continue;
       }
 
+      // Module cover → new card
+      if (s.type === 'cover' && s.h1 && labelToMod[s.h1] !== undefined) {
+        openCard();
+        const modNum = labelToMod[s.h1];
+        const c = modColors[modNum] || '#737373';
+        html += `<div class="toc-slide-row" style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600;padding-top:14px;padding-bottom:14px" onclick="go(${i})">`;
+        html += `<span style="color:${c};font-size:13px;font-weight:700;letter-spacing:0.02em;text-align:right">${s.h1}</span>`;
+        html += `<span style="color:var(--foreground);padding-left:16px">${s.lead || ''}</span>`;
+        html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
+        html += `</div>`;
+        continue;
+      }
+
       if (s.type === 'content' && s.title) {
+        // Standalone content (no mod, e.g. TOC) → own card
+        if (!mod) openCard();
+        else if (!cardOpen) openCard();
         const c = mod ? (modColors[mod] || '#737373') : '#737373';
-        const allSlidesTagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
         const tlabel = allSlidesTagLabels[s.tag];
         const tag = tlabel ? ` <span class="type-badge type-${s.tag}" style="font-size:10px;padding:2px 8px;margin-left:6px">${tlabel}</span>` : '';
-        html += `<div style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
-        html += `<span style="color:${c};font-size:11px;font-weight:600;text-align:right">${mod ? 'M' + mod : ''}</span>`;
+        html += `<div class="toc-slide-row" style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
+        html += `<span style="color:${c};font-size:11px;font-weight:600;text-align:right">${mod && data.modules[mod] ? data.modules[mod].label : ''}</span>`;
         html += `<span style="font-weight:400;padding-left:16px">${s.title}${tag}</span>`;
         html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
         html += `</div>`;
       }
     }
+    if (cardOpen) html += `</div>`;
     html += `</div>`;
     return html;
   }
