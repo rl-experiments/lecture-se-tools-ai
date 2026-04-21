@@ -29,7 +29,7 @@
     "mod": "11",
     "tag": "",
     "title": "Presentation Format",
-    "desc": "5 minutes each",
+    "desc": "10-15 minutes each",
     "body": [
       {
         "card": "",
@@ -254,7 +254,7 @@
             ],
             [
               "<strong>Explain your code</strong>",
-              "Cannot explain <em>why</em> the code exists or <em>how</em> it works &mdash; shipped AI output you do not understand",
+              "Cannot explain <em>why</em> the code exists or <em>how</em> it works &mdash; shipped AI output you don&rsquo;t understand",
               "<span style=\"color:#ef4444\"><strong>-1.0</strong></span>"
             ]
           ]

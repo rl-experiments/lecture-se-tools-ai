@@ -371,7 +371,7 @@
     "desc": "The Coordinator pattern from Module 8, made concrete &mdash; plus a routing layer (focused vs. parallel) that Module 8 didn&rsquo;t show.",
     "body": [
       {
-        "code": "                  <span class=\"kw\">@project-coordinator</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent has <span class=\"fn\">isolated context</span>.\n  No automatic inheritance from coordinator.\n  Returns <span class=\"fn\">summary</span>, not full output.",
+        "code": "                  <span class=\"kw\">@project-coordinator</span> (Hub)\n                 /        |        |        \\\n         solution    code-std    test     research\n         architect   reviewer    spec     analyst\n              |          |         |         |\n         Designs    Reviews    Tests    Researches\n         workflow   standards  quality  externals\n\n  Each subagent: <span class=\"fn\">isolated context</span>, no inheritance, <span class=\"fn\">summary</span>-only output.",
         "note": "10 specialists total. Each has scoped tools (mostly read-only) and narrow instructions. The coordinator decides which ones to invoke for a given task."
       },
       {
@@ -597,7 +597,7 @@
     "desc": "A configuration pattern you&rsquo;ll create yourself &mdash; not a download. Minimal setup for the capstone: reduced thresholds, a handful of hooks, skills, and agents.",
     "body": [
       {
-        "code": "<span class=\"cmt\"># cognitive-core.conf (Student Lab Pack)</span>\n\nCC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
+        "code": "CC_PROJECT_NAME=<span class=\"str\">\"student-grade-manager\"</span>\nCC_LANGUAGE=<span class=\"str\">\"java\"</span>\nCC_PLATFORM=<span class=\"str\">\"claude\"</span>\n\n<span class=\"cmt\"># Relaxed fitness gates for learning</span>\nCC_FITNESS_LINT=<span class=\"fn\">50</span>\nCC_FITNESS_COMMIT=<span class=\"fn\">70</span>\nCC_FITNESS_TEST=<span class=\"fn\">75</span>\nCC_FITNESS_MERGE=<span class=\"fn\">80</span>\nCC_FITNESS_DEPLOY=<span class=\"fn\">85</span>\n\n<span class=\"cmt\"># Quality commands</span>\nCC_LINT_COMMAND=<span class=\"str\">\"mvn checkstyle:check pmd:check\"</span>\nCC_TEST_COMMAND=<span class=\"str\">\"mvn test\"</span>\n\n<span class=\"cmt\"># Safety level</span>\nCC_SECURITY_LEVEL=<span class=\"str\">\"standard\"</span>",
         "note": "Lower thresholds than production (50-85% vs. 60-95%). You are learning &mdash; the gates should challenge you, not block you."
       },
       {

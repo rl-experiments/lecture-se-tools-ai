@@ -107,7 +107,7 @@
     "desc": "Model Context Protocol &mdash; the standard plug for connecting any agent to any tool.",
     "body": [
       {
-        "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server\nAgent &lt;--MCP--&gt; Any tool with MCP adapter"
+        "code": "Agent &lt;--MCP--&gt; File system server\nAgent &lt;--MCP--&gt; Git server  \nAgent &lt;--MCP--&gt; Database server"
       },
       {
         "card": "",
@@ -570,12 +570,6 @@
             ],
             [
               "Add a dependency to <code>pom.xml</code>",
-              "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
-              "1 / 2 / 3 / 4?",
-              "&hellip;"
-            ],
-            [
-              "Commit to a feature branch",
               "&#x1F7E2; / &#x1F7E1; / &#x1F534; ?",
               "1 / 2 / 3 / 4?",
               "&hellip;"
