@@ -59,7 +59,8 @@ slides/
     content/              ← slide content images (SVN-vs-GIT, etc.)
 tools/
   export_pdf.py           ← export all slides to landscape PDF
-  _animate_cover.py       ← record cover slide as animated WebP
+  _animate_cover.py       ← record cover slide as animated WebP (README)
+  _screenshot_toc.py      ← screenshot TOC slide to .github/toc.webp (README)
 export/                   ← generated output (gitignored)
 ```
 
@@ -84,8 +85,9 @@ Output: `export/slides.pdf` (landscape)
 
 ## Dependencies
 
-- Node.js (for `npx` commands) or Python 3 (for `http.server`)
+- Node.js (for `npx live-server`)
 - PDF export: Python 3, playwright, pypdf
+- README asset regeneration: Python 3, playwright, Pillow, ffmpeg
 
 ## License
 
