@@ -70,7 +70,7 @@
         }
       }
       const mc = modColors[mod] || '#737373';
-      const tagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE' };
+      const tagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
       data.slides[coverIdx].contents = modSlides.map(s => {
         const label = tagLabels[s.tag];
         const badge = label ? ` <span class="type-badge type-${s.tag}" style="font-size:10px;padding:2px 8px;margin-left:6px">${label}</span>` : '';
@@ -106,7 +106,8 @@
       demo: ['DEMO', 'type-demo'],
       industry: ['INDUSTRY', 'type-industry'],
       mistake: ['COMMON MISTAKE', 'type-mistake'],
-      takeaway: ['KEY TAKEAWAYS', 'type-takeaway']
+      takeaway: ['KEY TAKEAWAYS', 'type-takeaway'],
+      important: ['IMPORTANT', 'type-important']
     };
     const m = map[tag];
     if (!m) return '';
@@ -236,7 +237,9 @@
 
       if (s.type === 'content' && s.title) {
         const c = mod ? (modColors[mod] || '#737373') : '#737373';
-        const tag = s.tag ? ` <span style="color:var(--muted-foreground);font-size:11px">[${s.tag.toUpperCase()}]</span>` : '';
+        const allSlidesTagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
+        const tlabel = allSlidesTagLabels[s.tag];
+        const tag = tlabel ? ` <span class="type-badge type-${s.tag}" style="font-size:10px;padding:2px 8px;margin-left:6px">${tlabel}</span>` : '';
         html += `<div style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
         html += `<span style="color:${c};font-size:11px;font-weight:600;text-align:right">${mod ? 'M' + mod : ''}</span>`;
         html += `<span style="font-weight:400;padding-left:16px">${s.title}${tag}</span>`;

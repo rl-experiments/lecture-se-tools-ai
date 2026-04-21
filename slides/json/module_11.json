@@ -181,7 +181,7 @@
   {
     "type": "content",
     "mod": "11",
-    "tag": "",
+    "tag": "important",
     "title": "Grading Policy",
     "desc": "Base grade 1.0. Violations subtract; bonuses add.",
     "body": [

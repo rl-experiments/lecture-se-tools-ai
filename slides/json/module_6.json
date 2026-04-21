@@ -310,7 +310,7 @@
   {
     "type": "content",
     "mod": "6",
-    "tag": "",
+    "tag": "important",
     "title": "Risk 2: Data Leakage &mdash; The Egress Problem",
     "desc": "Egress = data <em>leaving</em> the system. The risk: your secrets, customer data, or proprietary code end up in a conversation with an external model.",
     "body": [

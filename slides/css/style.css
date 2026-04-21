@@ -138,6 +138,7 @@ html, body {
 .type-industry { background: #fef3c7; color: #92400e; }
 .type-mistake { background: #fee2e2; color: #991b1b; }
 .type-takeaway { background: #f3e8ff; color: #6b21a8; }
+.type-important { background: #dc2626; color: #fff; }
 
 /* ══════════════════════════════════════
    CODE BLOCKS

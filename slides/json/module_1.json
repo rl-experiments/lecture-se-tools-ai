@@ -397,7 +397,7 @@
   {
     "type": "content",
     "mod": "1",
-    "tag": "",
+    "tag": "important",
     "title": ".gitignore: What NOT to Track",
     "body": [
       {
