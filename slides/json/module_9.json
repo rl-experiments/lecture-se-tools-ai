@@ -593,7 +593,7 @@
     "type": "content",
     "mod": "9",
     "tag": "",
-    "title": "cognitive-core Student Lab Pack",
+    "title": "cognitive-core: Student Lab Pack",
     "desc": "A configuration pattern you&rsquo;ll create yourself &mdash; not a download. Minimal setup for the capstone: reduced thresholds, a handful of hooks, skills, and agents.",
     "body": [
       {

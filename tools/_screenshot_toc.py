@@ -27,7 +27,6 @@ try:
         page.evaluate("""() => {
             const nav = document.getElementById('nav'); if (nav) nav.style.display = 'none';
             const pr = document.getElementById('progress'); if (pr) pr.style.display = 'none';
-            document.querySelectorAll('.badge-draft').forEach(b => b.style.display = 'none');
             const s = document.querySelector('.slide.active');
             const cs = getComputedStyle(s);
             document.body.style.backgroundImage = cs.backgroundImage;

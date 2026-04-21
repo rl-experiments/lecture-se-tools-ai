@@ -66,13 +66,16 @@
       const modSlides = [];
       for (let i = 0; i < data.slides.length; i++) {
         if (data.slides[i].mod === mod && data.slides[i].type === 'content') {
-          modSlides.push({ title: data.slides[i].title, index: i });
+          modSlides.push({ title: data.slides[i].title, index: i, tag: data.slides[i].tag });
         }
       }
       const mc = modColors[mod] || '#737373';
-      data.slides[coverIdx].contents = modSlides.map(s =>
-        `<span onclick="event.stopPropagation();go(${s.index})" style="cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'"><span style="color:${mc};margin-right:6px">&#x2022;</span>${s.title}</span>`
-      ).join('\n');
+      const tagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE' };
+      data.slides[coverIdx].contents = modSlides.map(s => {
+        const label = tagLabels[s.tag];
+        const badge = label ? ` <span class="type-badge type-${s.tag}" style="font-size:10px;padding:2px 8px;margin-left:6px">${label}</span>` : '';
+        return `<span onclick="event.stopPropagation();go(${s.index})" style="cursor:pointer;display:block;padding:2px 8px;font-size:15px;border-radius:4px" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'"><span style="color:${mc};margin-right:6px">&#x2022;</span>${s.title}${badge}</span>`;
+      }).join('\n');
     }
   }
   updateTocAndCovers();

@@ -9,7 +9,7 @@ PORT = 9877
 WING_HZ_REST = 0.68
 LOOP_CYCLES = 2                                    # 2 cycles = 2.941 s
 LOOP_DURATION = LOOP_CYCLES / WING_HZ_REST
-TRIM_START = 2.5                                   # skip page load + settle
+TRIM_START = 3.5                                   # skip page load + hide + settle
 RECORD_SECONDS = TRIM_START + LOOP_DURATION + 0.3  # +buffer for ffmpeg
 FPS = 25
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,7 +37,6 @@ try:
         page.evaluate("""() => {
             const nav = document.getElementById('nav'); if (nav) nav.style.display = 'none';
             const pr = document.getElementById('progress'); if (pr) pr.style.display = 'none';
-            document.querySelectorAll('.badge-draft').forEach(b => b.style.display = 'none');
             const s = document.querySelector('.slide.active');
             const cs = getComputedStyle(s);
             document.body.style.backgroundImage = cs.backgroundImage;

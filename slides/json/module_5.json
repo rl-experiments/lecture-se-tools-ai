@@ -65,7 +65,7 @@
         ]
       },
       {
-        "code": "Git push &rarr; Jenkins detects &rarr; Build &rarr; Test &rarr; Quality &rarr; Report\n                                                            |\n                                              <span class=\"str\">Green: ready to merge</span>\n                                              <span class=\"kw\">Red: fix your code</span>"
+        "code": "Git push &rarr; Jenkins detects &rarr; Build &rarr; Test &rarr; Quality &rarr; Report\n                                                        |\n                                              <span class=\"str\">Green: ready to merge</span>\n                                              <span class=\"kw\">Red: fix your code</span>"
       }
     ]
   },
