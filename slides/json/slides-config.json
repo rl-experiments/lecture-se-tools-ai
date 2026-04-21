@@ -129,7 +129,7 @@
   ],
   "cover": {
     "type": "cover",
-    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":90,"anchorOffsetY":0,"facing":-0.4,"scale":1.2}},
+    "script": {"name":"butterfly","opts":{"perched":true,"anchor":".cover-card","anchorOffsetX":90,"anchorOffsetY":0,"facing":-0.4,"scale":1.1}},
     "bg": 2,
     "h1": "Professional Java Development",
     "lead": "SE Tools & AI-Assisted Engineering",
