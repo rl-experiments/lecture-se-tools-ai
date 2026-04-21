@@ -16,12 +16,14 @@
         "anchor": ".cover-card",
         "anchorOffsetX": -50,
         "anchorOffsetY": 0,
-        "facing": 0.3
+        "facing": 0.3,
+        "hue": 0,
+        "saturate": 0.15
       }
     },
     "bg": 4,
     "h1": "Intro",
-    "lead": "Course Overview & Toolchain",
+    "lead": "Course Overview",
     "sub": "Professional tools meet the AI layer &mdash; why both matter",
     "badges": [
       "Toolchain",
@@ -34,7 +36,7 @@
     "type": "content",
     "mod": "0",
     "tag": "",
-    "title": "Course Overview",
+    "title": "Course Scope",
     "desc": "Professional Java Development: SE Tools & AI-Assisted Engineering",
     "body": [
       {
