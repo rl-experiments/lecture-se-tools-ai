@@ -1,6 +1,6 @@
 # Professional Java Development<br><sub>SE Tools & AI-Assisted Engineering</sub>
 
-University lecture slides — Introduction, 9 modules, Final Project, Exam.
+University lecture slides — Introduction, 9 modules, Final Project, Exam. Module 9 and the capstone use the [cognitive-core](https://github.com/mindcockpit-ai/cognitive-core) framework.
 
 ![Cover slide](.github/cover.webp)
 
