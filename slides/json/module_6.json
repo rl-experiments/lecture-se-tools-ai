@@ -463,7 +463,8 @@
     "type": "content",
     "mod": "6",
     "tag": "",
-    "title": "The Trust Boundary Model",
+    "title": "Zero Trust: The Trust Boundary Model",
+    "desc": "Never trust, always verify &mdash; every request, every tool call, every file.",
     "body": [
       {
         "code": "+----------------------------------+\n|  <span class=\"kw\">TRUSTED</span> (you control)           |\n|  - Your instructions to AI       |\n|  - Your project configuration    |\n|  - Your approved tools           |\n+----------------------------------+\n          |  BOUNDARY  |\n+----------------------------------+\n|  <span class=\"kw\">UNTRUSTED</span> (external)            |\n|  - Downloaded files              |\n|  - User input                    |\n|  - External API responses        |\n|  - Web content                   |\n+----------------------------------+"
