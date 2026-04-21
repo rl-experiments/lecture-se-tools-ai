@@ -174,9 +174,9 @@
   }
 
   function renderToc() {
-    let html = `<div style="display:flex;gap:8px;margin-bottom:8px">`;
-    html += `<button class="btn" id="toc-btn-modules" onclick="tocToggle('modules')" style="font-size:13px;height:30px;padding:4px 14px">Modules</button>`;
+    let html = `<div style="display:flex;gap:8px;margin-bottom:8px;padding-right:24px;justify-content:flex-end">`;
     html += `<button class="btn-ghost" id="toc-btn-slides" onclick="tocToggle('slides')" style="font-size:13px;height:30px;padding:4px 14px;border:1px solid var(--border)">All Slides</button>`;
+    html += `<button class="btn" id="toc-btn-modules" onclick="tocToggle('modules')" style="font-size:13px;height:30px;padding:4px 14px">Modules</button>`;
     html += `</div>`;
 
     // Module overview with groups as separate cards

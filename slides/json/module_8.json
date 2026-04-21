@@ -325,7 +325,7 @@
     "type": "content",
     "mod": "8",
     "tag": "",
-    "title": "ADRs: Why Decisions Still Make Sense Three Months Later",
+    "title": "ADRs: Why Decisions Make Sense Three Months Later",
     "desc": "Traces tell you <em>what</em> happened. ADRs tell you <em>why</em> it still looks that way three months later.",
     "body": [
       {

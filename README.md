@@ -55,7 +55,7 @@ slides/
     module_10.json        ← Capstone: Final Project
     module_11.json        ← Exam: Presentation & Grading
   images/
-    bg/                   ← background images (6 JPEGs)
+    bg/                   ← background images
     content/              ← slide content images (SVN-vs-GIT, etc.)
 tools/
   export_pdf.py           ← export all slides to landscape PDF
