@@ -414,7 +414,7 @@
   {
     "type": "content",
     "mod": "8",
-    "tag": "industry",
+    "tag": "important",
     "title": "The Parsimony Principle: KISS and YAGNI",
     "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
     "body": [

@@ -190,6 +190,7 @@
       },
       {
         "table": {
+          "widths": ["22%", "63%", "15%"],
           "headers": [
             "Requirement",
             "Violation",
@@ -264,6 +265,7 @@
       },
       {
         "table": {
+          "widths": ["22%", "63%", "15%"],
           "headers": [
             "Category",
             "Condition",

@@ -140,7 +140,11 @@
 
   function renderTable(item) {
     const t = item.table;
-    let html = `<div class="card"><div class="card-table"><table><thead><tr>`;
+    let html = `<div class="card"><div class="card-table"><table>`;
+    if (t.widths) {
+      html += `<colgroup>${t.widths.map(w => `<col style="width:${w}">`).join('')}</colgroup>`;
+    }
+    html += `<thead><tr>`;
     for (const h of t.headers) html += `<th>${h}</th>`;
     html += `</tr></thead><tbody>`;
     for (const row of t.rows) {
