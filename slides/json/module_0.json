@@ -3,6 +3,7 @@
     "type": "content",
     "mod": "",
     "tag": "",
+    "sws": 0,
     "title": "Table of Contents",
     "desc": "Course Structure &mdash; Introduction &rarr; 9 Modules &rarr; Capstone + Exam",
     "body": "toc"
@@ -208,6 +209,7 @@
     "type": "content",
     "mod": "0",
     "tag": "industry",
+    "sws": 0,
     "title": "Why &ldquo;Agent&rdquo; and Not Just &ldquo;AI Tool&rdquo;",
     "desc": "The industry distinguishes between simple tools and autonomous agents.",
     "body": [
@@ -364,6 +366,7 @@
     "type": "content",
     "mod": "0",
     "tag": "industry",
+    "sws": 0,
     "title": "How Claude Code Works &mdash; The Agent Model",
     "desc": "Every AI agent has the same three components. Claude Code is no exception.",
     "body": [
@@ -478,6 +481,7 @@
     "type": "content",
     "mod": "0",
     "tag": "exercise",
+    "sws": 0,
     "title": "Exercise 0.2: Test the Limits",
     "desc": "10 minutes",
     "body": [

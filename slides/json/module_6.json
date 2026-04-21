@@ -28,6 +28,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "This Module Is Different",
     "desc": "Previous modules covered classical software engineering tools. This one shifts focus to the risks AI itself introduces &mdash; and how to defend against them.",
     "body": [
@@ -60,6 +61,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "The Security Perimeter Model",
     "desc": "Think of it like airport security: every layer checks something different.",
     "body": [
@@ -115,6 +117,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Three Core Questions for Any AI System",
     "body": [
       {
@@ -154,6 +157,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Risk 1: AI Can Be Wrong (Hallucination)",
     "script": {
       "name": "bug",
@@ -182,6 +186,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Rule: AI Output Is a Draft, Not a Commit",
     "body": [
       {
@@ -311,6 +316,7 @@
     "type": "content",
     "mod": "6",
     "tag": "important",
+    "sws": 2,
     "title": "Risk 2: Data Leakage &mdash; The Egress Problem",
     "desc": "Egress = data <em>leaving</em> the system. The risk: your secrets, customer data, or proprietary code end up in a conversation with an external model.",
     "body": [
@@ -341,6 +347,7 @@
     "type": "content",
     "mod": "6",
     "tag": "mistake",
+    "sws": 2,
     "title": "Pasting Secrets into AI",
     "body": [
       {
@@ -372,6 +379,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Risk 3: Prompt Injection",
     "body": [
       {
@@ -518,6 +526,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Risk 5: Over-Reliance (&ldquo;AI Dependency&rdquo;)",
     "desc": "AI is a power tool &mdash; but if you can&rsquo;t work without it, you don&rsquo;t control it.",
     "body": [
@@ -584,6 +593,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "Risk 7: Insecure Generated Code",
     "desc": "The code compiles. Tests pass. It is functionally correct &mdash; and full of SQL injection, path traversal, or missing input validation.",
     "body": [
@@ -653,6 +663,7 @@
     "type": "content",
     "mod": "6",
     "tag": "",
+    "sws": 2,
     "title": "The Human Approval Gate",
     "desc": "AI suggests. Humans approve. Humans fix.",
     "body": [
@@ -724,6 +735,7 @@
     "mod": "6",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 6: Key Takeaways",
     "body": [
       {

@@ -28,6 +28,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "The Problem: &ldquo;It Compiles&rdquo; Is Not Enough",
     "body": [
       {
@@ -49,6 +50,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "Three Tools, Three Different Jobs",
     "body": [
       {
@@ -84,6 +86,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "CheckStyle: Consistent Code Style",
     "body": [
       {
@@ -99,6 +102,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "CheckStyle: Google Style Guide",
     "desc": "The industry-standard Java style guide, enforced automatically.",
     "body": [
@@ -123,6 +127,7 @@
     "type": "content",
     "mod": "3",
     "tag": "demo",
+    "sws": 2,
     "title": "CheckStyle: IDE Integration",
     "desc": "Format code automatically &mdash; never fix style violations manually.",
     "body": [
@@ -144,6 +149,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "PMD: Bad Patterns and Code Smells",
     "body": [
       {
@@ -206,6 +212,7 @@
     "type": "content",
     "mod": "3",
     "tag": "demo",
+    "sws": 2,
     "title": "Running All Three Together",
     "body": [
       {
@@ -223,6 +230,7 @@
     "type": "content",
     "mod": "3",
     "tag": "mistake",
+    "sws": 2,
     "title": "Ignoring Warnings",
     "script": [
       {
@@ -372,6 +380,7 @@
     "type": "content",
     "mod": "3",
     "tag": "demo",
+    "sws": 2,
     "title": "Claude Code as Intelligent Reviewer",
     "body": [
       {
@@ -414,6 +423,7 @@
     "type": "content",
     "mod": "3",
     "tag": "exercise",
+    "sws": 2,
     "title": "Exercise 3.1: Configure Quality Tools",
     "desc": "15 minutes",
     "body": [
@@ -625,6 +635,7 @@
     "type": "content",
     "mod": "3",
     "tag": "",
+    "sws": 2,
     "title": "CLAUDE.md: Teaching AI Your Project Rules",
     "desc": "The single most important file for AI-assisted development.",
     "body": [
@@ -791,6 +802,7 @@
     "mod": "3",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 3: Key Takeaways",
     "body": [
       {

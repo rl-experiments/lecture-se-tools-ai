@@ -146,6 +146,7 @@
     "type": "content",
     "mod": "4",
     "tag": "",
+    "sws": 0,
     "title": "What Is Mockito?",
     "desc": "Your class depends on a database or API. How to test without real infrastructure?",
     "body": [
@@ -159,6 +160,7 @@
     "type": "content",
     "mod": "4",
     "tag": "",
+    "sws": 0,
     "title": "Mockito: Stubbing with when/thenReturn",
     "desc": "Mocks can also return fake data — so you control what the dependency does.",
     "body": [
@@ -231,6 +233,7 @@
     "type": "content",
     "mod": "4",
     "tag": "demo",
+    "sws": 0,
     "title": "TDD with Claude Code",
     "desc": "Test-Driven Development: write tests FIRST, then implementation",
     "body": [
@@ -288,6 +291,7 @@
     "type": "content",
     "mod": "4",
     "tag": "exercise",
+    "sws": 0,
     "title": "Exercise 4.3: TDD with AI",
     "desc": "20 minutes",
     "body": [
@@ -310,6 +314,7 @@
     "type": "content",
     "mod": "4",
     "tag": "",
+    "sws": 0,
     "title": "Test Coverage",
     "body": [
       {

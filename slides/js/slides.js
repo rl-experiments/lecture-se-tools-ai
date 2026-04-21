@@ -21,6 +21,7 @@
   const config = await fetchJSON('json/slides-config.json');
   const data = {
     title: config.title,
+    defaultSws: config.defaultSws,
     modules: config.modules,
     bg_rotation: config.bg_rotation,
     toc: config.toc,
@@ -93,6 +94,16 @@
     const c = modColors[mod] || '#737373';
     const label = (data.modules[mod] && data.modules[mod].label) || `Module ${mod}`;
     return `<span class="module-badge" style="background:${c}20;color:${c}">${label}</span>`;
+  }
+
+  function renderSwsBadge(slide) {
+    if (!slide) return '';
+    const modSws = data.modules[slide.mod] && data.modules[slide.mod].sws;
+    const sws = slide.sws !== undefined ? slide.sws
+              : modSws !== undefined ? modSws
+              : data.defaultSws;
+    if (!sws) return '';
+    return `<span class="type-badge sws-badge">${sws} SWS</span>`;
   }
 
   function renderTypeBadge(tag) {
@@ -178,9 +189,19 @@
   }
 
   function renderToc() {
-    let html = `<div style="display:flex;gap:8px;margin-bottom:8px;padding-right:24px;justify-content:flex-end">`;
-    html += `<button class="btn-ghost" id="toc-btn-slides" onclick="tocToggle('slides')" style="font-size:13px;height:30px;padding:4px 14px;border:1px solid var(--border)">All Slides</button>`;
+    const swsCount = data.slides.filter(s => s.type === 'content' && renderSwsBadge(s)).length;
+    const totalCount = data.slides.length;
+    // Toolbar grid mirrors the All Slides row grid so the 2 SWS button
+    // sits exactly above the 2 SWS badge column in the rows below.
+    let html = `<div style="display:grid;grid-template-columns:80px 1fr 64px 70px;gap:0 12px;padding:0 54px 8px 24px;align-items:center">`;
+    html += `<div style="grid-column:1 / 3;display:flex;gap:8px">`;
     html += `<button class="btn" id="toc-btn-modules" onclick="tocToggle('modules')" style="font-size:13px;height:30px;padding:4px 14px">Modules</button>`;
+    html += `<button class="btn-ghost" id="toc-btn-slides" onclick="tocToggle('slides')" style="font-size:13px;height:30px;padding:4px 14px;border:1px solid var(--border)">All Slides</button>`;
+    html += `</div>`;
+    html += `<div id="toc-slides-actions" style="display:none;text-align:center">`;
+    html += `<button class="btn-ghost" id="toc-btn-sws" onclick="tocSwsFilter()" style="font-size:13px;height:30px;padding:4px 10px;border:1px solid var(--border);white-space:nowrap">2 SWS</button>`;
+    html += `</div>`;
+    html += `<div id="toc-sws-count" data-total="${totalCount}" data-filtered="${swsCount}" style="display:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">${totalCount}</div>`;
     html += `</div>`;
 
     // Module overview with groups as separate cards
@@ -209,8 +230,12 @@
     html += `</div>`;
 
     // All slides view: one card per module (cover + its content), standalone slides (main cover, TOC) get their own card
-    const gridStyle = `display:grid;grid-template-columns:80px 1fr 70px;align-items:center;gap:0 12px;padding:10px 24px;cursor:pointer;font-size:15px`;
+    const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:10px 24px;cursor:pointer;font-size:15px`;
     const allSlidesTagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
+    const swsCell = (s) => {
+      const badge = s.type === 'content' ? renderSwsBadge(s) : '';
+      return badge ? `<span style="text-align:center">${badge}</span>` : `<span></span>`;
+    };
     html += `<div id="toc-slides" style="display:none;max-height:70vh;overflow-y:auto;padding-right:10px">`;
 
     let cardOpen = false;
@@ -227,9 +252,10 @@
       // Main cover (i===0) → own card
       if (s.type === 'cover' && i === 0) {
         openCard();
-        html += `<div class="toc-slide-row" style="${gridStyle};font-weight:600;padding-top:10px;padding-bottom:10px" onclick="go(0)">`;
+        html += `<div class="toc-slide-row" data-sws="title" style="${gridStyle};font-weight:600;padding-top:10px;padding-bottom:10px" onclick="go(0)">`;
         html += `<span></span>`;
         html += `<span style="color:var(--foreground);font-size:16px;letter-spacing:-0.01em;padding-left:16px">${s.h1} ${s.lead || ''}</span>`;
+        html += swsCell(s);
         html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide 1</span>`;
         html += `</div>`;
         continue;
@@ -240,9 +266,10 @@
         openCard();
         const modNum = labelToMod[s.h1];
         const c = modColors[modNum] || '#737373';
-        html += `<div class="toc-slide-row" style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600;padding-top:14px;padding-bottom:14px" onclick="go(${i})">`;
+        html += `<div class="toc-slide-row" data-sws="no" style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600;padding-top:14px;padding-bottom:14px" onclick="go(${i})">`;
         html += `<span style="color:${c};font-size:13px;font-weight:700;letter-spacing:0.02em;text-align:right">${s.h1}</span>`;
         html += `<span style="color:var(--foreground);padding-left:16px">${s.lead || ''}</span>`;
+        html += swsCell(s);
         html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
         html += `</div>`;
         continue;
@@ -255,9 +282,11 @@
         const c = mod ? (modColors[mod] || '#737373') : '#737373';
         const tlabel = allSlidesTagLabels[s.tag];
         const tag = tlabel ? ` <span class="type-badge type-${s.tag}" style="font-size:10px;padding:2px 8px;margin-left:6px">${tlabel}</span>` : '';
-        html += `<div class="toc-slide-row" style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
+        const swsAttr = s.body === 'toc' ? 'title' : (renderSwsBadge(s) ? 'yes' : 'no');
+        html += `<div class="toc-slide-row" data-sws="${swsAttr}" style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
         html += `<span style="color:${c};font-size:11px;font-weight:600;text-align:right">${mod && data.modules[mod] ? data.modules[mod].label : ''}</span>`;
         html += `<span style="font-weight:400;padding-left:16px">${s.title}${tag}</span>`;
+        html += swsCell(s);
         html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
         html += `</div>`;
       }
@@ -348,6 +377,7 @@
     html += `</div><div class="header-badges">`;
     html += renderModBadge(slide.mod);
     html += renderTypeBadge(slide.tag);
+    html += renderSwsBadge(slide);
     html += `</div></div></div>`;
 
     html += `<div class="cols">`;
@@ -434,17 +464,34 @@
   };
   window.tocToggle = function (view) {
     var m = document.getElementById('toc-modules'), s = document.getElementById('toc-slides'),
-        bm = document.getElementById('toc-btn-modules'), bs = document.getElementById('toc-btn-slides');
+        bm = document.getElementById('toc-btn-modules'), bs = document.getElementById('toc-btn-slides'),
+        actions = document.getElementById('toc-slides-actions'),
+        count = document.getElementById('toc-sws-count');
     if (!m || !s) return;
     if (view === 'slides') {
       m.style.display = 'none'; s.style.display = '';
+      if (actions) actions.style.display = '';
+      if (count) count.style.display = '';
       bm.className = 'btn-ghost'; bm.style.border = '1px solid var(--border)';
       bs.className = 'btn'; bs.style.border = 'none';
     } else {
       m.style.display = ''; s.style.display = 'none';
+      if (actions) actions.style.display = 'none';
+      if (count) count.style.display = 'none';
       bm.className = 'btn'; bm.style.border = 'none';
       bs.className = 'btn-ghost'; bs.style.border = '1px solid var(--border)';
     }
+  };
+  window.tocSwsFilter = function () {
+    var s = document.getElementById('toc-slides'), b = document.getElementById('toc-btn-sws'),
+        count = document.getElementById('toc-sws-count');
+    if (!s || !b) return;
+    tocToggle('slides');
+    var active = !s.classList.contains('sws-filtered');
+    s.classList.toggle('sws-filtered', active);
+    b.className = active ? 'btn' : 'btn-ghost';
+    b.style.border = active ? 'none' : '1px solid var(--border)';
+    if (count) count.textContent = active ? count.dataset.filtered : count.dataset.total;
   };
 
   document.addEventListener('keydown', e => {

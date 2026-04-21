@@ -28,6 +28,7 @@
     "type": "content",
     "mod": "8",
     "tag": "",
+    "sws": 2,
     "title": "The 8 Layers of an Agent System",
     "desc": "You&rsquo;ve seen every one of these layers in CI/CD &mdash; Module 8 gives them names and shows how they fail in production.",
     "body": [
@@ -103,6 +104,7 @@
     "type": "content",
     "mod": "8",
     "tag": "",
+    "sws": 2,
     "title": "MCP: How Agents Talk to Tools",
     "desc": "Model Context Protocol &mdash; the standard plug for connecting any agent to any tool.",
     "body": [
@@ -415,6 +417,7 @@
     "type": "content",
     "mod": "8",
     "tag": "important",
+    "sws": 2,
     "title": "The Parsimony Principle: KISS and YAGNI",
     "desc": "Prefer the simplest solution that meets requirements. Justify every added complexity.",
     "body": [
@@ -613,6 +616,7 @@
     "mod": "8",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 8: Key Takeaways",
     "body": [
       {

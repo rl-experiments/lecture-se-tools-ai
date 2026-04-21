@@ -30,6 +30,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "The Problem Without Version Control",
     "body": [
       {
@@ -50,6 +51,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "SVN vs. Git: Centralized vs. Distributed",
     "desc": "Why the industry moved from Subversion to Git",
     "body": [
@@ -70,6 +72,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "What Is Git?",
     "body": [
       {
@@ -118,6 +121,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "Git's Core Concept: Snapshots",
     "desc": "Git doesn't track file changes. It takes snapshots of your entire project.",
     "body": [
@@ -131,6 +135,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "The Three Areas of Git",
     "body": [
       {
@@ -150,6 +155,7 @@
     "type": "content",
     "mod": "1",
     "tag": "demo",
+    "sws": 2,
     "title": "Git Basics",
     "body": [
       {
@@ -162,6 +168,7 @@
     "type": "content",
     "mod": "1",
     "tag": "exercise",
+    "sws": 2,
     "title": "Exercise 1.1: Git Basics",
     "desc": "15 minutes",
     "body": [
@@ -224,6 +231,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "AI-Augmented: Meaningful Commit Messages",
     "body": [
       {
@@ -271,6 +279,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "Git Branching: Working in Parallel",
     "body": [
       {
@@ -302,6 +311,7 @@
     "type": "content",
     "mod": "1",
     "tag": "demo",
+    "sws": 2,
     "title": "Interactive: Visualize Git with D3",
     "desc": "Try git commands and see what happens to the commit graph in real time.",
     "body": [
@@ -365,6 +375,7 @@
     "type": "content",
     "mod": "1",
     "tag": "",
+    "sws": 2,
     "title": "Merge Conflicts: Don't Panic",
     "desc": "A conflict happens when two branches change the same line.",
     "body": [
@@ -398,6 +409,7 @@
     "type": "content",
     "mod": "1",
     "tag": "important",
+    "sws": 2,
     "title": ".gitignore: What NOT to Track",
     "body": [
       {
@@ -483,6 +495,7 @@
     "mod": "1",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 1: Key Takeaways",
     "body": [
       {

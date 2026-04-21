@@ -28,6 +28,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
+    "sws": 2,
     "title": "The Problem: &ldquo;I&rsquo;ll Integrate Later&rdquo;",
     "body": [
       {
@@ -53,6 +54,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
+    "sws": 2,
     "title": "What Is Jenkins?",
     "body": [
       {
@@ -73,6 +75,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
+    "sws": 2,
     "title": "The Jenkinsfile: Pipeline as Code",
     "body": [
       {
@@ -107,6 +110,7 @@
     "type": "content",
     "mod": "5",
     "tag": "mistake",
+    "sws": 2,
     "title": "&ldquo;The Build Is Red, I&rsquo;ll Fix It Later&rdquo;",
     "script": {
       "name": "bug",
@@ -176,6 +180,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
+    "sws": 2,
     "title": "CI Pipeline = Everything You Learned",
     "body": [
       {
@@ -230,6 +235,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
+    "sws": 2,
     "title": "GitHub Actions: The Modern Alternative",
     "desc": "Jenkins is what we teach. GitHub Actions is what you will likely use at work. Same concepts, simpler setup.",
     "body": [
@@ -275,6 +281,7 @@
     "mod": "5",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 5: Key Takeaways",
     "body": [
       {

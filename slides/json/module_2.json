@@ -127,6 +127,7 @@
     "type": "content",
     "mod": "2",
     "tag": "industry",
+    "sws": 0,
     "title": "pom.xml as a Capability Contract",
     "desc": "A capability contract is a formal declaration: &ldquo;here is what I am, what I need, and what I can do.&rdquo;",
     "body": [
@@ -377,6 +378,7 @@
     "type": "content",
     "mod": "2",
     "tag": "industry",
+    "sws": 0,
     "title": "Read Tools vs. Write Tools",
     "desc": "Classifying operations by risk level &mdash; a universal engineering pattern.",
     "body": [
@@ -501,6 +503,7 @@
     "type": "content",
     "mod": "2",
     "tag": "exercise",
+    "sws": 0,
     "title": "Exercise 2.3: Classify Your Tools",
     "desc": "10 minutes",
     "body": [

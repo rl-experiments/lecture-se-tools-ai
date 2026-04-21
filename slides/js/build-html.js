@@ -8,6 +8,7 @@ const jsonDir = path.join(root, 'json');
 const config = JSON.parse(fs.readFileSync(path.join(jsonDir, 'slides-config.json'), 'utf8'));
 const data = {
   title: config.title,
+  defaultSws: config.defaultSws,
   modules: config.modules,
   bg_rotation: config.bg_rotation,
   toc: config.toc,
@@ -84,6 +85,16 @@ function renderModBadge(mod) {
   const c = modColors[mod] || '#737373';
   const label = (data.modules[mod] && data.modules[mod].label) || `Module ${mod}`;
   return `<span class="module-badge" style="background:${c}20;color:${c}">${label}</span>`;
+}
+
+function renderSwsBadge(slide) {
+  if (!slide) return '';
+  const modSws = data.modules[slide.mod] && data.modules[slide.mod].sws;
+  const sws = slide.sws !== undefined ? slide.sws
+            : modSws !== undefined ? modSws
+            : data.defaultSws;
+  if (!sws) return '';
+  return `<span class="type-badge sws-badge">${sws} SWS</span>`;
 }
 
 function renderTypeBadge(tag) {
@@ -208,8 +219,12 @@ function renderToc(slideData) {
   html += `</div>`;
 
   // View 2: All slides grouped by module (hidden by default)
-  // Uses CSS grid for strict 3-column alignment: [label 80px] [title flex] [slide# 70px]
-  const gridStyle = `display:grid;grid-template-columns:80px 1fr 70px;align-items:center;gap:0 12px;padding:6px 24px;border-bottom:1px solid var(--border);cursor:pointer;font-size:15px`;
+  // Uses CSS grid for strict 4-column alignment: [label 80px] [title flex] [sws 64px] [slide# 70px]
+  const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:6px 24px;border-bottom:1px solid var(--border);cursor:pointer;font-size:15px`;
+  const swsCell = (s) => {
+    const badge = s.type === 'content' ? renderSwsBadge(s) : '';
+    return badge ? `<span style="text-align:center">${badge}</span>` : `<span></span>`;
+  };
   html += `<div class="card card-toc" id="toc-slides" style="display:none;max-height:70vh;overflow-y:auto">`;
   for (let i = 0; i < data.slides.length; i++) {
     const s = data.slides[i];
@@ -222,6 +237,7 @@ function renderToc(slideData) {
       html += `<div style="${gridStyle};background:${c}10;border-left:3px solid ${c};font-weight:600" onclick="go(${i})">`;
       html += `<span style="color:${c};font-size:13px;font-weight:700;letter-spacing:0.02em;text-align:right">${s.h1}</span>`;
       html += `<span style="color:var(--foreground);padding-left:16px">${s.lead || ''}</span>`;
+      html += swsCell(s);
       html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
       html += `</div>`;
       continue;
@@ -232,6 +248,7 @@ function renderToc(slideData) {
       html += `<div style="${gridStyle};font-weight:600;padding-top:10px;padding-bottom:10px" onclick="go(0)">`;
       html += `<span></span>`;
       html += `<span style="color:var(--foreground);font-size:16px;letter-spacing:-0.01em;padding-left:16px">${s.h1} ${s.lead || ''}</span>`;
+      html += swsCell(s);
       html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide 1</span>`;
       html += `</div>`;
       continue;
@@ -244,6 +261,7 @@ function renderToc(slideData) {
       html += `<div style="${gridStyle}" onclick="go(${i})" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='transparent'">`;
       html += `<span style="color:${c};font-size:11px;font-weight:600;text-align:right">${mod ? 'M' + mod : ''}</span>`;
       html += `<span style="font-weight:400;padding-left:16px">${s.title}${tag}</span>`;
+      html += swsCell(s);
       html += `<span style="text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-foreground);font-size:13px">Slide ${i + 1}</span>`;
       html += `</div>`;
     }
@@ -333,6 +351,7 @@ function renderSlide(slide, idx) {
   html += `</div><div class="header-badges">`;
   html += renderModBadge(slide.mod);
   html += renderTypeBadge(slide.tag);
+  html += renderSwsBadge(slide);
   html += `</div></div></div>`;
 
   // Body

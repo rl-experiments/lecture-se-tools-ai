@@ -3,7 +3,8 @@
   "modules": {
     "0": {
       "label": "Intro",
-      "color": "#737373"
+      "color": "#737373",
+      "sws": 2
     },
     "1": {
       "label": "Module 1",
@@ -11,7 +12,8 @@
     },
     "2": {
       "label": "Module 2",
-      "color": "#ef4444"
+      "color": "#ef4444",
+      "sws": 2
     },
     "3": {
       "label": "Module 3",
@@ -19,7 +21,8 @@
     },
     "4": {
       "label": "Module 4",
-      "color": "#22c55e"
+      "color": "#22c55e",
+      "sws": 2
     },
     "5": {
       "label": "Module 5",
@@ -43,11 +46,13 @@
     },
     "10": {
       "label": "Capstone",
-      "color": "#06b6d4"
+      "color": "#06b6d4",
+      "sws": 2
     },
     "11": {
       "label": "Exam",
-      "color": "#737373"
+      "color": "#737373",
+      "sws": 2
     }
   },
   "bg_rotation": [

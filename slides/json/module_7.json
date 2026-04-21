@@ -27,6 +27,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Prompt Engineering for Developers",
     "desc": "The most transferable daily skill in AI-assisted development.",
     "body": [
@@ -48,6 +49,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Explicit Criteria Beat Vague Instructions",
     "body": [
       {
@@ -62,6 +64,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Few-Shot Examples: Show, Don&rsquo;t Tell",
     "desc": "<em>Few-shot</em> = giving the model a few worked examples in the prompt. 2&ndash;3 examples eliminate ambiguity better than paragraphs of instructions.",
     "body": [
@@ -75,6 +78,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Structured Output: Make Responses Parseable",
     "desc": "Ask for a schema, not prose. Output is far more likely to be machine-readable &mdash; but still validate before using it.",
     "body": [
@@ -113,6 +117,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Context Windows: The Invisible Constraint",
     "desc": "Every AI model has a maximum amount of text it can process at once.",
     "body": [
@@ -126,6 +131,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Strategies for Context Management",
     "body": [
       {
@@ -191,6 +197,7 @@
     "type": "content",
     "mod": "7",
     "tag": "",
+    "sws": 2,
     "title": "Human-in-the-Loop: When to Escalate",
     "desc": "Not every decision should be automated. Define escalation triggers explicitly &mdash; don&rsquo;t rely on the model to self-assess.",
     "body": [
@@ -324,6 +331,7 @@
     "mod": "7",
     "tag": "takeaway",
     "layout": "center",
+    "sws": 2,
     "title": "Module 7: Key Takeaways",
     "body": [
       {
