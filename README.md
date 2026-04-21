@@ -4,6 +4,8 @@ University lecture slides — Introduction, 9 modules, Final Project, Exam.
 
 ![Cover slide](.github/cover.webp)
 
+![Table of Contents](.github/toc.webp)
+
 ## Quick Start
 
 No build step needed — slides load JSON at runtime.
@@ -12,14 +14,6 @@ No build step needed — slides load JSON at runtime.
 ```bash
 cd slides
 npx live-server --port=3000
-```
-Open `http://localhost:3000`
-
-**Manual refresh** (start a static server, refresh browser yourself):
-```bash
-cd slides
-npx serve                      # Node.js
-python -m http.server 3000     # Python
 ```
 Open `http://localhost:3000`
 
@@ -65,8 +59,7 @@ slides/
     content/              ← slide content images (SVN-vs-GIT, etc.)
 tools/
   export_pdf.py           ← export all slides to landscape PDF
-  templates/
-    *.potx                ← PowerPoint templates
+  _animate_cover.py       ← record cover slide as animated WebP
 export/                   ← generated output (gitignored)
 ```
 
