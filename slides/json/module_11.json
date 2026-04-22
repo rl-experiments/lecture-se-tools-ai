@@ -35,16 +35,23 @@
         "card": "",
         "items": [
           "<code>git log --oneline</code> &mdash; explain your development process",
-          "<code>mvn clean package</code> &mdash; prove the full pipeline works",
+          "Show CI run (green checks on latest PR or main) &mdash; the automated proof",
           "Show one test you wrote by hand &mdash; explain why it matters",
           "Show one quality fix &mdash; explain the violation",
           "Show one example where you <strong>corrected</strong> Claude Code&rsquo;s output",
-          "<strong>NEW:</strong> Show your vibe coding whiteboard photo vs. constrained result &mdash; what changed?",
-          "<strong>NEW:</strong> Show <code>CLAUDE.md</code> and explain what rules you taught the AI"
+          "Show your vibe coding whiteboard photo vs. constrained result &mdash; what changed?",
+          "Show <code>CLAUDE.md</code> and explain what rules you taught the AI",
+          "Show <strong>cognitive-core</strong> in action &mdash; a hook catching a violation, a skill you used, or your <code>/fitness</code> score"
         ]
       },
       {
         "quote": "The &ldquo;corrected AI output&rdquo; question is the most important. It proves you think critically."
+      },
+      {
+        "card": "",
+        "items": [
+          "Weight breakdown: see <span onclick=\"event.stopPropagation();go(N-1)\" style=\"cursor:pointer;text-decoration:underline\">Grading Policy</span>"
+        ]
       }
     ]
   },
