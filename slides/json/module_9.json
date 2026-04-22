@@ -29,6 +29,7 @@
     "type": "content",
     "mod": "9",
     "tag": "industry",
+    "sws": 2,
     "title": "cognitive-core: A Framework for AI-Assisted Dev",
     "desc": "An open-source framework that adds governance, safety, and quality enforcement to Claude Code.",
     "body": [
@@ -80,6 +81,7 @@
     "type": "content",
     "mod": "9",
     "tag": "",
+    "sws": 2,
     "title": "cognitive-core: Three Layers of Quality",
     "desc": "Hooks are <strong>born abilities</strong> (reflexes from day one). Skills &amp; Agents are <strong>learned abilities</strong> (they grow with your project).",
     "body": [
