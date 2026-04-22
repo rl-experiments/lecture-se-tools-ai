@@ -13,7 +13,7 @@
 
   // ── Load JSON ──────────────────────────────────────
   async function fetchJSON(url) {
-    const r = await fetch(url);
+    const r = await fetch(url, { cache: 'no-cache' });
     if (!r.ok) return null;
     return r.json();
   }
