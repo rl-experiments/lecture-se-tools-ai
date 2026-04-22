@@ -317,8 +317,8 @@
         "items": [
           "<code>git log --oneline</code> &mdash; iterative commits, not one big dump",
           "<code>CLAUDE.md</code> + <code>.claude/</code> &mdash; your rules and commands",
-          "<code>mvn clean verify</code> &mdash; must pass",
-          "For bonuses: <code>/fitness</code> screenshot, Architecture Checklist evidence &mdash; see <strong>Module 11 Grading Policy</strong>"
+          "GitHub Actions on <code>main</code> &mdash; must be green (the automated proof)",
+          "<code>/fitness</code> screenshot, Architecture Checklist evidence &mdash; see <strong>Module 11 Grading Policy</strong>"
         ]
       }
     ]

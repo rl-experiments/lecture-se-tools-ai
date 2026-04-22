@@ -104,7 +104,7 @@
     "title": "What You Take Away from This Course",
     "body": [
       {
-        "code": "Before this course:\n  <span class=\"str\">\"I know Java\"</span>\n\nAfter this course:\n  <span class=\"str\">\"I can build, test, review, and deliver Java projects</span>\n  <span class=\"str\"> professionally, with AI assistance where it helps,</span>\n  <span class=\"str\"> human judgment where it matters, and architectural</span>\n  <span class=\"str\"> vocabulary that connects to production systems.\"</span>"
+        "code": "Before this course:\n  <span class=\"str\">\"I learned some Java\"</span>\n\nAfter this course:\n  <span class=\"str\">\"I can build, test, review, and deliver Java projects professionally,</span>\n  <span class=\"str\"> with AI assistance where it helps, human judgment where it matters,</span>\n  <span class=\"str\"> and architectural vocabulary that connects to production systems.\"</span>"
       }
     ]
   },
