@@ -284,8 +284,18 @@
           "<strong>OIDC &rarr; cloud</strong> &mdash; short-lived AWS/GCP/Azure credentials, no long-lived secrets",
           "<strong>Environments &amp; approvals</strong> &mdash; gate prod deploys on required reviewers and wait timers",
           "<strong>Beyond CI</strong> &mdash; auto-label PRs, triage issues, publish releases, update dependencies"
-        ],
-        "note": "Quickstart &amp; full docs: <a href=\"https://docs.github.com/de/actions/get-started/quickstart\" target=\"_blank\">docs.github.com/de/actions/get-started/quickstart</a>"
+        ]
+      },
+      {
+        "resource": {
+          "title": "GitHub Actions Quickstart",
+          "links": [
+            {
+              "url": "https://docs.github.com/de/actions/get-started/quickstart",
+              "label": "docs.github.com/de/actions/get-started/quickstart"
+            }
+          ]
+        }
       }
     ]
   },
