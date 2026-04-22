@@ -75,7 +75,7 @@
     "type": "content",
     "mod": "5",
     "tag": "",
-    "sws": 2,
+    "sws": 0,
     "title": "The Jenkinsfile: Pipeline as Code",
     "body": [
       {
@@ -273,6 +273,18 @@
           ],
           "note": "We teach Jenkins because understanding CI <strong>concepts</strong> matters more than memorizing one tool&rsquo;s YAML syntax. The concepts are identical."
         }
+      },
+      {
+        "card": "Beyond CI: what else can Actions do?",
+        "items": [
+          "<strong>Triggers beyond push/PR</strong> &mdash; cron schedules, manual <code>workflow_dispatch</code>, releases, external webhooks",
+          "<strong>Matrix builds</strong> &mdash; run the same job across OS &times; Java &times; DB versions in parallel",
+          "<strong>Reusable workflows</strong> &mdash; <code>workflow_call</code> + composite actions, shared across repos",
+          "<strong>Services &amp; containers</strong> &mdash; spin up Postgres/Redis next to the job; run steps inside a Docker image",
+          "<strong>OIDC &rarr; cloud</strong> &mdash; short-lived AWS/GCP/Azure credentials, no long-lived secrets",
+          "<strong>Environments &amp; approvals</strong> &mdash; gate prod deploys on required reviewers and wait timers",
+          "<strong>Beyond CI</strong> &mdash; auto-label PRs, triage issues, publish releases, update dependencies"
+        ]
       }
     ]
   },

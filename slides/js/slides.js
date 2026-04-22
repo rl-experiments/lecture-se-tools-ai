@@ -230,7 +230,7 @@
     html += `</div>`;
 
     // All slides view: one card per module (cover + its content), standalone slides (main cover, TOC) get their own card
-    const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:10px 24px;cursor:pointer;font-size:15px`;
+    const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:8px 24px;cursor:pointer;font-size:15px`;
     const allSlidesTagLabels = { exercise: 'EXERCISE', takeaway: 'TAKEAWAY', demo: 'DEMO', industry: 'INDUSTRY', mistake: 'MISTAKE', important: 'IMPORTANT' };
     const swsCell = (s) => {
       const badge = s.type === 'content' ? renderSwsBadge(s) : '';

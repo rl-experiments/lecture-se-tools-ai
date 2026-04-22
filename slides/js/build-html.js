@@ -220,7 +220,7 @@ function renderToc(slideData) {
 
   // View 2: All slides grouped by module (hidden by default)
   // Uses CSS grid for strict 4-column alignment: [label 80px] [title flex] [sws 64px] [slide# 70px]
-  const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:6px 24px;border-bottom:1px solid var(--border);cursor:pointer;font-size:15px`;
+  const gridStyle = `display:grid;grid-template-columns:80px 1fr 64px 70px;align-items:center;gap:0 12px;padding:8px 24px;border-bottom:1px solid var(--border);cursor:pointer;font-size:15px`;
   const swsCell = (s) => {
     const badge = s.type === 'content' ? renderSwsBadge(s) : '';
     return badge ? `<span style="text-align:center">${badge}</span>` : `<span></span>`;

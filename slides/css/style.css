@@ -198,7 +198,7 @@ html, body {
 .card-toc { padding: 12px 0; gap: 0; }
 .toc-row {
   display: flex; align-items: center; gap: 12px;
-  padding: 6px 24px; font-size: 17px;
+  padding: 8px 24px; font-size: 17px;
   border-bottom: 1px solid var(--border);
 }
 .toc-row:last-child { border-bottom: none; }
