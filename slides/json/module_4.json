@@ -60,6 +60,12 @@
       {
         "code": "<span class=\"kw\">import</span> org.junit.jupiter.api.Test;\n<span class=\"kw\">import static</span> org.junit.jupiter.api.Assertions.*;\n\n<span class=\"kw\">class</span> CalculatorTest {\n\n    @Test\n    <span class=\"kw\">void</span> addTwoPositiveNumbers() {\n        Calculator calc = <span class=\"kw\">new</span> Calculator();\n        assertEquals(5.0, calc.add(2.0, 3.0));\n    }\n}",
         "note": "<code>@Test</code> = this method is a test. <code>assertEquals</code> = verify expected matches actual."
+      },
+      {
+        "img": "quick-fix-regression.png",
+        "alt": "MonkeyUser comic QUICK FIX: developer rushes in confidently, plugs a leak with a finger, then gets overwhelmed by a tsunami of regressions",
+        "height": 400,
+        "caption": "&lsquo;I got this&rsquo; plugs the leak. Automated tests catch the next wave."
       }
     ]
   },
