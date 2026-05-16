@@ -473,6 +473,12 @@
           "CI pipeline runs <strong>before merge</strong> &mdash; broken code blocked",
           "Full history of <strong>who approved what</strong> (audit trail)"
         ]
+      },
+      {
+        "img": "pull-request-326-files.png",
+        "alt": "MonkeyUser comic: developer agrees to review a pull request, then gets buried under an avalanche of paperwork, then faces a train labeled 326 files changed",
+        "height": 360,
+        "caption": "326 files changed = unreviewable. Keep pull requests small and focused."
       }
     ]
   },
