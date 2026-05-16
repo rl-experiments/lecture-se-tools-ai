@@ -319,6 +319,12 @@
       },
       {
         "quote": "You never download JARs manually."
+      },
+      {
+        "img": "implementation-dependencies.png",
+        "alt": "MonkeyUser comic IMPLEMENTATION: a small clean codebase admired on top, while underneath a massive cobweb-filled basement labeled DEPENDENCIES holds it all up",
+        "height": 460,
+        "caption": "The clean codebase on top rests on everything underneath. Maven manages the basement."
       }
     ]
   },
